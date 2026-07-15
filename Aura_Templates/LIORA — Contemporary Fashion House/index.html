@@ -1,0 +1,1640 @@
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>LIORA — Contemporary Fashion House</title>
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=Playfair+Display:wght@500;600;700&amp;family=JetBrains+Mono:wght@400;600&amp;display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<style>
+:root {
+--dark: #000000;
+--cream: #FFFFFF;
+--paper: #18181B;
+--ink: #FFFFFF;
+--orange: #FF6F61;
+--charcoal: #000000;
+}
+* { box-sizing: border-box; }
+html { background: var(--dark); }
+body {
+margin: 0;
+overflow-x: hidden;
+background: var(--dark);
+color: var(--cream);
+font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+-webkit-font-smoothing: antialiased;
+text-rendering: geometricPrecision;
+}
+::selection { background: var(--orange); color: #000000; }
+.noise::after {
+content: "";
+position: absolute;
+inset: 0;
+pointer-events: none;
+opacity: .075;
+mix-blend-mode: overlay;
+background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 250 250' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.86' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E");
+}
+.split-line { overflow: hidden; display: block; }
+.split-line span { display: inline-block; will-change: transform; }
+.section-line { border-top: 1px solid currentColor; opacity: .12; }
+.blend-header { mix-blend-mode: difference; }
+.outline-word { -webkit-text-stroke: 1px rgba(255,255,255,.2); color: transparent; }
+.project-img { transform-origin: center; }
+.magnetic-card { will-change: transform; }
+.premium-border { border: 1px solid rgba(212,255,0,.22); }
+.gold-text { color: #FF6F61; }
+.soft-card { background: linear-gradient(145deg, rgba(255,255,255,.06), rgba(255,255,255,.02)); border: 1px solid rgba(39,39,42,.95); box-shadow: 0 30px 90px rgba(0,0,0,.55); }
+.editorial-serif { font-family: "Playfair Display", Georgia, 'Times New Roman', serif; font-weight: 400; letter-spacing: -.06em; }
+.mono, .mono * { font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
+.vx-card { border-radius: 2px !important; border-color: rgba(39,39,42,.95) !important; }
+.vx-control { border-radius: 2px !important; }
+/* Extra premium scroll motion */
+.motion-mask {
+clip-path: inset(0 0 0 0);
+will-change: transform, opacity, clip-path, filter;
+}
+.motion-line {
+transform-origin: left center;
+will-change: transform;
+}
+.motion-lift {
+will-change: transform, opacity;
+}
+.motion-perspective {
+transform-style: preserve-3d;
+will-change: transform, opacity;
+}
+/* Fashion house polish */
+:root {
+--accent-soft: rgba(255,111,97,.18);
+--surface: rgba(255,255,255,.04);
+--surface-strong: rgba(255,255,255,.06);
+--border-soft: rgba(255,255,255,.10);
+--muted: rgba(255,255,255,.62);
+}
+.aw-kicker { font-size: 10px; font-weight: 600; letter-spacing: .28em; text-transform: uppercase; color: rgba(255,255,255,.48); }
+.aw-heading-hero { font-family: "Playfair Display", Georgia, serif; font-size: clamp(2.8rem, 5.6vw, 5.4rem); line-height: .92; letter-spacing: -.06em; font-weight: 600; }
+.aw-heading-xl { font-family: "Playfair Display", Georgia, serif; font-size: clamp(2.35rem, 4.7vw, 4.6rem); line-height: .92; letter-spacing: -.07em; font-weight: 600; }
+.aw-heading-lg { font-family: "Playfair Display", Georgia, serif; font-size: clamp(2rem, 3.9vw, 3.6rem); line-height: .96; letter-spacing: -.06em; font-weight: 600; }
+.aw-heading-sm { font-family: "Playfair Display", Georgia, serif; font-size: clamp(1.75rem, 2.2vw, 2.4rem); line-height: .96; letter-spacing: -.045em; font-weight: 600; }
+.aw-heading-ghost { font-family: "Playfair Display", Georgia, serif; font-size: clamp(2.8rem, 6vw, 6rem); line-height: .84; letter-spacing: -.07em; font-weight: 600; text-transform: uppercase; }
+.aw-rail-text { font-family: "Playfair Display", Georgia, serif; font-size: clamp(3rem, 8.8vw, 7.6rem); line-height: .9; letter-spacing: -.08em; font-weight: 600; }
+.aw-motion-text { font-family: "Playfair Display", Georgia, serif; font-size: clamp(3.25rem, 9vw, 8rem); line-height: .8; letter-spacing: -.08em; font-weight: 600; }
+.aw-watermark { font-family: "Playfair Display", Georgia, serif; font-size: clamp(2.5rem, 5.5vw, 5.2rem); line-height: 1; letter-spacing: -.06em; font-weight: 600; }
+.aw-footer-mark { font-family: "Playfair Display", Georgia, serif; font-size: clamp(5rem, 16vw, 13rem); line-height: .72; letter-spacing: -.09em; font-weight: 600; }
+.aw-outline-panel { border: 1px solid rgba(255,255,255,.10); background: rgba(255,255,255,.03); backdrop-filter: blur(18px); box-shadow: 0 20px 60px rgba(0,0,0,.22); }
+.aw-link { border-bottom: 1px solid rgba(255,111,97,.7); padding-bottom: .25rem; }
+.fashion-kicker { letter-spacing: .18em; text-transform: uppercase; }
+#heroHeadline { font-family: "Playfair Display", Georgia, serif; font-weight: 600; }
+#hero::before { content:""; position:absolute; inset:0; background: radial-gradient(circle at 72% 28%, rgba(255,111,97,.16), transparent 30%), linear-gradient(180deg, rgba(0,0,0,.1), rgba(0,0,0,.65)); pointer-events:none; }
+@media (max-width: 767px) {
+.blend-header { mix-blend-mode: normal; background: rgba(0,0,0,.55); backdrop-filter: blur(18px); }
+}
+body.is-loading { overflow: hidden; }
+#preloader { will-change: clip-path, transform, opacity; }
+.loader-title span span, .loader-meta, .loader-image-wrap, .loader-progress { will-change: transform, opacity, clip-path; }
+.loader-image { transform: scale(1.12); will-change: transform; }
+/* Sharp editorial system: no rounded corners except buttons and small pills */
+.rounded-\[2px\],
+.rounded-\[1\.35rem\],
+.rounded-\[1\.5rem\],
+.rounded-\[1\.7rem\],
+.rounded-\[1\.75rem\],
+.rounded-\[2rem\],
+.rounded-\[2\.25rem\],
+.rounded-\[3rem\],
+.rounded-2xl,
+.rounded-full:not(a):not(button):not(.pill) {
+border-radius: 0 !important;
+}
+a.rounded-full,
+button.rounded-full,
+.pill {
+border-radius: 9999px !important;
+}
+.vx-card { border-radius: 0 !important; }
+.vx-control { border-radius: 0 !important; }
+/* Force square corners for all content cards/images. Buttons and pill labels stay rounded. */
+[class*="rounded-"]:not(a):not(button):not(.pill) {
+border-radius: 0 !important;
+}
+/* NOVIR-inspired editorial on-load */
+.novir-loader-logo { will-change: transform, opacity, letter-spacing; }
+.novir-loader-word { display: inline-block; will-change: transform, opacity; }
+.novir-page-reveal { will-change: transform, opacity; }
+.novir-page-line { transform-origin: left center; will-change: transform; }
+.novir-hero-big { font-size: clamp(5rem, 16vw, 13rem); line-height: .78; letter-spacing: -.075em; }
+.novir-grid-dot {
+width: 5px;
+height: 5px;
+background: currentColor;
+display: block;
+}
+/* Final sharp-corner override */
+#work article,
+#work article *,
+#work img,
+.reveal-card,
+.reveal-card *,
+.project-img,
+.motion-card,
+.motion-card *,
+.soft-card,
+.aw-outline-panel,
+.loader-image-wrap,
+#heroVisual > div,
+#serviceSculpture > div {
+border-radius: 0 !important;
+}
+#work article[style],
+.reveal-card[style] {
+overflow: hidden;
+}
+a.rounded-full,
+button.rounded-full,
+.pill,
+.pill *,
+.loader-cta {
+border-radius: 9999px !important;
+}
+/* Premium section polish */
+.section-shell { position: relative; isolation: isolate; }
+.section-shell::before {
+content: "";
+position: absolute;
+left: 1.5rem;
+right: 1.5rem;
+top: 0;
+height: 1px;
+background: linear-gradient(90deg, transparent, rgba(255,255,255,.10), transparent);
+pointer-events: none;
+}
+.section-shell::after {
+content: "";
+position: absolute;
+inset: 0;
+pointer-events: none;
+background: radial-gradient(circle at 85% 20%, rgba(255,111,97,.08), transparent 28%);
+opacity: .8;
+}
+.section-inner { position: relative; z-index: 2; }
+.elev-card {
+border: 1px solid rgba(255,255,255,.10);
+background: linear-gradient(180deg, rgba(255,255,255,.045), rgba(255,255,255,.02));
+box-shadow: 0 24px 70px rgba(0,0,0,.22);
+transition: transform .45s cubic-bezier(.22,.61,.36,1), border-color .35s ease, background .35s ease, box-shadow .35s ease;
+}
+.elev-card:hover {
+transform: translateY(-6px);
+border-color: rgba(255,111,97,.34);
+box-shadow: 0 28px 80px rgba(0,0,0,.3);
+background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.025));
+}
+.image-frame { position: relative; overflow: hidden; background: #090909; }
+.image-frame::after {
+content: "";
+position: absolute;
+inset: 0;
+background: linear-gradient(180deg, rgba(255,255,255,.02), transparent 35%, rgba(0,0,0,.18));
+pointer-events: none;
+}
+.section-copy { color: rgba(255,255,255,.62); line-height: 1.6; }
+.section-copy-light { color: rgba(238,234,226,.62); line-height: 1.6; }
+.label-chip {
+display: inline-flex;
+align-items: center;
+gap: .65rem;
+padding: .65rem 1rem;
+border: 1px solid rgba(255,255,255,.12);
+background: rgba(255,255,255,.03);
+color: rgba(255,255,255,.7);
+text-transform: uppercase;
+letter-spacing: .2em;
+font-size: 10px;
+}
+.metric-box {
+border: 1px solid rgba(255,255,255,.1);
+background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+box-shadow: 0 18px 55px rgba(0,0,0,.22);
+}
+/* Unique atelier on-load */
+.loader-letter span { display: inline-block; will-change: transform; }
+.loader-panel,
+.loader-measure,
+.loader-measure-dot,
+.loader-atelier,
+.loader-look,
+.loader-coral-wipe,
+.loader-meta,
+.loader-kicker,
+.loader-copy { will-change: transform, opacity, clip-path; }
+</style><!-- aura-ga4-start -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-2M6V79H761"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-2M6V79H761');
+</script>
+<!-- aura-ga4-end -->
+</head>
+<body class="is-loading m-0 overflow-x-hidden bg-black text-white">
+<header class="blend-header fixed z-50 flex md:px-6 text-white w-full pt-3 pr-6 pb-3 pl-2- top-0 left-0 items-center justify-between">
+<a aria-label="LIORA home" class="flex items-center gap-2" href="#">
+<!-- Logo mark -->
+<span class="relative grid h-7 w-7 place-items-center">
+<!-- Outer soft glow -->
+<span class="absolute inset-0 rounded-[7px] bg-white/10 blur-[6px] opacity-0 transition-opacity duration-500 group-hover:opacity-100"></span>
+<!-- Outer frame -->
+<span class="absolute h-6 w-6 rounded-[7px] border border-white/25 bg-white/[0.04] shadow-[inset_0_1px_0_rgba(255,255,255,0.18)]"></span>
+<!-- Inner diamond -->
+<span class="relative h-3 w-3 rotate-45 rounded-[2px] border border-white/80 bg-white/[0.06] shadow-[0_0_18px_rgba(255,255,255,0.12)]"></span>
+<!-- Tiny accent dot -->
+<span class="pill absolute right-[5px] top-[5px] h-1 w-1 rounded-full bg-white/80"></span>
+</span>
+<!-- Wordmark -->
+<span class="hidden text-[11px] font-semibold uppercase tracking-[0.22em] text-white/90 transition-colors duration-300 group-hover:text-white sm:block">
+    LIORA
+  </span>
+</a>
+<nav class="flex items-center gap-1.5">
+<a class="rounded-full bg-[#FF6F61] px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[-.03em] text-black" href="#contact">
+          Shop now
+        </a>
+<button class="flex items-center gap-2 rounded-full border border-white/20 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[-.03em]">
+<span>Menu</span>
+<span class="flex w-4 flex-col gap-1">
+<span class="h-px w-4 bg-current"></span>
+<span class="h-px w-3 self-end bg-current"></span>
+</span>
+</button>
+</nav>
+</header>
+<div id="preloader" class="fixed inset-0 z-[100] overflow-hidden bg-[#050505] text-white">
+  <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_45%,rgba(255,111,97,.12),transparent_28%),linear-gradient(180deg,#050505,#000)]"></div>
+  <div class="absolute inset-0 opacity-[0.11] bg-[linear-gradient(to_right,rgba(255,255,255,.14)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,.10)_1px,transparent_1px)] bg-[size:25vw_100%,100%_33.333%]"></div>
+
+  <div class="loader-measure absolute left-1/2 top-0 z-20 h-full w-px origin-top scale-y-0 bg-[#FF6F61]/80"></div>
+  <div class="loader-measure-dot absolute left-1/2 top-1/2 z-20 h-3 w-3 -translate-x-1/2 -translate-y-1/2 bg-[#FF6F61] opacity-0"></div>
+
+  <div class="loader-panel loader-panel-left absolute inset-y-0 left-0 z-10 w-1/2 bg-[#080808]"></div>
+  <div class="loader-panel loader-panel-right absolute inset-y-0 right-0 z-10 w-1/2 bg-[#080808]"></div>
+
+  <div class="loader-atelier absolute inset-0 z-30 flex items-center justify-center px-4">
+    <div class="w-full max-w-[90rem]">
+      <div class="mb-8 flex items-center justify-between border-b border-white/12 pb-5 text-[10px] font-semibold uppercase tracking-[.24em] text-white/42 mono">
+        <span class="loader-meta">LIORA / Atelier system</span>
+        <span class="loader-meta">Coral edition / 2026</span>
+      </div>
+
+      <div class="grid items-end gap-8 md:grid-cols-[1fr_18rem]">
+        <div>
+          <div class="loader-kicker mb-5 flex items-center gap-3 text-[10px] font-semibold uppercase tracking-[.28em] text-[#FF9A8C]/80 mono">
+            <span class="h-px w-10 bg-[#FF6F61]/80"></span>
+            Pattern opening
+          </div>
+
+          <h1 class="loader-brand font-serif text-[clamp(4.6rem,17vw,16rem)] font-semibold uppercase leading-[.72] tracking-[-.095em] text-[#f7f1eb]">
+            <span class="loader-letter inline-block overflow-hidden"><span>L</span></span><span class="loader-letter inline-block overflow-hidden"><span>I</span></span><span class="loader-letter inline-block overflow-hidden"><span>O</span></span><span class="loader-letter inline-block overflow-hidden"><span>R</span></span><span class="loader-letter inline-block overflow-hidden"><span>A</span></span>
+          </h1>
+        </div>
+
+        <div class="loader-copy max-w-[18rem] border-l border-white/12 pl-5 text-sm leading-relaxed text-white/55">
+          A sharper entrance inspired by pattern cutting, fabric panels, and editorial runway pacing.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="loader-look absolute bottom-0 left-1/2 z-25 h-[62vh] w-[min(34rem,42vw)] -translate-x-1/2 translate-y-full overflow-hidden border border-white/12 bg-[#111]">
+    <img class="h-full w-full object-cover grayscale" src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/9d0a1c52-ae67-4bd4-afff-1af203e46c8f_1600w.webp" alt="LIORA runway look">
+    <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/8 to-transparent"></div>
+    <div class="absolute bottom-5 left-5 right-5 flex items-center justify-between border-t border-white/14 pt-4 text-[10px] font-semibold uppercase tracking-[.22em] text-white/55 mono">
+      <span>Look 01</span>
+      <span>Opening silhouette</span>
+    </div>
+  </div>
+
+  <div class="loader-coral-wipe absolute inset-y-0 left-0 z-40 w-full origin-left scale-x-0 bg-[#FF6F61]"></div>
+</div>
+<main class="">
+<section class="section-shell relative min-h-screen overflow-hidden bg-black px-4 py-24 text-white noise md:px-6 md:py-28" id="hero">
+<div class="pointer-events-none absolute inset-0 opacity-60" id="heroGeometry">
+<div class="absolute left-[9%] top-[18%] h-[28rem] w-[28rem] bg-[#FF6F61]/[.055] blur-3xl"></div>
+<div class="absolute right-[8%] top-[12%] h-[34rem] w-[24rem] rotate-6 rounded-[3rem] border border-[#6f5546]/25"></div>
+<div class="absolute right-[18%] bottom-[8%] h-44 w-44 bg-[#8B5E4A]/20 blur-3xl"></div>
+<div class="absolute left-0 top-0 h-full w-px bg-white/10"></div>
+<div class="absolute right-0 top-0 h-full w-px bg-white/10"></div>
+</div>
+
+<div class="relative mx-auto grid min-h-[calc(100svh-7rem)] max-w-[92rem] items-center gap-12 pt-8 md:grid-cols-[1.02fr_.78fr] md:gap-16">
+<div class="max-w-4xl">
+<div class="mb-8 flex items-center gap-4 text-[11px] font-semibold uppercase tracking-[.16em] text-white/45 mono">
+<span class="h-px w-12 bg-[#FF6F61]/70"></span>
+<span>New capsule / 2026</span>
+</div>
+
+<h1 class="aw-heading-hero max-w-[52rem] text-[#f2efe7]" id="heroHeadline">
+<span class="split-line"><span>Quiet pieces</span></span>
+<span class="split-line"><span>for a refined</span></span>
+<span class="split-line"><span>daily wardrobe.</span></span>
+</h1>
+
+<p class="mt-8 max-w-[36rem] text-base leading-relaxed text-white/62 md:text-lg">
+LIORA creates seasonless essentials with soft tailoring, tactile fabrics, and a calm editorial attitude. Designed to feel polished without feeling overdone.
+</p>
+
+<div class="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
+<a class="inline-flex w-max items-center justify-center rounded-full bg-[#FF6F61] px-6 py-3 text-[11px] font-bold uppercase tracking-[.12em] text-black transition hover:bg-[#FFB2A6]" href="#work">
+View collection
+</a>
+<a class="inline-flex w-max items-center justify-center rounded-full border border-white/18 px-6 py-3 text-[11px] font-semibold uppercase tracking-[.12em] text-white/80 transition hover:border-[#FF6F61]/70 hover:text-white" href="#approach">
+Our atelier
+</a>
+</div>
+
+<div class="mt-14 grid max-w-2xl grid-cols-3 border-y border-white/10 py-5 text-[11px] uppercase tracking-[.12em] text-white/42 mono">
+<div>
+<span class="block text-white/75">01</span>
+<span>Soft tailoring</span>
+</div>
+<div class="border-x border-white/10 px-5">
+<span class="block text-white/75">02</span>
+<span>Natural textures</span>
+</div>
+<div class="pl-5">
+<span class="block text-white/75">03</span>
+<span>Seasonless form</span>
+</div>
+</div>
+</div>
+
+<div class="relative hidden md:block" id="heroVisual">
+<div class="absolute -left-8 top-10 z-10 rounded-full border border-white/15 bg-black/45 px-4 py-2 text-[10px] font-semibold uppercase tracking-[.14em] text-white/65 backdrop-blur mono">
+Editorial lookbook
+</div>
+<div class="overflow-hidden rounded-[2px] border border-white/12 bg-[#111] shadow-2xl shadow-black/60">
+<img class="h-[min(72vh,46rem)] w-full object-cover" src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/6aeadae7-3b5a-4e09-92a3-d48603ec9380_1600w.webp" alt="Editorial fashion model wearing a refined black outfit">
+</div>
+<div class="mt-4 flex items-center justify-between text-[10px] uppercase tracking-[.16em] text-white/38 mono">
+<span>Look 01</span>
+<span>Paris fitting room</span>
+</div>
+</div>
+</div>
+</section>
+<section class="section-shell relative h-[175vh] overflow-hidden bg-black text-white noise" id="manifesto">
+<div class="sticky top-0 flex h-screen items-center overflow-hidden">
+<div class="absolute left-4 top-24 text-xs font-semibold uppercase tracking-[-.03em] text-white/45 md:left-6">
+            Mood
+          </div>
+<div class="aw-rail-text flex w-max whitespace-nowrap uppercase text-white/90" id="manifestoRail">
+<span class="mx-5">Silhouette</span>
+<span class="text-[#FF6F61]">+</span>
+<span class="mx-5">Texture</span>
+<span class="text-[#FF6F61]">+</span>
+<span class="mx-5">Elegance</span>
+<span class="text-[#FF6F61]">+</span>
+<span class="mx-5">Ritual</span>
+<span class="text-[#FF6F61]">+</span>
+<span class="mx-5">Presence</span>
+<span class="text-[#FF6F61]">+</span>
+<span class="mx-5">Silhouette</span>
+<span class="text-[#FF6F61]">+</span>
+</div>
+<div class="absolute bottom-10 left-1/2 z-20 w-full max-w-[78rem] -translate-x-1/2 px-4">
+  <div class="flex flex-wrap items-center justify-center gap-3 text-[10px] font-semibold uppercase tracking-[0.24em] text-white/72 mono md:gap-4">
+    <span class="pill rounded-full border border-[#FF6F61]/35 bg-white/[0.04] px-4 py-2 shadow-[0_12px_40px_rgba(0,0,0,0.22)] backdrop-blur-md">Ready-to-wear</span>
+    <span class="pill rounded-full border border-white/12 bg-white/[0.03] px-4 py-2 backdrop-blur-md">Atelier</span>
+    <span class="pill rounded-full border border-white/12 bg-white/[0.03] px-4 py-2 backdrop-blur-md">Campaign</span>
+    <span class="pill rounded-full border border-white/12 bg-white/[0.03] px-4 py-2 backdrop-blur-md">Lookbook</span>
+  </div>
+  <p class="mt-4 text-center text-[11px] font-medium tracking-[0.18em] text-[#FF9A8C]/70">
+    A quieter wardrobe language shaped through silhouette, styling, and image direction.
+  </p>
+</div>
+</div>
+</section>
+<section class="section-shell relative overflow-hidden bg-black px-4 py-24 text-white noise md:px-6 md:py-32" id="facts">
+<div class="section-inner mx-auto max-w-[86rem]">
+<div class="text-center">
+<div class="aw-kicker mono text-white/55">
+              Fashion signal
+            </div>
+<h2 class="aw-heading-lg mx-auto mt-4 max-w-[42rem] text-center">
+              Soft tailoring, sculptural details, and a wardrobe designed to move with quiet confidence.
+            </h2>
+</div>
+<div class="mt-16 grid items-center gap-5 md:grid-cols-[1fr_auto_1fr]">
+<article class="reveal-card elev-card magnetic-card overflow-hidden rounded-[2px] bg-[#18181B] p-5 text-white shadow-2xl shadow-black/35 vx-card">
+<div class="flex items-center justify-between text-xs font-semibold uppercase tracking-[-.03em] text-white/45">
+<span>Collection drops</span>
+<span>2026</span>
+</div>
+<div class="mt-8 aspect-[4/5] image-frame overflow-hidden bg-black">
+<img alt="Award image" class="project-img h-full w-full object-cover" src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/611c8074-3c56-4810-a604-812a2791a1f9_1600w.webp">
+</div>
+<div class="mt-5 flex items-end justify-between gap-4">
+<div>
+<div class="text-3xl font-medium tracking-[-.04em]">36+</div>
+<p class="mt-2 text-base leading-snug text-white/50">
+                    Limited capsules, refined essentials, and evening pieces released with slow-fashion care.
+                  </p>
+</div>
+<i class="h-8 w-8 text-white/45" data-lucide="award"></i>
+</div>
+</article>
+<div class="reveal-card elev-card magnetic-card mx-auto grid h-40 w-40 place-items-center rounded-full bg-[#18181B] text-center shadow-xl shadow-black/35 border border-[#27272A] text-white">
+<div>
+<div class="text-3xl font-medium tracking-[-.04em]">1.5K+</div>
+<div class="mt-2 text-xs font-semibold uppercase tracking-[-.03em] text-white/55 mono">
+                  Pieces crafted
+                </div>
+</div>
+</div>
+<article class="reveal-card elev-card magnetic-card overflow-hidden rounded-[2px] bg-[#18181B] p-5 text-white shadow-2xl shadow-black/35 vx-card">
+<div class="flex items-center justify-between text-xs font-semibold uppercase tracking-[-.03em] text-white/45">
+<span>Atelier craft</span>
+<span>Global</span>
+</div>
+<div class="mt-8 aspect-[4/5] image-frame overflow-hidden bg-black">
+<img alt="Platform image" class="project-img h-full w-full object-cover grayscale" src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/3dbd59c3-a7a5-4515-985e-788ba17917e2_1600w.webp">
+</div>
+<div class="mt-5 flex items-end justify-between gap-4">
+<div>
+<div class="text-3xl font-medium tracking-[-.04em]">08</div>
+<p class="mt-2 text-base leading-snug text-white/50">
+                    Weeks from sketch, fitting, fabric testing, and final campaign direction.
+                  </p>
+</div>
+<i class="h-8 w-8 text-white/45" data-lucide="globe-2"></i>
+</div>
+</article>
+</div>
+<div class="mt-16 border-t border-white/10 pt-8" style=" transform-origin: 0% 50%;">
+<div class="mb-6 text-center text-xs font-semibold uppercase tracking-[-.03em] text-white/55 mono">
+              Selected by leading editors
+            </div>
+<div class="grid grid-cols-2 gap-6 text-center text-sm font-semibold uppercase tracking-[-.04em] text-white/55 mono md:grid-cols-6">
+<span>Vogue Edit</span>
+<span>Maison Rue</span>
+<span>Noir Muse</span>
+<span>Kora Atelier</span>
+<span>Lumen Market</span>
+<span>Aster House</span>
+</div>
+</div>
+</div>
+</section>
+<section class="section-shell relative bg-black px-4 py-24 text-white noise md:px-6 md:py-32" id="work">
+<div class="section-inner mx-auto max-w-[92rem]">
+<div class="grid gap-8 md:grid-cols-2 md:items-end">
+<h2 class="aw-heading-xl" style=" clip-path: inset(0px 0px 100%); filter: blur(14px);">
+              Selected fashion stories
+            </h2>
+<div class="max-w-xl md:justify-self-end">
+<p class="section-copy text-lg leading-snug">
+                A curated lookbook of capsules, campaigns, textures, and silhouettes presented with a calmer, more editorial sense of luxury.
+              </p>
+<a class="mt-7 inline-flex border-b border-[#FF6F61]/70 pb-1 text-xs font-semibold uppercase tracking-[-.03em] mono" href="#">
+                View lookbook archive
+              </a>
+</div>
+</div>
+<div class="mt-16 grid gap-6 md:grid-cols-2">
+<article class="reveal-card elev-card group" style=" clip-path: inset(18% 0px 0px 0px);">
+<div class="aspect-[1.25/1] image-frame overflow-hidden bg-black">
+<img alt="Architectural product campaign" class="project-img h-full w-full object-cover transition duration-700 group-hover:scale-105" src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/7c99fd7a-787b-4d11-88e6-f426eaa8ab0d_1600w.webp">
+</div>
+<div class="mt-4 flex items-start justify-between border-b border-white/10 pb-5 text-xs font-semibold uppercase tracking-[-.03em] text-white/55 mono">
+<div>
+<h3 class="text-base font-medium normal-case tracking-[-.04em] text-white">
+                    The Linen Edit
+                  </h3>
+<span>Summer capsule / Natural textures</span>
+</div>
+<span class="label-chip">Design / Styling / Campaign</span>
+</div>
+</article>
+<article class="reveal-card elev-card group md:mt-24" style=" clip-path: inset(18% 0px 0px 0px);">
+<div class="aspect-[1.1/1] image-frame overflow-hidden bg-black">
+<img alt="Minimal eveningwear campaign" class="project-img h-full w-full object-cover transition duration-700 group-hover:scale-105" src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/cd29a9d7-58d1-4bab-bc8c-fd014c562441_1600w.webp">
+</div>
+<div class="mt-4 flex items-start justify-between border-b border-white/10 pb-5 text-xs font-semibold uppercase tracking-[-.03em] text-white/55 mono">
+<div>
+<h3 class="text-base font-medium normal-case tracking-[-.04em] text-white">
+                    Noir Evening
+                  </h3>
+<span>Eveningwear / Minimal occasionwear</span>
+</div>
+<span class="label-chip">Tailoring / Draping / Lookbook</span>
+</div>
+</article>
+<article class="reveal-card elev-card group" style=" clip-path: inset(18% 0px 0px 0px);">
+<div class="aspect-[1.35/1] image-frame overflow-hidden bg-black">
+<img alt="Luxury home interface" class="project-img h-full w-full object-cover transition duration-700 group-hover:scale-105" src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/7e7fa077-d928-4f28-9438-aee32a6d7151_1600w.webp">
+</div>
+<div class="mt-4 flex items-start justify-between border-b border-white/10 pb-5 text-xs font-semibold uppercase tracking-[-.03em] text-white/55 mono">
+<div>
+<h3 class="text-base font-medium normal-case tracking-[-.04em] text-white">
+                    Soft Structure
+                  </h3>
+<span>Outerwear / Sculptural layers</span>
+</div>
+<span class="label-chip">Pattern / Fit / Finish</span>
+</div>
+</article>
+<article class="reveal-card elev-card flex min-h-[28rem] flex-col justify-between border border-white/10 bg-[#18181B] p-8 vx-card" style=" clip-path: inset(18% 0px 0px 0px);">
+<p class="section-copy max-w-xs text-lg leading-snug mono">
+                A deeper archive of capsule drops, campaign studies, fittings, and silhouettes from the LIORA wardrobe.
+              </p>
+<div>
+<h3 class="aw-heading-lg">
+                  Lookbook
+                </h3>
+<a class="mt-8 inline-flex border-b border-[#FF6F61]/70 pb-1 text-xs font-semibold uppercase tracking-[-.03em] mono" href="#">
+                  Open archive
+                </a>
+</div>
+</article>
+</div>
+</div>
+</section>
+<section class="section-shell relative overflow-hidden bg-black px-4 py-24 text-white noise md:px-6 md:py-32" id="approach">
+<div class="section-inner mx-auto max-w-[92rem]">
+<div class="grid gap-12 md:grid-cols-[18rem_1fr]">
+<div class="aw-kicker mono">
+              Our process
+            </div>
+<div>
+<h2 class="aw-heading-xl max-w-5xl" style=" clip-path: inset(0px 0px 100%); filter: blur(14px);">
+                A slow-fashion process for garments that feel refined, personal, and easy to wear.
+              </h2>
+<div class="mt-14 grid gap-5 md:grid-cols-4">
+<article class="reveal-card elev-card soft-card rounded-[2px] p-6 vx-card">
+<div class="mb-16 text-xs font-semibold uppercase tracking-[-.03em] text-white/35 mono">
+                    01 / Sketch
+                  </div>
+<h3 class="text-2xl font-medium tracking-[-.055em]">
+                    Start with mood
+                  </h3>
+<p class="section-copy mt-4 text-base leading-snug">
+                    We begin with references, fabric emotion, proportion, and the feeling each piece should carry.
+                  </p>
+</article>
+<article class="reveal-card elev-card soft-card rounded-[2px] p-6 vx-card">
+<div class="mb-16 text-xs font-semibold uppercase tracking-[-.03em] text-white/35 mono">
+                    02 / Fabric
+                  </div>
+<h3 class="text-2xl font-medium tracking-[-.055em]">
+                    Choose the texture
+                  </h3>
+<p class="section-copy mt-4 text-base leading-snug">
+                    We select tactile materials that drape beautifully and support the shape of the collection.
+                  </p>
+</article>
+<article class="reveal-card elev-card soft-card rounded-[2px] p-6 vx-card">
+<div class="mb-16 text-xs font-semibold uppercase tracking-[-.03em] text-white/35 mono">
+                    03 / Fitting
+                  </div>
+<h3 class="text-2xl font-medium tracking-[-.055em]">
+                    Refine the silhouette
+                  </h3>
+<p class="section-copy mt-4 text-base leading-snug">
+                    We test the garment on the body, refine lines, adjust details, and keep the piece wearable.
+                  </p>
+</article>
+<article class="reveal-card elev-card soft-card rounded-[2px] p-6 vx-card">
+<div class="mb-16 text-xs font-semibold uppercase tracking-[-.03em] text-white/35 mono">
+                    04 / Release
+                  </div>
+<h3 class="text-2xl font-medium tracking-[-.055em]">
+                    Drop with intention
+                  </h3>
+<p class="section-copy mt-4 text-base leading-snug">
+                    We release in curated capsules with campaign imagery, styling notes, and limited production.
+                  </p>
+</article>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="section-shell relative overflow-hidden bg-black px-4 py-24 text-white noise md:px-6 md:py-32" id="expertise">
+<div class="section-inner mx-auto max-w-[92rem]">
+<div class="mb-14 grid gap-8 md:grid-cols-[1fr_1.1fr] md:items-end">
+<div>
+<div class="aw-kicker mono text-white/55">
+                Wardrobe codes
+              </div>
+<h2 class="aw-heading-xl mt-5" style=" clip-path: inset(0px 0px 100%); filter: blur(14px);">
+                Designed for a quiet, elevated wardrobe.
+              </h2>
+</div>
+<p class="section-copy max-w-xl text-lg leading-snug mono md:justify-self-end">
+              LIORA combines soft tailoring, clean lines, and tactile fabric choices so every piece feels intentional without trying too hard.
+            </p>
+</div>
+<div class="grid gap-5 md:grid-cols-3">
+<article class="reveal-card elev-card rounded-[2px] border border-[#27272A] bg-[#18181B] p-7 text-white vx-card" style=" clip-path: inset(0px 0px 100%);">
+<i class="mb-10 h-8 w-8 text-[#FF6F61]/55" data-lucide="badge-check"></i>
+<h3 class="text-3xl font-medium tracking-tight">
+                Soft tailoring
+              </h3>
+<p class="mt-4 text-base leading-snug text-white/60 mono">
+                Relaxed structure, precise seams, and polished shapes for everyday and evening dressing.
+              </p>
+</article>
+<article class="reveal-card elev-card rounded-[2px] border border-[#27272A] bg-[#18181B] p-7 text-white vx-card" style=" clip-path: inset(0px 0px 100%);">
+<i class="mb-10 h-8 w-8 text-[#FF6F61]/55" data-lucide="layout-template"></i>
+<h3 class="text-3xl font-medium tracking-tight">
+                Editorial styling
+              </h3>
+<p class="mt-4 text-base leading-snug text-white/60 mono">
+                Lookbook direction, layered outfits, minimal accessories, and quiet visual rhythm.
+              </p>
+</article>
+<article class="reveal-card elev-card rounded-[2px] border border-[#27272A] bg-[#18181B] p-7 text-white vx-card" style=" clip-path: inset(0px 0px 100%);">
+<i class="mb-10 h-8 w-8 text-[#FF6F61]/55" data-lucide="workflow"></i>
+<h3 class="text-3xl font-medium tracking-tight">
+                Capsule essentials
+              </h3>
+<p class="mt-4 text-base leading-snug text-white/60 mono">
+                Core garments designed to mix, repeat, travel, and stay beautiful across seasons.
+              </p>
+</article>
+</div>
+</div>
+</section>
+<section class="section-shell relative overflow-hidden bg-[#070707] px-4 py-24 text-[#eeeae2] noise md:px-6 md:py-32" id="experience">
+<canvas class="absolute inset-0 h-full w-full opacity-35" data-smoke="" height="2109" width="4574"></canvas>
+<div class="absolute inset-0 bg-black/40"></div>
+<div class="section-inner relative mx-auto max-w-[92rem]">
+<div class="grid gap-10 md:grid-cols-[.9fr_1.1fr] md:items-center">
+<div class="reveal-card elev-card overflow-hidden rounded-[2.25rem] border border-white/10 bg-white/5 p-3 shadow-2xl shadow-black/50" style=" clip-path: inset(0px 100% 0px 0px);">
+<img alt="Premium studio workspace" class="aspect-[4/5] w-full object-cover grayscale" src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/02a560e6-4794-4774-b9c7-23475a5d6216_1600w.webp">
+</div>
+<div>
+<div class="aw-kicker">
+                Collection direction
+              </div>
+<h2 class="aw-heading-xl mt-5" style=" clip-path: inset(0px 0px 100%); filter: blur(14px);">
+                Every detail should feel intentional.
+              </h2>
+<p class="section-copy-light mt-8 max-w-2xl text-xl leading-snug">
+                We design the full wardrobe journey, from first sketch to final styling. The goal is clothing that feels calm, premium, confident, and easy to wear.
+              </p>
+<div class="mt-10 grid gap-4 sm:grid-cols-2">
+<div class="metric-box p-5">
+<div class="text-4xl font-medium tracking-[-.07em]">01</div>
+<p class="mt-4 text-sm leading-snug text-white/48">
+                    Clean proportions and balanced silhouettes.
+                  </p>
+</div>
+<div class="metric-box p-5">
+<div class="text-4xl font-medium tracking-[-.07em]">02</div>
+<p class="mt-4 text-sm leading-snug text-white/48">
+                    Premium textures and editorial atmosphere.
+                  </p>
+</div>
+<div class="metric-box p-5">
+<div class="text-4xl font-medium tracking-[-.07em]">03</div>
+<p class="mt-4 text-sm leading-snug text-white/48">
+                    Quiet statement pieces without over-designing.
+                  </p>
+</div>
+<div class="metric-box p-5">
+<div class="text-4xl font-medium tracking-[-.07em]">04</div>
+<p class="mt-4 text-sm leading-snug text-white/48">
+                    Details that support the garment, not distract.
+                  </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="section-shell relative overflow-hidden bg-black px-4 py-24 text-white noise md:px-6 md:py-32" id="engagements">
+<div class="section-inner mx-auto max-w-[92rem]">
+<div class="mb-14 grid gap-8 md:grid-cols-[1fr_1fr] md:items-end">
+<div>
+<div class="aw-kicker mono text-white/55">
+                Collections
+              </div>
+<h2 class="aw-heading-xl mt-5" style=" clip-path: inset(0px 0px 100%); filter: blur(14px);">
+                Signature pieces for different moments.
+              </h2>
+</div>
+<p class="section-copy max-w-xl text-lg leading-snug mono md:justify-self-end">
+              Choose refined staples, statement evening pieces, or a complete capsule. Each release is curated, tactile, and made with restraint.
+            </p>
+</div>
+<div class="grid gap-5 md:grid-cols-3">
+<article class="reveal-card elev-card flex min-h-[30rem] flex-col justify-between rounded-[2px] border border-[#27272A] bg-[#18181B] p-7 text-white vx-card">
+<div>
+<div class="mb-8 text-xs font-semibold uppercase tracking-[-.03em] text-white/55 mono">
+                  The foundation
+                </div>
+<h3 class="text-4xl font-medium tracking-[-.075em]">
+                  Essential Capsule
+                </h3>
+<p class="section-copy mt-5 text-base leading-snug mono">
+                  For a minimal wardrobe built around soft tanks, trousers, knits, and clean layers.
+                </p>
+</div>
+<a class="inline-flex w-max border-b border-[#FF6F61]/70 pb-1 text-xs font-semibold uppercase tracking-[-.03em] mono" href="#contact">
+                Shop essentials
+              </a>
+</article>
+<article class="reveal-card elev-card flex min-h-[30rem] flex-col justify-between rounded-[2px] border border-[#FF6F61]/35 bg-[#18181B] p-7 text-white shadow-2xl shadow-black/35 vx-card">
+<div>
+<div class="mb-8 text-xs font-semibold uppercase tracking-[-.03em] text-[#FF6F61]/80 mono">
+                  Signature drop
+                </div>
+<h3 class="text-4xl font-medium tracking-[-.075em]">
+                  Evening Edit
+                </h3>
+<p class="section-copy mt-5 text-base leading-snug mono">
+                  For refined dinners, events, and nights out, with draped shapes and quiet shine.
+                </p>
+</div>
+<a class="inline-flex w-max border-b border-[#FF6F61]/70 pb-1 text-xs font-semibold uppercase tracking-[-.03em] mono" href="#contact">
+                Explore evening
+              </a>
+</article>
+<article class="reveal-card elev-card flex min-h-[30rem] flex-col justify-between rounded-[2px] border border-[#27272A] bg-[#18181B] p-7 text-white vx-card">
+<div>
+<div class="mb-8 text-xs font-semibold uppercase tracking-[-.03em] text-white/55 mono">
+                  The full wardrobe
+                </div>
+<h3 class="text-4xl font-medium tracking-[-.075em]">
+                  Seasonal Capsule
+                </h3>
+<p class="section-copy mt-5 text-base leading-snug mono">
+                  For a complete seasonal wardrobe with outerwear, knitwear, dresses, and accessories.
+                </p>
+</div>
+<a class="inline-flex w-max border-b border-[#FF6F61]/70 pb-1 text-xs font-semibold uppercase tracking-[-.03em] mono" href="#contact">
+                View capsule
+              </a>
+</article>
+</div>
+</div>
+</section>
+<section class="section-shell relative h-screen overflow-hidden bg-[#050504] text-[#eeeae2] noise" id="services">
+  <canvas class="absolute inset-0 h-full w-full opacity-25" data-smoke=""></canvas>
+  <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_20%,rgba(255,111,97,0.16),transparent_20%),radial-gradient(circle_at_50%_78%,rgba(255,111,97,0.08),transparent_24%),linear-gradient(90deg,rgba(0,0,0,0.88),rgba(0,0,0,0.18)_50%,rgba(0,0,0,0.88))]"></div>
+  <div class="absolute inset-0 opacity-[0.12] bg-[linear-gradient(to_right,rgba(255,255,255,0.08)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.08)_1px,transparent_1px)] bg-[size:140px_140px]"></div>
+
+  <div class="section-inner relative mx-auto flex h-full max-w-[96rem] items-center justify-center px-4 md:px-8">
+    <div id="servicesLabel" class="absolute left-1/2 top-20 z-30 -translate-x-1/2 text-[10px] font-semibold uppercase tracking-[0.34em] text-[#FF9A8C]/70 mono">
+      Signature wardrobe
+    </div>
+
+    <h2 id="servicesHeadline" class="aw-heading-ghost pointer-events-none absolute left-1/2 top-1/2 z-0 w-full max-w-[70rem] -translate-x-1/2 -translate-y-1/2 text-center text-white/[0.07]">
+      Quiet<br>Luxury<br>Essentials
+    </h2>
+
+    <div id="serviceSculpture" class="absolute left-1/2 top-1/2 z-10 w-[min(34vw,28rem)] min-w-[18rem] -translate-x-1/2 -translate-y-1/2 select-none">
+      <div class="absolute left-1/2 top-[96%] h-10 w-[88%] -translate-x-1/2 bg-[#FF9A8C]/18 blur-3xl"></div>
+      <div class="aw-outline-panel relative overflow-hidden rounded-[2rem]">
+        <img alt="LIORA editorial wardrobe" class="h-[28rem] w-full object-cover md:h-[36rem]" src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/9446ce6c-bd9a-4e8a-a7d8-e60a4d46c9a3_800w.webp">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent"></div>
+        <div class="pill absolute left-5 top-5 rounded-full border border-white/12 bg-black/35 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.28em] text-[#e6d4b8] mono backdrop-blur-md">Fall Winter 2026</div>
+        <div class="absolute bottom-0 left-0 right-0 p-5 md:p-6">
+          <div class="mb-3 flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.28em] text-white/55 mono">
+            <span class="h-px w-6 bg-[#FF9A8C]/70"></span>
+            Editorial selection
+          </div>
+          <div class="aw-heading-sm max-w-[16rem] text-white">Soft tailoring<br>for day and evening.</div>
+          <p class="section-copy mt-3 max-w-[20rem] text-sm leading-relaxed">A refined edit of outerwear, knitwear, dresses, and polished essentials.</p>
+        </div>
+      </div>
+    </div>
+
+    <div id="serviceCards" class="pointer-events-none absolute inset-0 z-20 opacity-0">
+      <article class="service-card aw-outline-panel absolute left-4 top-[18%] w-[17rem] rounded-[1.35rem] p-6 opacity-0 md:left-[6%] md:w-[21rem]">
+        <div class="mb-8 text-[10px] font-semibold uppercase tracking-[0.28em] text-[#FF9A8C]/75 mono">01 / Daywear</div>
+        <div class="mb-6 h-px w-8 bg-[#FF9A8C]/70"></div>
+        <h3 class="aw-heading-sm text-white/92">Modern Daywear</h3>
+        <p class="section-copy mt-5 max-w-[16rem] text-[0.95rem] leading-relaxed">Relaxed tailoring, sharp layering, and elevated basics designed for everyday polish.</p>
+      </article>
+
+      <article class="service-card aw-outline-panel absolute right-4 top-[21%] w-[17rem] rounded-[1.35rem] p-6 opacity-0 md:right-[6%] md:w-[21rem]">
+        <div class="mb-8 text-[10px] font-semibold uppercase tracking-[0.28em] text-[#FF9A8C]/75 mono">02 / Evening</div>
+        <div class="mb-6 h-px w-8 bg-[#FF9A8C]/70"></div>
+        <h3 class="aw-heading-sm text-white/92">Eveningwear</h3>
+        <p class="section-copy mt-5 max-w-[16rem] text-[0.95rem] leading-relaxed">Minimal silhouettes, clean lines, and statement pieces for refined evenings.</p>
+      </article>
+
+      <article class="service-card aw-outline-panel absolute bottom-[16%] left-4 w-[17rem] rounded-[1.35rem] p-6 opacity-0 md:left-[10%] md:w-[21rem]">
+        <div class="mb-8 text-[10px] font-semibold uppercase tracking-[0.28em] text-[#FF9A8C]/75 mono">03 / Knitwear</div>
+        <div class="mb-6 h-px w-8 bg-[#FF9A8C]/70"></div>
+        <h3 class="aw-heading-sm text-white/92">Luxury Knitwear</h3>
+        <p class="section-copy mt-5 max-w-[16rem] text-[0.95rem] leading-relaxed">Soft textures, quiet colors, and versatile staples that anchor the wardrobe.</p>
+      </article>
+
+      <article class="service-card aw-outline-panel absolute bottom-[16%] right-4 w-[17rem] rounded-[1.35rem] p-6 opacity-0 md:right-[10%] md:w-[21rem]">
+        <div class="mb-8 text-[10px] font-semibold uppercase tracking-[0.28em] text-[#FF9A8C]/75 mono">04 / Outerwear</div>
+        <div class="mb-6 h-px w-8 bg-[#FF9A8C]/70"></div>
+        <h3 class="aw-heading-sm text-white/92">Outerwear</h3>
+        <p class="section-copy mt-5 max-w-[16rem] text-[0.95rem] leading-relaxed">Signature coats and structured layers that bring clarity and shape to every look.</p>
+      </article>
+    </div>
+
+    <div class="absolute bottom-8 left-1/2 z-30 w-full max-w-[76rem] -translate-x-1/2 px-4">
+      <div class="flex items-end justify-between gap-4 text-[10px] font-semibold uppercase tracking-[0.28em] text-white/38 mono">
+        <span>Tailoring / Knitwear / Dresses / Outerwear</span>
+        <span class="font-serif text-3xl font-medium tracking-[0.38em] text-[#FF9A8C]/75">LIORA</span>
+        <a class="border-b border-[#FF9A8C]/45 pb-1 text-[#FF9A8C]/75" href="#work">Explore wardrobe</a>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section-shell relative bg-[#d6d6d3] px-4 py-24 text-[#1d1d1b] noise md:px-6 md:py-32">
+<div class="section-inner mx-auto grid max-w-[86rem] gap-10 md:grid-cols-[16rem_1fr]">
+<div class="aw-kicker text-black/40">
+            Customer words
+          </div>
+<blockquote>
+<p class="aw-heading-lg max-w-[54rem]" style=" clip-path: inset(0px 0px 100%); filter: blur(14px);">
+              “LIORA makes minimal pieces feel emotional. The fabrics are soft, the shapes are elegant, and every outfit feels polished without effort.”
+            </p>
+<footer class="mt-10 text-sm font-semibold uppercase tracking-[-.03em] text-black/45">
+              Elena Marchand — Creative Director
+            </footer>
+</blockquote>
+</div>
+</section>
+<section class="section-shell relative h-screen overflow-hidden bg-black text-white noise" id="motion">
+<div class="aw-kicker absolute left-4 top-24 z-10 mono text-white/55 md:left-6">
+          Ritual in motion
+        </div>
+<div class="absolute left-0 top-[22%] z-0 w-full px-4 md:px-6">
+<div class="aw-motion-text uppercase text-white/55">
+            Ritual in
+          </div>
+<div class="aw-motion-text ml-[38%] uppercase text-white/55">
+            Motion
+          </div>
+</div>
+<div class="absolute left-[8vw] top-[42%] z-20 flex w-max items-center gap-7 will-change-transform" id="motionRail">
+<article class="motion-card elev-card w-[20rem] -rotate-6 image-frame bg-white shadow-2xl shadow-black/15 md:w-[31rem]">
+<img alt="Fashion collage" class="aspect-[1.35/1] w-full object-cover" src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/cfd2cb66-0607-493e-b455-3159a830fdfd_1600w.webp">
+</article>
+<article class="motion-card elev-card mt-16 w-[18rem] rotate-3 image-frame bg-white shadow-2xl shadow-black/15 md:w-[28rem]">
+<img alt="Editorial fashion lookbook" class="aspect-[1.1/1] w-full object-cover" src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/4d5b68ad-9d29-4f08-b56e-16cc0770d7a1_1600w.webp">
+</article>
+<article class="motion-card elev-card -mt-20 w-[19rem] rotate-6 image-frame bg-white shadow-2xl shadow-black/15 md:w-[30rem]">
+<img alt="Fashion brand campaign" class="aspect-[1.2/1] w-full object-cover" src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/0dfa68d9-9d86-4fd6-80f4-959fb8b08813_1600w.webp">
+</article>
+<article class="motion-card elev-card mt-10 w-[18rem] -rotate-3 image-frame bg-white shadow-2xl shadow-black/15 md:w-[29rem]">
+<img alt="Luxury fabric and accessories" class="aspect-[1.25/1] w-full object-cover" src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/4f4590c0-f760-4c47-8347-9ed5701903e6_1600w.webp">
+</article>
+<article class="motion-card elev-card -mt-12 w-[20rem] rotate-2 image-frame bg-white shadow-2xl shadow-black/15 md:w-[31rem]">
+<img alt="Runway motion campaign still" class="aspect-[1.35/1] w-full object-cover" src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/b4a03f35-290f-42a3-b369-97df97142786_1600w.webp">
+</article>
+</div>
+<div class="aw-watermark absolute bottom-16 left-1/2 z-10 -translate-x-1/2 text-[#FF6F61]/35">
+          2026
+        </div>
+</section>
+<section class="section-shell relative overflow-hidden bg-[#070707] px-4 py-24 text-[#eeeae2] noise md:px-6 md:py-32" id="faq">
+<div class="mx-auto grid max-w-[86rem] gap-10 md:grid-cols-[18rem_1fr]">
+<div class="aw-kicker">
+            Care notes
+          </div>
+<div>
+<h2 class="aw-heading-xl mb-12 max-w-4xl" style=" clip-path: inset(0px 0px 100%); filter: blur(14px);">
+              Before you order.
+            </h2>
+<div class="divide-y divide-white/10 border-y border-white/10" style=" transform-origin: 0% 50%;">
+<details class="group py-7" open="">
+<summary class="flex cursor-pointer list-none items-center justify-between gap-8 text-2xl font-medium tracking-[-.055em]">
+                  What is the LIORA style?
+                  <span class="text-white/35 group-open:rotate-45 transition">
+                    +
+                  </span>
+</summary>
+<p class="section-copy-light mt-5 max-w-2xl text-base leading-snug">
+                  Minimal, soft, and elevated. The pieces are designed for modern wardrobes, quiet occasions, travel, dinners, and everyday rituals.
+                </p>
+</details>
+<details class="group py-7">
+<summary class="flex cursor-pointer list-none items-center justify-between gap-8 text-2xl font-medium tracking-[-.055em]">
+                  How should I choose my size?
+                  <span class="text-white/35 group-open:rotate-45 transition">
+                    +
+                  </span>
+</summary>
+<p class="section-copy-light mt-5 max-w-2xl text-base leading-snug">
+                  Choose your usual size for a relaxed fit. For a sharper silhouette, size down. You can also email us for styling and sizing help.
+                </p>
+</details>
+<details class="group py-7">
+<summary class="flex cursor-pointer list-none items-center justify-between gap-8 text-2xl font-medium tracking-[-.055em]">
+                  Are the fabrics delicate?
+                  <span class="text-white/35 group-open:rotate-45 transition">
+                    +
+                  </span>
+</summary>
+<p class="section-copy-light mt-5 max-w-2xl text-base leading-snug">
+                  Some pieces use delicate natural textures. We recommend gentle wash, low heat, and hanging or laying flat to dry when possible.
+                </p>
+</details>
+<details class="group py-7">
+<summary class="flex cursor-pointer list-none items-center justify-between gap-8 text-2xl font-medium tracking-[-.055em]">
+                  Do capsule pieces restock?
+                  <span class="text-white/35 group-open:rotate-45 transition">
+                    +
+                  </span>
+</summary>
+<p class="section-copy-light mt-5 max-w-2xl text-base leading-snug">
+                  Some core pieces return, but many seasonal garments are produced in limited quantities and may not restock.
+                </p>
+</details>
+</div>
+</div>
+</div>
+</section>
+<footer class="section-shell relative overflow-hidden bg-[#070707] px-4 py-24 text-[#eeeae2] noise md:px-6 md:py-32" id="contact">
+<canvas class="absolute inset-0 h-full w-full opacity-55" data-smoke="" height="2553" width="4574"></canvas>
+<div class="absolute inset-0 bg-black/55"></div>
+<div class="aw-footer-mark pointer-events-none absolute bottom-0 left-0 w-full overflow-hidden uppercase text-white/[0.035]">
+          LIORA
+        </div>
+<div class="section-inner relative mx-auto max-w-[92rem]">
+<div class="aw-kicker mb-16">
+            Enter the atelier
+          </div>
+<div class="grid gap-10 md:grid-cols-[1.2fr_1fr]">
+<h2 class="aw-heading-xl max-w-3xl" style=" clip-path: inset(0px 0px 100%); filter: blur(14px);">
+              Ready for a wardrobe that feels unmistakably refined?
+            </h2>
+<div class="grid gap-10 sm:grid-cols-2">
+<div>
+<div class="mb-5 text-xs font-semibold uppercase tracking-[-.03em] text-white/35">
+                  Book styling note
+                </div>
+<a class="border-b border-white/50 pb-1 text-lg text-white/85" href="mailto:care@liora.house">
+                  care@liora.house
+                </a>
+<p class="mt-4 text-base leading-snug text-white/45">
+                  Available for styling notes, sizing questions, and capsule recommendations.
+                </p>
+</div>
+<div>
+<div class="mb-5 text-xs font-semibold uppercase tracking-[-.03em] text-white/35">
+                  Atelier
+                </div>
+<p class="text-base leading-snug text-white/55">
+                  Contemporary fashion house for soft tailoring, tactile essentials, and modern occasionwear.
+                </p>
+</div>
+</div>
+</div>
+<div class="mt-24 grid gap-10 border-t border-white/10 pt-8 md:grid-cols-4" style=" transform-origin: 0% 50%;">
+<div>
+<div class="mb-5 text-xs font-semibold uppercase tracking-[-.03em] text-white/35">
+                Description
+              </div>
+<p class="max-w-xs text-base leading-snug text-white/48">
+                Soft tailoring, capsule essentials, evening pieces, styling notes, and editorial campaign direction.
+              </p>
+</div>
+<div>
+<div class="mb-5 text-xs font-semibold uppercase tracking-[-.03em] text-white/35">
+                Styling
+              </div>
+<ul class="space-y-2 text-base text-white/55">
+<li>care@liora.house</li>
+<li>Paris / Montréal / Worldwide</li>
+<li>Mon — Fri</li>
+</ul>
+</div>
+<div>
+<div class="mb-5 text-xs font-semibold uppercase tracking-[-.03em] text-white/35">
+                Explore
+              </div>
+<ul class="space-y-2 text-base text-white/55">
+<li><a href="#work">Lookbook</a></li>
+<li><a href="#approach">Process</a></li>
+<li><a href="#expertise">Wardrobe codes</a></li>
+<li><a href="#engagements">Collections</a></li>
+</ul>
+</div>
+<div>
+<div class="mb-5 text-xs font-semibold uppercase tracking-[-.03em] text-white/35">
+                Social
+              </div>
+<ul class="space-y-2 text-base text-white/55">
+<li><a href="#">Pinterest</a></li>
+<li><a href="#">Instagram</a></li>
+<li><a href="#">TikTok</a></li>
+</ul>
+</div>
+</div>
+<div class="mt-16 flex items-center justify-between text-xs font-semibold uppercase tracking-[-.03em] text-white/35">
+<span>© 2026 LIORA Atelier</span>
+<span>Silhouette / Texture / Ritual / Motion</span>
+</div>
+</div>
+</footer>
+</main>
+<script>
+      lucide.createIcons({ attrs: { "stroke-width": 1.5 } });
+      gsap.registerPlugin(ScrollTrigger);
+      const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+      function drawSmoke(canvas) {
+        const ctx = canvas.getContext("2d");
+        const dpr = Math.min(window.devicePixelRatio || 1, 2);
+        const rect = canvas.getBoundingClientRect();
+        canvas.width = Math.max(1, Math.floor(rect.width * dpr));
+        canvas.height = Math.max(1, Math.floor(rect.height * dpr));
+        ctx.scale(dpr, dpr);
+        const w = rect.width;
+        const h = rect.height;
+        ctx.fillStyle = "#050505";
+        ctx.fillRect(0, 0, w, h);
+        for (let i = 0; i < 48; i++) {
+          const x = Math.random() * w;
+          const y = Math.random() * h;
+          const r = Math.random() * Math.min(w, h) * 0.22 + Math.min(w, h) * 0.08;
+          const g = ctx.createRadialGradient(x, y, 0, x, y, r);
+          const hue = Math.random() > 0.68 ? "58,70,83" : "205,205,198";
+          g.addColorStop(0, `rgba(${hue},${Math.random() * 0.14 + 0.04})`);
+          g.addColorStop(0.45, `rgba(${hue},${Math.random() * 0.055 + 0.02})`);
+          g.addColorStop(1, "rgba(0,0,0,0)");
+          ctx.fillStyle = g;
+          ctx.beginPath();
+          ctx.arc(x, y, r, 0, Math.PI * 2);
+          ctx.fill();
+        }
+        const img = ctx.getImageData(0, 0, canvas.width, canvas.height);
+        for (let i = 0; i < img.data.length; i += 4) {
+          const n = (Math.random() - 0.5) * 18;
+          img.data[i] += n;
+          img.data[i + 1] += n;
+          img.data[i + 2] += n;
+          img.data[i + 3] = 255;
+        }
+        ctx.putImageData(img, 0, 0);
+      }
+
+      document.querySelectorAll("[data-smoke]").forEach(drawSmoke);
+      window.addEventListener("resize", () => {
+        document.querySelectorAll("[data-smoke]").forEach(drawSmoke);
+        ScrollTrigger.refresh();
+      });
+
+      if (reduceMotion) {
+        document.body.classList.remove("is-loading");
+        const preloader = document.getElementById("preloader");
+        if (preloader) preloader.style.display = "none";
+      }
+
+      if (!reduceMotion) {
+        gsap.set("header", { y: -18, opacity: 0 });
+        gsap.set("#heroGeometry", { opacity: 0, y: 30, rotate: 4 });
+        gsap.set("#heroVisual", { clipPath: "inset(16% 0 0 0)", y: 34, opacity: 0 });
+        gsap.set("#heroVisual img", { scale: 1.08 });
+        gsap.set("#heroHeadline .split-line span", { yPercent: 115, rotate: 1.5 });
+        gsap.set("#hero p, #hero a, #hero .mono, #hero .h-px", { y: 18, opacity: 0 });
+
+        gsap.set(".loader-meta, .loader-kicker, .loader-copy", { y: 18, opacity: 0 });
+        gsap.set(".loader-letter span", { yPercent: 115, rotate: 3 });
+        gsap.set(".loader-panel-left", { xPercent: 0 });
+        gsap.set(".loader-panel-right", { xPercent: 0 });
+        gsap.set(".loader-measure", { scaleY: 0 });
+        gsap.set(".loader-measure-dot", { scale: 0, opacity: 0 });
+        gsap.set(".loader-look", { yPercent: 110, clipPath: "inset(100% 0 0 0)" });
+        gsap.set(".loader-coral-wipe", { scaleX: 0 });
+
+        const introTl = gsap.timeline({
+          defaults: { ease: "power4.out" },
+          onComplete: () => document.body.classList.remove("is-loading")
+        });
+
+        introTl
+          .to(".loader-measure", { scaleY: 1, duration: 0.72, ease: "power3.inOut" })
+          .to(".loader-measure-dot", { opacity: 1, scale: 1, duration: 0.34, ease: "back.out(1.8)" }, "-=0.28")
+          .to(".loader-panel-left", { xPercent: -100, duration: 0.88, ease: "power4.inOut" }, "+=0.06")
+          .to(".loader-panel-right", { xPercent: 100, duration: 0.88, ease: "power4.inOut" }, "<")
+          .to(".loader-meta, .loader-kicker", { y: 0, opacity: 1, duration: 0.62, stagger: 0.055, ease: "power3.out" }, "-=0.55")
+          .to(".loader-letter span", { yPercent: 0, rotate: 0, duration: 0.92, stagger: 0.045, ease: "power4.out" }, "-=0.46")
+          .to(".loader-copy", { y: 0, opacity: 1, duration: 0.62, ease: "power3.out" }, "-=0.62")
+          .to(".loader-look", { yPercent: 0, clipPath: "inset(0% 0 0 0)", duration: 0.92, ease: "power4.inOut" }, "-=0.48")
+          .to(".loader-atelier", { y: -28, opacity: 0, duration: 0.58, ease: "power3.in" }, "+=0.24")
+          .to(".loader-look", { yPercent: -12, scale: 0.98, opacity: 0, duration: 0.58, ease: "power3.in" }, "<")
+          .to(".loader-coral-wipe", { scaleX: 1, duration: 0.42, ease: "power3.inOut" }, "-=0.22")
+          .to("#preloader", { clipPath: "inset(0 0 100% 0)", duration: 0.82, ease: "power4.inOut" }, "+=0.04")
+          .to("header", { y: 0, opacity: 1, duration: 0.75 }, "-=0.42")
+          .to("#heroGeometry", { opacity: 0.6, y: 0, rotate: 0, duration: 1.0 }, "-=0.72")
+          .to("#heroVisual", { clipPath: "inset(0% 0 0 0)", y: 0, opacity: 1, duration: 1.0 }, "-=0.9")
+          .to("#heroVisual img", { scale: 1, duration: 1.2 }, "-=1.0")
+          .to("#heroHeadline .split-line span", { yPercent: 0, rotate: 0, duration: 1.0, stagger: 0.052 }, "-=0.82")
+          .to("#hero p, #hero a, #hero .mono, #hero .h-px", { y: 0, opacity: 1, duration: 0.7, stagger: 0.04 }, "-=0.66")
+          .set("#preloader", { display: "none" });
+
+        gsap.to("#heroGeometry", { y: -180, rotate: 8, ease: "none", scrollTrigger: { trigger: "#hero", start: "top bottom", end: "bottom top", scrub: true } });
+
+        gsap.timeline({ scrollTrigger: { trigger: "#manifesto", start: "top top", end: "bottom bottom", scrub: true } })
+          .to("#manifestoRail", { xPercent: -35, ease: "none" }, 0);
+
+        gsap.utils.toArray(".reveal-card").forEach((card) => {
+          gsap.from(card, { y: 95, opacity: 0, duration: 1, ease: "power3.out", scrollTrigger: { trigger: card, start: "top 86%" } });
+        });
+
+        gsap.utils.toArray(".project-img").forEach((img) => {
+          gsap.fromTo(img, { scale: 1.12 }, { scale: 1, ease: "none", scrollTrigger: { trigger: img, start: "top bottom", end: "bottom top", scrub: true } });
+        });
+
+        const serviceCards = gsap.utils.toArray("#serviceCards article");
+        gsap.set(serviceCards, { y: 34, filter: "blur(8px)" });
+        gsap.timeline({ scrollTrigger: { trigger: "#services", start: "top top", end: "+=2800", scrub: true, pin: true } })
+          .fromTo("#serviceSculpture", { y: -80, scale: 0.72, rotate: -2, opacity: 0.92 }, { y: -8, scale: 1.02, rotate: 0, opacity: 1, duration: 0.38, ease: "none" }, 0)
+          .to("#servicesHeadline", { opacity: 0, filter: "blur(1rem)", scale: 0.96, duration: 0.24, ease: "none" }, 0.34)
+          .to("#serviceSculpture", { y: 8, scale: 1.16, duration: 0.36, ease: "none" }, 0.48)
+          .to("#serviceCards", { opacity: 1, duration: 0.12, ease: "none" }, 0.56)
+          .to(serviceCards, { opacity: 1, y: 0, filter: "blur(0px)", stagger: 0.055, duration: 0.26, ease: "none" }, 0.62);
+
+        gsap.to("#motionRail", {
+          x: () => {
+            const rail = document.getElementById("motionRail");
+            return -(rail.scrollWidth - window.innerWidth + window.innerWidth * 0.16);
+          },
+          ease: "none",
+          scrollTrigger: { trigger: "#motion", start: "top top", end: "+=2700", scrub: true, pin: true, invalidateOnRefresh: true }
+        });
+        gsap.to(".motion-card", { y: (i) => (i % 2 === 0 ? -70 : 70), rotate: (i) => (i % 2 === 0 ? 5 : -5), ease: "none", scrollTrigger: { trigger: "#motion", start: "top top", end: "+=2700", scrub: true } });
+
+        /* Extra on-scroll animation system
+           Different types:
+           01 masked headline reveal
+           02 line draw
+           03 staggered card lift
+           04 image parallax + zoom
+           05 sticky/scale accents
+           06 Care notes reveal
+           07 footer depth movement
+        */
+
+        const premiumEase = "power3.out";
+
+        gsap.utils.toArray([
+          "#work h2",
+          "#approach h2",
+          "#expertise h2",
+          "#experience h2",
+          "#engagements h2",
+          "#faq h2",
+          "footer h2",
+          "blockquote p"
+        ]).forEach((heading) => {
+          gsap.fromTo(heading,
+            {
+              y: 72,
+              opacity: 0,
+              filter: "blur(14px)",
+              clipPath: "inset(0 0 100% 0)"
+            },
+            {
+              y: 0,
+              opacity: 1,
+              filter: "blur(0px)",
+              clipPath: "inset(0 0 0% 0)",
+              duration: 1.25,
+              ease: "power4.out",
+              scrollTrigger: {
+                trigger: heading,
+                start: "top 84%"
+              }
+            }
+          );
+        });
+
+        gsap.utils.toArray(".section-line, .border-t, .border-y").forEach((line) => {
+          gsap.fromTo(line,
+            { scaleX: 0, transformOrigin: "left center" },
+            {
+              scaleX: 1,
+              duration: 1.2,
+              ease: premiumEase,
+              scrollTrigger: {
+                trigger: line,
+                start: "top 90%"
+              }
+            }
+          );
+        });
+
+        gsap.utils.toArray("#hero p, #work p, #approach p, #expertise p, #experience p, #engagements p, #faq p, footer p").forEach((copy) => {
+          gsap.fromTo(copy,
+            { y: 24, opacity: 0 },
+            {
+              y: 0,
+              opacity: 1,
+              duration: 0.85,
+              ease: premiumEase,
+              scrollTrigger: {
+                trigger: copy,
+                start: "top 92%"
+              }
+            }
+          );
+        });
+
+        gsap.utils.toArray("#facts .reveal-card").forEach((card, i) => {
+          gsap.fromTo(card,
+            {
+              y: 120,
+              opacity: 0,
+              rotate: i === 1 ? 0 : (i === 0 ? -4 : 4),
+              scale: i === 1 ? 0.82 : 0.94
+            },
+            {
+              y: 0,
+              opacity: 1,
+              rotate: 0,
+              scale: 1,
+              duration: 1.15,
+              ease: "power4.out",
+              scrollTrigger: {
+                trigger: "#facts",
+                start: "top 68%"
+              }
+            }
+          );
+        });
+
+        gsap.utils.toArray("#work article").forEach((card, i) => {
+          gsap.fromTo(card,
+            {
+              x: i % 2 === 0 ? -70 : 70,
+              y: 90,
+              opacity: 0,
+              rotate: i % 2 === 0 ? -2.5 : 2.5,
+              clipPath: "inset(18% 0 0 0)"
+            },
+            {
+              x: 0,
+              y: 0,
+              opacity: 1,
+              rotate: 0,
+              clipPath: "inset(0% 0 0 0)",
+              duration: 1.1,
+              ease: "power4.out",
+              scrollTrigger: {
+                trigger: card,
+                start: "top 86%"
+              }
+            }
+          );
+        });
+
+        gsap.utils.toArray("#approach article").forEach((card, i) => {
+          gsap.fromTo(card,
+            {
+              y: 80,
+              opacity: 0,
+              rotateX: -18,
+              transformPerspective: 900
+            },
+            {
+              y: 0,
+              opacity: 1,
+              rotateX: 0,
+              duration: 1,
+              delay: i * 0.045,
+              ease: "power3.out",
+              scrollTrigger: {
+                trigger: "#approach",
+                start: "top 66%"
+              }
+            }
+          );
+        });
+
+        gsap.utils.toArray("#expertise article").forEach((card, i) => {
+          gsap.fromTo(card,
+            {
+              yPercent: 18,
+              opacity: 0,
+              clipPath: "inset(0 0 100% 0)"
+            },
+            {
+              yPercent: 0,
+              opacity: 1,
+              clipPath: "inset(0 0 0% 0)",
+              duration: 1,
+              delay: i * 0.08,
+              ease: "power4.out",
+              scrollTrigger: {
+                trigger: "#expertise",
+                start: "top 66%"
+              }
+            }
+          );
+        });
+
+        gsap.fromTo("#experience .reveal-card",
+          {
+            xPercent: -12,
+            opacity: 0,
+            clipPath: "inset(0 100% 0 0)"
+          },
+          {
+            xPercent: 0,
+            opacity: 1,
+            clipPath: "inset(0 0% 0 0)",
+            duration: 1.2,
+            ease: "power4.out",
+            scrollTrigger: {
+              trigger: "#experience",
+              start: "top 68%"
+            }
+          }
+        );
+
+        gsap.utils.toArray("#experience .grid .rounded-\\[1\\.5rem\\]").forEach((box, i) => {
+          gsap.fromTo(box,
+            { y: 52, opacity: 0, scale: 0.94 },
+            {
+              y: 0,
+              opacity: 1,
+              scale: 1,
+              duration: 0.85,
+              delay: i * 0.06,
+              ease: "back.out(1.35)",
+              scrollTrigger: {
+                trigger: "#experience",
+                start: "top 56%"
+              }
+            }
+          );
+        });
+
+        gsap.utils.toArray("#engagements article").forEach((card, i) => {
+          gsap.fromTo(card,
+            {
+              y: 110,
+              opacity: 0,
+              scale: i === 1 ? 0.9 : 0.94
+            },
+            {
+              y: 0,
+              opacity: 1,
+              scale: 1,
+              duration: 1,
+              delay: i * 0.08,
+              ease: "power4.out",
+              scrollTrigger: {
+                trigger: "#engagements",
+                start: "top 67%"
+              }
+            }
+          );
+
+          gsap.to(card, {
+            y: i === 1 ? -34 : -18,
+            ease: "none",
+            scrollTrigger: {
+              trigger: card,
+              start: "top bottom",
+              end: "bottom top",
+              scrub: true
+            }
+          });
+        });
+
+        gsap.fromTo("blockquote footer",
+          { y: 30, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.9,
+            ease: premiumEase,
+            scrollTrigger: {
+              trigger: "blockquote",
+              start: "top 68%"
+            }
+          }
+        );
+
+        gsap.utils.toArray("#faq details").forEach((item, i) => {
+          gsap.fromTo(item,
+            {
+              x: i % 2 === 0 ? -40 : 40,
+              opacity: 0
+            },
+            {
+              x: 0,
+              opacity: 1,
+              duration: 0.8,
+              delay: i * 0.05,
+              ease: premiumEase,
+              scrollTrigger: {
+                trigger: item,
+                start: "top 90%"
+              }
+            }
+          );
+        });
+
+        gsap.to("footer .pointer-events-none", {
+          yPercent: -28,
+          ease: "none",
+          scrollTrigger: {
+            trigger: "footer",
+            start: "top bottom",
+            end: "bottom top",
+            scrub: true
+          }
+        });
+
+        gsap.utils.toArray("footer .grid > div").forEach((col, i) => {
+          gsap.fromTo(col,
+            { y: 46, opacity: 0 },
+            {
+              y: 0,
+              opacity: 1,
+              duration: 0.9,
+              delay: i * 0.055,
+              ease: premiumEase,
+              scrollTrigger: {
+                trigger: col,
+                start: "top 92%"
+              }
+            }
+          );
+        });
+
+        gsap.utils.toArray("#work img, #experience img").forEach((img, i) => {
+          gsap.to(img, {
+            yPercent: i % 2 === 0 ? -8 : 8,
+            ease: "none",
+            scrollTrigger: {
+              trigger: img,
+              start: "top bottom",
+              end: "bottom top",
+              scrub: true
+            }
+          });
+        });
+
+        gsap.utils.toArray(".section-shell").forEach((section) => {
+          gsap.fromTo(section,
+            { opacity: 0.78 },
+            {
+              opacity: 1,
+              duration: 1.1,
+              ease: "power2.out",
+              scrollTrigger: {
+                trigger: section,
+                start: "top 92%"
+              }
+            }
+          );
+        });
+
+        gsap.utils.toArray(".image-frame").forEach((frame, i) => {
+          const img = frame.querySelector("img");
+          gsap.fromTo(frame,
+            { clipPath: "inset(14% 0 0 0)", opacity: 0 },
+            {
+              clipPath: "inset(0% 0 0% 0)",
+              opacity: 1,
+              duration: 1,
+              ease: "power4.out",
+              scrollTrigger: {
+                trigger: frame,
+                start: "top 88%"
+              }
+            }
+          );
+          if (img) {
+            gsap.fromTo(img,
+              { scale: 1.12, yPercent: 8 },
+              {
+                scale: 1,
+                yPercent: i % 2 === 0 ? -6 : 6,
+                ease: "none",
+                scrollTrigger: {
+                  trigger: frame,
+                  start: "top bottom",
+                  end: "bottom top",
+                  scrub: true
+                }
+              }
+            );
+          }
+        });
+
+        gsap.utils.toArray("#facts article, #approach article, #expertise article, #engagements article").forEach((card, i) => {
+          gsap.fromTo(card,
+            {
+              y: 54,
+              opacity: 0,
+              rotateX: 5
+            },
+            {
+              y: 0,
+              opacity: 1,
+              rotateX: 0,
+              duration: 0.95,
+              delay: (i % 4) * 0.05,
+              ease: "power3.out",
+              scrollTrigger: {
+                trigger: card,
+                start: "top 88%"
+              }
+            }
+          );
+        });
+
+        gsap.utils.toArray("#work article").forEach((card, i) => {
+          gsap.to(card, {
+            y: i % 2 === 0 ? -18 : 18,
+            ease: "none",
+            scrollTrigger: {
+              trigger: card,
+              start: "top bottom",
+              end: "bottom top",
+              scrub: true
+            }
+          });
+        });
+
+        gsap.fromTo("#facts .grid.items-center > div:nth-child(2)",
+          { scale: 0.84, opacity: 0, rotate: -6 },
+          {
+            scale: 1,
+            opacity: 1,
+            rotate: 0,
+            duration: 1,
+            ease: "back.out(1.4)",
+            scrollTrigger: {
+              trigger: "#facts",
+              start: "top 72%"
+            }
+          }
+        );
+
+        gsap.utils.toArray("#experience .metric-box").forEach((box, i) => {
+          gsap.fromTo(box,
+            { y: 42, opacity: 0 },
+            {
+              y: 0,
+              opacity: 1,
+              duration: 0.8,
+              delay: i * 0.06,
+              ease: "power3.out",
+              scrollTrigger: {
+                trigger: "#experience",
+                start: "top 62%"
+              }
+            }
+          );
+        });
+
+        gsap.fromTo("#contact h2",
+          { y: 48, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 1,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: "#contact",
+              start: "top 78%"
+            }
+          }
+        );
+
+        gsap.utils.toArray("#contact a, #contact p, #contact li, #contact .mb-5").forEach((item, i) => {
+          gsap.fromTo(item,
+            { y: 20, opacity: 0 },
+            {
+              y: 0,
+              opacity: 1,
+              duration: 0.65,
+              delay: (i % 10) * 0.02,
+              ease: "power2.out",
+              scrollTrigger: {
+                trigger: item,
+                start: "top 95%"
+              }
+            }
+          );
+        });
+
+
+      }
+    </script>
+</body></html>

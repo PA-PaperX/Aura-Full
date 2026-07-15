@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Component Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      height: 100%;
+      overflow: auto;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #000000;
+      color: #ffffff;
+    }
+    .component-wrapper {
+      width: 100%;
+      height: 100%;
+      padding: 0;
+      box-sizing: border-box;
+      overflow: auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="component-wrapper">
+    <html><head></head><body><div class="bg-neutral-950 rounded-3xl ring-neutral-800 ring-1 pt-6 pr-6 pb-6 pl-6 backdrop-blur relative">
+  <style>@import url('https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&display=swap'); .font-geist { font-family: 'Geist', 'Inter', sans-serif; }</style>
+  <div class="overflow-hidden sm:p-8 backdrop-blur">
+    <div class="text-center mb-12">
+      <div class="mb-6">
+        <div class="flex items-center justify-between text-[13px] sm:text-sm
+          font-medium uppercase tracking-tight text-blue-400">
+          <span class="font-geist">PRICING</span>
+          <span class="font-geist">(03)</span>
+        </div>
+        <div class="mt-2 h-px w-full bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
+      </div>
+      <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-0">
+        <div>
+          <h2 class="sm:text-4xl md:text-5xl text-3xl text-white text-left mt-0 font-geist font-light tracking-tighter">Simple, predictable pricing</h2>
+        </div>
+        <p class="sm:text-base text-sm text-slate-300 text-left max-w-[42ch] font-geist">Pick a plan that fits your team. Switch or cancel anytime. Yearly saves you more.</p>
+      </div>
+    </div>
+    <div class="z-10 grid grid-cols-1 lg:grid-cols-4 gap-4 sm:gap-6 relative">
+      <aside class="flex flex-col p-4 sm:p-5 md:p-6 rounded-xl lg:rounded-none
+        ring-1 lg:ring-0 ring-white/10 gap-4 sm:gap-6 items-start
+        justify-start">
+        <div>
+          <h3 class="text-2xl sm:text-3xl md:text-4xl font-semibold text-white tracking-tight font-geist">Choose your Runa plan</h3>
+        </div>
+        <div class="w-full space-y-3">
+          <label class="flex items-center justify-between gap-3 cursor-pointer
+            hover:bg-white/[0.04] transition bg-transparent
+            ring-white/10 ring-1 rounded-xl px-4 py-3 w-full" id="yearly-toggle">
+            <input type="radio" name="billing" value="yearly" class="sr-only">
+            <div class="flex items-center gap-3 min-w-0">
+              <span class="relative flex-shrink-0 h-5 w-5 rounded-full ring-1 ring-white/20 grid place-items-center" id="yearly-radio">
+                <span class="h-2.5 w-2.5 rounded-full bg-transparent" id="yearly-radio-inner"></span>
+              </span>
+              <span class="text-slate-300 text-sm font-geist whitespace-nowrap">Yearly billing</span>
+            </div>
+            <span class="flex-shrink-0 text-[11px] text-emerald-300/80
+              bg-emerald-500/10 ring-1/20 rounded-full px-2 py-0.5
+              font-geist">Save 20%</span>
+          </label>
+          <label class="flex items-center gap-3 rounded-xl ring-1 ring-blue-400/30
+            bg-blue-500/10 px-4 py-3 cursor-pointer hover:bg-blue-500/20
+            transition" id="monthly-toggle">
+            <input type="radio" name="billing" value="monthly" class="sr-only" checked="">
+            <span class="relative h-5 w-5 rounded-full ring-1 ring-blue-300/50 grid place-items-center" id="monthly-radio">
+              <span class="h-2.5 w-2.5 rounded-full bg-blue-400" id="monthly-radio-inner"></span>
+            </span>
+            <span class="text-slate-100 text-sm font-geist">Monthly billing</span>
+          </label>
+        </div>
+      </aside>
+      <div class="lg:col-span-3 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+        <article class="rounded-xl sm:rounded-2xl ring-1 ring-neutral-800 bg-neutral-900 p-4 sm:p-5 md:p-6 flex flex-col">
+          <div class="mb-2">
+            <h4 class="text-lg sm:text-xl tracking-tight font-semibold font-geist">Starter</h4>
+            <p class="text-slate-400 text-sm font-geist">Launch personal workflows</p>
+          </div>
+          <div class="mt-4 flex items-end gap-2">
+            <span class="text-white text-3xl sm:text-4xl md:text-5xl tracking-tight font-semibold font-geist" data-price="starter">$12</span>
+            <span class="text-slate-400 text-base font-medium font-geist" data-period="">/ mo</span>
+          </div>
+          <p class="text-slate-400 text-sm mt-1 font-geist" data-billing-text="">Billed monthly per user</p>
+          <div class="mt-5 h-px w-full bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
+          <ul class="mt-4 space-y-3">
+            <li class="flex items-start gap-3">
+              <span class="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full ring-1 ring-white/15 bg-white/5">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check w-[14px] h-[14px]" style="width: 14px; height: 14px; color: rgb(203, 213, 225);">
+                  <path d="M20 6 9 17l-5-5"></path>
+                </svg>
+              </span>
+              <span class="text-sm text-slate-300 font-geist">Up to 5 projects</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full ring-1 ring-white/15 bg-white/5">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check" style="color: rgb(203, 213, 225);">
+                  <path d="M20 6 9 17l-5-5"></path>
+                </svg>
+              </span>
+              <span class="text-sm text-slate-300 font-geist">1,500 actions / month</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full ring-1 ring-white/15 bg-white/5">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check w-[14px] h-[14px]" style="width: 14px; height: 14px; color: rgb(203, 213, 225);">
+                  <path d="M20 6 9 17l-5-5"></path>
+                </svg>
+              </span>
+              <span class="text-sm text-slate-300 font-geist">Basic integrations</span>
+            </li>
+          </ul>
+          <div class="mt-6">
+            <button class="w-full inline-flex items-center justify-center rounded-xl
+              ring-1 ring-white/10 text-slate-200 hover:bg-white/10
+              transition px-4 py-3 text-sm font-medium font-geist">Get started</button>
+          </div>
+        </article>
+        <article class="relative rounded-2xl ring-1 ring-neutral-800 bg-neutral-900 p-6 flex flex-col">
+          <div class="mb-2">
+            <h4 class="text-blue-400 text-xl tracking-tight font-semibold font-geist">Pro</h4>
+            <p class="text-slate-400 text-sm font-geist">Scale with advanced automation</p>
+          </div>
+          <div class="mt-4 flex items-end gap-2">
+            <span class="text-white text-4xl sm:text-5xl tracking-tight font-semibold font-geist" data-price="pro">$39</span>
+            <span class="text-slate-400 text-base font-medium font-geist" data-period="">/ mo</span>
+          </div>
+          <p class="text-slate-400 text-sm mt-1 font-geist" data-billing-text="">Billed monthly per user</p>
+          <div class="mt-5 h-px w-full bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
+          <ul class="mt-4 space-y-3">
+            <li class="flex items-start gap-3">
+              <span class="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full ring-1 ring-white/15 bg-white/5">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check w-[14px] h-[14px]" style="width: 14px; height: 14px; color: rgb(203, 213, 225);">
+                  <path d="M20 6 9 17l-5-5"></path>
+                </svg>
+              </span>
+              <span class="text-sm text-slate-300 font-geist">Unlimited projects</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full ring-1 ring-white/15 bg-white/5">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check w-[14px] h-[14px]" style="width: 14px; height: 14px; color: rgb(203, 213, 225);">
+                  <path d="M20 6 9 17l-5-5"></path>
+                </svg>
+              </span>
+              <span class="text-sm text-slate-300 font-geist">50,000 actions / month</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full ring-1 ring-white/15 bg-white/5">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check w-[14px] h-[14px]" style="width: 14px; height: 14px; color: rgb(203, 213, 225);">
+                  <path d="M20 6 9 17l-5-5"></path>
+                </svg>
+              </span>
+              <span class="text-sm text-slate-300 font-geist">All integrations + API</span>
+            </li>
+          </ul>
+          <div class="mt-6">
+            <button class="w-full inline-flex items-center justify-center rounded-xl
+              bg-blue-500 text-white hover:bg-blue-500/90
+              transition-colors px-4 py-3 text-sm font-medium shadow-lg
+              shadow-neutral-900/20 font-geist">Upgrade to Pro</button>
+          </div>
+        </article>
+        <article class="rounded-2xl ring-1 ring-neutral-800 bg-neutral-900 p-6 flex flex-col">
+          <div class="mb-2">
+            <h4 class="text-emerald-300 text-xl tracking-tight font-semibold font-geist">Business</h4>
+            <p class="text-slate-300 text-sm font-geist">Security and control for teams</p>
+          </div>
+          <div class="mt-4 flex items-end gap-2">
+            <span class="text-white text-4xl sm:text-5xl tracking-tight font-semibold font-geist" data-price="business">$99</span>
+            <span class="text-slate-400 text-base font-medium font-geist" data-period="">/ mo</span>
+          </div>
+          <p class="text-slate-400 text-sm mt-1 font-geist" data-billing-text="">Billed monthly per user</p>
+          <div class="mt-5 h-px w-full bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
+          <ul class="mt-4 space-y-3">
+            <li class="flex items-start gap-3">
+              <span class="mt-0.5 inline-flex h-5 w-5 items-center justify-center
+                rounded-full ring-1 ring-emerald-400/30 bg-emerald-500/10">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check w-[14px] h-[14px]" style="width: 14px; height: 14px; color: rgb(203, 213, 225);">
+                  <path d="M20 6 9 17l-5-5"></path>
+                </svg>
+              </span>
+              <span class="text-sm text-slate-200 font-geist">SSO, roles &amp; permissions</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="mt-0.5 inline-flex h-5 w-5 items-center justify-center
+                rounded-full ring-1 ring-emerald-400/30 bg-emerald-500/10">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check w-[14px] h-[14px]" style="width: 14px; height: 14px; color: rgb(203, 213, 225);">
+                  <path d="M20 6 9 17l-5-5"></path>
+                </svg>
+              </span>
+              <span class="text-sm text-slate-200 font-geist">Audit logs &amp; usage caps</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="mt-0.5 inline-flex h-5 w-5 items-center justify-center
+                rounded-full ring-1 ring-emerald-400/30 bg-emerald-500/10">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check w-[14px] h-[14px]" style="width: 14px; height: 14px; color: rgb(203, 213, 225);">
+                  <path d="M20 6 9 17l-5-5"></path>
+                </svg>
+              </span>
+              <span class="text-sm text-slate-200 font-geist">Dedicated support</span>
+            </li>
+          </ul>
+          <div class="mt-6">
+            <button class="w-full inline-flex items-center justify-center rounded-xl
+              bg-blue-500 text-white hover:bg-blue-500/90
+              transition-colors px-4 py-3 text-sm font-medium shadow-lg
+              shadow-neutral-900/20 font-geist">Contact sales</button>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+  <script>(function() { const pricing = { monthly: { starter: { price: '$12', period: '/ mo', billing: 'Billed monthly per user' }, pro: { price: '$39', period: '/ mo', billing: 'Billed monthly per user' }, business: { price: '$99', period: '/ mo', billing: 'Billed monthly per user' } }, yearly: { starter: { price: '$115', period: '/ yr', billing: 'Billed yearly per user (save 20%)' }, pro: { price: '$374', period: '/ yr', billing: 'Billed yearly per user (save 20%)' }, business: { price: '$950', period: '/ yr', billing: 'Billed yearly per user (save 20%)' } } }; let currentBilling = 'monthly'; const monthlyToggle = document.getElementById('monthly-toggle'); const yearlyToggle = document.getElementById('yearly-toggle'); const monthlyRadio = document.getElementById('monthly-radio'); const yearlyRadio = document.getElementById('yearly-radio'); const monthlyRadioInner = document.getElementById('monthly-radio-inner'); const yearlyRadioInner = document.getElementById('yearly-radio-inner'); function updatePricing(billingType) { currentBilling = billingType; document.querySelectorAll('[data-price]').forEach(function(el) { const plan = el.getAttribute('data-price'); el.textContent = pricing[billingType][plan].price; }); document.querySelectorAll('[data-period]').forEach(function(el) { el.textContent = pricing[billingType].starter.period; }); document.querySelectorAll('[data-billing-text]').forEach(function(el) { const parentArticle = el.closest('article'); const priceEl = parentArticle.querySelector('[data-price]'); const plan = priceEl.getAttribute('data-price'); el.textContent = pricing[billingType][plan].billing; }); if (billingType === 'monthly') { monthlyToggle.classList.add('ring-blue-400/30', 'bg-blue-500/10'); monthlyToggle.classList.remove('bg-transparent', 'ring-white/10'); monthlyRadio.classList.add('ring-blue-300/50'); monthlyRadio.classList.remove('ring-white/20'); monthlyRadioInner.classList.add('bg-blue-400'); monthlyRadioInner.classList.remove('bg-transparent'); yearlyToggle.classList.add('bg-transparent', 'ring-white/10'); yearlyToggle.classList.remove('ring-blue-400/30', 'bg-blue-500/10'); yearlyRadio.classList.add('ring-white/20'); yearlyRadio.classList.remove('ring-blue-300/50'); yearlyRadioInner.classList.add('bg-transparent'); yearlyRadioInner.classList.remove('bg-blue-400'); } else { yearlyToggle.classList.add('ring-blue-400/30', 'bg-blue-500/10'); yearlyToggle.classList.remove('bg-transparent', 'ring-white/10'); yearlyRadio.classList.add('ring-blue-300/50'); yearlyRadio.classList.remove('ring-white/20'); yearlyRadioInner.classList.add('bg-blue-400'); yearlyRadioInner.classList.remove('bg-transparent'); monthlyToggle.classList.add('bg-transparent', 'ring-white/10'); monthlyToggle.classList.remove('ring-blue-400/30', 'bg-blue-500/10'); monthlyRadio.classList.add('ring-white/20'); monthlyRadio.classList.remove('ring-blue-300/50'); monthlyRadioInner.classList.add('bg-transparent'); monthlyRadioInner.classList.remove('bg-blue-400'); } } monthlyToggle.addEventListener('click', function() { updatePricing('monthly'); }); yearlyToggle.addEventListener('click', function() { updatePricing('yearly'); }); })();</script>
+</div></body></html>
+  </div>
+  
+    <script>
+      (function() {
+        function checkAndCenter() {
+          // Use double requestAnimationFrame to ensure DOM is fully painted and layout is stable
+          requestAnimationFrame(function() {
+            requestAnimationFrame(function() {
+              const wrapper = document.querySelector('.component-wrapper');
+              if (!wrapper) return;
+              
+              // Get all child elements
+              const children = Array.from(wrapper.children);
+              if (children.length === 0) return;
+              
+              // Temporarily override wrapper styles to shrink-wrap for measurement
+              // Set inline styles to shrink-wrap (inline styles override CSS)
+              wrapper.style.display = 'inline-block';
+              wrapper.style.width = 'auto';
+              wrapper.style.height = 'auto';
+              wrapper.style.overflow = 'visible';
+              wrapper.style.boxSizing = 'content-box';
+              
+              // Force multiple reflows to ensure styles are fully applied
+              void wrapper.offsetHeight;
+              void wrapper.offsetWidth;
+              void wrapper.offsetHeight;
+              
+              // Measure the wrapper's content size
+              const contentWidth = wrapper.offsetWidth;
+              const contentHeight = wrapper.offsetHeight;
+              
+              // Restore original styles by removing inline styles we added
+              wrapper.style.removeProperty('display');
+              wrapper.style.removeProperty('width');
+              wrapper.style.removeProperty('height');
+              wrapper.style.removeProperty('overflow');
+              wrapper.style.removeProperty('box-sizing');
+              
+              // If content is less than 500x500, center it
+              if (contentWidth > 0 && contentHeight > 0 && contentWidth < 500 && contentHeight < 500) {
+                wrapper.style.display = 'flex';
+                wrapper.style.alignItems = 'center';
+                wrapper.style.justifyContent = 'center';
+              }
+            });
+          });
+        }
+        
+        // Check immediately and after delays to ensure content is rendered and styled
+        function runChecks() {
+          checkAndCenter();
+          setTimeout(checkAndCenter, 50);
+          setTimeout(checkAndCenter, 150);
+          setTimeout(checkAndCenter, 300);
+          setTimeout(checkAndCenter, 500);
+          setTimeout(checkAndCenter, 1000);
+        }
+        
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', runChecks);
+        } else {
+          runChecks();
+        }
+        
+        // Also check when images or other resources load
+        window.addEventListener('load', () => {
+          setTimeout(checkAndCenter, 100);
+          setTimeout(checkAndCenter, 300);
+        });
+        
+        // Use ResizeObserver to detect size changes
+        if (window.ResizeObserver) {
+          setTimeout(() => {
+            const wrapper = document.querySelector('.component-wrapper');
+            if (wrapper) {
+              const observer = new ResizeObserver(() => {
+                setTimeout(checkAndCenter, 50);
+              });
+              observer.observe(wrapper);
+            }
+          }, 500);
+        }
+      })();
+    </script>
+  
+</body>
+</html>

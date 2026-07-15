@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Component Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      height: 100%;
+      overflow: auto;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #000000;
+      color: #ffffff;
+    }
+    .component-wrapper {
+      width: 100%;
+      height: 100%;
+      padding: 0;
+      box-sizing: border-box;
+      overflow: auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="component-wrapper">
+    <html><head></head><body class="antialiased selection:bg-orange-500/30 text-slate-100 bg-[#05040A]" data-element-locator="html &gt; body:nth-of-type(1)">
+  <!-- Background Ambient Glows similar to template -->
+  <div class="fixed top-[-20%] left-[-10%] w-[50%] h-[50%] blur-[120px] rounded-full pointer-events-none bg-blue-600/10" style=""></div>
+  <div class="fixed bottom-[-20%] right-[-10%] w-[50%] h-[50%] bg-orange-500/10 blur-[120px] rounded-full pointer-events-none" style=""></div>
+
+  <main class="min-h-screen md:px-12 lg:px-24 w-full pt-24 pr-6 pb-24 pl-6 relative">
+    <!-- Header Section -->
+    <div class="animate-enter md:ml-auto md:mr-auto md:mb-10 text-center max-w-4xl mr-auto mb-24 ml-auto">
+      <!-- Adapted Pill -->
+      <div class="inline-flex items-center justify-center px-4 py-1.5 rounded-full border mb-8 backdrop-blur-sm bg-slate-900/50 border-white/10">
+        <span class="text-xs font-medium uppercase tracking-widest text-orange-400">
+            Methodology
+          </span>
+      </div>
+
+      <!-- Adapted Title: Geist, tight tracking, gradient text -->
+      <h1 class="text-5xl md:text-7xl lg:text-8xl tracking-tighter leading-[1.05] mb-8 font-light text-transparent bg-clip-text bg-gradient-to-b from-white via-white to-slate-400">
+        We clarify
+        <span class="italic text-slate-400">vision</span>
+        so you can lead with purpose.
+      </h1>
+
+      <p class="text-lg md:text-xl max-w-2xl mx-auto leading-relaxed font-light text-slate-400">
+        From identifying leadership blindspots to building resilient systems
+        and empowering your team—we guide the transformation while you focus
+        on the bigger picture.
+      </p>
+    </div>
+
+    <!-- Main Split Layout -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 max-w-7xl mr-auto ml-auto gap-x-12 gap-y-12 items-start">
+      <!-- Left Column: Navigation / Steps -->
+      <div class="col-span-1 lg:col-span-5 flex flex-col space-y-3 animate-enter" style="animation-delay: 0.2s">
+        <!-- Active Item (01) - NeuroDesk Style: Glass with Orange Accent -->
+        <div class="group relative overflow-hidden rounded-[20px] bg-gradient-to-br p-8 md:p-10 cursor-pointer from-slate-900/80 to-slate-900/40" style="--border-gradient: linear-gradient(135deg, rgba(251, 146, 60, 0.5), rgba(251, 146, 60, 0)); --border-radius-before: 20px" data-step-nav="0">
+          <!-- Subtle inner glow for active state -->
+          <div class="absolute inset-0 bg-orange-500/5 pointer-events-none"></div>
+
+          <div class="flex items-start justify-between w-full relative z-10">
+            <h2 class="text-4xl md:text-5xl tracking-tighter font-light text-white">
+              Audit
+            </h2>
+            <span class="text-sm font-medium mt-1 ml-2 font-mono text-orange-400">
+                01
+              </span>
+          </div>
+        </div>
+
+        <!-- Inactive Item (02) - NeuroDesk Style: Darker, Transparent, Subtle Border -->
+        <div class="group relative rounded-[20px] p-8 md:p-10 cursor-pointer transition-all duration-300 border hover:bg-white/[0.02] border-white/5 hover:border-white/10" data-step-nav="1">
+          <div class="flex items-start justify-between w-full">
+            <h2 class="md:text-5xl group-hover:text-slate-300 transition-colors duration-300 text-4xl font-light text-slate-500 tracking-tighter">
+              Align
+            </h2>
+            <span class="text-sm font-medium group-hover:text-slate-500 mt-1 ml-2 font-mono transition-colors text-slate-600">
+                02
+              </span>
+          </div>
+        </div>
+
+        <!-- Inactive Item (03) -->
+        <div class="group relative rounded-[20px] p-8 md:p-10 cursor-pointer transition-all duration-300 border hover:bg-white/[0.02] border-white/5 hover:border-white/10" data-step-nav="2">
+          <div class="flex items-start justify-between w-full">
+            <h2 class="text-4xl md:text-5xl text-slate-500 group-hover:text-slate-300 tracking-tighter font-light transition-colors duration-300">
+              Elevate
+            </h2>
+            <span class="text-sm font-medium group-hover:text-slate-500 mt-1 ml-2 font-mono transition-colors text-slate-600">
+                03
+              </span>
+          </div>
+        </div>
+
+        <!-- Inactive Item (04) -->
+        <div class="group relative rounded-[20px] p-8 md:p-10 cursor-pointer transition-all duration-300 border hover:bg-white/[0.02] border-white/5 hover:border-white/10" data-step-nav="3">
+          <div class="flex items-start justify-between w-full">
+            <h2 class="text-4xl md:text-5xl text-slate-500 group-hover:text-slate-300 tracking-tighter font-light transition-colors duration-300">
+              Sustain
+            </h2>
+            <span class="text-sm font-medium group-hover:text-slate-500 mt-1 ml-2 font-mono transition-colors text-slate-600">
+                04
+              </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: Content & Visual -->
+      <div class="col-span-1 lg:col-span-7 flex flex-col gap-10 pt-4 lg:pt-0 sticky top-10 animate-enter" style="animation-delay: 0.4s">
+        <!-- Image Container - NeuroDesk Style: Border Gradient, Dark shadow -->
+        <div class="w-full aspect-[16/10] overflow-hidden rounded-[24px] relative group bg-slate-900" style="--border-gradient: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0)); --border-radius-before: 24px">
+          <!-- Grid Overlay (Reference to NeuroDesk grid backgrounds) -->
+
+          <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/1a81fd87-0795-455e-b0fa-4bef8b199b31_1600w.webp" alt="Abstract blooming visual" class="w-full h-full object-cover group-hover:scale-105 transition-all duration-500 ease-in-out" data-step-image="" style="">
+          <!-- Gradient Overlay -->
+          <div class="absolute inset-0 bg-gradient-to-tr from-[#05040A] via-transparent to-transparent z-10"></div>
+        </div>
+
+        <!-- Detail Content -->
+        <div class="">
+          <h3 class="md:text-3xl text-2xl font-normal tracking-tight mb-4 text-white" data-step-title="">
+            Audit
+          </h3>
+          <p class="md:text-xl leading-relaxed text-lg font-light mb-8 line-clamp-3 text-slate-400" data-step-description="">
+            We analyze your current leadership structures and decision-making
+            workflows to identify where bottlenecks exist and discover the
+            highest-leverage opportunities for your personal and
+            organizational growth.
+          </p>
+
+          <!-- Button - NeuroDesk Gradient Style -->
+          <a href="#" class="group inline-flex h-10 items-center justify-center rounded-full px-6 text-sm font-medium hover:bg-gradient-to-r hover:to-orange-500 transition-all duration-300 bg-slate-100 text-slate-950 hover:from-amber-400">
+            <span class="mr-2">Book a discovery session</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="arrow-right" class="lucide lucide-arrow-right w-4 h-4 transition-transform group-hover:translate-x-0.5">
+              <path d="M5 12h14" class=""></path>
+              <path d="m12 5 7 7-7 7" class=""></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script class="">
+    lucide.createIcons();
+  </script>
+
+  <script class="">
+    const steps = [
+        {
+          title: 'Audit',
+          description: 'We analyze your current leadership structures and decision-making workflows to identify where bottlenecks exist and discover the highest-leverage opportunities for your personal and organizational growth.',
+          image: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2564&auto=format&fit=crop'
+        },
+        {
+          title: 'Align',
+          description: 'We work with you to create a unified vision across your leadership team, ensuring everyone is moving in the same direction with clarity on priorities, values, and strategic objectives.',
+          image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2670&auto=format&fit=crop'
+        },
+        {
+          title: 'Elevate',
+          description: 'Through targeted coaching and leadership development, we help you and your team build the skills, mindsets, and behaviors needed to operate at the next level of effectiveness and impact.',
+          image: 'https://images.unsplash.com/photo-1559136555-9303baea8ebd?q=80&w=2670&auto=format&fit=crop'
+        },
+        {
+          title: 'Sustain',
+          description: 'We establish systems, rituals, and frameworks that embed your growth into daily operations, ensuring lasting transformation that continues long after our engagement ends.',
+          image: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=2670&auto=format&fit=crop'
+        }
+      ];
+
+      let currentStep = 0;
+
+      function setActiveStep(index) {
+        currentStep = index;
+        const step = steps[index];
+
+        // Update nav items
+        document.querySelectorAll('[data-step-nav]').forEach((nav, i) => {
+          const isActive = i === index;
+          if (isActive) {
+            nav.className = 'group relative overflow-hidden rounded-[20px] bg-gradient-to-br from-slate-900/80 to-slate-900/40 p-8 md:p-10 cursor-pointer';
+            nav.style.cssText = '--border-gradient: linear-gradient(135deg, rgba(251, 146, 60, 0.5), rgba(251, 146, 60, 0)); --border-radius-before: 20px';
+            nav.innerHTML = '<div class="absolute inset-0 bg-orange-500/5 pointer-events-none"></div><div class="flex items-start justify-between w-full relative z-10"><h2 class="text-4xl md:text-5xl text-white tracking-tighter font-light">' + steps[i].title + '</h2><span class="text-sm font-medium text-orange-400 mt-1 ml-2 font-mono">0' + (i + 1) + '</span></div>';
+          } else {
+            nav.className = 'group relative rounded-[20px] p-8 md:p-10 cursor-pointer transition-all duration-300 border border-white/5 hover:bg-white/[0.02] hover:border-white/10';
+            nav.style.cssText = '';
+            nav.innerHTML = '<div class="flex items-start justify-between w-full"><h2 class="text-4xl md:text-5xl text-slate-500 group-hover:text-slate-300 tracking-tighter font-light transition-colors duration-300">' + steps[i].title + '</h2><span class="text-sm font-medium text-slate-600 group-hover:text-slate-500 mt-1 ml-2 font-mono transition-colors">0' + (i + 1) + '</span></div>';
+          }
+        });
+
+        // Update image with smooth fade
+        const img = document.querySelector('[data-step-image]');
+        img.style.opacity = '0';
+        setTimeout(() => {
+          img.src = step.image;
+          img.style.opacity = '';
+        }, 500);
+
+        // Update content
+        document.querySelector('[data-step-title]').textContent = step.title;
+        document.querySelector('[data-step-description]').textContent = step.description;
+      }
+
+      document.addEventListener('DOMContentLoaded', () => {
+        document.querySelectorAll('[data-step-nav]').forEach((nav, i) => {
+          nav.addEventListener('click', () => setActiveStep(i));
+        });
+      });
+  </script>
+
+  <div class="edit-mode-label" data-edit-label="true" style="left: 0px; top: 0px;">
+    <span class="edit-mode-label-text">body</span><button class="edit-mode-move-btn">↑</button><button class="edit-mode-move-btn" disabled="">↓</button>
+  </div>
+  <button class="edit-mode-bottom-btn add-new" data-edit-label="true" title="Add content after element" style="left: 0px; top: 1295.83px;"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-plus"><path d="M12 5v14" class=""></path><path d="M5 12h14" class=""></path></svg></button><button class="edit-mode-bottom-btn replace" data-edit-label="true" title="Replace element with component" style="left: 30px; top: 1295.83px;"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-repeat"><polyline points="17 1 21 5 17 9" class=""></polyline><path d="M3 11V9a4 4 0 0 1 4-4h14" class=""></path><polyline points="7 23 3 19 7 15" class=""></polyline><path d="M21 13v2a4 4 0 0 1-4 4H3" class=""></path></svg></button><button class="edit-mode-bottom-btn menu" data-edit-label="true" title="Open context menu" style="left: 60px; top: 1295.83px;"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-more-horizontal"><circle cx="12" cy="12" r="1" class=""></circle><circle cx="19" cy="12" r="1" class=""></circle><circle cx="5" cy="12" r="1" class=""></circle></svg></button>
+</body></html>
+  </div>
+  
+    <script>
+      (function() {
+        function checkAndCenter() {
+          // Use double requestAnimationFrame to ensure DOM is fully painted and layout is stable
+          requestAnimationFrame(function() {
+            requestAnimationFrame(function() {
+              const wrapper = document.querySelector('.component-wrapper');
+              if (!wrapper) return;
+              
+              // Get all child elements
+              const children = Array.from(wrapper.children);
+              if (children.length === 0) return;
+              
+              // Temporarily override wrapper styles to shrink-wrap for measurement
+              // Set inline styles to shrink-wrap (inline styles override CSS)
+              wrapper.style.display = 'inline-block';
+              wrapper.style.width = 'auto';
+              wrapper.style.height = 'auto';
+              wrapper.style.overflow = 'visible';
+              wrapper.style.boxSizing = 'content-box';
+              
+              // Force multiple reflows to ensure styles are fully applied
+              void wrapper.offsetHeight;
+              void wrapper.offsetWidth;
+              void wrapper.offsetHeight;
+              
+              // Measure the wrapper's content size
+              const contentWidth = wrapper.offsetWidth;
+              const contentHeight = wrapper.offsetHeight;
+              
+              // Restore original styles by removing inline styles we added
+              wrapper.style.removeProperty('display');
+              wrapper.style.removeProperty('width');
+              wrapper.style.removeProperty('height');
+              wrapper.style.removeProperty('overflow');
+              wrapper.style.removeProperty('box-sizing');
+              
+              // If content is less than 500x500, center it
+              if (contentWidth > 0 && contentHeight > 0 && contentWidth < 500 && contentHeight < 500) {
+                wrapper.style.display = 'flex';
+                wrapper.style.alignItems = 'center';
+                wrapper.style.justifyContent = 'center';
+              }
+            });
+          });
+        }
+        
+        // Check immediately and after delays to ensure content is rendered and styled
+        function runChecks() {
+          checkAndCenter();
+          setTimeout(checkAndCenter, 50);
+          setTimeout(checkAndCenter, 150);
+          setTimeout(checkAndCenter, 300);
+          setTimeout(checkAndCenter, 500);
+          setTimeout(checkAndCenter, 1000);
+        }
+        
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', runChecks);
+        } else {
+          runChecks();
+        }
+        
+        // Also check when images or other resources load
+        window.addEventListener('load', () => {
+          setTimeout(checkAndCenter, 100);
+          setTimeout(checkAndCenter, 300);
+        });
+        
+        // Use ResizeObserver to detect size changes
+        if (window.ResizeObserver) {
+          setTimeout(() => {
+            const wrapper = document.querySelector('.component-wrapper');
+            if (wrapper) {
+              const observer = new ResizeObserver(() => {
+                setTimeout(checkAndCenter, 50);
+              });
+              observer.observe(wrapper);
+            }
+          }, 500);
+        }
+      })();
+    </script>
+  
+</body>
+</html>

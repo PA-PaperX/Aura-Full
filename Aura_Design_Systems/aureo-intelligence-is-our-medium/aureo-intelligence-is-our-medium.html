@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en" class="bg-[#050505] text-[#eae4d8] selection:bg-[#c5a67c]/30 selection:text-white">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AUREO | Intelligence is our Medium</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Fonts: Cormorant Garamond (Serif) & Inter (Sans) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@200;300;400&display=swap" rel="stylesheet">
+
+    <!-- Iconify -->
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        serif: ['"Cormorant Garamond"', 'serif'],
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            bg: '#050505',
+                            cream: '#eae4d8',
+                            gold: '#c5a67c',
+                            muted: '#7a7a7a',
+                            dark: '#111111'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="h-screen w-full overflow-hidden relative font-sans text-brand-cream antialiased font-light">
+
+    <!-- Ambient WebGL/Canvas Background -->
+    <canvas id="ambient-canvas" class="absolute inset-0 z-0 pointer-events-none opacity-40"></canvas>
+
+    <!-- Background Image & Masking -->
+    <div class="absolute inset-0 z-0 flex justify-end overflow-hidden">
+        <img
+            src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/5ee0a38a-b5d3-4531-8793-98beed4af162_1600w.jpg"
+            alt="Ambient Architecture"
+            class="gsap-bg-img w-[60%] h-full object-cover object-left opacity-60 mix-blend-luminosity"
+            style="filter: sepia(0.3) hue-rotate(-15deg) contrast(1.1);"
+        >
+        <!-- The sweeping curve mask covering the left side -->
+        <svg class="absolute inset-0 w-full h-full pointer-events-none drop-shadow-[20px_0_30px_rgba(0,0,0,0.9)]" preserveAspectRatio="none" viewBox="0 0 100 100">
+            <path class="gsap-curve" d="M0,0 L0,100 L55,100 Q75,50 55,0 Z" fill="#050505" />
+        </svg>
+    </div>
+
+    <!-- Main Layout Container -->
+    <main class="relative z-10 flex h-full w-full">
+
+        <!-- Left Sidebar Navigation -->
+        <aside class="gsap-sidebar flex flex-col justify-between items-center w-24 h-full border-r border-white/5 py-10 shrink-0">
+            <!-- Logo area -->
+            <div class="flex flex-col items-center gap-8">
+                <span class="text-xs tracking-[0.25em] font-medium text-brand-cream uppercase rotate-180" style="writing-mode: vertical-rl;">AUREO</span>
+                <iconify-icon icon="solar:star-fall-linear" class="text-brand-gold text-lg"></iconify-icon>
+            </div>
+
+            <!-- Nav Links -->
+            <nav class="flex flex-col gap-10 items-center">
+                <div class="relative group cursor-pointer flex items-center justify-center w-full">
+                    <span class="text-[0.65rem] tracking-[0.2em] text-brand-cream uppercase rotate-180 transition-colors" style="writing-mode: vertical-rl;">STUDIO</span>
+                    <div class="absolute right-0 top-1/2 -translate-y-1/2 w-[2px] h-4 bg-brand-gold"></div>
+                </div>
+                <div class="relative group cursor-pointer flex items-center justify-center w-full">
+                    <span class="text-[0.65rem] tracking-[0.2em] text-brand-muted group-hover:text-brand-cream transition-colors uppercase rotate-180" style="writing-mode: vertical-rl;">WORK</span>
+                </div>
+                <div class="relative group cursor-pointer flex items-center justify-center w-full">
+                    <span class="text-[0.65rem] tracking-[0.2em] text-brand-muted group-hover:text-brand-cream transition-colors uppercase rotate-180" style="writing-mode: vertical-rl;">SERVICES</span>
+                </div>
+                <div class="relative group cursor-pointer flex items-center justify-center w-full">
+                    <span class="text-[0.65rem] tracking-[0.2em] text-brand-muted group-hover:text-brand-cream transition-colors uppercase rotate-180" style="writing-mode: vertical-rl;">LAB</span>
+                </div>
+                <div class="relative group cursor-pointer flex items-center justify-center w-full">
+                    <span class="text-[0.65rem] tracking-[0.2em] text-brand-muted group-hover:text-brand-cream transition-colors uppercase rotate-180" style="writing-mode: vertical-rl;">JOURNAL</span>
+                </div>
+                <div class="relative group cursor-pointer flex items-center justify-center w-full">
+                    <span class="text-[0.65rem] tracking-[0.2em] text-brand-muted group-hover:text-brand-cream transition-colors uppercase rotate-180" style="writing-mode: vertical-rl;">CONTACT</span>
+                </div>
+            </nav>
+
+            <!-- Bottom Info -->
+            <div class="flex flex-col items-center gap-4">
+                <div class="w-6 h-6 rounded-full border border-white/20 flex items-center justify-center">
+                    <div class="w-1 h-1 bg-brand-gold rounded-full"></div>
+                </div>
+                <div class="text-[0.5rem] tracking-widest text-brand-muted text-center uppercase leading-loose">
+                    GLOBAL STUDIO<br>EST. MMXVIII
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <section class="flex-1 flex flex-col justify-center pl-16 md:pl-32 max-w-4xl relative">
+
+            <!-- Subtitle -->
+            <div class="gsap-element flex items-center gap-3 mb-8">
+                <span class="text-xs tracking-[0.3em] text-brand-gold uppercase">AI</span>
+                <iconify-icon icon="solar:close-linear" class="text-brand-muted text-xs"></iconify-icon>
+                <span class="text-xs tracking-[0.3em] text-brand-gold uppercase">CREATIVITY</span>
+            </div>
+
+            <!-- Headline -->
+            <h1 class="font-serif tracking-tight text-[clamp(2.5rem,6vw,6rem)] leading-[0.9] text-brand-cream mb-10 select-none">
+                <div class="overflow-hidden py-1"><span class="gsap-text inline-block">INTELLIGENCE</span></div>
+                <div class="overflow-hidden py-1"><span class="gsap-text inline-block">IS OUR</span></div>
+                <div class="overflow-hidden py-1"><span class="gsap-text inline-block italic font-light">MEDIUM</span></div>
+            </h1>
+
+            <!-- Separator -->
+            <div class="gsap-element flex items-center gap-4 mb-8 w-64 opacity-50">
+                <div class="h-[1px] flex-1 bg-gradient-to-r from-brand-muted to-transparent"></div>
+                <iconify-icon icon="solar:star-outline" class="text-brand-gold text-sm"></iconify-icon>
+                <div class="h-[1px] flex-1 bg-gradient-to-l from-brand-muted to-transparent"></div>
+            </div>
+
+            <!-- Description -->
+            <p class="gsap-element text-sm md:text-base text-brand-muted max-w-sm leading-relaxed mb-12">
+                AUREO is a next-generation creative studio where artificial intelligence and human imagination build iconic digital experiences.
+            </p>
+
+            <!-- Actions -->
+            <div class="gsap-element flex items-center gap-8">
+                <!-- Primary Button with Subtle Gradient Border -->
+                <button class="relative group overflow-hidden bg-brand-cream text-brand-bg px-6 py-4 flex items-center gap-4 transition-all duration-300 hover:bg-white">
+                    <span class="text-xs tracking-[0.15em] font-medium uppercase relative z-10">VIEW OUR WORK</span>
+                    <iconify-icon icon="solar:arrow-right-up-linear" class="text-lg relative z-10 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"></iconify-icon>
+                    <!-- Button Glow Effect -->
+                    <div class="absolute inset-0 bg-gradient-to-tr from-brand-gold/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0"></div>
+                </button>
+
+                <button class="group flex items-center gap-3 text-brand-muted hover:text-brand-cream transition-colors duration-300">
+                    <span class="text-xs tracking-[0.15em] font-medium uppercase">EXPLORE STUDIO</span>
+                    <iconify-icon icon="solar:arrow-right-up-linear" class="text-lg transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"></iconify-icon>
+                </button>
+            </div>
+
+            <!-- Bottom Stats Row -->
+            <div class="gsap-element absolute bottom-12 left-16 md:left-32 flex items-end gap-16 border-t border-white/5 pt-8 w-[80%] max-w-lg">
+                <div class="flex flex-col gap-2">
+                    <span class="text-[0.65rem] tracking-[0.2em] text-brand-muted uppercase">PROJECTS</span>
+                    <div class="flex items-baseline gap-1">
+                        <span class="font-serif text-4xl text-brand-gold">128</span>
+                        <span class="font-serif text-xl text-brand-gold">+</span>
+                    </div>
+                    <div class="w-4 h-[1px] bg-brand-muted mt-2"></div>
+                </div>
+                <div class="flex flex-col gap-2">
+                    <span class="text-[0.65rem] tracking-[0.2em] text-brand-muted uppercase">GLOBAL CLIENTS</span>
+                    <div class="flex items-baseline gap-1">
+                        <span class="font-serif text-4xl text-brand-gold">64</span>
+                    </div>
+                    <div class="w-4 h-[1px] bg-brand-muted mt-2"></div>
+                </div>
+                <div class="flex flex-col gap-2">
+                    <span class="text-[0.65rem] tracking-[0.2em] text-brand-muted uppercase">AWARDS</span>
+                    <div class="flex items-baseline gap-1">
+                        <span class="font-serif text-4xl text-brand-gold">27</span>
+                    </div>
+                    <div class="w-4 h-[1px] bg-brand-muted mt-2"></div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Right Side Pagination Indicators -->
+        <div class="gsap-pagination absolute right-8 top-1/2 -translate-y-1/2 flex flex-col gap-6 items-center z-20">
+            <div class="flex flex-col items-center gap-2">
+                <span class="text-xs text-brand-gold font-sans tracking-widest">01</span>
+                <div class="w-4 h-[1px] bg-brand-gold"></div>
+            </div>
+            <div class="flex flex-col items-center gap-2 group cursor-pointer">
+                <iconify-icon icon="solar:star-fall-linear" class="text-brand-muted text-[0.5rem] opacity-0 group-hover:opacity-100 transition-opacity mb-1"></iconify-icon>
+                <span class="text-xs text-brand-muted font-sans tracking-widest transition-colors group-hover:text-brand-cream">02</span>
+            </div>
+            <div class="flex flex-col items-center gap-2 group cursor-pointer">
+                <span class="text-xs text-brand-muted font-sans tracking-widest transition-colors group-hover:text-brand-cream">03</span>
+            </div>
+            <div class="flex flex-col items-center gap-2 group cursor-pointer">
+                <span class="text-xs text-brand-muted font-sans tracking-widest transition-colors group-hover:text-brand-cream">04</span>
+            </div>
+        </div>
+
+        <!-- Floating Bottom Right Card (Gradient Border Pattern) -->
+        <div class="gsap-card absolute bottom-12 right-24 z-20 p-[1px] rounded-sm group overflow-hidden bg-gradient-to-br from-brand-gold/40 via-white/5 to-transparent shadow-2xl backdrop-blur-xl">
+            <div class="bg-brand-bg/95 w-80 h-full p-6 flex flex-col gap-5 relative z-10">
+                <!-- Card Header -->
+                <div class="flex justify-between items-center w-full">
+                    <div class="flex items-center gap-2">
+                        <div class="w-1.5 h-1.5 rounded-full bg-[#c5a67c] shadow-[0_0_8px_rgba(197,166,124,0.8)]"></div>
+                        <span class="text-[0.65rem] tracking-[0.2em] text-brand-gold uppercase">ACTIVE</span>
+                    </div>
+                    <span class="text-[0.65rem] tracking-[0.2em] text-brand-muted uppercase cursor-pointer hover:text-white transition-colors">VIEW ALL</span>
+                </div>
+
+                <!-- Card Content -->
+                <div class="flex gap-4 items-center">
+                    <img
+                        src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/724142aa-44a6-48d3-9cf3-761e00d05b78_800w.jpg"
+                        alt="Project Thumbnail"
+                        class="w-20 h-16 object-cover rounded-[1px] filter sepia(0.2) contrast(1.1)"
+                    >
+                    <div class="flex flex-col gap-1.5">
+                        <h3 class="text-sm tracking-wide text-brand-cream font-medium uppercase">AEON RITUAL</h3>
+                        <p class="text-[0.65rem] text-brand-muted">Immersive Experience</p>
+                        <p class="text-[0.6rem] text-brand-muted/70 tracking-widest">AI • 3D • Motion</p>
+                    </div>
+                </div>
+
+                <!-- Progress Bar -->
+                <div class="flex flex-col gap-2 w-full mt-2">
+                    <div class="flex justify-between items-center text-[0.6rem] text-brand-muted tracking-widest uppercase">
+                        <span>PROGRESS</span>
+                        <span class="text-brand-cream">78%</span>
+                    </div>
+                    <div class="w-full h-[1px] bg-white/10 relative">
+                        <div class="absolute left-0 top-0 h-full bg-brand-gold w-[78%]">
+                            <div class="absolute right-0 top-1/2 -translate-y-1/2 w-1 h-1 bg-white rounded-full shadow-[0_0_4px_#fff]"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Subtle hover glow on card -->
+            <div class="absolute inset-0 bg-gradient-to-tr from-brand-gold/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0 pointer-events-none"></div>
+        </div>
+
+    </main>
+
+    <!-- Decorative fine lines -->
+    <svg class="absolute inset-0 w-full h-full pointer-events-none z-0 opacity-20" preserveAspectRatio="none">
+        <line x1="10%" y1="100%" x2="40%" y2="80%" stroke="#c5a67c" stroke-width="0.5" class="gsap-line" />
+        <line x1="60%" y1="100%" x2="80%" y2="60%" stroke="#c5a67c" stroke-width="0.5" class="gsap-line" />
+    </svg>
+
+    <script>
+        // --- Canvas Ambient Background (Subtle Particles/Noise) ---
+        const canvas = document.getElementById('ambient-canvas');
+        const ctx = canvas.getContext('2d');
+        let width, height;
+        let particles = [];
+
+        function initCanvas() {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+            particles = [];
+            for (let i = 0; i < 150; i++) {
+                particles.push({
+                    x: Math.random() * width,
+                    y: Math.random() * height,
+                    radius: Math.random() * 1.5,
+                    vx: (Math.random() - 0.5) * 0.2,
+                    vy: (Math.random() - 0.5) * 0.2,
+                    alpha: Math.random() * 0.5 + 0.1
+                });
+            }
+        }
+
+        function animateCanvas() {
+            ctx.clearRect(0, 0, width, height);
+            ctx.fillStyle = '#c5a67c'; // Gold-ish particles
+
+            particles.forEach(p => {
+                p.x += p.vx;
+                p.y += p.vy;
+
+                if (p.x < 0) p.x = width;
+                if (p.x > width) p.x = 0;
+                if (p.y < 0) p.y = height;
+                if (p.y > height) p.y = 0;
+
+                ctx.globalAlpha = p.alpha;
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+                ctx.fill();
+            });
+            requestAnimationFrame(animateCanvas);
+        }
+
+        window.addEventListener('resize', initCanvas);
+        initCanvas();
+        animateCanvas();
+
+        // --- GSAP Premium Entrance Animations ---
+        document.addEventListener("DOMContentLoaded", (event) => {
+            gsap.registerPlugin();
+
+            const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
+
+            // Initial states for strict entry (no floating later)
+            gsap.set(".gsap-bg-img", { scale: 1.1, opacity: 0 });
+            gsap.set(".gsap-curve", { scaleX: 1.2, transformOrigin: "left center" });
+            gsap.set(".gsap-sidebar", { x: -50, opacity: 0 });
+            gsap.set(".gsap-text", { yPercent: 100 });
+            gsap.set(".gsap-element", { y: 20, opacity: 0 });
+            gsap.set(".gsap-card", { y: 40, opacity: 0, scale: 0.95 });
+            gsap.set(".gsap-pagination", { x: 20, opacity: 0 });
+            gsap.set(".gsap-line", { strokeDasharray: "1000", strokeDashoffset: "1000" });
+
+            // Sequence
+            tl.to(".gsap-bg-img", { duration: 2.5, scale: 1, opacity: 0.6, ease: "power2.out" }, 0)
+              .to(".gsap-curve", { duration: 2, scaleX: 1, ease: "power4.inOut" }, 0.2)
+              .to(".gsap-sidebar", { duration: 1.5, x: 0, opacity: 1 }, 0.8)
+              .to(".gsap-text", { duration: 1.2, yPercent: 0, stagger: 0.15, ease: "expo.out" }, 1)
+              .to(".gsap-element", { duration: 1, y: 0, opacity: 1, stagger: 0.1 }, 1.4)
+              .to(".gsap-line", { duration: 2, strokeDashoffset: "0", ease: "power2.inOut", opacity: 0.3 }, 1.5)
+              .to(".gsap-card", { duration: 1.2, y: 0, opacity: 1, scale: 1, ease: "back.out(1.2)" }, 1.8)
+              .to(".gsap-pagination", { duration: 1, x: 0, opacity: 1 }, 2);
+        });
+    </script>
+</body>
+</html>

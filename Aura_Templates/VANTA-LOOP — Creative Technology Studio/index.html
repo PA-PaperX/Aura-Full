@@ -1,0 +1,2471 @@
+<html lang="en"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="VANTA/LOOP is an independent creative technology studio shaping vivid digital worlds.">
+<title>VANTA/LOOP — Creative Technology Studio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<style>
+:root {
+--ink: #09090b;
+--paper: #f3f1eb;
+--orange: #ff521b;
+--blue: #073bc7;
+--muted: #72716d;
+--line: rgba(9, 9, 11, .16)
+}
+* {
+box-sizing: border-box
+}
+html {
+scroll-behavior: smooth
+}
+body {
+margin: 0;
+background: var(--ink);
+color: #fff;
+font-family: "DM Sans", Arial, sans-serif;
+overflow-x: hidden
+}
+body.loading {
+overflow: hidden
+}
+a {
+color: inherit;
+text-decoration: none
+}
+button,
+input {
+font: inherit
+}
+.loader {
+position: fixed;
+inset: 0;
+z-index: 1000;
+background: #070707;
+display: grid;
+place-items: center;
+transition: clip-path 1s cubic-bezier(.76, 0, .24, 1) .3s;
+clip-path: inset(0)
+}
+.loader.done {
+clip-path: inset(0 0 100% 0)
+}
+.loader__mark {
+font-size: clamp(3rem, 8vw, 7rem);
+letter-spacing: -.08em
+}
+.loader__line {
+position: absolute;
+bottom: 0;
+left: 0;
+height: 4px;
+background: var(--orange);
+animation: load 1.3s ease both
+}
+@keyframes load {
+from {
+width: 0
+}
+to {
+width: 100%
+}
+}
+.cursor {
+width: 18px;
+height: 18px;
+border: 1px solid white;
+border-radius: 50%;
+position: fixed;
+left: 0;
+top: 0;
+z-index: 999;
+pointer-events: none;
+mix-blend-mode: difference;
+transform: translate(-50%, -50%);
+transition: width .2s, height .2s
+}
+.cursor.is-hover {
+width: 54px;
+height: 54px
+}
+.nav {
+position: absolute;
+z-index: 50;
+top: 0;
+left: 0;
+width: 100%;
+height: 68px;
+display: grid;
+grid-template-columns: 1fr auto 1fr;
+align-items: center;
+padding: 0 1.25rem;
+text-transform: uppercase;
+font-size: 11px;
+letter-spacing: .09em
+}
+.nav__logo {
+font-size: 16px;
+font-weight: 600;
+letter-spacing: -.04em
+}
+.nav__logo span {
+color: var(--orange);
+font-size: 8px;
+vertical-align: top
+}
+.nav__links {
+display: flex;
+gap: 2rem
+}
+.nav__talk {
+justify-self: end;
+border: 1px solid rgba(255, 255, 255, .45);
+border-radius: 99px;
+padding: .7rem 1rem;
+transition: .25s
+}
+.nav__talk:hover {
+background: #fff;
+color: #000
+}
+.hero {
+height: 100svh;
+min-height: 700px;
+position: relative;
+overflow: hidden;
+background: #06163d
+}
+.hero__image {
+position: absolute;
+width: 100%;
+height: 100%;
+object-fit: cover;
+transform: scale(1.15);
+animation: heroZoom 2.2s cubic-bezier(.22, 1, .36, 1) .5s forwards
+}
+@keyframes heroZoom {
+to {
+transform: scale(1)
+}
+}
+.hero__wash {
+position: absolute;
+inset: 0;
+background: linear-gradient(90deg, rgba(2, 13, 48, .55), transparent 52%), linear-gradient(0deg, rgba(0, 0, 0, .26), transparent 35%)
+}
+.hero__micro {
+position: absolute;
+top: 82px;
+left: 1.25rem;
+right: 1.25rem;
+display: flex;
+justify-content: space-between;
+font-size: 10px;
+text-transform: uppercase;
+letter-spacing: .08em
+}
+.hero__copy {
+position: absolute;
+left: 2vw;
+top: 22%;
+max-width: 920px
+}
+.eyebrow,
+.section-label {
+text-transform: uppercase;
+letter-spacing: .1em;
+font-size: 10px
+}
+.hero__headline {
+font-family: "Instrument Serif", serif;
+font-size: clamp(4.1rem, 7.7vw, 8.5rem);
+line-height: .78;
+letter-spacing: -.055em;
+font-weight: 400;
+margin: 1rem 0
+}
+.hero__headline span {
+display: block;
+transform: translateY(110%);
+opacity: 0;
+animation: lineUp 1.1s cubic-bezier(.22, 1, .36, 1) forwards
+}
+.hero__headline span:nth-child(2) {
+animation-delay: .12s
+}
+@keyframes lineUp {
+to {
+transform: translateY(0);
+opacity: 1
+}
+}
+.hero__dek {
+font-size: clamp(.9rem, 1.25vw, 1.1rem);
+line-height: 1.45;
+width: min(390px, 80vw)
+}
+.reveal {
+opacity: 0;
+transform: translateY(20px);
+animation: reveal .8s ease 1.4s forwards
+}
+@keyframes reveal {
+to {
+opacity: 1;
+transform: none
+}
+}
+.hero__word {
+position: absolute;
+bottom: -2.5vw;
+left: 1vw;
+font-weight: 600;
+font-size: clamp(5.8rem, 15vw, 16rem);
+line-height: .75;
+white-space: nowrap;
+letter-spacing: -.09em;
+color: var(--orange)
+}
+.sound-toggle {
+position: absolute;
+right: 1.25rem;
+bottom: 1.3rem;
+border: 0;
+background: rgba(0, 0, 0, .48);
+color: #fff;
+border-radius: 99px;
+padding: .65rem .8rem;
+display: flex;
+align-items: center;
+gap: 3px;
+font-size: 9px;
+text-transform: uppercase
+}
+.sound-toggle i {
+display: block;
+width: 2px;
+height: 8px;
+background: var(--orange);
+animation: bars .7s alternate infinite
+}
+.sound-toggle i:nth-child(2) {
+height: 13px;
+animation-delay: .2s
+}
+.sound-toggle i:nth-child(3) {
+animation-delay: .35s
+}
+.sound-toggle span {
+margin-left: .4rem
+}
+@keyframes bars {
+to {
+transform: scaleY(.35)
+}
+}
+.manifesto {
+height: 440vh;
+background: #050505
+}
+.manifesto__sticky {
+height: 100vh;
+position: sticky;
+top: 0;
+overflow: hidden;
+display: grid;
+place-items: center
+}
+.manifesto__line {
+position: relative;
+z-index: 8;
+text-align: center;
+font-size: clamp(3.4rem, 6.8vw, 8rem);
+line-height: .88;
+letter-spacing: -.07em;
+margin: 0;
+font-weight: 500
+}
+.manifesto__line span {
+display: block;
+opacity: .18;
+transition: opacity .2s
+}
+.collage {
+position: absolute;
+inset: 0
+}
+.tile {
+position: absolute;
+margin: 0;
+overflow: hidden;
+opacity: 0;
+transform: translateY(45px) scale(.8);
+will-change: transform, opacity
+}
+.tile img {
+width: 100%;
+height: 100%;
+object-fit: cover
+}
+.tile--a {
+width: 34vw;
+height: 54vh;
+left: 7vw;
+top: 22vh
+}
+.tile--a img {
+object-position: 72% center
+}
+.tile--b {
+width: 27vw;
+height: 34vh;
+right: 7vw;
+top: 9vh
+}
+.tile--c {
+width: 31vw;
+height: 38vh;
+right: 10vw;
+bottom: 6vh
+}
+.tile--d {
+width: 20vw;
+height: 30vh;
+left: 18vw;
+top: 3vh;
+background: #0b35c0
+}
+.orb {
+width: 12vw;
+height: 12vw;
+border-radius: 50%;
+background: var(--orange);
+filter: blur(2px);
+position: absolute;
+left: 4vw;
+top: 6vh;
+box-shadow: 0 0 80px #ff521b
+}
+.tile--e {
+width: 18vw;
+height: 23vh;
+left: 40vw;
+bottom: 5vh;
+background: var(--paper);
+color: #111;
+display: grid;
+place-items: center
+}
+.glyph {
+font-size: 8vw;
+font-weight: 600;
+letter-spacing: -.1em
+}
+.side-index {
+position: absolute;
+right: 1.2rem;
+top: 50%;
+writing-mode: vertical-rl;
+font-size: 9px;
+text-transform: uppercase;
+letter-spacing: .14em;
+display: flex;
+gap: 1rem;
+color: #aaa
+}
+.projects {
+background: #050505
+}
+.project {
+height: 95vh;
+min-height: 650px;
+position: relative;
+overflow: hidden;
+border-top: 1px solid rgba(255, 255, 255, .15)
+}
+.project>img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+transition: transform 1.2s cubic-bezier(.2, .8, .2, 1)
+}
+.project:hover>img {
+transform: scale(1.035)
+}
+.project__shade {
+position: absolute;
+inset: 0;
+background: linear-gradient(90deg, rgba(0, 0, 0, .34), transparent 55%), linear-gradient(0deg, rgba(0, 0, 0, .38), transparent 45%)
+}
+.project__copy {
+position: absolute;
+left: 1.25rem;
+bottom: 1.25rem
+}
+.project__copy p {
+font-size: 10px;
+text-transform: uppercase;
+letter-spacing: .1em;
+margin: 0 0 .4rem
+}
+.project__copy h3 {
+font-size: clamp(2.6rem, 4.7vw, 5.5rem);
+line-height: .9;
+letter-spacing: -.07em;
+margin: 0
+}
+.project__visit {
+position: absolute;
+right: 1.3rem;
+bottom: 1.3rem;
+border-radius: 50%;
+width: 82px;
+height: 82px;
+background: var(--paper);
+color: #111;
+display: grid;
+place-items: center;
+text-align: center;
+font-size: 10px;
+text-transform: uppercase;
+padding: 1rem;
+transition: transform .3s
+}
+.project__visit:hover {
+transform: rotate(8deg) scale(1.08)
+}
+.project--stride>img {
+object-position: center 34%
+}
+.project--signal {
+background: radial-gradient(circle at 60% 45%, #184dff, #06143b 42%, #030308 78%)
+}
+.signal-art {
+position: absolute;
+inset: 0;
+perspective: 900px
+}
+.signal-art__ring {
+position: absolute;
+width: 48vw;
+height: 48vw;
+border: 4vw solid var(--orange);
+border-radius: 50%;
+left: 26vw;
+top: 5vh;
+box-shadow: 0 0 9vw rgba(255, 82, 27, .7);
+transform: rotateX(66deg)
+}
+.signal-art__beam {
+position: absolute;
+width: 2px;
+height: 90vh;
+background: #fff;
+left: 50%;
+top: 5vh;
+box-shadow: 0 0 40px 16px #2759ff;
+transform: rotate(28deg)
+}
+.story {
+background: #050505;
+padding: 12vw 1.25rem 8vw
+}
+.story__intro {
+display: grid;
+grid-template-columns: 1fr 2.3fr 1fr;
+gap: 2rem;
+align-items: end;
+margin-bottom: 6vw
+}
+.section-label {
+display: flex;
+gap: .55rem;
+align-items: center
+}
+.section-label span {
+width: 6px;
+height: 6px;
+border-radius: 50%;
+background: var(--orange)
+}
+.story__intro h2,
+.services h2,
+.plans h2,
+.faq h2,
+.voices h2,
+.journal h2 {
+font-size: clamp(3rem, 7vw, 8rem);
+line-height: .86;
+letter-spacing: -.075em;
+margin: 0;
+font-weight: 500
+}
+.story__intro>p:last-child {
+font-size: 14px;
+line-height: 1.5;
+color: #aaa
+}
+.story__grid {
+display: grid;
+grid-template-columns: 3fr 1fr;
+gap: 1rem;
+height: 50vw;
+max-height: 700px
+}
+.reel-card {
+position: relative;
+overflow: hidden
+}
+.reel-card img {
+width: 100%;
+height: 100%;
+object-fit: cover
+}
+.reel-card__play {
+position: absolute;
+inset: 50% auto auto 50%;
+transform: translate(-50%, -50%);
+border: 0;
+border-radius: 99px;
+background: rgba(255, 255, 255, .9);
+padding: .8rem 1rem;
+color: #111
+}
+.stat-card {
+border-top: 1px solid #555;
+padding: 1rem;
+display: flex;
+flex-direction: column
+}
+.stat-card strong {
+font-size: clamp(4rem, 9vw, 10rem);
+letter-spacing: -.09em;
+margin-top: auto
+}
+.stat-card i {
+font-size: 2rem;
+color: var(--orange)
+}
+.stat-card p {
+font-size: 12px;
+color: #aaa
+}
+.services,
+.plans,
+.faq,
+.voices,
+.journal {
+background: var(--paper);
+color: var(--ink);
+padding: 10vw 1.25rem
+}
+.services__title {
+display: grid;
+grid-template-columns: 1fr 2fr 1fr;
+align-items: end;
+margin-bottom: 8vw
+}
+.services__title>p:last-child {
+color: var(--muted);
+font-size: 16px;
+line-height: 1.4
+}
+.service-list article {
+display: grid;
+grid-template-columns: 7% 28% 1fr 20%;
+gap: 1rem;
+align-items: center;
+border-top: 1px solid var(--line);
+padding: 2.5rem 0
+}
+.service-list article:last-child {
+border-bottom: 1px solid var(--line)
+}
+.service-list h3 {
+font-size: clamp(2rem, 4vw, 4.8rem);
+letter-spacing: -.06em;
+margin: 0
+}
+.service-list p {
+max-width: 440px;
+color: var(--muted)
+}
+.service-list span,
+.service-list b {
+font-size: 10px;
+text-transform: uppercase;
+font-weight: 500
+}
+.capabilities {
+display: grid;
+grid-template-columns: 1.2fr 1fr 1fr;
+background: var(--paper);
+color: #fff;
+padding: 0 1.25rem 10vw
+}
+.capability {
+min-height: 520px;
+padding: 2rem;
+position: relative;
+overflow: hidden;
+display: flex;
+flex-direction: column;
+justify-content: flex-end;
+isolation: isolate
+}
+.capability:after {
+content: "";
+position: absolute;
+inset: 0;
+z-index: -1;
+background: linear-gradient(135deg, rgba(255, 255, 255, .12), transparent 38%);
+opacity: 0;
+transition: opacity .55s
+}
+.capability:hover:after {
+opacity: 1
+}
+.capability--blue {
+background: var(--blue)
+}
+.capability--cream {
+background: #ddd8cd;
+color: #111
+}
+.capability--orange {
+background: var(--orange)
+}
+.capability h3 {
+font-size: 2rem;
+letter-spacing: -.05em;
+margin: .5rem 0
+}
+.capability p {
+font-size: 12px;
+max-width: 260px;
+margin: 0;
+line-height: 1.45
+}
+.system-board {
+position: absolute;
+top: 10%;
+left: 9%;
+width: 82%;
+padding: 14px;
+background: #f7f4ed;
+color: #111;
+box-shadow: 18px 22px 0 rgba(0, 0, 0, .12);
+transition: transform .7s cubic-bezier(.16, 1, .3, 1), box-shadow .7s
+}
+.capability:hover .system-board {
+transform: translate(-8px, -9px) rotate(-1.5deg);
+box-shadow: 28px 32px 0 rgba(0, 0, 0, .13)
+}
+.system-board__top,
+.system-board__foot {
+display: flex;
+justify-content: space-between;
+align-items: center;
+font-size: 9px;
+text-transform: uppercase;
+letter-spacing: .08em
+}
+.system-board__top b {
+font-weight: 500;
+color: var(--orange)
+}
+.system-board__top b:before {
+content: "";
+display: inline-block;
+width: 6px;
+height: 6px;
+border-radius: 50%;
+background: var(--orange);
+margin-right: 5px
+}
+.system-board__bars {
+display: grid;
+gap: 11px;
+margin: 25px 0 17px
+}
+.system-board__bars i {
+height: 1px;
+background: #b7b5b0;
+position: relative
+}
+.system-board__bars i:after {
+content: "";
+position: absolute;
+right: 0;
+top: -2px;
+width: 26%;
+height: 5px;
+background: var(--blue)
+}
+.system-board__bars i:nth-child(2):after {
+width: 52%;
+background: var(--orange)
+}
+.system-board__bars i:nth-child(3):after {
+width: 15%;
+background: #111
+}
+.prototype-stack {
+position: absolute;
+top: 10%;
+left: 50%;
+width: 57%;
+aspect-ratio: 1;
+transform: translateX(-50%);
+transition: transform .8s cubic-bezier(.16, 1, .3, 1)
+}
+.prototype-stack i {
+position: absolute;
+display: block;
+inset: 0;
+border: 1px solid #111;
+background: #f0ede5;
+transform: rotate(14deg)
+}
+.prototype-stack i:nth-child(2) {
+background: #ff521b;
+transform: rotate(-18deg) translate(-14px, 15px)
+}
+.prototype-stack i:nth-child(3) {
+background: #111;
+transform: rotate(30deg) translate(4px, -2px)
+}
+.prototype-stack b {
+position: absolute;
+z-index: 2;
+inset: 31%;
+display: grid;
+place-items: center;
+background: #2b4fd6;
+color: #fff;
+font-size: 10px;
+letter-spacing: .06em;
+transform: rotate(30deg)
+}
+.capability:hover .prototype-stack {
+transform: translateX(-50%) rotate(-10deg) scale(1.06)
+}
+.signal-field {
+position: absolute;
+inset: 7% 8% 35%;
+border-radius: 50%;
+background: repeating-radial-gradient(circle at center, transparent 0 20px, rgba(255, 255, 255, .76) 21px 23px);
+transition: transform .9s cubic-bezier(.16, 1, .3, 1)
+}
+.signal-field:before {
+content: "";
+position: absolute;
+inset: 18%;
+border: 1px solid rgba(255, 255, 255, .65);
+border-radius: 50%;
+box-shadow: 0 0 0 23px rgba(255, 255, 255, .08), 0 0 0 46px rgba(255, 255, 255, .05)
+}
+.signal-field:after {
+content: "01.00";
+position: absolute;
+left: 50%;
+top: 50%;
+transform: translate(-50%, -50%);
+font-size: 11px;
+letter-spacing: .1em
+}
+.capability:hover .signal-field {
+transform: scale(1.1) rotate(12deg)
+}
+.plans {
+display: grid;
+grid-template-columns: 1.4fr 1fr;
+gap: 8vw
+}
+.plans__head>p:not(.section-label) {
+max-width: 460px;
+color: var(--muted);
+font-size: 16px;
+line-height: 1.5
+}
+.plan-card {
+background: #fff;
+border: 1px solid #ddd;
+padding: 2rem;
+display: flex;
+flex-direction: column;
+min-height: 580px
+}
+.plan-card h3 {
+font-size: 5rem;
+letter-spacing: -.08em;
+margin: 1rem 0
+}
+.plan-card>strong {
+font-size: 2rem;
+margin: 2rem 0
+}
+.plan-card>strong small {
+font-size: .7rem
+}
+.plan-card ul {
+list-style: none;
+padding: 0;
+border-top: 1px solid #ddd
+}
+.plan-card li {
+padding: .7rem 0;
+border-bottom: 1px solid #ddd;
+font-size: 13px
+}
+.button {
+display: flex;
+justify-content: space-between;
+align-items: center;
+background: var(--orange);
+color: white;
+padding: 1rem 1.2rem;
+margin-top: auto;
+border-radius: 2px;
+text-transform: uppercase;
+font-size: 11px;
+letter-spacing: .08em
+}
+.faq {
+display: grid;
+grid-template-columns: 1fr 1.3fr;
+gap: 9vw;
+padding-top: 4vw
+}
+.accordion article {
+border-top: 1px solid var(--line)
+}
+.accordion article:last-child {
+border-bottom: 1px solid var(--line)
+}
+.accordion button {
+width: 100%;
+border: 0;
+background: none;
+display: flex;
+justify-content: space-between;
+padding: 1.5rem 0;
+text-align: left;
+cursor: pointer
+}
+.accordion button i {
+font-style: normal;
+font-size: 1.4rem;
+transition: transform .3s
+}
+.accordion p {
+max-height: 0;
+overflow: hidden;
+margin: 0;
+color: var(--muted);
+font-size: 14px;
+line-height: 1.6;
+transition: max-height .5s, padding .5s
+}
+.accordion article.open p {
+max-height: 160px;
+padding: 0 0 1.5rem
+}
+.accordion article.open i {
+transform: rotate(45deg)
+}
+.voices {
+padding-top: 4vw
+}
+.voices__head {
+display: grid;
+grid-template-columns: 1fr 2fr;
+margin-bottom: 7vw
+}
+.quote-track {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+border-top: 1px solid var(--line);
+border-bottom: 1px solid var(--line)
+}
+.quote-track figure {
+margin: 0;
+padding: 2.5rem;
+min-height: 430px;
+border-right: 1px solid var(--line);
+display: flex;
+flex-direction: column;
+justify-content: space-between
+}
+.quote-track figure:last-child {
+border: 0
+}
+.quote-track blockquote {
+margin: 0;
+font-family: "Instrument Serif";
+font-size: clamp(1.7rem, 2.6vw, 3rem);
+line-height: 1.04
+}
+.quote-track figcaption {
+display: flex;
+align-items: center;
+gap: 1rem
+}
+.quote-track img {
+width: 54px;
+height: 65px;
+object-fit: cover
+}
+.quote-track span {
+display: flex;
+flex-direction: column
+}
+.quote-track small {
+color: var(--muted);
+margin-top: .25rem
+}
+.journal {
+padding-top: 4vw
+}
+.journal__head {
+display: grid;
+grid-template-columns: 1fr 2fr 1fr;
+align-items: end;
+margin-bottom: 5vw
+}
+.journal__head p:last-child {
+font-size: 13px;
+color: var(--muted)
+}
+.journal__grid {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 1rem
+}
+.journal__art {
+height: 30vw;
+max-height: 480px;
+position: relative;
+overflow: hidden;
+background: #111
+}
+.journal__art>span {
+position: absolute;
+right: 1rem;
+top: 1rem;
+background: #fff;
+color: #111;
+width: 36px;
+height: 36px;
+border-radius: 50%;
+display: grid;
+place-items: center
+}
+.journal__art--one {
+background: radial-gradient(circle at 50% 30%, var(--orange) 0 14%, transparent 14.5%), linear-gradient(135deg, #111 40%, #1b49e0 40% 60%, #111 60%)
+}
+.journal__art--two img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+object-position: 65% center;
+filter: saturate(.65)
+}
+.journal__art--three {
+background: repeating-linear-gradient(105deg, #07143d 0 25px, #244ff1 25px 40px, #ff521b 40px 43px)
+}
+.journal__grid small {
+display: block;
+margin-top: 1rem;
+color: var(--muted);
+text-transform: uppercase;
+font-size: 9px
+}
+.journal__grid h3 {
+font-size: clamp(1.3rem, 2vw, 2rem);
+letter-spacing: -.04em;
+margin: .6rem 0;
+line-height: 1.05
+}
+.contact {
+min-height: 80vh;
+background: #080808;
+color: #fff;
+position: relative;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+text-align: center;
+overflow: hidden;
+padding: 5vw 1.25rem
+}
+.contact:before,
+.contact:after {
+content: "";
+position: absolute;
+width: 45vw;
+height: 45vw;
+border: 1px solid #333;
+border-radius: 50%
+}
+.contact:before {
+left: -20vw;
+top: 10%
+}
+.contact:after {
+right: -20vw;
+bottom: -30%
+}
+.contact__noise {
+position: absolute;
+inset: 0;
+opacity: .12;
+background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E")
+}
+.contact>p,
+.contact h2,
+.contact__actions {
+position: relative;
+z-index: 2
+}
+.contact>p {
+text-transform: uppercase;
+letter-spacing: .1em;
+font-size: 10px
+}
+.contact h2 {
+font-size: clamp(3.5rem, 7.5vw, 9rem);
+line-height: .85;
+letter-spacing: -.07em;
+margin: 2rem 0;
+font-weight: 500
+}
+.contact h2 em {
+font-family: "Instrument Serif";
+color: var(--orange);
+font-weight: 400
+}
+.contact__actions {
+display: flex;
+align-items: center;
+gap: 2rem
+}
+.button--light {
+background: white;
+color: #111;
+width: 190px
+}
+.contact__actions>a:last-child {
+font-size: 11px;
+border-bottom: 1px solid #555;
+padding-bottom: .2rem
+}
+.footer {
+background: var(--paper);
+color: var(--ink);
+overflow: hidden
+}
+.footer__marquee {
+display: flex;
+white-space: nowrap;
+border-bottom: 1px solid var(--line);
+color: var(--blue);
+font-size: 13vw;
+line-height: .78;
+font-weight: 600;
+letter-spacing: -.09em;
+padding: 2vw 0 1vw;
+animation: marquee 22s linear infinite
+}
+.footer__marquee span {
+display: block
+}
+@keyframes marquee {
+to {
+transform: translateX(-50%)
+}
+}
+.footer__grid {
+display: grid;
+grid-template-columns: 1fr 1fr 2fr 1.5fr;
+padding: 3rem 1.25rem;
+gap: 3rem
+}
+.footer__grid>div {
+display: flex;
+flex-direction: column;
+gap: .45rem;
+font-size: 12px
+}
+.footer__grid small {
+color: var(--muted);
+font-size: 9px;
+text-transform: uppercase;
+letter-spacing: .08em;
+margin-bottom: .7rem
+}
+.footer form label {
+display: flex;
+border-bottom: 1px solid var(--ink);
+margin-top: 2rem
+}
+.footer input {
+border: 0;
+background: none;
+padding: .8rem 0;
+width: 100%;
+outline: none
+}
+.footer form button {
+border: 0;
+background: none
+}
+.footer__meta {
+justify-content: flex-end
+}
+@media(max-width:760px) {
+.cursor {
+display: none
+}
+.nav {
+grid-template-columns: 1fr 1fr
+}
+.nav__links {
+display: none
+}
+.hero__copy {
+top: 26%;
+left: 1.1rem
+}
+.hero__headline {
+font-size: 19vw
+}
+.hero__word {
+font-size: 22vw;
+bottom: -1vw
+}
+.hero__image {
+object-position: 61% center
+}
+.manifesto {
+height: 330vh
+}
+.manifesto__line {
+font-size: 13vw
+}
+.tile--a {
+width: 62vw
+}
+.tile--b {
+width: 50vw
+}
+.tile--c {
+width: 55vw
+}
+.project {
+height: 78svh
+}
+.project__visit {
+width: 68px;
+height: 68px
+}
+.story__intro,
+.services__title,
+.journal__head {
+grid-template-columns: 1fr;
+gap: 1.5rem
+}
+.story__grid {
+grid-template-columns: 1fr;
+height: auto
+}
+.reel-card {
+height: 65vw
+}
+.stat-card {
+min-height: 330px
+}
+.service-list article {
+grid-template-columns: 10% 1fr
+}
+.service-list p,
+.service-list b {
+grid-column: 2
+}
+.capabilities {
+grid-template-columns: 1fr;
+padding: 0
+}
+.capability {
+min-height: 430px
+}
+.plans,
+.faq {
+grid-template-columns: 1fr
+}
+.plan-card {
+min-height: 520px
+}
+.voices__head {
+grid-template-columns: 1fr;
+gap: 1.5rem
+}
+.quote-track {
+display: flex;
+overflow-x: auto;
+scroll-snap-type: x mandatory
+}
+.quote-track figure {
+min-width: 85vw;
+scroll-snap-align: start
+}
+.journal__grid {
+grid-template-columns: 1fr
+}
+.journal__art {
+height: 80vw
+}
+.contact__actions {
+flex-direction: column
+}
+.footer__grid {
+grid-template-columns: 1fr 1fr
+}
+.footer form,
+.footer__meta {
+grid-column: 1/-1
+}
+}
+@media(prefers-reduced-motion:reduce) {
+* {
+scroll-behavior: auto !important;
+animation-duration: .01ms !important;
+animation-iteration-count: 1 !important
+}
+.tile {
+opacity: 1;
+transform: none
+}
+}
+/* Template 2 motion system: expanding media portal, pinned editorial type and stacked cards */
+.portal {
+height: 430vh;
+background: var(--paper);
+color: var(--ink);
+position: relative;
+z-index: 3;
+border-radius: 0 0 12px 12px
+}
+.portal__stage {
+position: sticky;
+top: 0;
+height: 100vh;
+overflow: hidden
+}
+.portal__corner {
+position: absolute;
+top: 2.2vw;
+z-index: 3;
+font-size: clamp(3.5rem, 7.5vw, 9rem);
+line-height: .8;
+letter-spacing: -.08em
+}
+.portal__corner--left {
+left: 1.2vw
+}
+.portal__corner--right {
+right: 1.2vw;
+font-family: "Instrument Serif";
+font-weight: 400
+}
+.portal__frame {
+position: absolute;
+left: 50%;
+top: 50%;
+width: 12vw;
+height: 9vw;
+min-width: 120px;
+min-height: 86px;
+transform: translate(-50%, -50%);
+overflow: hidden;
+will-change: width, height, border-radius
+}
+.portal__frame img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+transform: scale(1.18);
+will-change: transform
+}
+.portal__duotone {
+position: absolute;
+inset: 0;
+background: #ef3c28;
+mix-blend-mode: multiply;
+opacity: .28
+}
+.portal__dot {
+position: absolute;
+width: 11px;
+height: 11px;
+border-radius: 50%;
+background: var(--ink)
+}
+.portal__dot--a {
+left: 64%;
+top: 14%
+}
+.portal__dot--b {
+right: 9%;
+bottom: 11%
+}
+.portal__labels {
+position: absolute;
+inset: auto 1.2rem 1.1rem;
+display: flex;
+justify-content: space-between;
+font-size: 8px;
+text-transform: uppercase;
+letter-spacing: .08em
+}
+.portal__title {
+position: absolute;
+inset: 0;
+display: flex;
+align-items: center;
+justify-content: space-between;
+padding: 0 1.2vw;
+z-index: 4;
+color: #fff;
+font-size: clamp(4.5rem, 11vw, 13rem);
+letter-spacing: -.085em;
+line-height: .8;
+pointer-events: none;
+opacity: 0
+}
+.portal__title em {
+font-family: "Instrument Serif";
+font-weight: 400;
+color: var(--orange)
+}
+.intro-fold {
+height: 290vh;
+background: var(--paper);
+color: var(--ink);
+position: relative;
+z-index: 4;
+border-radius: 0 0 12px 12px
+}
+.intro-fold__sticky {
+height: 100vh;
+position: sticky;
+top: 0;
+overflow: hidden;
+border-top: 1px solid var(--line);
+display: grid;
+grid-template-columns: 1fr 3fr;
+padding: 2vw 1.25rem
+}
+.intro-fold__label {
+font-family: "Instrument Serif";
+font-size: 2rem
+}
+.intro-fold__statement {
+font-size: clamp(3rem, 5.8vw, 7rem);
+line-height: .88;
+letter-spacing: -.07em;
+margin: 0;
+max-width: 1280px
+}
+.intro-fold__statement i {
+font-family: "Instrument Serif";
+font-weight: 400
+}
+.intro-fold__float {
+position: absolute;
+margin: 0;
+width: 7vw;
+height: 10vw;
+min-width: 70px;
+min-height: 95px;
+right: 7vw;
+bottom: 7vh;
+overflow: hidden
+}
+.intro-fold__float img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+object-position: 72% center
+}
+.intro-fold__index {
+position: absolute;
+bottom: 1.2rem;
+left: 27%;
+font-size: 8px;
+text-transform: uppercase;
+letter-spacing: .1em
+}
+.project {
+border-radius: 12px 12px 0 0;
+transform-origin: center top
+}
+.services {
+position: relative;
+z-index: 4;
+border-radius: 12px 12px 0 0
+}
+.service-list article {
+position: relative;
+overflow: hidden;
+transition: background-color .35s, color .35s, padding .35s
+}
+.service-list article:hover {
+background: var(--blue);
+color: #fff;
+padding-left: 1rem;
+padding-right: 1rem
+}
+.service-list article:hover p {
+color: #c9d4ff
+}
+.journal {
+border-radius: 12px 12px 0 0;
+position: relative;
+z-index: 5
+}
+@media(max-width:760px) {
+.portal {
+height: 330vh
+}
+.portal__corner {
+font-size: 18vw;
+top: 1.2rem
+}
+.portal__frame {
+width: 28vw;
+height: 21vw
+}
+.portal__labels span:nth-child(2) {
+display: none
+}
+.portal__title {
+font-size: 19vw
+}
+.intro-fold {
+height: 220vh
+}
+.intro-fold__sticky {
+grid-template-columns: 1fr;
+padding: 1.2rem
+}
+.intro-fold__label {
+font-size: 1.3rem
+}
+.intro-fold__statement {
+font-size: 12vw;
+margin-top: 14vh
+}
+.intro-fold__float {
+width: 18vw;
+height: 27vw
+}
+.intro-fold__index {
+left: 1.2rem
+}
+}
+/* Studio access deck */
+.plans {
+align-items: start
+}
+.pricing-deck {
+height: 620px;
+position: relative;
+width: min(100%, 530px);
+margin-left: auto;
+isolation: isolate;
+touch-action: pan-y
+}
+.pricing-deck__hint {
+position: absolute;
+z-index: 10;
+top: -2.1rem;
+right: 0;
+margin: 0;
+color: var(--muted);
+font-size: 10px;
+text-transform: uppercase;
+letter-spacing: .09em
+}
+.pricing-deck__hint span {
+color: var(--orange);
+font-size: 14px;
+vertical-align: -1px
+}
+.plan-card {
+position: absolute;
+inset: 0;
+min-height: 0;
+margin: 0;
+background: #fdfcf9;
+border: 1px solid rgba(9, 9, 11, .2);
+box-shadow: 0 18px 45px rgba(24, 19, 12, .07);
+will-change: transform;
+user-select: none;
+cursor: grab
+}
+.plan-card:active {
+cursor: grabbing
+}
+.plan-card--core {
+background: #fffdf8
+}
+.plan-card--scale {
+background: #f7f0e7
+}
+.plan-card--partner {
+background: #eeece5
+}
+.plan-card__top {
+display: flex;
+justify-content: space-between;
+align-items: center;
+text-transform: uppercase;
+letter-spacing: .09em;
+font-size: 9px;
+color: var(--muted)
+}
+.plan-card__top span {
+color: var(--orange)
+}
+.plan-card h3 {
+font-size: clamp(4rem, 6vw, 5.7rem);
+line-height: .8;
+margin: 1.25rem 0 .8rem
+}
+.plan-card p {
+max-width: 295px;
+color: var(--muted);
+line-height: 1.45;
+font-size: 14px
+}
+.plan-card strong {
+font-size: 2.25rem;
+margin: 2rem 0 1.2rem;
+letter-spacing: -.05em
+}
+.plan-card strong small {
+font-size: .68rem;
+letter-spacing: 0;
+text-transform: uppercase
+}
+.plan-card .button {
+pointer-events: auto
+}
+.plan-card.is-front {
+box-shadow: 0 26px 68px rgba(24, 19, 12, .16)
+}
+.plan-card.is-dragging {
+transition: none !important
+}
+.pricing-deck.is-dragging .pricing-deck__hint {
+opacity: 0
+}
+.pricing-deck:not(.is-dragging) .plan-card {
+transition: transform .7s cubic-bezier(.16, 1, .3, 1), box-shadow .5s ease
+}
+/* FAQ — active-line system */
+.accordion {
+border-bottom: 1px solid var(--line)
+}
+.accordion article {
+position: relative;
+border-top: 1px solid var(--line);
+transition: background .35s ease, padding .35s ease
+}
+.accordion article:last-child {
+border-bottom: 0
+}
+.accordion article:before {
+content: "";
+position: absolute;
+inset: 0;
+background: rgba(255, 82, 27, .055);
+opacity: 0;
+transition: opacity .35s;
+pointer-events: none
+}
+.accordion article:hover:before,
+.accordion article.open:before {
+opacity: 1
+}
+.accordion button {
+position: relative;
+z-index: 1;
+padding: 1.45rem 1rem;
+width: 100%;
+align-items: center;
+transition: padding .35s, color .35s
+}
+.accordion button:hover {
+padding-left: 1.45rem;
+color: var(--orange)
+}
+.accordion button span {
+display: flex;
+gap: 1rem;
+align-items: center;
+font-size: clamp(1rem, 1.35vw, 1.25rem);
+letter-spacing: -.03em
+}
+.accordion button b {
+font-size: 9px;
+letter-spacing: .1em;
+color: var(--orange);
+font-weight: 500
+}
+.accordion button i {
+width: 28px;
+height: 28px;
+border: 1px solid rgba(9, 9, 11, .24);
+border-radius: 50%;
+position: relative;
+display: block;
+flex: 0 0 auto;
+transition: background .35s, border-color .35s, transform .35s
+}
+.accordion button i:before,
+.accordion button i:after {
+content: "";
+position: absolute;
+left: 50%;
+top: 50%;
+width: 10px;
+height: 1px;
+background: currentColor;
+transform: translate(-50%, -50%);
+transition: transform .35s
+}
+.accordion button i:after {
+transform: translate(-50%, -50%) rotate(90deg)
+}
+.accordion article.open button {
+padding-left: 1.45rem;
+color: var(--orange)
+}
+.accordion article.open button i {
+background: var(--orange);
+border-color: var(--orange);
+color: #fff;
+transform: rotate(180deg)
+}
+.accordion article.open button i:after {
+transform: translate(-50%, -50%) rotate(0deg)
+}
+.accordion p {
+position: relative;
+z-index: 1;
+max-width: 630px;
+padding: 0 1rem 0 1.45rem;
+font-size: 15px;
+line-height: 1.55;
+transition: max-height .55s cubic-bezier(.16, 1, .3, 1), padding .55s cubic-bezier(.16, 1, .3, 1), opacity .3s;
+opacity: 0
+}
+.accordion article.open p {
+max-height: 190px;
+padding: 0 2rem 1.6rem 1.45rem;
+opacity: 1
+}
+/* Testimonial portrait takeover */
+.quote-track {
+border: 0;
+gap: 1px;
+background: var(--line)
+}
+.quote-card {
+position: relative;
+overflow: hidden;
+background: var(--paper);
+isolation: isolate;
+transition: color .5s ease
+}
+.quote-card:before {
+content: "";
+position: absolute;
+inset: 0;
+z-index: -1;
+background: linear-gradient(180deg, rgba(2, 4, 8, .05), rgba(2, 4, 8, .78));
+opacity: 0;
+transition: opacity .55s ease
+}
+.quote-card__image {
+position: absolute !important;
+inset: 0;
+width: 100% !important;
+height: 100% !important;
+max-width: none !important;
+object-fit: cover;
+object-position: center;
+opacity: 0;
+transform: scale(1.12);
+filter: saturate(.85);
+transition: opacity .55s ease, transform 1s cubic-bezier(.16, 1, .3, 1), filter .55s ease
+}
+.quote-card__content {
+position: relative;
+z-index: 1;
+height: 100%;
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+transition: transform .55s cubic-bezier(.16, 1, .3, 1)
+}
+.quote-card figcaption {
+justify-content: space-between
+}
+.quote-card figcaption i {
+font-style: normal;
+width: 32px;
+height: 32px;
+border-radius: 50%;
+display: grid;
+place-items: center;
+border: 1px solid var(--line);
+transition: background .45s, border-color .45s
+}
+.quote-card:hover {
+color: #fff
+}
+.quote-card:hover:before {
+opacity: 1
+}
+.quote-card:hover .quote-card__image {
+opacity: 1;
+transform: scale(1);
+filter: saturate(1.04)
+}
+.quote-card:hover .quote-card__content {
+transform: translateY(-3px)
+}
+.quote-card:hover figcaption small {
+color: rgba(255, 255, 255, .75)
+}
+.quote-card:hover figcaption i {
+background: var(--orange);
+border-color: var(--orange)
+}
+@media(max-width:760px) {
+.pricing-deck {
+height: 545px;
+width: 100%;
+margin-top: 3rem
+}
+.pricing-deck__hint {
+left: 0;
+right: auto;
+top: -2.1rem
+}
+.plan-card {
+padding: 1.45rem
+}
+.plan-card h3 {
+font-size: 4.25rem
+}
+.plan-card strong {
+margin: 1.25rem 0 .8rem
+}
+.plan-card li {
+padding: .5rem 0
+}
+.accordion button {
+padding: .95rem .2rem
+}
+.accordion button span {
+gap: .65rem
+}
+.accordion article.open button {
+padding-left: .65rem
+}
+.accordion p {
+font-size: 14px;
+padding-left: .65rem
+}
+.accordion article.open p {
+padding-left: .65rem
+}
+.quote-track {
+gap: 1px
+}
+.quote-card:hover {
+color: var(--ink)
+}
+.quote-card:hover:before,
+.quote-card:hover .quote-card__image {
+opacity: 0
+}
+.quote-card:hover .quote-card__content {
+transform: none
+}
+}
+/* Hero video — full-frame pixelation */
+.hero__pixels {
+position: absolute;
+inset: 0;
+width: 100%;
+height: 100%;
+z-index: 1;
+pointer-events: none;
+opacity: 0;
+image-rendering: pixelated;
+transition: opacity .22s ease;
+will-change: opacity
+}
+.hero.is-pixel-active .hero__pixels {
+opacity: 1
+}
+@media(hover:none), (pointer:coarse) {
+.hero__pixels {
+display: none
+}
+}
+</style>
+<script src="https://cdn.tailwindcss.com"></script><!-- aura-ga4-start -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-2M6V79H761"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-2M6V79H761');
+</script>
+<!-- aura-ga4-end -->
+</head>
+
+<body class="">
+  <div class="loader" aria-hidden="true">
+    <div class="loader__mark">V/L</div>
+    <div class="loader__line"></div>
+  </div>
+  <div class="cursor" aria-hidden="true"></div>
+
+  <header class="nav nav--dark">
+    <a class="nav__logo" href="#top">VANTA/LOOP<span>®</span></a>
+    <nav class="nav__links" aria-label="Main navigation"><a href="#work">Work</a><a href="#studio">Studio</a><a href="#plans">Plans</a></nav>
+    <a class="nav__talk magnetic" href="#contact">Start a project <span>↗</span></a>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-label="VANTA LOOP introduction">
+      <video src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/generated-videos/5bd6211c-bd4c-467c-b442-4312cac4712c/1783792076978-c99ab0ec-d700-45ee-8703-82c79704fe22.mp4" poster="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/00adc45e-8f6a-44f3-b1f8-3aa163584379_3840w.webp" data-aura-generated-video="true" data-aura-video-preset="loop-in-view" muted="" playsinline="" preload="metadata" loop="" aria-label="Editorial portrait wearing amber visor eyewear" class="hero__image"></video>
+      <div class="hero__wash"></div>
+      <div class="hero__micro"><span>Independent studio · Toronto / Everywhere</span><span>Scroll to explore ↓</span>
+      </div>
+      <div class="hero__copy">
+        <p class="eyebrow reveal">Strategy · Identity · Digital</p>
+        <h1 class="hero__headline"><span>Ideas in motion.</span><span>Brands in orbit.</span></h1>
+        <p class="hero__dek reveal">A creative technology studio building living identities, magnetic products, and
+          digital experiences that refuse to sit still.</p>
+      </div>
+      <div class="hero__word" aria-hidden="true">VANTA/LOOP</div>
+      <button class="sound-toggle" type="button" aria-label="Toggle ambient sound"><i></i><i></i><i></i><span>Sound off</span></button>
+    </section>
+
+    <section class="portal" aria-label="VANTA LOOP motion reel">
+      <div class="portal__stage">
+        <div class="portal__corner portal__corner--left">VANTA</div>
+        <div class="portal__corner portal__corner--right">LOOP</div>
+        <div class="portal__dot portal__dot--a"></div>
+        <div class="portal__dot portal__dot--b"></div>
+        <div class="portal__frame"><video src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/generated-videos/5bd6211c-bd4c-467c-b442-4312cac4712c/1783795135018-210361c4-f560-41db-9297-12598d10786f.mp4" poster="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/d09b944c-c71d-4c2c-9c16-e6e662b4a9d2_800w.webp" data-aura-generated-video="true" data-aura-video-preset="loop-in-view" muted="" playsinline="" preload="metadata" loop="" aria-label="VANTA LOOP motion campaign" class="h-full w-full object-cover"></video>
+          <div class="portal__duotone"></div>
+        </div>
+        <div class="portal__labels">
+          <span>Selected motion / 2026</span><span>Creative systems in perpetual motion</span><span>Toronto · Worldwide</span>
+        </div>
+        <div class="portal__title"><span>Vanta</span><em>/</em><span>Loop</span></div>
+      </div>
+    </section>
+
+    <section class="intro-fold">
+      <div class="intro-fold__sticky">
+        <div class="intro-fold__label">Intro</div>
+        <p class="intro-fold__statement">Welcome to VANTA/LOOP, where strategy and motion arrive together. We turn
+          ambitious ideas into <i>living identities</i>, digital worlds, and campaigns with a pulse.</p>
+        <figure class="intro-fold__float"><img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/9edc2fc8-14f7-465a-970e-1285382a5b81_320w.webp" alt="VANTA LOOP editorial detail">
+        </figure>
+        <span class="intro-fold__index">Est. 2026</span>
+      </div>
+    </section>
+
+    <section class="manifesto" id="studio">
+      <div class="manifesto__sticky">
+        <div class="collage" aria-hidden="true">
+          <figure class="tile tile--a"><img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/variants/00b2a18f-3b42-4b51-822c-d32fc870fc2c/1600w.jpg" alt="">
+          </figure>
+          <figure class="tile tile--b"><img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/16c07f4d-275b-4307-b070-7f28307436e8_800w.webp" alt="">
+          </figure>
+          <figure class="tile tile--c"><img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/93dbb379-52e9-4ded-bc8a-c0f05aef82c0_1600w.webp" alt="">
+          </figure>
+          <figure class="tile tile--d">
+            <div class="orb"></div>
+          </figure>
+          <figure class="tile tile--e">
+            <div class="glyph">VL</div>
+          </figure>
+        </div>
+        <h2 class="manifesto__line">
+          <span>We make work that</span><span>moves people now</span><span>&amp; stays with them later.</span></h2>
+        <div class="side-index"><span>01</span><span>Make it felt</span></div>
+      </div>
+    </section>
+
+    <section class="projects" id="work">
+      <article class="project project--headset">
+        <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/f8bdac58-1f6e-4385-981f-9b971dad2337_3840w.webp" alt="Halo spatial audio headset">
+        <div class="project__shade"></div>
+        <div class="project__copy">
+          <p>Product world · Launch system</p>
+          <h3>Halo One</h3>
+        </div>
+        <a class="project__visit magnetic" href="#contact">View project <span>↗</span></a>
+      </article>
+      <article class="project project--stride">
+        <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/9698e5e4-055e-43d4-a47f-32f16fa416c3_3840w.webp" alt="Editorial campaign for Stride Run Club">
+        <div class="project__shade"></div>
+        <div class="project__copy">
+          <p>Identity · Campaign</p>
+          <h3>Stride / 26</h3>
+        </div>
+        <a class="project__visit magnetic" href="#contact">View project <span>↗</span></a>
+      </article>
+      <article class="project project--signal">
+        <div class="signal-art" aria-hidden="true">
+          <div class="signal-art__ring"></div>
+          <div class="signal-art__beam"></div>
+        </div>
+        <div class="project__copy">
+          <p>Platform · Experience</p>
+          <h3>Signal Field</h3>
+        </div>
+        <a class="project__visit magnetic" href="#contact">View project <span>↗</span></a>
+      </article>
+    </section>
+
+    <section class="story">
+      <div class="story__intro">
+        <p class="section-label"><span></span>Human by design</p>
+        <h2>Every signal carries<br>a human story.</h2>
+        <p>We unite research, design, and emerging technology to turn complex ideas into clear, resonant experiences.
+        </p>
+      </div>
+      <div class="story__grid">
+        <div class="reel-card"><video src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/generated-videos/5bd6211c-bd4c-467c-b442-4312cac4712c/1783795272353-5c2e4a02-1a33-4c67-aff8-efd427455799.mp4" poster="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/c69dfdca-2dcb-4cf4-8447-1de7f0a3e8ab_1600w.webp" data-aura-generated-video="true" data-aura-video-preset="loop-in-view" muted="" playsinline="" preload="metadata" loop="" aria-label="VANTA LOOP campaign reel" class="h-full w-full object-cover"></video><button class="reel-card__play" type="button"><span>▶</span> Play reel</button>
+        </div>
+        <div class="stat-card"><small>Audience connection</small><strong data-count="92">0</strong><i>%</i>
+          <p>of partners report stronger brand recall after launch.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="services">
+      <div class="services__title">
+        <p class="section-label"><span></span>Our practice</p>
+        <h2>What we do</h2>
+        <p>Senior creative and production expertise, assembled around the problem—not the org chart.</p>
+      </div>
+      <div class="service-list">
+        <article><span>01</span>
+          <h3>Positioning</h3>
+          <p>Research, strategy, naming, narrative and a distinct place in the world.</p><b>Brand strategy</b>
+        </article>
+        <article><span>02</span>
+          <h3>Identity</h3>
+          <p>Flexible visual systems that stay unmistakable across every expression.</p><b>Design systems</b>
+        </article>
+        <article><span>03</span>
+          <h3>Digital</h3>
+          <p>Websites and products engineered to feel lucid, useful and alive.</p><b>Experience design</b>
+        </article>
+        <article><span>04</span>
+          <h3>Campaign</h3>
+          <p>Launch platforms, art direction and content designed to keep moving.</p><b>Creative production</b>
+        </article>
+      </div>
+    </section>
+
+    <section class="capabilities">
+      <div class="capability capability--blue">
+        <div class="system-board">
+          <div class="system-board__top"><span>V/L system</span><b>Live</b></div>
+          <div class="system-board__bars"><i></i><i></i><i></i></div>
+          <div class="system-board__foot"><span>00.1</span><span>Identity framework</span></div>
+        </div>
+        <h3>Identity, built to breathe</h3>
+        <p>Living toolkits for every channel and every team.</p>
+      </div>
+      <div class="capability capability--cream">
+        <div class="prototype-stack" aria-hidden="true"><i></i><i></i><i></i><b>MAKE</b></div>
+        <h3>Ideas beyond the brief</h3>
+        <p>Prototypes that turn possibility into something tangible.</p>
+      </div>
+      <div class="capability capability--orange">
+        <div class="signal-field" aria-hidden="true"></div>
+        <h3>Momentum, measured</h3>
+        <p>Clear benchmarks for the signals that actually matter.</p>
+      </div>
+    </section>
+
+    <section class="plans" id="plans">
+      <div class="plans__head">
+        <p class="section-label"><span></span>Studio access</p>
+        <h2>Your flexible<br>creative department.</h2>
+        <p>One senior team. No retainers padded with meetings. Choose a working rhythm, then move through the cards to
+          find your fit.</p>
+      </div>
+      <div class="pricing-deck" aria-label="VANTA LOOP pricing plans">
+        <p class="pricing-deck__hint"><span>←</span> Drag a card to explore <span>→</span></p>
+        <article class="plan-card plan-card--core" data-plan="Core">
+          <div class="plan-card__top"><small>Monthly studio loop</small><span>01 / 03</span></div>
+          <div>
+            <h3>Core</h3>
+            <p>For teams that need a reliable creative rhythm.</p>
+          </div>
+          <strong>$12k <small>/ month</small></strong>
+          <ul>
+            <li>One active request</li>
+            <li>Weekly working sessions</li>
+            <li>Senior-only team</li>
+            <li>Pause anytime</li>
+          </ul>
+          <a href="#contact" class="button magnetic">Join the loop <span>↗</span></a>
+        </article>
+        <article class="plan-card plan-card--scale" data-plan="Scale">
+          <div class="plan-card__top"><small>Dedicated momentum</small><span>02 / 03</span></div>
+          <div>
+            <h3>Scale</h3>
+            <p>For teams moving across a product, platform, or launch.</p>
+          </div>
+          <strong>$22k <small>/ month</small></strong>
+          <ul>
+            <li>Two active requests</li>
+            <li>Twice-weekly working sessions</li>
+            <li>Expanded specialist bench</li>
+            <li>Priority response</li>
+          </ul>
+          <a href="#contact" class="button magnetic">Build momentum <span>↗</span></a>
+        </article>
+        <article class="plan-card plan-card--partner" data-plan="Partner">
+          <div class="plan-card__top"><small>Embedded creative team</small><span>03 / 03</span></div>
+          <div>
+            <h3>Partner</h3>
+            <p>For organisations with a continuing story to tell.</p>
+          </div>
+          <strong>Custom <small>scope</small></strong>
+          <ul>
+            <li>Embedded senior squad</li>
+            <li>Multi-stream planning</li>
+            <li>Leadership workshops</li>
+            <li>Quarterly growth roadmap</li>
+          </ul>
+          <a href="#contact" class="button magnetic">Talk partnership <span>↗</span></a>
+        </article>
+      </div>
+    </section>
+
+    <section class="faq">
+      <div class="faq__head">
+        <p class="section-label"><span></span>Good questions</p>
+        <h2>Answers, without<br>the agency fog.</h2>
+      </div>
+      <div class="accordion">
+        <article>
+          <button type="button" aria-expanded="false"><span><b>01</b> How quickly can we start?</span><i></i></button>
+          <p>Usually within two weeks. We begin with one focused alignment sprint, then move directly into making.</p>
+        </article>
+        <article>
+          <button type="button" aria-expanded="false"><span><b>02</b> Who will actually work with us?</span><i></i></button>
+          <p>A small, senior team selected for your challenge. The people in the room are the people doing the work.</p>
+        </article>
+        <article>
+          <button type="button" aria-expanded="false"><span><b>03</b> Can the scope change?</span><i></i></button>
+          <p>Yes. The loop is designed to flex. Reprioritize the queue, scale the team, or pause between releases.</p>
+        </article>
+        <article>
+          <button type="button" aria-expanded="false"><span><b>04</b> What does a first month look like?</span><i></i></button>
+          <p>We set a sharp point of view, build the working system, and deliver a first tangible release—usually a
+            strategic direction, identity foundation, or product prototype.</p>
+        </article>
+        <article>
+          <button type="button" aria-expanded="false"><span><b>05</b> Can you work with our internal team?</span><i></i></button>
+          <p>Absolutely. We frequently plug into product, marketing, and leadership teams, making the handoff as
+            thoughtful as the work itself.</p>
+        </article>
+        <article>
+          <button type="button" aria-expanded="false"><span><b>06</b> Do you take on standalone projects?</span><i></i></button>
+          <p>Yes. Focused identity, launch, and digital experience engagements are a natural fit when there is a clear
+            decision to make or a moment to seize.</p>
+        </article>
+        <article>
+          <button type="button" aria-expanded="false"><span><b>07</b> How do we know which plan fits?</span><i></i></button>
+          <p>Start with the work in front of you. Core suits one important priority; Scale suits a connected release;
+            Partner suits an ongoing creative agenda. We can always tune the rhythm together.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="voices">
+      <div class="voices__head">
+        <p class="section-label"><span></span>Partner notes</p>
+        <h2>Good work makes<br>good company.</h2>
+      </div>
+      <div class="quote-track">
+        <figure class="quote-card"><img class="quote-card__image" src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/74117bff-45d0-4c3e-ae97-12067641be39_1600w.webp" alt="Mara Chen">
+          <div class="quote-card__content">
+            <blockquote>“They found the pulse of the product before we had the words for it.”</blockquote>
+            <figcaption><span><b>Mara Chen</b><small>Founder, Halo</small></span><i>↗</i></figcaption>
+          </div>
+        </figure>
+        <figure class="quote-card"><img class="quote-card__image" src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/d09b944c-c71d-4c2c-9c16-e6e662b4a9d2_1600w.webp" alt="Jon Bell">
+          <div class="quote-card__content">
+            <blockquote>“VANTA/LOOP gave us a system our whole team wanted to use.”</blockquote>
+            <figcaption><span><b>Jon Bell</b><small>VP Brand, Stride</small></span><i>↗</i></figcaption>
+          </div>
+        </figure>
+        <figure class="quote-card"><img class="quote-card__image" src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/c68d968c-addf-43d4-a2e6-887530e5a223_1600w.webp" alt="Priya Rao">
+          <div class="quote-card__content">
+            <blockquote>“Fast, exacting, curious—the rare partner that raises every ambition.”</blockquote>
+            <figcaption><span><b>Priya Rao</b><small>CEO, Common Field</small></span><i>↗</i></figcaption>
+          </div>
+        </figure>
+      </div>
+    </section>
+
+    <section class="journal">
+      <div class="journal__head">
+        <p class="section-label"><span></span>Field notes</p>
+        <h2>Signals from the studio</h2>
+        <p>Observations on brands, behaviors, and the technology between them.</p>
+      </div>
+      <div class="journal__grid">
+        <article>
+          <div class="journal__art journal__art--one"><span>↗</span></div><small>Systems · 6 min</small>
+          <h3>Why the strongest identities leave room for change</h3>
+        </article>
+        <article>
+          <div class="journal__art journal__art--two">
+            <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/fc47f346-0d22-45d2-b480-9ecf6c5f4b0d_1600w.webp" alt=""><span>↗</span>
+          </div><small>Culture · 8 min</small>
+          <h3>Designing a useful point of view in the age of averages</h3>
+        </article>
+        <article>
+          <div class="journal__art journal__art--three"><span>↗</span></div><small>Technology · 5 min</small>
+          <h3>The interfaces we feel before we understand</h3>
+        </article>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="contact__noise"></div>
+      <p>There’s always a first signal.</p>
+      <h2>Let’s make yours<br><em>impossible to miss.</em></h2>
+      <div class="contact__actions"><a href="mailto:hello@vantaloop.studio" class="button button--light magnetic">Start
+          a project <span>↗</span></a><a href="mailto:hello@vantaloop.studio">hello@vantaloop.studio</a></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__marquee"><span>VANTA/LOOP® VANTA/LOOP®&nbsp;</span><span>VANTA/LOOP® VANTA/LOOP®&nbsp;</span>
+    </div>
+    <div class="footer__grid">
+      <div><a href="#work">Work</a><a href="#studio">Studio</a><a href="#plans">Plans</a><a href="#contact">Contact</a>
+      </div>
+      <div><small>Elsewhere</small><a href="#">Instagram ↗</a><a href="#">LinkedIn ↗</a><a href="#">Are.na ↗</a></div>
+      <form>
+        <small>Occasional signals, never noise.</small><label><input type="email" placeholder="Email address" aria-label="Email address"><button type="submit">→</button></label>
+      </form>
+      <div class="footer__meta"><small>Toronto · working globally</small><small>© 2026 VANTA/LOOP STUDIO</small></div>
+    </div>
+  </footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script>
+    document.body.classList.add('loading');
+window.addEventListener('load',()=>{setTimeout(()=>{document.querySelector('.loader').classList.add('done');document.body.classList.remove('loading')},500)});
+
+const cursor=document.querySelector('.cursor');
+if(matchMedia('(pointer:fine)').matches){
+  window.addEventListener('pointermove',e=>{cursor.style.left=e.clientX+'px';cursor.style.top=e.clientY+'px'});
+  document.querySelectorAll('a,button').forEach(el=>{el.addEventListener('mouseenter',()=>cursor.classList.add('is-hover'));el.addEventListener('mouseleave',()=>cursor.classList.remove('is-hover'))});
+}
+
+const manifesto=document.querySelector('.manifesto');
+const tiles=[...document.querySelectorAll('.tile')];
+const lines=[...document.querySelectorAll('.manifesto__line span')];
+let ticking=false;
+function clamp(n,a=0,b=1){return Math.min(b,Math.max(a,n))}
+function updateScroll(){
+  const rect=manifesto.getBoundingClientRect();
+  const max=manifesto.offsetHeight-innerHeight;
+  const p=clamp(-rect.top/max);
+  tiles.forEach((tile,i)=>{
+    const start=.05+i*.105,end=start+.22,q=clamp((p-start)/(end-start));
+    tile.style.opacity=q;
+    tile.style.transform=`translateY(${(1-q)*50}px) scale(${.78+q*.22}) rotate(${(1-q)*(i%2?4:-4)}deg)`;
+  });
+  lines.forEach((line,i)=>{const q=clamp((p-(.08+i*.22))/.18);line.style.opacity=.18+q*.82});
+  const hero=document.querySelector('.hero__image');
+  if(scrollY<innerHeight*1.2)hero.style.transform=`scale(${1+scrollY*.00006}) translateY(${scrollY*.08}px)`;
+  ticking=false;
+}
+window.addEventListener('scroll',()=>{if(!ticking){requestAnimationFrame(updateScroll);ticking=true}},{passive:true});updateScroll();
+
+// Shared scroll reveal: each section enters with the same quiet slide-and-fade rhythm.
+const revealObserver=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.animate([{opacity:0,transform:'translateY(42px)'},{opacity:1,transform:'none'}],{duration:800,easing:'cubic-bezier(.22,1,.36,1)',fill:'both'});revealObserver.unobserve(entry.target)}}),{threshold:.12});
+document.querySelectorAll('.portal__labels,.intro-fold__label,.intro-fold__index,.project__copy,.story__intro,.story__grid,.services__title,.service-list article,.capability,.plans__head,.pricing-deck,.faq__head,.accordion article,.voices__head,.quote-track figure,.journal__head,.journal__grid article,.contact>p,.contact h2,.contact__actions,.footer__grid').forEach(el=>{el.style.opacity=0;revealObserver.observe(el)});
+
+const count=document.querySelector('[data-count]');
+const countObserver=new IntersectionObserver(([entry])=>{if(!entry.isIntersecting)return;let start=0,target=+count.dataset.count,t0=performance.now();function run(now){const p=Math.min(1,(now-t0)/1400);count.textContent=Math.round(target*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(run)}requestAnimationFrame(run);countObserver.disconnect()},{threshold:.5});countObserver.observe(count);
+
+document.querySelectorAll('.accordion button').forEach(button=>button.addEventListener('click',()=>{const item=button.parentElement;const willOpen=!item.classList.contains('open');document.querySelectorAll('.accordion article').forEach(x=>{x.classList.remove('open');x.querySelector('button').setAttribute('aria-expanded','false')});if(willOpen){item.classList.add('open');button.setAttribute('aria-expanded','true')}}));
+
+document.querySelectorAll('.magnetic').forEach(el=>{el.addEventListener('mousemove',e=>{const r=el.getBoundingClientRect();el.style.transform=`translate(${(e.clientX-r.left-r.width/2)*.12}px,${(e.clientY-r.top-r.height/2)*.12}px)`});el.addEventListener('mouseleave',()=>el.style.transform='')});
+
+document.querySelector('.sound-toggle').addEventListener('click',function(){this.classList.toggle('active');this.querySelector('span').textContent=this.classList.contains('active')?'Sound on':'Sound off'});
+document.querySelector('.footer form').addEventListener('submit',e=>{e.preventDefault();const input=e.currentTarget.querySelector('input');if(input.value){e.currentTarget.querySelector('small').textContent='You’re in the loop.';input.value=''}});
+
+// Hero pixel hover. The full video is sampled at a low resolution and enlarged.
+const heroStage=document.querySelector('.hero');
+const heroVideo=heroStage?.querySelector('.hero__image');
+if(heroStage&&heroVideo&&matchMedia('(hover:hover) and (pointer:fine)').matches&&!(matchMedia('(prefers-reduced-motion: reduce)').matches)){
+  const pixelCanvas=document.createElement('canvas');
+  pixelCanvas.className='hero__pixels';
+  pixelCanvas.setAttribute('aria-hidden','true');
+  heroStage.insertBefore(pixelCanvas,heroStage.querySelector('.hero__wash'));
+
+  const context=pixelCanvas.getContext('2d',{alpha:false});
+  const sample=document.createElement('canvas');
+  const sampleContext=sample.getContext('2d',{alpha:false});
+  const state={cell:1};
+  let frame=0,playing=false,lastCell=0;
+  const resize=()=>{
+    const ratio=Math.min(window.devicePixelRatio||1,1.5);
+    pixelCanvas.width=Math.round(heroStage.clientWidth*ratio);
+    pixelCanvas.height=Math.round(heroStage.clientHeight*ratio);
+  };
+  const coverCrop=()=>{
+    const sourceWidth=heroVideo.videoWidth||1920,sourceHeight=heroVideo.videoHeight||1080;
+    const sourceRatio=sourceWidth/sourceHeight,targetRatio=pixelCanvas.width/pixelCanvas.height;
+    if(sourceRatio>targetRatio){const width=sourceHeight*targetRatio;return [(sourceWidth-width)/2,0,width,sourceHeight]}
+    const height=sourceWidth/targetRatio;return [0,(sourceHeight-height)/2,sourceWidth,height];
+  };
+  const draw=()=>{
+    if(!playing)return;
+    const cell=Math.max(1,Math.round(state.cell));
+    const width=Math.max(2,Math.ceil(pixelCanvas.width/cell));
+    const height=Math.max(2,Math.ceil(pixelCanvas.height/cell));
+    if(cell!==lastCell){sample.width=width;sample.height=height;lastCell=cell}
+    const [sx,sy,sw,sh]=coverCrop();
+    try{
+      sampleContext.imageSmoothingEnabled=false;
+      sampleContext.drawImage(heroVideo,sx,sy,sw,sh,0,0,sample.width,sample.height);
+      context.imageSmoothingEnabled=false;
+      context.drawImage(sample,0,0,sample.width,sample.height,0,0,pixelCanvas.width,pixelCanvas.height);
+    }catch(error){/* Original video remains visible if canvas drawing is restricted. */}
+    frame=requestAnimationFrame(draw);
+  };
+  const start=()=>{
+    gsap.killTweensOf(state);
+    if(!playing){playing=true;lastCell=0;resize();draw()}
+    heroStage.classList.add('is-pixel-active');
+    gsap.to(state,{cell:22,duration:.52,ease:'power3.out'});
+  };
+  const stop=()=>{
+    gsap.killTweensOf(state);
+    gsap.to(state,{cell:1,duration:.45,ease:'power3.inOut',onComplete:()=>{
+      heroStage.classList.remove('is-pixel-active');
+      playing=false;cancelAnimationFrame(frame);context.clearRect(0,0,pixelCanvas.width,pixelCanvas.height);
+    }});
+  };
+  heroStage.addEventListener('pointerenter',start);
+  heroStage.addEventListener('pointerleave',stop);
+  window.addEventListener('resize',resize,{passive:true});
+}
+
+// Infinite drag-to-cycle pricing deck. The same three cards are continuously reordered;
+// no card is removed or kept off-screen after a release.
+const deck=document.querySelector('.pricing-deck');
+if(deck){
+  const cards=[...deck.querySelectorAll('.plan-card')];
+  const threshold=72;
+  let ordered=[...cards],activeCard=null,startX=0,startY=0,dragX=0,didDrag=false,isAnimating=false;
+  const spring={duration:.68,ease:'elastic.out(1,.72)',overwrite:true};
+  const slot=(index)=>({x:index*-11,y:index*13,rotation:index*-1.7,scale:1-index*.028,zIndex:cards.length-index,opacity:1});
+  const tween=(card,vars)=>gsap.to(card,{...spring,...vars});
+  const resetCard=(card,index,immediate=false)=>{
+    const vars=slot(index);
+    card.classList.toggle('is-front',index===0);
+    if(immediate)gsap.set(card,vars);else tween(card,vars);
+  };
+  const layout=(immediate=false)=>ordered.forEach((card,index)=>resetCard(card,index,immediate));
+  const release=()=>{
+    if(!activeCard)return;
+    const card=activeCard;
+    const distance=dragX;
+    deck.classList.remove('is-dragging');card.classList.remove('is-dragging');
+    activeCard=null;dragX=0;
+    if(Math.abs(distance)<threshold){
+      layout();
+      window.setTimeout(()=>{didDrag=false},0);
+      return;
+    }
+    isAnimating=true;
+    const direction=distance<0?-1:1;
+    // Reorder first: the next card immediately receives the front slot and z-index.
+    ordered=ordered.slice(1).concat(card);
+    ordered.slice(0,-1).forEach((next,index)=>resetCard(next,index));
+    card.classList.remove('is-front');
+    gsap.set(card,{zIndex:cards.length+1});
+    gsap.to(card,{x:direction*(deck.clientWidth*.98),y:-18,rotation:direction*14,opacity:0,duration:.32,ease:'power2.in',overwrite:true,onComplete:()=>{
+      // Reset the departed card behind the stack before it becomes visible again.
+      resetCard(card,cards.length-1,true);
+      gsap.fromTo(card,{opacity:0,scale:.9},{opacity:1,scale:slot(cards.length-1).scale,duration:.42,ease:'power2.out',overwrite:true,onComplete:()=>{
+        layout();
+        isAnimating=false;
+        window.setTimeout(()=>{didDrag=false},0);
+      }});
+    }});
+  };
+  const move=e=>{
+    if(!activeCard)return;
+    dragX=e.clientX-startX;
+    const dragY=e.clientY-startY;
+    if(Math.abs(dragX)>6||Math.abs(dragY)>6)didDrag=true;
+    gsap.set(activeCard,{x:dragX,y:dragY*.16,rotation:dragX*.035,scale:1.015,opacity:1});
+  };
+  deck.addEventListener('pointerdown',e=>{
+    const card=e.target.closest('.plan-card');
+    if(isAnimating||!card||card!==ordered[0])return;
+    activeCard=card;startX=e.clientX;startY=e.clientY;dragX=0;didDrag=false;
+    deck.classList.add('is-dragging');card.classList.add('is-dragging');
+    deck.setPointerCapture?.(e.pointerId);
+  });
+  deck.addEventListener('pointermove',move);
+  deck.addEventListener('pointerup',release);deck.addEventListener('pointercancel',release);
+  deck.addEventListener('click',e=>{if(didDrag)e.preventDefault()},{capture:true});
+  layout(true);
+}
+
+// Template 2-inspired scroll choreography.
+if(window.gsap&&window.ScrollTrigger&&!matchMedia('(prefers-reduced-motion: reduce)').matches){
+  gsap.registerPlugin(ScrollTrigger);
+  const portalTL=gsap.timeline({scrollTrigger:{trigger:'.portal',start:'top top',end:'bottom bottom',scrub:1}});
+  portalTL
+    .to('.portal__corner--left',{xPercent:-115,ease:'none'},0)
+    .to('.portal__corner--right',{xPercent:115,ease:'none'},0)
+    .to('.portal__dot--a',{x:'18vw',y:'55vh',ease:'none'},0)
+    .to('.portal__dot--b',{x:'-58vw',y:'-45vh',ease:'none'},0)
+    .to('.portal__frame',{width:'34vw',height:'25vw',borderRadius:'2px',ease:'power2.inOut'},0)
+    .to('.portal__frame img',{scale:1,ease:'none'},0)
+    .to('.portal__frame',{width:'100vw',height:'100vh',ease:'power3.inOut'},.45)
+    .to('.portal__duotone',{opacity:.08,ease:'none'},.45)
+    .to('.portal__title',{opacity:1,ease:'none'},.58)
+    .fromTo('.portal__title span:first-child',{xPercent:-45},{xPercent:0,ease:'none'},.58)
+    .fromTo('.portal__title span:last-child',{xPercent:45},{xPercent:0,ease:'none'},.58)
+    .to('.portal__title',{scale:1.12,letterSpacing:'-.11em',ease:'none'},.78);
+
+  const introTL=gsap.timeline({scrollTrigger:{trigger:'.intro-fold',start:'top top',end:'bottom bottom',scrub:1}});
+  introTL
+    .fromTo('.intro-fold__statement',{yPercent:65,clipPath:'inset(0 0 100% 0)'},{yPercent:0,clipPath:'inset(0 0 0% 0)',ease:'power3.out'},0)
+    .fromTo('.intro-fold__float',{x:'-62vw',y:'-42vh',scale:.5},{x:0,y:0,scale:1,ease:'none'},.12)
+    .to('.intro-fold__float',{width:'28vw',height:'40vw',right:'-3vw',bottom:'-5vh',ease:'power2.inOut'},.58)
+    .to('.intro-fold__statement',{xPercent:-7,ease:'none'},.58);
+
+  gsap.utils.toArray('.project').forEach((panel,index,panels)=>{
+    if(index===panels.length-1)return;
+    ScrollTrigger.create({trigger:panel,start:'top top',end:'bottom top',pin:true,pinSpacing:false});
+    gsap.to(panel,{scale:.92,y:-28,filter:'brightness(.45)',ease:'none',scrollTrigger:{trigger:panels[index+1],start:'top bottom',end:'top top',scrub:true}});
+  });
+
+  gsap.utils.toArray('.project > img').forEach(image=>gsap.fromTo(image,{scale:1.16},{scale:1,ease:'none',scrollTrigger:{trigger:image.parentElement,start:'top bottom',end:'bottom top',scrub:1}}));
+  gsap.utils.toArray('.journal__art').forEach((art,index)=>gsap.fromTo(art,{clipPath:index%2?'inset(0 100% 0 0)':'inset(100% 0 0 0)',scale:.82},{clipPath:'inset(0% 0% 0% 0%)',scale:1,ease:'power3.out',scrollTrigger:{trigger:art,start:'top 88%',end:'top 45%',scrub:1}}));
+  ScrollTrigger.refresh();
+}
+
+  </script>
+
+
+
+  <script data-aura-video-controller="true">
+    (function () {
+  function playVideo(video) {
+    var promise = video.play();
+    if (promise && typeof promise.catch === "function") {
+      promise.catch(function () {});
+    }
+  }
+
+  function setupVideo(video) {
+    if (video.__auraVideoReady === true) return;
+    video.__auraVideoReady = true;
+    video.removeAttribute("data-aura-video-ready");
+    video.removeAttribute("data-aura-video-played");
+    video.muted = true;
+    video.playsInline = true;
+
+    var preset = video.dataset.auraVideoPreset || "loop-in-view";
+    if (preset === "hover") {
+      video.addEventListener("mouseenter", function () {
+        playVideo(video);
+      });
+      video.addEventListener("mouseleave", function () {
+        video.pause();
+        video.currentTime = 0;
+      });
+      return;
+    }
+
+    if (!("IntersectionObserver" in window)) {
+      playVideo(video);
+      return;
+    }
+
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          if (preset === "play-once" && video.__auraVideoPlayed === true) {
+            return;
+          }
+          playVideo(video);
+        } else {
+          video.pause();
+        }
+      });
+    }, { threshold: 0.35 });
+
+    if (preset === "play-once") {
+      video.addEventListener("ended", function () {
+        video.__auraVideoPlayed = true;
+      }, { once: true });
+    }
+
+    observer.observe(video);
+  }
+
+  function setupVideos() {
+    document
+      .querySelectorAll("video[data-aura-video-preset]")
+      .forEach(setupVideo);
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", setupVideos);
+  } else {
+    setupVideos();
+  }
+})();
+  </script>
+
+
+</body></html>

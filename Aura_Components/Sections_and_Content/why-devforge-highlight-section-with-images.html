@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Component Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      height: 100%;
+      overflow: auto;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #ffffff;
+      color: #000000;
+    }
+    .component-wrapper {
+      width: 100%;
+      height: 100%;
+      padding: 0;
+      box-sizing: border-box;
+      overflow: auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="component-wrapper">
+    <html><head></head><body><section class="bg-[#E4E9E5] pt-24 pb-24">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex items-center gap-3 mb-8">
+                <div class="h-px w-8 bg-[#18181B]"></div>
+                <span class="text-sm font-semibold uppercase tracking-wider text-[#18181B]">Why DevForge</span>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 mb-20">
+                <div class="">
+                    <div class="flex items-center gap-4 mb-8">
+                        <div class="flex -space-x-4">
+                             <img class="w-14 h-14 rounded-full border-4 border-[#E4E9E5]" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&amp;fit=crop&amp;w=100&amp;h=100" alt="Reviewer">
+                             <img class="w-14 h-14 rounded-full border-4 border-[#E4E9E5]" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&amp;fit=crop&amp;w=100&amp;h=100" alt="Reviewer">
+                             <img class="w-14 h-14 rounded-full border-4 border-[#E4E9E5]" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&amp;fit=crop&amp;w=100&amp;h=100" alt="Reviewer">
+                        </div>
+                        <div class="">
+                            <div class="font-semibold text-xl text-[#18181B]">4.9/5 Rating</div>
+                            <div class="text-[#52525B] text-sm font-light">Based on 1,200+ Graduate Reviews</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="">
+                    <h2 class="lg:text-5xl leading-tight text-4xl text-[#18181B] mb-6 font-medium tracking-tight">
+                        Accelerate Your Journey from Novice to Software Engineer.
+                    </h2>
+                    <p class="text-xl text-[#52525B] leading-relaxed mb-8 font-light">
+                        At DevForge Academy, we combine rigorous technical training with career-focused mentorship. Our immersive curriculum is designed to transform you into a high-impact developer in just 12 weeks.
+                    </p>
+                </div>
+            </div>
+
+            <!-- About Images -->
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+                <div class="md:col-span-5 relative group">
+                    <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/9cc23948-cfe5-4f3d-9621-720fba8e3408_1600w.jpg" alt="Office meeting" class="w-full h-80 object-cover rounded-[2rem] shadow-xl">
+                </div>
+                <div class="md:col-span-5 relative group">
+                     <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/7f6fb7b5-3e24-4bb3-96d7-788a0bc2e2db_1600w.jpg" alt="Collaboration" class="w-full h-80 object-cover rounded-[2rem] shadow-xl">
+                </div>
+                <div class="md:col-span-2 flex items-end justify-end">
+                     <a href="#" class="w-full h-full min-h-[100px] bg-[#18181B] text-white rounded-[2rem] flex flex-col items-center justify-center gap-3 hover:bg-[#27272A] transition-colors p-6 text-center border border-[#9EF0A0]/20 shadow-xl group">
+                        <span class="text-lg font-medium text-white">Meet Mentors</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="1em" height="1em" viewBox="0 0 24 24" data-icon="solar:arrow-right-bold-duotone" class="iconify text-2xl text-[#9EF0A0] group-hover:translate-x-1 transition-transform iconify--solar"><path fill="currentColor" fill-rule="evenodd" d="M3.25 12a.75.75 0 0 1 .75-.75h9.25v1.5H4a.75.75 0 0 1-.75-.75" clip-rule="evenodd" opacity=".5" class=""></path><path fill="currentColor" d="M13.25 12.75V18a.75.75 0 0 0 1.28.53l6-6a.75.75 0 0 0 0-1.06l-6-6a.75.75 0 0 0-1.28.53z" class=""></path></svg>
+                     </a>
+                </div>
+            </div>
+        </div>
+    </section></body></html>
+  </div>
+  
+    <script>
+      (function() {
+        function checkAndCenter() {
+          // Use double requestAnimationFrame to ensure DOM is fully painted and layout is stable
+          requestAnimationFrame(function() {
+            requestAnimationFrame(function() {
+              const wrapper = document.querySelector('.component-wrapper');
+              if (!wrapper) return;
+              
+              // Get all child elements
+              const children = Array.from(wrapper.children);
+              if (children.length === 0) return;
+              
+              // Temporarily override wrapper styles to shrink-wrap for measurement
+              // Set inline styles to shrink-wrap (inline styles override CSS)
+              wrapper.style.display = 'inline-block';
+              wrapper.style.width = 'auto';
+              wrapper.style.height = 'auto';
+              wrapper.style.overflow = 'visible';
+              wrapper.style.boxSizing = 'content-box';
+              
+              // Force multiple reflows to ensure styles are fully applied
+              void wrapper.offsetHeight;
+              void wrapper.offsetWidth;
+              void wrapper.offsetHeight;
+              
+              // Measure the wrapper's content size
+              const contentWidth = wrapper.offsetWidth;
+              const contentHeight = wrapper.offsetHeight;
+              
+              // Restore original styles by removing inline styles we added
+              wrapper.style.removeProperty('display');
+              wrapper.style.removeProperty('width');
+              wrapper.style.removeProperty('height');
+              wrapper.style.removeProperty('overflow');
+              wrapper.style.removeProperty('box-sizing');
+              
+              // If content is less than 500x500, center it
+              if (contentWidth > 0 && contentHeight > 0 && contentWidth < 500 && contentHeight < 500) {
+                wrapper.style.display = 'flex';
+                wrapper.style.alignItems = 'center';
+                wrapper.style.justifyContent = 'center';
+              }
+            });
+          });
+        }
+        
+        // Check immediately and after delays to ensure content is rendered and styled
+        function runChecks() {
+          checkAndCenter();
+          setTimeout(checkAndCenter, 50);
+          setTimeout(checkAndCenter, 150);
+          setTimeout(checkAndCenter, 300);
+          setTimeout(checkAndCenter, 500);
+          setTimeout(checkAndCenter, 1000);
+        }
+        
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', runChecks);
+        } else {
+          runChecks();
+        }
+        
+        // Also check when images or other resources load
+        window.addEventListener('load', () => {
+          setTimeout(checkAndCenter, 100);
+          setTimeout(checkAndCenter, 300);
+        });
+        
+        // Use ResizeObserver to detect size changes
+        if (window.ResizeObserver) {
+          setTimeout(() => {
+            const wrapper = document.querySelector('.component-wrapper');
+            if (wrapper) {
+              const observer = new ResizeObserver(() => {
+                setTimeout(checkAndCenter, 50);
+              });
+              observer.observe(wrapper);
+            }
+          }, 500);
+        }
+      })();
+    </script>
+  
+</body>
+</html>

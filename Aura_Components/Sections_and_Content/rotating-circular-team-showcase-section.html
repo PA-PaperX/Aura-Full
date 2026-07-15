@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Component Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      height: 100%;
+      overflow: auto;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #000000;
+      color: #ffffff;
+    }
+    .component-wrapper {
+      width: 100%;
+      height: 100%;
+      padding: 0;
+      box-sizing: border-box;
+      overflow: auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="component-wrapper">
+    <html><head></head><body><div class="bg-neutral-900/30 ring-neutral-800 ring-1 rounded-xl pt-8 pr-8 pb-8 pl-8 max-w-6xl">
+  <div class="relative">
+    <div class="hidden lg:block absolute left-1/2 top-0 bottom-0 w-px bg-white/10"></div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+      <!-- Left: Copy -->
+      <div class="w-full h-full">
+        <div class="flex gap-3 mb-4 items-center">
+
+          <span class="text-sm font-medium text-neutral-300">Meet Our Team</span>
+        </div>
+
+        <h2 class="sm:text-6xl text-5xl font-light text-white tracking-tighter mb-4">
+          Built by Creative Minds
+        </h2>
+        <p class="text-lg text-slate-300/85">
+          Our diverse team of designers, developers, and AI specialists work together to create tools that enhance your
+          creative workflow and bring your vision to life.
+        </p>
+
+        <!-- Feature pills -->
+        <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div class="inline-flex items-center justify-center rounded-md px-4 py-2 ring-1 ring-sky-400/30 bg-neutral-900/60 shadow-[0_0_0_1px_rgba(56,189,248,0.25)]" style="background-image: radial-gradient(rgba(255,255,255,0.06) 1px, transparent 1px); background-size: 12px 12px;">
+            <span class="text-sm text-neutral-300 font-medium tracking-tight">Creative Expertise</span>
+          </div>
+          <div class="inline-flex items-center justify-center rounded-md px-4 py-2 ring-1 ring-sky-400/30 bg-neutral-900/60 shadow-[0_0_0_1px_rgba(56,189,248,0.25)]" style="background-image: radial-gradient(rgba(255,255,255,0.06) 1px, transparent 1px); background-size: 12px 12px;">
+            <span class="text-sm text-neutral-300 font-medium tracking-tight">AI Innovation</span>
+          </div>
+          <div class="inline-flex items-center justify-center rounded-md px-4 py-2 ring-1 ring-sky-400/30 bg-neutral-900/60 shadow-[0_0_0_1px_rgba(56,189,248,0.25)]" style="background-image: radial-gradient(rgba(255,255,255,0.06) 1px, transparent 1px); background-size: 12px 12px;">
+            <span class="text-sm text-neutral-300 font-medium tracking-tight">User-Centered Design</span>
+          </div>
+          <div class="inline-flex items-center justify-center rounded-md px-4 py-2 ring-1 ring-sky-400/30 bg-neutral-900/60 shadow-[0_0_0_1px_rgba(56,189,248,0.25)]" style="background-image: radial-gradient(rgba(255,255,255,0.06) 1px, transparent 1px); background-size: 12px 12px;">
+            <span class="text-sm text-neutral-300 font-medium tracking-tight">Global Perspective</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Team Circle -->
+      <div class="flex items-center justify-center" style="animation: rotateCircle 60s linear infinite; animation-play-state: running;">
+        <style>
+          @keyframes rotateCircle {
+            from {
+              transform: rotate(0deg);
+            }
+
+            to {
+              transform: rotate(360deg);
+            }
+          }
+
+          @keyframes counterRotate {
+            from {
+              transform: rotate(0deg);
+            }
+
+            to {
+              transform: rotate(-360deg);
+            }
+          }
+
+          #aura-emfe3pp6g:hover {
+            animation-play-state: paused;
+          }
+
+          #aura-emfe3pp6g:hover .counter-rotate {
+            animation-play-state: paused;
+          }
+        </style>
+
+        <div class="relative w-[20rem] h-[20rem] sm:w-[24rem] sm:h-[24rem] lg:w-[28rem] lg:h-[28rem]">
+          <div class="pointer-events-none absolute -inset-8 rounded-full blur-3xl bg-sky-400/10"></div>
+
+          <!-- Team member 1 - 0° (top) -->
+          <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2" style="--angle: 0deg; --r: 10rem; transform: translate(-50%, -50%) rotate(var(--angle)) translateX(var(--r)) rotate(calc(-1 * var(--angle)));">
+            <div class="counter-rotate w-12 h-12 sm:w-16 sm:h-16 lg:w-20 lg:h-20 rounded-full ring-2 ring-sky-300/50 bg-neutral-800 overflow-hidden transition-all duration-300 hover:scale-110 hover:ring-sky-400/70" style="animation: counterRotate 60s linear infinite;">
+              <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/fc856f12-4738-4299-91f7-4f7be1502a47_320w.jpg" alt="Team member" class="w-full h-full object-cover">
+            </div>
+          </div>
+
+          <!-- Team member 2 - 36° -->
+          <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2" style="--angle: 36deg; --r: 10rem; transform: translate(-50%, -50%) rotate(var(--angle)) translateX(var(--r)) rotate(calc(-1 * var(--angle)));">
+            <div class="counter-rotate w-12 h-12 sm:w-16 sm:h-16 lg:w-20 lg:h-20 rounded-full ring-2 ring-sky-300/50 bg-neutral-800 overflow-hidden transition-all duration-300 hover:scale-110 hover:ring-sky-400/70" style="animation: counterRotate 60s linear infinite;">
+              <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/5c16a8c2-83a8-42a0-87bc-c96f7b50bcfa_320w.jpg" alt="Team member" class="w-full h-full object-cover">
+            </div>
+          </div>
+
+          <!-- Team member 3 - 72° -->
+          <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2" style="--angle: 72deg; --r: 10rem; transform: translate(-50%, -50%) rotate(var(--angle)) translateX(var(--r)) rotate(calc(-1 * var(--angle)));">
+            <div class="counter-rotate w-12 h-12 sm:w-16 sm:h-16 lg:w-20 lg:h-20 rounded-full ring-2 ring-sky-300/50 bg-neutral-800 overflow-hidden transition-all duration-300 hover:scale-110 hover:ring-sky-400/70" style="animation: counterRotate 60s linear infinite;">
+              <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/2ade2e2d-5057-495c-9d1c-9ca448123393_320w.jpg" alt="Team member" class="w-full h-full object-cover">
+            </div>
+          </div>
+
+          <!-- Team member 4 - 108° -->
+          <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2" style="--angle: 108deg; --r: 10rem; transform: translate(-50%, -50%) rotate(var(--angle)) translateX(var(--r)) rotate(calc(-1 * var(--angle)));">
+            <div class="counter-rotate w-12 h-12 sm:w-16 sm:h-16 lg:w-20 lg:h-20 rounded-full ring-2 ring-sky-300/50 bg-neutral-800 overflow-hidden transition-all duration-300 hover:scale-110 hover:ring-sky-400/70" style="animation: counterRotate 60s linear infinite;">
+              <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/4d02199b-9882-4e15-8f0c-cc93fee8bff5_320w.jpg" alt="Team member" class="w-full h-full object-cover">
+            </div>
+          </div>
+
+          <!-- Team member 5 - 144° -->
+          <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2" style="--angle: 144deg; --r: 10rem; transform: translate(-50%, -50%) rotate(var(--angle)) translateX(var(--r)) rotate(calc(-1 * var(--angle)));">
+            <div class="counter-rotate w-12 h-12 sm:w-16 sm:h-16 lg:w-20 lg:h-20 rounded-full ring-2 ring-sky-300/50 bg-neutral-800 overflow-hidden transition-all duration-300 hover:scale-110 hover:ring-sky-400/70" style="animation: counterRotate 60s linear infinite;">
+              <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/79c71d64-efe5-46ac-9e25-3af2acd67bd9_320w.jpg" alt="Team member" class="w-full h-full object-cover">
+            </div>
+          </div>
+
+          <!-- Team member 6 - 180° (bottom) -->
+          <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2" style="--angle: 180deg; --r: 10rem; transform: translate(-50%, -50%) rotate(var(--angle)) translateX(var(--r)) rotate(calc(-1 * var(--angle)));">
+            <div class="counter-rotate w-12 h-12 sm:w-16 sm:h-16 lg:w-20 lg:h-20 rounded-full ring-2 ring-sky-300/50 bg-neutral-800 overflow-hidden transition-all duration-300 hover:scale-110 hover:ring-sky-400/70" style="animation: counterRotate 60s linear infinite;">
+              <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/f7f6feef-fd3e-4901-bce6-7271aa74dc87_320w.jpg" alt="Team member" class="w-full h-full object-cover">
+            </div>
+          </div>
+
+          <!-- Team member 7 - 216° -->
+          <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2" style="--angle: 216deg; --r: 10rem; transform: translate(-50%, -50%) rotate(var(--angle)) translateX(var(--r)) rotate(calc(-1 * var(--angle)));">
+            <div class="counter-rotate w-12 h-12 sm:w-16 sm:h-16 lg:w-20 lg:h-20 rounded-full ring-2 ring-sky-300/50 bg-neutral-800 overflow-hidden transition-all duration-300 hover:scale-110 hover:ring-sky-400/70" style="animation: counterRotate 60s linear infinite;">
+              <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/ab0ab2bf-0976-4a4b-86d0-748e6a365725_320w.jpg" alt="Team member" class="w-full h-full object-cover">
+            </div>
+          </div>
+
+          <!-- Team member 8 - 252° -->
+          <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2" style="--angle: 252deg; --r: 10rem; transform: translate(-50%, -50%) rotate(var(--angle)) translateX(var(--r)) rotate(calc(-1 * var(--angle)));">
+            <div class="counter-rotate w-12 h-12 sm:w-16 sm:h-16 lg:w-20 lg:h-20 rounded-full ring-2 ring-sky-300/50 bg-neutral-800 overflow-hidden transition-all duration-300 hover:scale-110 hover:ring-sky-400/70" style="animation: counterRotate 60s linear infinite;">
+              <img src="https://images.unsplash.com/photo-1519345182560-3f2917c472ef?w=400&amp;h=400&amp;fit=crop&amp;crop=face" alt="Team member" class="w-full h-full object-cover">
+            </div>
+          </div>
+
+          <!-- Team member 9 - 288° -->
+          <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2" style="--angle: 288deg; --r: 10rem; transform: translate(-50%, -50%) rotate(var(--angle)) translateX(var(--r)) rotate(calc(-1 * var(--angle)));">
+            <div class="counter-rotate w-12 h-12 sm:w-16 sm:h-16 lg:w-20 lg:h-20 rounded-full ring-2 ring-sky-300/50 bg-neutral-800 overflow-hidden transition-all duration-300 hover:scale-110 hover:ring-sky-400/70" style="animation: counterRotate 60s linear infinite;">
+              <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/05b8d217-cbbf-409b-a1ff-f4515ea6aab3_320w.jpg" alt="Team member" class="w-full h-full object-cover">
+            </div>
+          </div>
+
+          <!-- Team member 10 - 324° -->
+          <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2" style="--angle: 324deg; --r: 10rem; transform: translate(-50%, -50%) rotate(var(--angle)) translateX(var(--r)) rotate(calc(-1 * var(--angle)));">
+            <div class="counter-rotate w-12 h-12 sm:w-16 sm:h-16 lg:w-20 lg:h-20 rounded-full ring-2 ring-sky-300/50 bg-neutral-800 overflow-hidden transition-all duration-300 hover:scale-110 hover:ring-sky-400/70" style="animation: counterRotate 60s linear infinite;">
+              <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/3b6e4af7-ac86-4163-b303-578671458c76_320w.jpg" alt="Team member" class="w-full h-full object-cover">
+            </div>
+          </div>
+
+          <!-- Center team logo -->
+          <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div></body></html>
+  </div>
+  
+    <script>
+      (function() {
+        function checkAndCenter() {
+          // Use double requestAnimationFrame to ensure DOM is fully painted and layout is stable
+          requestAnimationFrame(function() {
+            requestAnimationFrame(function() {
+              const wrapper = document.querySelector('.component-wrapper');
+              if (!wrapper) return;
+              
+              // Get all child elements
+              const children = Array.from(wrapper.children);
+              if (children.length === 0) return;
+              
+              // Temporarily override wrapper styles to shrink-wrap for measurement
+              // Set inline styles to shrink-wrap (inline styles override CSS)
+              wrapper.style.display = 'inline-block';
+              wrapper.style.width = 'auto';
+              wrapper.style.height = 'auto';
+              wrapper.style.overflow = 'visible';
+              wrapper.style.boxSizing = 'content-box';
+              
+              // Force multiple reflows to ensure styles are fully applied
+              void wrapper.offsetHeight;
+              void wrapper.offsetWidth;
+              void wrapper.offsetHeight;
+              
+              // Measure the wrapper's content size
+              const contentWidth = wrapper.offsetWidth;
+              const contentHeight = wrapper.offsetHeight;
+              
+              // Restore original styles by removing inline styles we added
+              wrapper.style.removeProperty('display');
+              wrapper.style.removeProperty('width');
+              wrapper.style.removeProperty('height');
+              wrapper.style.removeProperty('overflow');
+              wrapper.style.removeProperty('box-sizing');
+              
+              // If content is less than 500x500, center it
+              if (contentWidth > 0 && contentHeight > 0 && contentWidth < 500 && contentHeight < 500) {
+                wrapper.style.display = 'flex';
+                wrapper.style.alignItems = 'center';
+                wrapper.style.justifyContent = 'center';
+              }
+            });
+          });
+        }
+        
+        // Check immediately and after delays to ensure content is rendered and styled
+        function runChecks() {
+          checkAndCenter();
+          setTimeout(checkAndCenter, 50);
+          setTimeout(checkAndCenter, 150);
+          setTimeout(checkAndCenter, 300);
+          setTimeout(checkAndCenter, 500);
+          setTimeout(checkAndCenter, 1000);
+        }
+        
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', runChecks);
+        } else {
+          runChecks();
+        }
+        
+        // Also check when images or other resources load
+        window.addEventListener('load', () => {
+          setTimeout(checkAndCenter, 100);
+          setTimeout(checkAndCenter, 300);
+        });
+        
+        // Use ResizeObserver to detect size changes
+        if (window.ResizeObserver) {
+          setTimeout(() => {
+            const wrapper = document.querySelector('.component-wrapper');
+            if (wrapper) {
+              const observer = new ResizeObserver(() => {
+                setTimeout(checkAndCenter, 50);
+              });
+              observer.observe(wrapper);
+            }
+          }, 500);
+        }
+      })();
+    </script>
+  
+</body>
+</html>

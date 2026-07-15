@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Component Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      height: 100%;
+      overflow: auto;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #0a0a0a;
+      color: #000000;
+    }
+    .component-wrapper {
+      width: 100%;
+      height: 100%;
+      padding: 0;
+      box-sizing: border-box;
+      overflow: auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="component-wrapper">
+    <html><head></head><body><footer class="overflow-hidden bg-[#050505] w-full border-white/5 border-t pt-20 pb-0 relative">
+        
+        <!-- Newsletter Pill -->
+        <div class="flex -translate-y-1/2 z-30 mt-16 mb-16 pr-6 pl-6 absolute top-0 right-0 left-0 justify-center">
+            <div class="bg-[#0A0A0A] border border-white/10 rounded-full py-3 pl-6 pr-2 flex items-center gap-4 shadow-2xl max-w-md w-full group hover:border-[#F97316]/50 transition-colors">
+                <input type="text" placeholder="Join the waitlist..." class="bg-transparent border-none outline-none text-white text-sm w-full placeholder:text-neutral-600 font-mono focus:ring-0">
+                <button class="w-8 h-8 bg-white text-black rounded-full flex items-center justify-center hover:bg-[#F97316] transition-colors shrink-0">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="arrow-right" class="lucide lucide-arrow-right w-4 h-4"><path d="M5 12h14" class=""></path><path d="m12 5 7 7-7 7" class=""></path></svg>
+                </button>
+            </div>
+        </div>
+
+        <div class="w-full px-6 lg:px-12 py-20 grid grid-cols-1 lg:grid-cols-12 gap-12 relative z-20">
+            <!-- Left -->
+            <div class="lg:col-span-7">
+                <h2 class="text-5xl lg:text-[6rem] leading-[0.9] font-medium text-white tracking-tighter mb-10 font-display">
+                    Build.
+                    <span class="text-neutral-700">Ship.</span>
+                    Iterate.
+                </h2>
+                <div class="flex flex-wrap gap-8 opacity-40 hover:opacity-100 transition-opacity duration-500">
+                    <!-- Logos (Letters only style) -->
+                    <span class="font-display font-bold tracking-tighter text-xl text-white">LINEAR</span>
+                    <span class="font-display font-bold tracking-tighter text-xl text-white">VERCEL</span>
+                    <span class="font-display font-bold tracking-tighter text-xl text-white">STRIPE</span>
+                    <span class="font-display font-bold tracking-tighter text-xl text-white">RAYCAST</span>
+                </div>
+            </div>
+
+            <!-- Right (Orange Card) -->
+            <div class="lg:col-span-5 flex lg:justify-end items-center">
+                <div class="w-full max-w-sm bg-[#F97316] p-8 relative overflow-hidden group transform hover:-translate-y-2 transition-transform duration-500">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="code-2" class="lucide lucide-code-2 absolute -right-4 -top-4 text-black/10 w-32 h-32 rotate-12"><path d="m18 16 4-4-4-4" class=""></path><path d="m6 8-4 4 4 4" class=""></path><path d="m14.5 4-5 16" class=""></path></svg>
+                    
+                    <div class="relative z-10">
+                        <h3 class="text-2xl font-bold text-black mb-4 tracking-tight font-display">Start Building Now</h3>
+                        <p class="text-black/70 text-sm font-medium leading-relaxed mb-8">
+                            Access the complete library of components and templates. Open source forever.
+                        </p>
+                        <div class="flex items-center justify-between border-t border-black/10 pt-4">
+                            <span class="text-xs font-bold uppercase tracking-widest text-black">v2.0 Stable</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="arrow-up-right" class="lucide lucide-arrow-up-right w-5 h-5 text-black"><path d="M7 7h10v10" class=""></path><path d="M7 17 17 7" class=""></path></svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Watermark -->
+        <div class="relative w-full overflow-hidden pointer-events-none select-none pt-12">
+            <h1 class="text-[20vw] leading-none font-bold text-white/5 text-center -mb-12 tracking-tighter font-display">
+                ALEX AI
+            </h1>
+            <div class="absolute bottom-0 left-0 w-full h-40 bg-gradient-to-t from-[#050505] to-transparent"></div>
+        </div>
+        
+        <div class="absolute bottom-6 w-full flex justify-center z-30">
+             <p class="text-[10px] text-neutral-700 font-mono uppercase tracking-widest">© 2024 Design Systems Inc.</p>
+        </div>
+    </footer></body></html>
+  </div>
+  
+    <script>
+      (function() {
+        function checkAndCenter() {
+          // Use double requestAnimationFrame to ensure DOM is fully painted and layout is stable
+          requestAnimationFrame(function() {
+            requestAnimationFrame(function() {
+              const wrapper = document.querySelector('.component-wrapper');
+              if (!wrapper) return;
+              
+              // Get all child elements
+              const children = Array.from(wrapper.children);
+              if (children.length === 0) return;
+              
+              // Temporarily override wrapper styles to shrink-wrap for measurement
+              // Set inline styles to shrink-wrap (inline styles override CSS)
+              wrapper.style.display = 'inline-block';
+              wrapper.style.width = 'auto';
+              wrapper.style.height = 'auto';
+              wrapper.style.overflow = 'visible';
+              wrapper.style.boxSizing = 'content-box';
+              
+              // Force multiple reflows to ensure styles are fully applied
+              void wrapper.offsetHeight;
+              void wrapper.offsetWidth;
+              void wrapper.offsetHeight;
+              
+              // Measure the wrapper's content size
+              const contentWidth = wrapper.offsetWidth;
+              const contentHeight = wrapper.offsetHeight;
+              
+              // Restore original styles by removing inline styles we added
+              wrapper.style.removeProperty('display');
+              wrapper.style.removeProperty('width');
+              wrapper.style.removeProperty('height');
+              wrapper.style.removeProperty('overflow');
+              wrapper.style.removeProperty('box-sizing');
+              
+              // If content is less than 500x500, center it
+              if (contentWidth > 0 && contentHeight > 0 && contentWidth < 500 && contentHeight < 500) {
+                wrapper.style.display = 'flex';
+                wrapper.style.alignItems = 'center';
+                wrapper.style.justifyContent = 'center';
+              }
+            });
+          });
+        }
+        
+        // Check immediately and after delays to ensure content is rendered and styled
+        function runChecks() {
+          checkAndCenter();
+          setTimeout(checkAndCenter, 50);
+          setTimeout(checkAndCenter, 150);
+          setTimeout(checkAndCenter, 300);
+          setTimeout(checkAndCenter, 500);
+          setTimeout(checkAndCenter, 1000);
+        }
+        
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', runChecks);
+        } else {
+          runChecks();
+        }
+        
+        // Also check when images or other resources load
+        window.addEventListener('load', () => {
+          setTimeout(checkAndCenter, 100);
+          setTimeout(checkAndCenter, 300);
+        });
+        
+        // Use ResizeObserver to detect size changes
+        if (window.ResizeObserver) {
+          setTimeout(() => {
+            const wrapper = document.querySelector('.component-wrapper');
+            if (wrapper) {
+              const observer = new ResizeObserver(() => {
+                setTimeout(checkAndCenter, 50);
+              });
+              observer.observe(wrapper);
+            }
+          }, 500);
+        }
+      })();
+    </script>
+  
+</body>
+</html>

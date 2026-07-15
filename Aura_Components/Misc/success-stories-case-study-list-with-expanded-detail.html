@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Component Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      height: 100%;
+      overflow: auto;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #000000;
+      color: #ffffff;
+    }
+    .component-wrapper {
+      width: 100%;
+      height: 100%;
+      padding: 0;
+      box-sizing: border-box;
+      overflow: auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="component-wrapper">
+    <html><head></head><body><div class="z-10 md:px-10 lg:py-32 w-full max-w-7xl border-white/5 border-t mr-auto ml-auto pt-24 pr-6 pb-24 pl-6 relative">
+      <!-- Section Header -->
+      <div class="flex flex-col md:flex-row justify-between md:items-end mb-20 gap-8">
+        <h2 class="text-5xl md:text-6xl font-medium tracking-tighter text-white animate-on-scroll [animation:fadeSlideIn_1s_cubic-bezier(0.2,0.8,0.2,1)_0.2s_both]">
+          Success Stories
+        </h2>
+        <div class="flex items-center gap-2 text-sm font-medium text-neutral-500 mb-1 animate-on-scroll [animation:fadeSlideIn_1s_cubic-bezier(0.2,0.8,0.2,1)_0.3s_both]">
+          <span class="w-1.5 h-1.5 rounded-full bg-orange-500"></span>
+          <span class="uppercase tracking-widest text-xs">Case Studies</span>
+        </div>
+      </div>
+
+      <!-- List Container -->
+      <div class="flex flex-col w-full border-t border-white/5">
+        <!-- Row 1: Fintech -->
+        <div class="group relative border-b border-white/5 transition-colors duration-300 hover:bg-white/[0.02] cursor-pointer">
+          <div class="grid grid-cols-1 md:grid-cols-12 gap-6 pt-8 pb-8 gap-x-6 gap-y-6 items-center">
+            <div class="col-span-1 md:col-span-3">
+              <span class="text-xs font-semibold tracking-widest uppercase text-neutral-500 group-hover:text-white transition-colors">
+                Fintech
+              </span>
+            </div>
+            <div class="col-span-1 md:col-span-8 flex items-center gap-3">
+              <!-- Generic Stripe-style Logo -->
+              <svg class="h-6 w-auto text-white opacity-80 group-hover:opacity-100 transition-opacity" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="2" y="6" width="20" height="12" rx="2" fill="currentColor" fill-opacity="0.2" class=""></rect>
+                <path d="M2 10H22" stroke="currentColor" stroke-width="1.5" class=""></path>
+                <path d="M6 14H10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" class=""></path>
+              </svg>
+              <span class="text-lg font-semibold tracking-tight text-white">
+                Midday Financial
+              </span>
+            </div>
+            <div class="col-span-1 flex justify-end">
+              <!-- Solar Alt Arrow Right Bold Duotone -->
+              <svg class="w-6 h-6 text-neutral-600 group-hover:text-white transition-colors" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="12" cy="12" r="10" fill="currentColor" fill-opacity="0.1" class=""></circle>
+                <path d="M10 16L14 12L10 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class=""></path>
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <!-- Row 2: Infrastructure -->
+        <div class="group relative border-b border-white/5 transition-colors duration-300 hover:bg-white/[0.02] cursor-pointer">
+          <div class="grid grid-cols-1 md:grid-cols-12 gap-6 pt-8 pb-8 gap-x-6 gap-y-6 items-center">
+            <div class="col-span-1 md:col-span-3">
+              <span class="text-xs font-semibold tracking-widest uppercase text-neutral-500 group-hover:text-white transition-colors">
+                Infrastructure
+              </span>
+            </div>
+            <div class="col-span-1 md:col-span-8 flex items-center gap-3">
+              <!-- Vercel-style Logo -->
+              <svg class="h-5 w-auto text-white opacity-80 group-hover:opacity-100 transition-opacity" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 1L24 22H0L12 1Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" class=""></path>
+              </svg>
+              <span class="text-lg font-semibold tracking-tight text-white">
+                Vercel
+              </span>
+            </div>
+            <div class="col-span-1 flex justify-end">
+              <svg class="w-6 h-6 text-neutral-600 group-hover:text-white transition-colors" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="12" cy="12" r="10" fill="currentColor" fill-opacity="0.1" class=""></circle>
+                <path d="M10 16L14 12L10 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class=""></path>
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <!-- Row 3: Expanded Item (Productivity) -->
+
+        <!-- Row 4: Database -->
+        <div class="group relative border-b border-white/5 transition-colors duration-300 hover:bg-white/[0.02] cursor-pointer">
+          <div class="grid grid-cols-1 md:grid-cols-12 pt-8 pb-8 gap-x-6 gap-y-6 items-center">
+            <div class="col-span-1 md:col-span-3">
+              <span class="text-xs font-semibold tracking-widest uppercase text-neutral-500 group-hover:text-white transition-colors">
+                Database
+              </span>
+            </div>
+            <div class="col-span-1 md:col-span-8 flex items-center gap-3">
+              <!-- Supabase-style Logo -->
+              <svg class="h-6 w-auto text-white opacity-80 group-hover:opacity-100 transition-opacity" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M13 2L5 11H11L9 22L17 13H11L13 2Z" fill="currentColor" fill-opacity="0.2" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" class=""></path>
+              </svg>
+              <span class="text-lg font-semibold tracking-tight text-white">
+                Supabase
+              </span>
+            </div>
+            <div class="col-span-1 flex justify-end">
+              <svg class="w-6 h-6 text-neutral-600 group-hover:text-white transition-colors" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="12" cy="12" r="10" fill="currentColor" fill-opacity="0.1" class=""></circle>
+                <path d="M10 16L14 12L10 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class=""></path>
+              </svg>
+            </div>
+          </div>
+        </div>
+        <div class="border-white/5 border-b relative">
+          <!-- Header Row -->
+          <div class="grid grid-cols-1 md:grid-cols-12 cursor-pointer pt-8 pb-8 gap-x-6 gap-y-6 items-start">
+            <div class="col-span-1 md:col-span-3 flex flex-col gap-1">
+              <span class="text-xs font-semibold tracking-widest uppercase text-orange-500">
+                Productivity
+              </span>
+              <span class="text-[10px] font-medium text-neutral-500">
+                48 Workflows Optimized
+              </span>
+            </div>
+            <div class="col-span-1 md:col-span-8 flex items-center gap-3">
+              <!-- Linear-style Logo -->
+              <svg class="h-6 w-auto text-white" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" fill="currentColor" fill-opacity="0.2" class=""></path>
+                <path d="M8 8L16 16M16 8L8 16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class=""></path>
+              </svg>
+              <span class="text-lg font-semibold tracking-tight text-white">
+                Linear Systems
+              </span>
+            </div>
+            <div class="col-span-1 flex justify-end">
+              <!-- Solar Minimize/Minus Bold Duotone -->
+              <svg class="w-6 h-6 text-white" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="12" cy="12" r="10" fill="currentColor" fill-opacity="0.2" class=""></circle>
+                <path d="M8 12H16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class=""></path>
+              </svg>
+            </div>
+          </div>
+
+          <!-- Expanded Details Grid -->
+          <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-6 pb-12 gap-x-8 gap-y-8">
+            <!-- Decorative vertical line for alignment -->
+            <div class="hidden md:block col-span-3 relative">
+              <div class="absolute right-8 top-0 bottom-4 w-px bg-gradient-to-b from-white/10 to-transparent"></div>
+            </div>
+
+            <!-- Content Columns -->
+            <div class="col-span-1 md:col-span-9 grid grid-cols-1 md:grid-cols-3 gap-8 pr-4 pl-4 md:pl-0">
+              <div class="flex flex-col gap-3">
+                <span class="text-[10px] font-bold uppercase tracking-widest text-neutral-500">
+                  Challenge
+                </span>
+                <p class="text-sm leading-relaxed text-neutral-300">
+                  Internal fragmentation led to
+                  <span class="text-white font-medium">
+                    siloed decision-making
+                  </span>
+                  and slower release cycles across distributed engineering
+                  teams.
+                </p>
+              </div>
+              <div class="flex flex-col gap-3">
+                <span class="text-[10px] font-bold uppercase tracking-widest text-neutral-500">
+                  Solution
+                </span>
+                <p class="text-sm leading-relaxed text-neutral-300">
+                  Deployed Lumina's collaborative engine to synchronize
+                  <span class="text-white font-medium">asset pipelines</span>
+                  and automate status reporting in real-time.
+                </p>
+              </div>
+              <div class="flex flex-col gap-3">
+                <span class="text-[10px] font-bold uppercase tracking-widest text-neutral-500">
+                  Result
+                </span>
+                <p class="text-sm leading-relaxed text-neutral-300">
+                  Achieved a
+                  <span class="text-orange-400 font-semibold">
+                    40% reduction
+                  </span>
+                  in meeting times and doubled the velocity of feature shipments
+                  within Q3.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div></body></html>
+  </div>
+  
+    <script>
+      (function() {
+        function checkAndCenter() {
+          // Use double requestAnimationFrame to ensure DOM is fully painted and layout is stable
+          requestAnimationFrame(function() {
+            requestAnimationFrame(function() {
+              const wrapper = document.querySelector('.component-wrapper');
+              if (!wrapper) return;
+              
+              // Get all child elements
+              const children = Array.from(wrapper.children);
+              if (children.length === 0) return;
+              
+              // Temporarily override wrapper styles to shrink-wrap for measurement
+              // Set inline styles to shrink-wrap (inline styles override CSS)
+              wrapper.style.display = 'inline-block';
+              wrapper.style.width = 'auto';
+              wrapper.style.height = 'auto';
+              wrapper.style.overflow = 'visible';
+              wrapper.style.boxSizing = 'content-box';
+              
+              // Force multiple reflows to ensure styles are fully applied
+              void wrapper.offsetHeight;
+              void wrapper.offsetWidth;
+              void wrapper.offsetHeight;
+              
+              // Measure the wrapper's content size
+              const contentWidth = wrapper.offsetWidth;
+              const contentHeight = wrapper.offsetHeight;
+              
+              // Restore original styles by removing inline styles we added
+              wrapper.style.removeProperty('display');
+              wrapper.style.removeProperty('width');
+              wrapper.style.removeProperty('height');
+              wrapper.style.removeProperty('overflow');
+              wrapper.style.removeProperty('box-sizing');
+              
+              // If content is less than 500x500, center it
+              if (contentWidth > 0 && contentHeight > 0 && contentWidth < 500 && contentHeight < 500) {
+                wrapper.style.display = 'flex';
+                wrapper.style.alignItems = 'center';
+                wrapper.style.justifyContent = 'center';
+              }
+            });
+          });
+        }
+        
+        // Check immediately and after delays to ensure content is rendered and styled
+        function runChecks() {
+          checkAndCenter();
+          setTimeout(checkAndCenter, 50);
+          setTimeout(checkAndCenter, 150);
+          setTimeout(checkAndCenter, 300);
+          setTimeout(checkAndCenter, 500);
+          setTimeout(checkAndCenter, 1000);
+        }
+        
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', runChecks);
+        } else {
+          runChecks();
+        }
+        
+        // Also check when images or other resources load
+        window.addEventListener('load', () => {
+          setTimeout(checkAndCenter, 100);
+          setTimeout(checkAndCenter, 300);
+        });
+        
+        // Use ResizeObserver to detect size changes
+        if (window.ResizeObserver) {
+          setTimeout(() => {
+            const wrapper = document.querySelector('.component-wrapper');
+            if (wrapper) {
+              const observer = new ResizeObserver(() => {
+                setTimeout(checkAndCenter, 50);
+              });
+              observer.observe(wrapper);
+            }
+          }, 500);
+        }
+      })();
+    </script>
+  
+</body>
+</html>

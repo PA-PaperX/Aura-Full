@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Component Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      height: 100%;
+      overflow: auto;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #000000;
+      color: #ffffff;
+    }
+    .component-wrapper {
+      width: 100%;
+      height: 100%;
+      padding: 0;
+      box-sizing: border-box;
+      overflow: auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="component-wrapper">
+    <html><head></head><body><section class="flex-grow grid grid-cols-1 lg:grid-cols-12 lg:px-12 pt-16 pr-6 pb-12 pl-6 relative gap-x-12 gap-y-16">
+
+  <!-- Left Column: System Info -->
+  <div class="lg:col-span-4 flex flex-col relative z-20 justify-center">
+    <div class="mb-8">
+      <h1 class="text-6xl lg:text-7xl leading-[0.85] font-normal tracking-tighter text-white mb-6 uppercase font-grotesk">
+        Design
+        <span class="text-neutral-600">Systems</span>
+        Monitor
+      </h1>
+    </div>
+
+    <!-- Alert Banner styled as Terminal Output -->
+    <div class="mb-12 border-l-2 border-[#FACC15] pl-6 py-2 bg-gradient-to-r from-[#FACC15]/5 to-transparent">
+      <div class="flex items-center gap-2 mb-2">
+        <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="1em" height="1em" viewBox="0 0 24 24" data-icon="solar:danger-triangle-bold-duotone" class="">
+          <path fill="currentColor" d="M12 3c-2.31 0-3.77 2.587-6.688 7.762l-.364.644c-2.425 4.3-3.638 6.45-2.542 8.022S6.214 21 11.636 21h.728c5.422 0 8.134 0 9.23-1.572s-.117-3.722-2.542-8.022l-.364-.645C15.77 5.587 14.311 3 12 3" opacity=".5" class=""></path>
+          <path fill="currentColor" d="M12 7.25a.75.75 0 0 1 .75.75v5a.75.75 0 0 1-1.5 0V8a.75.75 0 0 1 .75-.75M12 17a1 1 0 1 0 0-2a1 1 0 0 0 0 2" class="">
+          </path>
+        </svg>
+        <span class="text-xs font-mono text-[#FACC15] uppercase tracking-widest">Latency Warning</span>
+      </div>
+      <p class="text-sm text-neutral-400 leading-relaxed max-w-sm font-light">
+        <span class="text-white font-medium">Figma API</span> response time elevated. Asset syncing may be delayed by
+        ~30s.
+      </p>
+    </div>
+
+    <div class="flex flex-col items-start gap-4">
+      <div class="flex items-center gap-4 mb-4">
+        <span class="text-sm text-neutral-500 font-mono">COLLABORATION MODE</span>
+        <label class="relative inline-flex items-center cursor-pointer group">
+                        <input type="checkbox" checked="" class="sr-only peer">
+                        <div class="w-9 h-5 bg-neutral-800 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-neutral-500 after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-neutral-700 peer-checked:after:bg-[#FACC15]"></div>
+                    </label>
+      </div>
+
+      <a href="#" class="btn-wrapper group">
+        <div class="btn-corners"></div>
+        <button class="btn flex items-center gap-3">
+                        <span class="uppercase text-xs font-bold tracking-widest">Run Diagnostics</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="1em" height="1em" viewBox="0 0 24 24" data-icon="solar:arrow-right-up-bold-duotone" class=""><path fill="currentColor" fill-rule="evenodd" d="M17.47 15.53a.75.75 0 0 0 1.28-.53V6a.75.75 0 0 0-.75-.75H9a.75.75 0 0 0-.53 1.28z" clip-rule="evenodd" class=""></path><path fill="currentColor" d="M5.47 17.47a.75.75 0 1 0 1.06 1.06l6.97-6.97l-1.06-1.06z" opacity=".5" class=""></path></svg>
+                    </button>
+      </a>
+    </div>
+  </div>
+
+  <!-- Center Column: Active Project Visualization -->
+  <div class="lg:col-span-5 relative flex items-center justify-center min-h-[500px]">
+    <!-- Plus Markers -->
+    <div class="absolute top-0 right-0 text-white/20 text-xl font-light">+</div>
+    <div class="absolute bottom-0 left-0 text-white/20 text-xl font-light">+</div>
+
+    <!-- Main Visual Container -->
+    <div class="relative w-full aspect-[4/5] md:aspect-square border border-white/10 bg-[#080808] p-2 group overflow-hidden shadow-2xl">
+
+      <!-- Inner Frame -->
+      <div class="relative w-full h-full border border-white/5 overflow-hidden bg-black">
+        <!-- Gradient Overlay -->
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/80 z-10"></div>
+
+        <!-- Technical Grid Overlay -->
+        <div class="absolute inset-0 opacity-20 z-10" style="background-image: linear-gradient(0deg, transparent 24%, rgba(255, 255, 255, .05) 25%, rgba(255, 255, 255, .05) 26%, transparent 27%, transparent 74%, rgba(255, 255, 255, .05) 75%, rgba(255, 255, 255, .05) 76%, transparent 77%, transparent), linear-gradient(90deg, transparent 24%, rgba(255, 255, 255, .05) 25%, rgba(255, 255, 255, .05) 26%, transparent 27%, transparent 74%, rgba(255, 255, 255, .05) 75%, rgba(255, 255, 255, .05) 76%, transparent 77%, transparent); background-size: 50px 50px;">
+        </div>
+
+        <!-- Abstract "Render" Image -->
+        <div class="absolute inset-0 flex items-center justify-center">
+          <div class="w-[60%] h-[60%] rounded-full bg-orange-500/20 blur-3xl animate-pulse"></div>
+          <div class="absolute w-[120%] h-[1px] bg-orange-500/50 rotate-45 transform translate-y-full group-hover:translate-y-[-200%] transition-transform duration-[2s]">
+          </div>
+        </div>
+
+        <!-- Center Content -->
+        <div class="flex flex-col bg-[url(https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/55844734-7000-46b6-87fb-83578f69e717_1600w.webp)] bg-cover bg-center z-20 absolute top-0 right-0 bottom-0 left-0 items-center justify-center">
+          <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="1em" height="1em" viewBox="0 0 24 24" data-icon="solar:settings-bold-duotone" style="animation-duration: 10s;" class="">
+            <path fill="currentColor" fill-rule="evenodd" d="M14.279 2.152C13.909 2 13.439 2 12.5 2s-1.408 0-1.779.152a2 2 0 0 0-1.09 1.083c-.094.223-.13.484-.145.863a1.62 1.62 0 0 1-.796 1.353a1.64 1.64 0 0 1-1.579.008c-.338-.178-.583-.276-.825-.308a2.03 2.03 0 0 0-1.49.396c-.318.242-.553.646-1.022 1.453c-.47.807-.704 1.21-.757 1.605c-.07.526.074 1.058.4 1.479c.148.192.357.353.68.555c.477.297.783.803.783 1.361s-.306 1.064-.782 1.36c-.324.203-.533.364-.682.556a2 2 0 0 0-.399 1.479c.053.394.287.798.757 1.605s.704 1.21 1.022 1.453c.424.323.96.465 1.49.396c.242-.032.487-.13.825-.308a1.64 1.64 0 0 1 1.58.008c.486.28.774.795.795 1.353c.015.38.051.64.145.863c.204.49.596.88 1.09 1.083c.37.152.84.152 1.779.152s1.409 0 1.779-.152a2 2 0 0 0 1.09-1.083c.094-.223.13-.483.145-.863c.02-.558.309-1.074.796-1.353a1.64 1.64 0 0 1 1.579-.008c.338.178.583.276.825.308c.53.07 1.066-.073 1.49-.396c.318-.242.553-.646 1.022-1.453c.47-.807.704-1.21.757-1.605a2 2 0 0 0-.4-1.479c-.148-.192-.357-.353-.68-.555c-.477-.297-.783-.803-.783-1.361s.306-1.064.782-1.36c.324-.203.533-.364.682-.556a2 2 0 0 0 .399-1.479c-.053-.394-.287-.798-.757-1.605s-.704-1.21-1.022-1.453a2.03 2.03 0 0 0-1.49-.396c-.242.032-.487.13-.825.308a1.64 1.64 0 0 1-1.58-.008a1.62 1.62 0 0 1-.795-1.353c-.015-.38-.051-.64-.145-.863a2 2 0 0 0-1.09-1.083" clip-rule="evenodd" opacity=".5" class=""></path>
+            <path fill="currentColor" d="M15.523 12c0 1.657-1.354 3-3.023 3s-3.023-1.343-3.023-3S10.83 9 12.5 9s3.023 1.343 3.023 3" class="">
+            </path>
+          </svg>
+          <h3 class="text-2xl font-bold text-white font-grotesk tracking-tight">Q3_Promo_v4.mp4</h3>
+          <span class="text-xs text-[#FACC15] font-mono mt-2 tracking-widest uppercase animate-pulse"> Rendering 82%</span>
+        </div>
+
+        <!-- Bottom Info Bar -->
+        <div class="absolute bottom-0 left-0 w-full p-6 flex justify-between items-end z-20 border-t border-white/5 bg-black/40 backdrop-blur-sm">
+          <div class="flex flex-col gap-1">
+            <span class="text-[10px] text-neutral-500 uppercase tracking-widest font-mono">Format</span>
+            <span class="text-xs text-white font-medium">H.264 • 60FPS</span>
+          </div>
+          <div class="flex flex-col gap-1 text-right">
+            <span class="text-[10px] text-neutral-500 uppercase tracking-widest font-mono">ETA</span>
+            <span class="text-xs text-white font-medium">~4 mins</span>
+          </div>
+        </div>
+
+        <!-- Top Status Bar -->
+        <div class="absolute top-0 left-0 w-full p-4 flex justify-between items-start z-20">
+          <div class="flex gap-2">
+            <span class="w-2 h-2 bg-orange-500 rounded-full"></span>
+            <span class="w-2 h-2 bg-neutral-700 rounded-full"></span>
+            <span class="w-2 h-2 bg-neutral-700 rounded-full"></span>
+          </div>
+          <span class="text-[10px] font-mono text-neutral-600 border border-white/10 px-2 py-1">ID: 8X-299</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Right Column: Interactive Stats -->
+  <div class="lg:col-span-3 flex flex-col relative z-20 pt-4 lg:pl-8">
+    <!-- Vertical Beam -->
+    <div class="beam-border-v left-0"></div>
+
+    <div class="flex flex-col h-full justify-center gap-0">
+
+      <!-- Stat 1: Figma -->
+      <div class="group relative py-8 cursor-pointer border-b border-white/5 transition-all hover:bg-white/[0.02] px-4 -ml-4">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-xs font-mono text-neutral-500 uppercase tracking-widest group-hover:text-[#FACC15] transition-colors">Figma</span>
+          <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="1em" height="1em" viewBox="0 0 24 24" data-icon="simple-icons:figma" class="">
+            <path fill="currentColor" d="M15.852 8.981h-4.588V0h4.588c2.476 0 4.49 2.014 4.49 4.49s-2.014 4.491-4.49 4.491M12.735 7.51h3.117c1.665 0 3.019-1.355 3.019-3.019s-1.355-3.019-3.019-3.019h-3.117zm0 1.471H8.148c-2.476 0-4.49-2.014-4.49-4.49S5.672 0 8.148 0h4.588v8.981zm-4.587-7.51c-1.665 0-3.019 1.355-3.019 3.019s1.354 3.02 3.019 3.02h3.117V1.471zm4.587 15.019H8.148c-2.476 0-4.49-2.014-4.49-4.49s2.014-4.49 4.49-4.49h4.588v8.98zM8.148 8.981c-1.665 0-3.019 1.355-3.019 3.019s1.355 3.019 3.019 3.019h3.117V8.981zM8.172 24c-2.489 0-4.515-2.014-4.515-4.49s2.014-4.49 4.49-4.49h4.588v4.441c0 2.503-2.047 4.539-4.563 4.539m-.024-7.51a3.023 3.023 0 0 0-3.019 3.019c0 1.665 1.365 3.019 3.044 3.019c1.705 0 3.093-1.376 3.093-3.068v-2.97zm7.704 0h-.098c-2.476 0-4.49-2.014-4.49-4.49s2.014-4.49 4.49-4.49h.098c2.476 0 4.49 2.014 4.49 4.49s-2.014 4.49-4.49 4.49m-.097-7.509c-1.665 0-3.019 1.355-3.019 3.019s1.355 3.019 3.019 3.019h.098c1.665 0 3.019-1.355 3.019-3.019s-1.355-3.019-3.019-3.019z" class="">
+            </path>
+          </svg>
+        </div>
+        <div class="flex items-baseline gap-2">
+          <span class="text-4xl font-light text-white tracking-tighter group-hover:text-[#FACC15] transition-colors">Online</span>
+        </div>
+        <div class="h-1 w-full bg-neutral-800 mt-4 overflow-hidden relative">
+          <div class="h-full bg-emerald-500 w-full"></div>
+        </div>
+      </div>
+
+      <!-- Stat 2: Adobe -->
+      <div class="group relative py-8 cursor-pointer border-b border-white/5 transition-all hover:bg-white/[0.02] px-4 -ml-4">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-xs font-mono text-neutral-500 uppercase tracking-widest group-hover:text-[#FACC15] transition-colors">Adobe CC</span>
+          <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="1em" height="1em" viewBox="0 0 24 24" data-icon="simple-icons:adobecreativecloud" class="">
+            <path fill="currentColor" d="M14.782 3.153c-.231.02-.472.04-.703.07a8.5 8.5 0 0 0-2.832.834a9 9 0 0 0-2.46 1.777c-.03.04-.09.06-.141.05a7.4 7.4 0 0 0-1.496-.07a7.4 7.4 0 0 0-2.932.763c-1.768.884-3.013 2.26-3.736 4.108a7.1 7.1 0 0 0-.462 2.139c0 .05-.01.09-.02.13v.773c.02.201.05.392.07.593c.1.813.332 1.596.703 2.33c.824 1.646 2.089 2.851 3.786 3.594a7.1 7.1 0 0 0 2.45.593q.048 0 .086.01h8.576c.183-.017.362-.035.547-.06a8.3 8.3 0 0 0 2.811-.834a8.84 8.84 0 0 0 3.646-3.304a8.2 8.2 0 0 0 1.184-3.093c.05-.34.08-.692.121-1.034c0-.05.01-.09.02-.13v-.794c-.02-.23-.05-.452-.05-.662a8.4 8.4 0 0 0-.834-2.812a8.95 8.95 0 0 0-3.324-3.645a8.2 8.2 0 0 0-3.072-1.175c-.362-.06-.713-.09-1.075-.13c-.05 0-.09-.01-.14-.02zm.369 1.693c2.126.005 3.93.826 5.395 2.455a6.93 6.93 0 0 1 1.616 3.323c.15.764.181 1.547.07 2.32c-.19 1.346-.702 2.55-1.576 3.605a7.08 7.08 0 0 1-3.997 2.45a7.3 7.3 0 0 1-2.56.1c-1.095-.14-2.099-.501-3.003-1.154a5 5 0 0 1-.672-.573c-1.226-1.205-2.44-2.42-3.666-3.625c-.301-.3-.321-.632-.18-.934a.82.82 0 0 1 .863-.472c.21.02.372.141.522.292c1.105 1.114 2.2 2.209 3.304 3.324a5.26 5.26 0 0 0 3.093 1.536c1.948.261 3.605-.341 4.92-1.798c.713-.793 1.145-1.747 1.326-2.811c.26-1.587-.11-3.013-1.095-4.268c-.873-1.115-2.018-1.808-3.404-2.059c-1.416-.25-2.751.02-3.966.794c-.03.02-.1.03-.131.01a9 9 0 0 0-1.406-.854s-.01-.01-.02-.03a6.6 6.6 0 0 1 1.255-.823a6.65 6.65 0 0 1 2.641-.784a9 9 0 0 1 .67-.024zM7.546 7.509c1.455-.024 2.791.525 3.982 1.63c.854.802 1.637 1.636 2.46 2.47c.231.23.281.522.171.833s-.362.462-.683.512a.72.72 0 0 1-.632-.23c-.784-.784-1.567-1.557-2.34-2.35c-.633-.653-1.386-1.025-2.27-1.186c-1.958-.351-3.936.784-4.639 2.641c-.904 2.36.522 5.031 2.982 5.594c.482.11.995.11 1.497.1c.14-.01.22.04.32.13c.483.473.995.945 1.497 1.416c.03.03.07.06.1.09c-.06 0-.1.01-.14.01h-2.3a5.83 5.83 0 0 1-5.693-4.568c-.653-2.942 1.034-5.925 3.926-6.798a6.3 6.3 0 0 1 1.762-.294" class="">
+            </path>
+          </svg>
+        </div>
+        <div class="flex items-baseline gap-2">
+          <span class="text-4xl font-light text-neutral-400 tracking-tighter group-hover:text-white transition-colors">Syncing</span>
+        </div>
+        <div class="h-1 w-full bg-neutral-800 mt-4 overflow-hidden relative">
+          <!-- Striped animated bar -->
+          <div class="h-full bg-neutral-500 w-[60%] relative overflow-hidden">
+            <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9InN0cmlwZXMiIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTTAgNDBMODAgMCIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMikiIHN0cm9rZS13aWR0aD0iMjAiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjc3RyaXBlcykiLz48L3N2Zz4=')] animate-[slide_1s_linear_infinite]">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Stat 3: Storage -->
+      <div class="group relative py-8 cursor-pointer transition-all hover:bg-white/[0.02] px-4 -ml-4">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-xs font-mono text-neutral-500 uppercase tracking-widest group-hover:text-[#FACC15] transition-colors">Cloud Drive</span>
+          <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="1em" height="1em" viewBox="0 0 24 24" data-icon="solar:cloud-bold-duotone" class="">
+            <path fill="currentColor" fill-rule="evenodd" d="M22 14.353C22 17.472 19.442 20 16.286 20h-5.787a7.5 7.5 0 0 1 7.487-11.853q.119.422.17.868C20.392 9.78 22 11.881 22 14.353" clip-rule="evenodd" opacity=".5" class=""></path>
+            <path fill="currentColor" d="M12.476 4C9.32 4 6.762 6.528 6.762 9.647c0 .69.125 1.35.354 1.962a4.4 4.4 0 0 0-.83-.08C3.919 11.53 2 13.426 2 15.765S3.919 20 6.286 20H10.5a7.5 7.5 0 0 1 7.487-11.853l-.047-.158C17.224 5.68 15.048 4 12.476 4" class="">
+            </path>
+          </svg>
+        </div>
+        <div class="flex items-baseline gap-2">
+          <span class="text-4xl font-light text-white tracking-tighter group-hover:text-[#FACC15] transition-colors">842<span class="text-lg ml-1 text-neutral-500">GB</span></span>
+        </div>
+        <div class="flex justify-between mt-4 text-[10px] text-neutral-500 font-mono uppercase">
+          <span>Used</span>
+          <span class="text-[#FACC15]">1TB Total</span>
+        </div>
+        <div class="h-1 w-full bg-neutral-800 mt-2 overflow-hidden relative">
+          <div class="h-full bg-white w-[82%]"></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</section></body></html>
+  </div>
+  
+    <script>
+      (function() {
+        function checkAndCenter() {
+          // Use double requestAnimationFrame to ensure DOM is fully painted and layout is stable
+          requestAnimationFrame(function() {
+            requestAnimationFrame(function() {
+              const wrapper = document.querySelector('.component-wrapper');
+              if (!wrapper) return;
+              
+              // Get all child elements
+              const children = Array.from(wrapper.children);
+              if (children.length === 0) return;
+              
+              // Temporarily override wrapper styles to shrink-wrap for measurement
+              // Set inline styles to shrink-wrap (inline styles override CSS)
+              wrapper.style.display = 'inline-block';
+              wrapper.style.width = 'auto';
+              wrapper.style.height = 'auto';
+              wrapper.style.overflow = 'visible';
+              wrapper.style.boxSizing = 'content-box';
+              
+              // Force multiple reflows to ensure styles are fully applied
+              void wrapper.offsetHeight;
+              void wrapper.offsetWidth;
+              void wrapper.offsetHeight;
+              
+              // Measure the wrapper's content size
+              const contentWidth = wrapper.offsetWidth;
+              const contentHeight = wrapper.offsetHeight;
+              
+              // Restore original styles by removing inline styles we added
+              wrapper.style.removeProperty('display');
+              wrapper.style.removeProperty('width');
+              wrapper.style.removeProperty('height');
+              wrapper.style.removeProperty('overflow');
+              wrapper.style.removeProperty('box-sizing');
+              
+              // If content is less than 500x500, center it
+              if (contentWidth > 0 && contentHeight > 0 && contentWidth < 500 && contentHeight < 500) {
+                wrapper.style.display = 'flex';
+                wrapper.style.alignItems = 'center';
+                wrapper.style.justifyContent = 'center';
+              }
+            });
+          });
+        }
+        
+        // Check immediately and after delays to ensure content is rendered and styled
+        function runChecks() {
+          checkAndCenter();
+          setTimeout(checkAndCenter, 50);
+          setTimeout(checkAndCenter, 150);
+          setTimeout(checkAndCenter, 300);
+          setTimeout(checkAndCenter, 500);
+          setTimeout(checkAndCenter, 1000);
+        }
+        
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', runChecks);
+        } else {
+          runChecks();
+        }
+        
+        // Also check when images or other resources load
+        window.addEventListener('load', () => {
+          setTimeout(checkAndCenter, 100);
+          setTimeout(checkAndCenter, 300);
+        });
+        
+        // Use ResizeObserver to detect size changes
+        if (window.ResizeObserver) {
+          setTimeout(() => {
+            const wrapper = document.querySelector('.component-wrapper');
+            if (wrapper) {
+              const observer = new ResizeObserver(() => {
+                setTimeout(checkAndCenter, 50);
+              });
+              observer.observe(wrapper);
+            }
+          }, 500);
+        }
+      })();
+    </script>
+  
+</body>
+</html>

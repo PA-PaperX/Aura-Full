@@ -1,0 +1,550 @@
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>WALLOW · Run the brightest bath of your life</title>
+<link rel="icon" href="data:image/svg+xml,&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'&gt;&lt;circle cx='50' cy='50' r='44' fill='%23FF5A3C'/&gt;&lt;circle cx='38' cy='40' r='7' fill='%23FFF7EC'/&gt;&lt;/svg&gt;">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62.5..125,100..900&amp;family=Inter:wght@400;500;600&amp;family=Space+Mono:wght@400;700&amp;display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+<style>
+:root{
+--teal:#0B6E78; --deep:#063b42; --bone:#FFF7EC; --mut:rgba(255,247,236,.62);
+--orange:#FF5A3C; --pink:#FF2E88; --lime:#B6FF3C; --violet:#7B5CFF;
+--disp:"Archivo",system-ui,sans-serif; --ui:"Inter",system-ui,sans-serif; --mono:"Space Mono",monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--teal);color:var(--bone);font-family:var(--ui)}
+body{overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+::selection{background:var(--orange);color:#2a0d06}
+/* full-bleed dye-in-water showreel (the sphere lives + blooms inside it) */
+.bg{position:fixed;inset:0;z-index:0;overflow:hidden;background:var(--teal)}
+.bg canvas,.bg .poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.bg .poster{opacity:1;transition:opacity 1s;
+background:
+radial-gradient(60% 46% at 66% 42%, rgba(255,90,60,.42), rgba(255,46,136,.12) 40%, transparent 64%),
+radial-gradient(120% 90% at 30% 30%, rgba(22,170,180,.5), transparent 55%),
+radial-gradient(140% 120% at 50% 60%, #0e8a96 0%, #0B6E78 46%, #063b42 100%)}
+.bg canvas{opacity:0;transition:opacity 1s}
+.bg.playing canvas{opacity:1}.bg.playing .poster{opacity:0}
+.loader{position:fixed;right:clamp(18px,4vw,52px);bottom:22px;z-index:60;width:30px;height:30px;pointer-events:none;transition:opacity .6s}
+.loader span{display:block;width:100%;height:100%;border-radius:50%;border:2px solid rgba(255,247,236,.22);border-top-color:var(--bone);animation:spin .9s linear infinite}
+.loader.hide{opacity:0}
+@keyframes spin{to{transform:rotate(360deg)}}
+/* caustic shimmer (static screen-blend; the video frames carry the real moving caustics/god-rays,
+so this stays un-animated -> compositor caches the blend, no per-frame full-screen re-composite) */
+.caustic{position:absolute;inset:-20%;z-index:1;pointer-events:none;opacity:.5;mix-blend-mode:screen;
+background:
+repeating-radial-gradient(circle at 30% 20%, rgba(190,255,255,.10) 0 2px, transparent 2px 22px),
+repeating-radial-gradient(circle at 72% 64%, rgba(190,255,255,.08) 0 2px, transparent 2px 30px)}
+.vign{position:fixed;inset:0;z-index:1;pointer-events:none;
+background:radial-gradient(130% 110% at 50% 42%,transparent 52%,rgba(6,40,46,.5) 100%)}
+.grain{position:fixed;inset:-30%;z-index:2;pointer-events:none;opacity:.05;mix-blend-mode:overlay;
+background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
+/* cursor dye: a soft tinted bloom that trails the pointer (colour shifts per section) */
+.dye{position:fixed;left:0;top:0;z-index:3;width:520px;height:520px;margin:-260px 0 0 -260px;pointer-events:none;
+mix-blend-mode:screen;opacity:0;border-radius:50%;
+background:radial-gradient(circle, var(--dyec,rgba(255,90,60,.34)) 0%, transparent 62%);
+transition:opacity .5s}
+body.hascur .dye{opacity:.5}
+.dye{visibility:hidden}
+body.hascur .dye{visibility:visible}
+@media(hover:none),(pointer:coarse){.dye{display:none}}
+nav{position:fixed;top:0;left:0;right:0;z-index:40;display:flex;justify-content:space-between;align-items:center;
+padding:20px clamp(18px,4vw,52px);font:500 .68rem/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--bone)}
+nav .links{display:flex;gap:clamp(12px,2.2vw,26px)}
+nav .links a{opacity:.78;position:relative}
+nav .links a::after{content:"";position:absolute;left:0;bottom:-5px;width:100%;height:1px;background:var(--bone);
+transform:scaleX(0);transform-origin:right;transition:transform .35s cubic-bezier(.6,0,.2,1)}
+nav .links a:hover{opacity:1}
+nav .links a:hover::after{transform:scaleX(1);transform-origin:left}
+nav .links a.dot::before{content:"· "}
+@media(max-width:820px){nav .links a:not(.last){display:none}}
+#wrap{position:relative;z-index:5;will-change:transform}
+.spread{position:relative;height:100vh;width:100%}
+.blk{position:absolute}
+.ix{font:500 .66rem/1 var(--mono);letter-spacing:.2em;text-transform:uppercase;color:var(--mut)}
+.ix .rule{display:block;width:56px;height:1px;background:var(--mut);margin-top:.55rem;transform:scaleX(0);transform-origin:left}
+.spec{font:400 .72rem/1.6 var(--mono);letter-spacing:.04em;color:var(--bone)}
+.body{font:400 clamp(.96rem,1.2vw,1.1rem)/1.6 var(--ui);color:var(--bone);max-width:34ch}
+.display{font-family:var(--disp);font-weight:900;font-stretch:125%;text-transform:uppercase;
+line-height:.86;letter-spacing:-.012em;text-shadow:0 4px 38px rgba(6,40,46,.5)}
+.cond{font-stretch:78%}
+.huge{font-size:clamp(3.4rem,15vw,13rem)}
+.big{font-size:clamp(2.6rem,10vw,8rem)}
+.med{font-size:clamp(1.7rem,4.4vw,3.4rem)}
+.tint-o{color:var(--orange)}.tint-p{color:var(--pink)}.tint-l{color:var(--lime)}.tint-v{color:var(--violet)}
+/* split-text scaffolding: word masks + char units */
+.split .w{display:inline-block;overflow:hidden;vertical-align:top;padding:.09em .02em .06em;margin:-.09em -.02em -.06em}
+.split .c{display:inline-block;will-change:transform}
+.btn{display:inline-flex;align-items:center;gap:.5rem;font:600 .92rem var(--ui);color:var(--deep);
+background:var(--bone);padding:.85rem 1.5rem;border-radius:100px}
+.btn.neon{background:var(--orange);color:#2a0d06;position:relative;overflow:hidden}
+.btn.neon i{font-style:normal;position:relative;z-index:1;transition:transform .35s cubic-bezier(.6,0,.2,1)}
+.btn.neon .ar{display:inline-block;position:relative;z-index:1;transition:transform .35s cubic-bezier(.6,0,.2,1)}
+.btn.neon::before{content:"";position:absolute;inset:0;background:var(--pink);border-radius:100px;
+transform:translateY(101%);transition:transform .45s cubic-bezier(.6,0,.2,1)}
+.btn.neon:hover::before{transform:translateY(0)}
+.btn.neon:hover .ar{transform:translateX(6px)}
+[data-rise]{opacity:0;transform:translateY(26px)}
+[data-wipe]{clip-path:inset(0 0 100% 0)}
+/* 01 COVER · wordmark left third, water breathes right */
+.s1 .mast{top:48%;left:clamp(18px,4vw,52px);transform:translateY(-50%)}
+.s1 .lede{bottom:13vh;left:clamp(18px,4vw,52px);max-width:30ch}
+.s1 .ixb{bottom:5vh;left:clamp(18px,4vw,52px)}
+.badge{position:absolute;right:clamp(24px,5vw,72px);bottom:9vh;width:118px;height:118px;pointer-events:none}
+.badge svg{width:100%;height:100%;overflow:visible}
+.badge text{font:700 11.5px var(--mono);letter-spacing:.34em;text-transform:uppercase;fill:var(--bone)}
+.badge .core{position:absolute;inset:0;display:grid;place-items:center;font-size:1.5rem}
+@media(max-width:820px){.badge{display:none}}
+/* 02 WHAT GOES IN THE WATER · GO LOUD lower-left over the sphere, body upper-right */
+.s2 .kick{bottom:14vh;left:clamp(18px,4vw,52px)}
+.s2 .kick .spec{margin-top:1rem}
+.s2 .col{top:16vh;right:clamp(18px,4vw,52px);max-width:36ch;text-align:right}
+.s2 .col .ix{margin-bottom:1rem}
+.s2 .col .ix .rule{margin-left:auto;transform-origin:right}
+.s2 .chips{display:flex;flex-wrap:wrap;gap:.45rem;justify-content:flex-end;margin-top:1.1rem}
+.chip{font:400 .64rem/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--bone);
+border:1px solid rgba(255,247,236,.35);border-radius:100px;padding:.5em .95em;
+transition:background .3s,color .3s,border-color .3s}
+.chip:hover{background:var(--bone);color:var(--deep);border-color:var(--bone)}
+.s2 .scrim{position:absolute;top:0;right:0;width:52%;height:100%;z-index:-1;
+background:linear-gradient(270deg,rgba(6,40,46,.5),transparent)}
+/* 03 THE RANGE · vertical title left, intro top-right, loud two-tone marquee, cards stepping up to the right */
+.s3 .vt{top:50%;left:clamp(14px,3vw,38px);transform:translateY(-50%);writing-mode:vertical-rl;
+font-family:var(--disp);font-weight:900;font-stretch:125%;text-transform:uppercase;font-size:clamp(1.4rem,3vw,2.4rem);letter-spacing:.04em}
+.s3 .intro{top:13vh;right:clamp(18px,4vw,52px);max-width:30ch;text-align:right}
+.s3 .intro .ix{margin-bottom:.9rem}
+.s3 .intro .ix .rule{margin-left:auto;transform-origin:right}
+.tickwrap{position:absolute;left:clamp(56px,8vw,96px);right:0;top:29vh;overflow:hidden;pointer-events:none;opacity:.92;
+-webkit-mask-image:linear-gradient(90deg,transparent,#000 7%);mask-image:linear-gradient(90deg,transparent,#000 7%)}
+.tick{display:flex;width:max-content;white-space:nowrap;font-family:var(--disp);font-weight:900;font-stretch:125%;
+text-transform:uppercase;font-size:clamp(2.6rem,7.5vw,6.2rem);line-height:1;letter-spacing:.02em}
+.tick+.tick{margin-top:.3em}
+.tick span{padding-right:.6em}
+.tick i{font-style:normal;color:rgba(255,247,236,.55)}
+.tick .h{color:transparent;-webkit-text-stroke:1.5px rgba(255,247,236,.85)}
+.tick.sm{font-size:clamp(1.8rem,4.6vw,3.8rem);opacity:.5}
+.tick.rev{transform:translateX(-50%)}
+.tickwrap.on .tick{animation:tickmove 30s linear infinite}
+.tickwrap.on .tick.rev{animation:tickmove2 34s linear infinite}
+@keyframes tickmove{to{transform:translateX(-50%)}}
+@keyframes tickmove2{from{transform:translateX(-50%)}to{transform:translateX(0)}}
+.s3 .cards{position:absolute;left:0;right:0;bottom:7vh;display:grid;grid-template-columns:repeat(3,1fr);align-items:end;
+gap:clamp(12px,2vw,28px);padding:0 clamp(18px,4vw,52px) 0 clamp(56px,8vw,96px);perspective:900px}
+.s3 .card:nth-child(2){margin-bottom:5vh}
+.s3 .card:nth-child(3){margin-bottom:10vh}
+.card{position:relative;background:rgba(6,40,46,.5);backdrop-filter:blur(8px);border:1px solid rgba(255,247,236,.16);
+border-radius:16px;padding:1.5rem 1.5rem 1.25rem;transform-style:preserve-3d;overflow:hidden;
+transition:border-color .35s,box-shadow .35s}
+.card::before{content:"";position:absolute;top:0;left:0;right:0;height:3px}
+.card.o::before{background:var(--lime)}.card.p::before{background:var(--orange)}.card.v::before{background:var(--violet)}
+.card .glare{position:absolute;inset:-40%;background:linear-gradient(115deg,transparent 42%,rgba(255,247,236,.14) 50%,transparent 58%);
+transform:translateX(-70%);pointer-events:none}
+.card .ghost{position:absolute;right:-.04em;bottom:-.2em;font-family:var(--disp);font-weight:900;font-stretch:125%;
+font-size:clamp(4.5rem,7vw,7rem);line-height:1;opacity:.12;pointer-events:none}
+.card.o .ghost{color:var(--lime)}.card.p .ghost{color:var(--orange)}.card.v .ghost{color:var(--violet)}
+.card .tag{font:700 .6rem/1 var(--mono);letter-spacing:.18em;text-transform:uppercase;color:var(--mut);margin-bottom:.6rem}
+.card .nm{font-family:var(--disp);font-weight:900;font-stretch:90%;text-transform:uppercase;font-size:clamp(1.5rem,2.6vw,2.3rem);line-height:1}
+.card .ds{font:400 .9rem/1.45 var(--ui);color:var(--bone);opacity:.86;margin:.6rem 0 .75rem}
+.card .ph{font:400 .68rem/1.4 var(--mono);letter-spacing:.05em;color:var(--mut)}
+.card .row{display:flex;justify-content:space-between;align-items:center;gap:1rem;position:relative;
+margin-top:.9rem;padding-top:.85rem;border-top:1px solid rgba(255,247,236,.14)}
+.card .pr{font-family:var(--disp);font-weight:900;font-stretch:105%;font-size:1.1rem}
+.card .go{font:600 .64rem/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--mut);transition:color .3s}
+.card .go i{display:inline-block;font-style:normal;transition:transform .3s}
+.card:hover .go{color:var(--bone)}
+.card:hover .go i{transform:translateX(5px)}
+.card .no{position:absolute;top:1.1rem;right:1.2rem;font:700 .64rem var(--mono);letter-spacing:.14em;color:var(--mut)}
+.card.o .nm{color:var(--lime)}.card.p .nm{color:var(--orange)}.card.v .nm{color:var(--violet)}
+.card.o:hover{border-color:var(--lime);box-shadow:0 18px 60px -18px rgba(182,255,60,.35)}
+.card.p:hover{border-color:var(--orange);box-shadow:0 18px 60px -18px rgba(255,90,60,.4)}
+.card.v:hover{border-color:var(--violet);box-shadow:0 18px 60px -18px rgba(123,92,255,.4)}
+/* 04 WHY WE MAKE A SCENE · CSS-sticky hold (survives the skewed #wrap, unlike position:fixed pinning):
+the section is 220vh, the quote holds on screen while the scrub ignites it word-by-word */
+.s4{height:220vh}
+.s4 .pinbox{position:sticky;top:0;height:100vh}
+.s4 .q{top:50%;left:50%;transform:translate(-50%,-50%);text-align:center;width:min(94vw,1080px)}
+.s4 .mani{font-size:clamp(2.4rem,6.2vw,5.4rem);line-height:.94}
+.s4 .q .wd{opacity:.1;display:inline-block;will-change:transform}
+.s4 .q .att{margin-top:2rem;font:400 .78rem/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--mut);
+opacity:0;transform:translateY(18px)}
+/* 05 THE APPLAUSE · count-up stat left, press index rows right */
+.s5 .strip{top:50%;left:0;right:0;transform:translateY(-50%);padding:0 clamp(18px,4vw,52px);
+display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(1.5rem,4vw,4rem);align-items:center}
+.s5 .stat .ix{margin-bottom:.7rem}
+.s5 .stat .v{font-family:var(--disp);font-weight:900;font-stretch:108%;text-transform:uppercase;font-size:clamp(1.5rem,3vw,2.6rem);line-height:.95;max-width:14ch}
+.s5 .stat .v em{font-style:normal;color:var(--lime)}
+.press{display:flex;flex-direction:column}
+.prow{position:relative;display:flex;align-items:baseline;justify-content:space-between;gap:1rem;
+padding:.62em .35em;border-top:1px solid rgba(255,247,236,.22);overflow:hidden}
+.prow:last-child{border-bottom:1px solid rgba(255,247,236,.22)}
+.prow::before{content:"";position:absolute;inset:0;background:var(--bone);
+transform:scaleY(0);transform-origin:bottom;transition:transform .38s cubic-bezier(.6,0,.2,1);z-index:0}
+.prow:hover::before{transform:scaleY(1);transform-origin:top}
+.prow .pn{position:relative;z-index:1;font-family:var(--disp);font-weight:900;font-stretch:105%;text-transform:uppercase;
+font-size:clamp(1.6rem,3.4vw,3rem);line-height:1;transition:color .3s,transform .38s cubic-bezier(.6,0,.2,1)}
+.prow .pt{position:relative;z-index:1;font:400 .66rem/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--mut);transition:color .3s}
+.prow:hover .pn{color:var(--deep);transform:translateX(10px)}
+.prow:hover .pt{color:var(--teal)}
+.s5 .foot{position:absolute;bottom:6vh;left:clamp(18px,4vw,52px)}
+/* 06 RUN ONE TONIGHT · reprise + CTA lower band */
+.s6{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:1.4rem}
+.s6 .mark{font-family:var(--disp);font-weight:900;font-stretch:125%;text-transform:uppercase;font-size:clamp(2.2rem,7vw,5.5rem);letter-spacing:-.01em;line-height:.9}
+.s6 .mark .c{cursor:default}
+.s6 .sub{font:400 1rem/1.5 var(--ui);color:var(--bone);opacity:.9;max-width:34ch}
+.s6 .cta{margin-top:.6rem}
+.s6 .contact{margin-top:1.2rem;font:400 .8rem/1.7 var(--mono);letter-spacing:.06em;color:var(--bone)}
+.s6 .contact a{position:relative}
+.s6 .contact a::after{content:"";position:absolute;left:0;bottom:-3px;width:100%;height:1px;background:var(--bone);
+transform:scaleX(.35);transform-origin:left;opacity:.4;transition:transform .35s,opacity .35s}
+.s6 .contact a:hover::after{transform:scaleX(1);opacity:1}
+footer{position:relative;z-index:5;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.8rem;
+padding:5vh clamp(18px,4vw,52px);font:400 .68rem/1.5 var(--mono);letter-spacing:.08em;color:var(--mut);
+background:linear-gradient(180deg,transparent,rgba(6,40,46,.55))}
+footer .b{font-family:var(--disp);font-weight:900;font-stretch:125%;text-transform:uppercase;font-size:1.2rem;letter-spacing:.02em;color:var(--bone)}
+@media(max-width:820px){
+.blk{position:relative!important;inset:auto!important;transform:none!important;writing-mode:horizontal-tb!important;text-align:left!important;margin-bottom:1.3rem;max-width:none!important}
+.spread,.s6{height:auto;min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:16vh clamp(18px,6vw,32px)}
+.s3 .cards{position:relative;grid-template-columns:1fr;padding:0;bottom:auto;perspective:none}
+.s3 .card{margin-bottom:0!important}
+.s3 .vt{writing-mode:horizontal-tb}
+.tickwrap{position:relative;top:auto;left:auto;margin-bottom:1rem;-webkit-mask-image:none;mask-image:none}
+.s5 .strip{position:relative;grid-template-columns:1fr;text-align:left}
+.s2 .chips{justify-content:flex-start}
+.s4 .q,.s6{text-align:left}.s4 .q{max-width:none;width:auto}
+.s4{height:170vh;min-height:170vh;padding:0!important}
+.s4 .pinbox{display:flex;align-items:center;padding:0 clamp(18px,6vw,32px)}
+}
+@media (prefers-reduced-motion: reduce){
+.loader{display:none}.caustic{animation:none}[data-rise]{opacity:1;transform:none}[data-wipe]{clip-path:none}.grain{display:none}
+.tickwrap.on .tick,.tickwrap.on .tick.rev{animation:none}.dye{display:none}
+.s4{height:auto;min-height:100vh}.s4 .att{opacity:1;transform:none}
+.s4 .q .wd{opacity:1}.ix .rule{transform:none}.split .c{transform:none!important}
+}
+</style>
+<script src="https://cdn.tailwindcss.com"></script><!-- aura-ga4-start -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-2M6V79H761"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-2M6V79H761');
+</script>
+<!-- aura-ga4-end -->
+</head>
+<body>
+
+<div class="bg" id="bg">
+  <div class="poster"></div>
+  <canvas id="reel"></canvas>
+  <div class="caustic"></div>
+</div>
+<div class="vign"></div>
+<div class="grain"></div>
+<div class="dye" id="dye"></div>
+<div class="loader" id="loader"><span></span></div>
+
+<nav id="nav">
+  <span class="b" style="font-family:var(--disp);font-weight:900;font-stretch:125%;text-transform:uppercase;letter-spacing:.02em">Wallow</span>
+  <span class="links">
+    <a href="#range" class="dot">The range</a><a href="#scene" class="dot">Why we make a scene</a>
+    <a href="#applause" class="dot">Stockists</a><a href="#contact" class="dot last">Contact</a>
+  </span>
+</nav>
+
+<div id="wrap">
+
+<!-- 01 COVER -->
+<section class="spread s1" data-dye="rgba(255,90,60,.34)">
+  <div class="blk mast">
+    <div class="display huge split" data-split="">Wall<span class="tint-o">ow</span></div>
+    <div class="display med cond split" data-split="" style="margin-top:.7rem;max-width:14ch">Run the brightest bath of your life.</div>
+  </div>
+  <div class="blk lede body" data-rise="">Hand-pressed bath bombs, oils and shower fizzes for people who think
+    wellness beige is boring. Drop one in. The whole tub goes loud.</div>
+  <div class="blk ixb ix" data-rise="">01 / Cover<span class="rule"></span></div>
+  <div class="badge" id="badge" aria-hidden="true">
+    <svg viewBox="0 0 118 118">
+      <defs><path id="cir" d="M59,59 m-46,0 a46,46 0 1,1 92,0 a46,46 0 1,1 -92,0"></path></defs>
+      <g id="badgeSpin"><text><textPath href="#cir">Go loud · get bright · go loud · get bright ·</textPath></text></g>
+    </svg>
+    <span class="core">🛁</span>
+  </div>
+</section>
+
+<!-- 02 WHAT GOES IN THE WATER -->
+<section class="spread s2" id="range-intro" data-dye="rgba(255,46,136,.32)">
+  <div class="scrim"></div>
+  <div class="blk kick">
+    <div class="display big split" data-split="">Go <span class="tint-p">loud.</span></div>
+    <div class="spec" data-rise="">pH 7.2 · 95g · made in Margate</div>
+  </div>
+  <div class="blk col">
+    <div class="ix" data-rise="">02 / What goes in<span class="rule"></span></div>
+    <p class="body" data-rise="" style="margin-left:auto">Cold-pressed botanicals, mineral salts and a skin-kind fizz.
+      No synthetic dye that doesn't earn its place, no drying SLS, nothing tested on anyone with whiskers.
+      Just a fistful of colour that blooms the second it hits the water.</p>
+    <div class="chips">
+      <span class="chip" data-rise="">Kaffir lime</span><span class="chip" data-rise="">Sea salt</span>
+      <span class="chip" data-rise="">Violet leaf</span><span class="chip" data-rise="">Zero SLS</span>
+      <span class="chip" data-rise="">Vegan</span>
+    </div>
+  </div>
+</section>
+
+<!-- 03 THE RANGE -->
+<section class="spread s3" id="range" data-dye="rgba(182,255,60,.26)">
+  <div class="blk vt" data-rise="">The Range</div>
+  <div class="blk intro">
+    <div class="ix" data-rise="">03 / Pick your loud<span class="rule"></span></div>
+    <p class="body" data-rise="" style="margin-left:auto">Three spheres, three moods. Choose by the day you had,
+      not the colour you like.</p>
+  </div>
+  <div class="tickwrap" id="tickwrap" aria-hidden="true">
+    <div class="tick"><span><b class="tint-l">Sour Lime</b> <i>·</i> <b class="h">Blood Orange</b> <i>·</i> <b class="tint-v">Grape Riot</b> <i>·</i> <b class="h">Sour Lime</b> <i>·</i> <b class="tint-o">Blood Orange</b> <i>·</i> <b class="h">Grape Riot</b> <i>·</i>&nbsp;</span><span><b class="tint-l">Sour Lime</b> <i>·</i> <b class="h">Blood Orange</b> <i>·</i> <b class="tint-v">Grape Riot</b> <i>·</i> <b class="h">Sour Lime</b> <i>·</i> <b class="tint-o">Blood Orange</b> <i>·</i> <b class="h">Grape Riot</b> <i>·</i>&nbsp;</span></div>
+    <div class="tick rev sm"><span><b class="h">Go loud</b> <i>·</i> <b class="h">Get bright</b> <i>·</i> <b class="h">Zero SLS</b> <i>·</i> <b class="h">Vegan</b> <i>·</i> <b class="h">Go loud</b> <i>·</i> <b class="h">Get bright</b> <i>·</i> <b class="h">Zero SLS</b> <i>·</i> <b class="h">Vegan</b> <i>·</i>&nbsp;</span><span><b class="h">Go loud</b> <i>·</i> <b class="h">Get bright</b> <i>·</i> <b class="h">Zero SLS</b> <i>·</i> <b class="h">Vegan</b> <i>·</i> <b class="h">Go loud</b> <i>·</i> <b class="h">Get bright</b> <i>·</i> <b class="h">Zero SLS</b> <i>·</i> <b class="h">Vegan</b> <i>·</i>&nbsp;</span></div>
+  </div>
+  <div class="cards">
+    <div class="card o" data-tilt=""><span class="no">/01</span><div class="glare"></div><div class="ghost">01</div>
+      <div class="tag">The wake-up one</div><div class="nm">Sour Lime</div>
+      <div class="ds">Kaffir lime, sea salt and a cold mint snap. Steam goes citrus in seconds.</div>
+      <div class="ph">acid lime · pH 7.1 · 95g</div>
+      <div class="row"><span class="pr">£9.50</span><span class="go">Drop one in <i>→</i></span></div></div>
+    <div class="card p" data-tilt=""><span class="no">/02</span><div class="glare"></div><div class="ghost">02</div>
+      <div class="tag">The Sunday one</div><div class="nm">Blood Orange</div>
+      <div class="ds">Bitter orange, pink pepper and a warm amber base. Slow-morning fuel.</div>
+      <div class="ph">tangerine · pH 7.3 · 95g</div>
+      <div class="row"><span class="pr">£9.50</span><span class="go">Drop one in <i>→</i></span></div></div>
+    <div class="card v" data-tilt=""><span class="no">/03</span><div class="glare"></div><div class="ghost">03</div>
+      <div class="tag">The loud one</div><div class="nm">Grape Riot</div>
+      <div class="ds">Black grape, violet leaf and a sticky cassis heart. Not remotely subtle.</div>
+      <div class="ph">ultraviolet · pH 7.2 · 110g</div>
+      <div class="row"><span class="pr">£11.00</span><span class="go">Drop one in <i>→</i></span></div></div>
+  </div>
+</section>
+
+<!-- 04 WHY WE MAKE A SCENE -->
+<section class="spread s4" id="scene" data-dye="rgba(123,92,255,.32)">
+  <div class="pinbox">
+    <div class="blk q">
+      <div class="display mani" id="mani">We think a bath should be the <span class="tint-v">loudest</span> part of your day.</div>
+      <div class="att">Priya Maan, founder · est. 2021</div>
+    </div>
+  </div>
+</section>
+
+<!-- 05 THE APPLAUSE -->
+<section class="spread s5" id="applause" data-dye="rgba(182,255,60,.24)">
+  <div class="blk strip">
+    <div class="stat">
+      <div class="ix" data-rise="">05 / As seen in<span class="rule"></span></div>
+      <div class="v" data-wipe="">In <em><span data-count="120">0</span> bathrooms-worth</em> of good shops.</div>
+    </div>
+    <div class="press" data-rise="">
+      <a class="prow" href="#"><span class="pn">Liberty</span><span class="pt">London · dept store</span></a>
+      <a class="prow" href="#"><span class="pn">Goop</span><span class="pt">Online · clean beauty</span></a>
+      <a class="prow" href="#"><span class="pn">Monocle</span><span class="pt">Press · issue 174</span></a>
+      <a class="prow" href="#"><span class="pn">Vogue</span><span class="pt">Beauty · the edit</span></a>
+      <a class="prow" href="#"><span class="pn">Dazed</span><span class="pt">Culture · print + digital</span></a>
+      <a class="prow" href="#"><span class="pn">Selfridges</span><span class="pt">London · beauty hall</span></a>
+    </div>
+  </div>
+  <div class="blk foot spec" data-rise="">Stocked in <span data-count="14">0</span> countries · refills at every counter · B-Corp pending</div>
+</section>
+
+<!-- 06 RUN ONE TONIGHT -->
+<section class="spread s6" id="contact" data-dye="rgba(255,90,60,.34)">
+  <div class="ix" data-rise="">06 / Run one tonight<span class="rule"></span></div>
+  <div class="mark split" id="cta" data-split="">Run a <span class="tint-o">br</span><span class="tint-p">ig</span><span class="tint-l">ht</span><span class="tint-v">er</span> bath.</div>
+  <p class="sub" data-rise="">One sphere, a hot tap and ten loud minutes. Free shipping over £30, refills for life.</p>
+  <a href="#" class="btn neon cta" data-rise=""><i>Shop the range</i> <span class="ar">→</span></a>
+  <div class="contact" data-rise=""><a href="mailto:hello@wallow.bath">hello@wallow.bath</a> · <a href="#">@wallow</a></div>
+</section>
+
+<footer>
+  <span class="b">Wallow</span>
+  <span>Bath bombs · oils · fizzes · made in Margate</span>
+  <span>© WALLOW 2026</span>
+</footer>
+
+</div><!-- /wrap -->
+
+<script>
+(function(){
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var fine = matchMedia('(hover:hover) and (pointer:fine)').matches;
+  var bg=document.getElementById('bg'), loader=document.getElementById('loader');
+
+  // FRAME-SEQUENCE SCROLL SCRUB (Apple-style): preload WebP frames, draw the scroll-mapped frame to a
+  // canvas. No video decode, no range-request fragility — buttery, reliable, and mobile-safe.
+  var cv=document.getElementById('reel'), ctx=cv.getContext('2d',{alpha:false});
+  cv.width=1600; cv.height=900;   // upscaled source; CSS object-fit:cover scales it (cheap 1:1 blit, composite-light)
+  var N=432, frames=new Array(N), loaded=0, lastIdx=-1, curIdx=0;
+  function pad(n){ return ('00'+n).slice(-3); }
+  function draw(idx){ var img=frames[idx]; if(!img||!img.complete||!img.naturalWidth) return; ctx.drawImage(img,0,0,1600,900); lastIdx=idx; }
+  frames[0]=new Image(); frames[0].onload=function(){ draw(0); bg.classList.add('playing'); }; frames[0].src='https://cdn.jsdelivr.net/gh/VanhDc/aura-assets@wallow-v1/wallow/frames/f_001.webp';
+  if(!reduce){
+    for(var i=1;i<N;i++){ (function(i){ var im=new Image();
+      im.onload=function(){ loaded++; if(loaded>=N-1 && loader) loader.classList.add('hide'); };
+      im.src='https://cdn.jsdelivr.net/gh/VanhDc/aura-assets@wallow-v1/wallow/frames/f_'+pad(i+1)+'.webp'; frames[i]=im; })(i); }
+    var vt=0, vc=0;
+    (function scrub(){
+      var max=document.documentElement.scrollHeight-window.innerHeight;
+      vt = max>0 ? Math.min(1, Math.max(0, window.scrollY/max)) : 0;
+      vc += (vt-vc)*0.14;
+      if(Math.abs(vt-vc) < 0.0006) vc = vt;   // snap at rest: stops redrawing (idle -> 60fps)
+      curIdx = Math.round(vc*(N-1));
+      if(curIdx!==lastIdx) draw(curIdx);
+      requestAnimationFrame(scrub);
+    })();
+  } else { if(loader) loader.classList.add('hide'); }
+
+  // ---- split text: wrap words in overflow masks, chars in units ----
+  function splitEl(el){
+    var out=[], nodes=Array.prototype.slice.call(el.childNodes);
+    el.textContent='';
+    nodes.forEach(function(nd){
+      var tint = nd.nodeType===1 ? nd.className : '';
+      var text = nd.textContent;
+      text.split(/(\s+)/).forEach(function(tok){
+        if(!tok) return;
+        if(/^\s+$/.test(tok)){ el.appendChild(document.createTextNode(' ')); return; }
+        var w=document.createElement('span'); w.className='w';
+        for(var i=0;i<tok.length;i++){
+          var ch=document.createElement('span'); ch.className='c'+(tint?' '+tint:'');
+          ch.textContent=tok[i]; w.appendChild(ch); out.push(ch);
+        }
+        el.appendChild(w);
+      });
+    });
+    return out;
+  }
+
+  // placeholder links (press rows, socials, shop) must not jump the page to the top
+  document.addEventListener('click',function(e){
+    var a=e.target.closest && e.target.closest('a[href="#"]');
+    if(a) e.preventDefault();
+  });
+
+  if(reduce){ return; }   // static page for reduced motion (CSS shows everything)
+
+  gsap.registerPlugin(ScrollTrigger);
+  var lenis=new Lenis({lerp:.1,smoothWheel:true});
+  function raf(t){ lenis.raf(t); requestAnimationFrame(raf); } requestAnimationFrame(raf);
+  lenis.on('scroll', ScrollTrigger.update);
+
+  // split all display headlines
+  document.querySelectorAll('[data-split]').forEach(function(el){
+    var chars=splitEl(el);
+    gsap.set(chars,{yPercent:112,rotate:5});
+    gsap.to(chars,{yPercent:0,rotate:0,duration:1.05,stagger:.022,ease:'power4.out',
+      scrollTrigger:{trigger:el.closest('.spread'),start:'top 72%'}});
+  });
+
+  // section reveals: rises + wipes + index rules
+  document.querySelectorAll('.spread').forEach(function(sec){
+    var tl=gsap.timeline({scrollTrigger:{trigger:sec, start:'top 72%'}});
+    var wipes=sec.querySelectorAll('[data-wipe]'), rises=sec.querySelectorAll('[data-rise]'), rules=sec.querySelectorAll('.rule');
+    if(wipes.length) tl.to(wipes,{clipPath:'inset(0 0 0% 0)',duration:1.0,stagger:.1,ease:'power4.out'},0);
+    if(rises.length) tl.to(rises,{opacity:1,y:0,duration:.85,stagger:.07,ease:'power3.out'},.12);
+    if(rules.length) tl.to(rules,{scaleX:1,duration:.8,ease:'power3.inOut'},.3);
+  });
+
+  // nav entrance
+  gsap.from('#nav > *',{y:-18,opacity:0,duration:.9,stagger:.08,ease:'power3.out',delay:.15});
+
+  // hero badge: rotation driven by scroll (no idle animation cost)
+  gsap.to('#badgeSpin',{rotation:360,transformOrigin:'59px 59px',ease:'none',
+    scrollTrigger:{trigger:'#wrap',start:'top top',end:'max',scrub:.6}});
+
+  // scroll-velocity skew on the whole content plane (settles to 0 at rest)
+  var skewTo=gsap.quickTo('#wrap','skewY',{duration:.5,ease:'power3.out'});
+  lenis.on('scroll',function(e){ skewTo(gsap.utils.clamp(-2.2,2.2,(e.velocity||0)*.12)); });
+
+  // manifesto: the section holds (CSS sticky) while the quote ignites word-by-word under the scroll.
+  // Sticky, not ScrollTrigger pin: pin uses position:fixed, which breaks inside the always-transformed #wrap.
+  (function(){
+    var el=document.getElementById('mani'); if(!el) return;
+    var nodes=Array.prototype.slice.call(el.childNodes), words=[];
+    el.textContent='';
+    nodes.forEach(function(nd){
+      var tint=nd.nodeType===1?nd.className:'';
+      nd.textContent.split(/(\s+)/).forEach(function(tok){
+        if(!tok) return;
+        if(/^\s+$/.test(tok)){ el.appendChild(document.createTextNode(' ')); return; }
+        var w=document.createElement('span'); w.className='wd'+(tint?' '+tint:''); w.textContent=tok;
+        el.appendChild(w); words.push(w);
+      });
+    });
+    gsap.set(words,{y:'0.35em'});
+    var tl=gsap.timeline({scrollTrigger:{trigger:'.s4',start:'top top',end:'bottom bottom',scrub:true}});
+    tl.to(words,{opacity:1,y:0,duration:.25,stagger:.12,ease:'none'})
+      .to('.s4 .att',{opacity:1,y:0,duration:.5,ease:'none'},'-=.15');
+  })();
+
+  // count-up stats
+  document.querySelectorAll('[data-count]').forEach(function(el){
+    var end=parseInt(el.getAttribute('data-count'),10), obj={v:0};
+    gsap.to(obj,{v:end,duration:1.6,ease:'power2.out',
+      onUpdate:function(){ el.textContent=Math.round(obj.v); },
+      scrollTrigger:{trigger:el.closest('.spread'),start:'top 62%'}});
+  });
+
+  // range marquee: runs only while the section is on screen
+  ScrollTrigger.create({trigger:'.s3',start:'top bottom',end:'bottom top',
+    onToggle:function(st){ document.getElementById('tickwrap').classList.toggle('on',st.isActive); }});
+
+  // range entrances: marquee band floats up, cards deal in one by one
+  // (container tween only for the marquee; the .tick children belong to the CSS keyframe animation)
+  gsap.from('#tickwrap',{y:54,opacity:0,duration:1.1,ease:'power3.out',
+    scrollTrigger:{trigger:'.s3',start:'top 70%'}});
+  gsap.from('.s3 .card',{y:110,opacity:0,rotate:2.5,duration:1.15,stagger:.15,ease:'power4.out',
+    scrollTrigger:{trigger:'.s3',start:'top 58%'}});
+
+  // card tilt + glare (desktop pointers only; transforms only, no idle cost)
+  if(fine) document.querySelectorAll('[data-tilt]').forEach(function(card){
+    var glare=card.querySelector('.glare');
+    var rx=gsap.quickTo(card,'rotationX',{duration:.5,ease:'power3.out'});
+    var ry=gsap.quickTo(card,'rotationY',{duration:.5,ease:'power3.out'});
+    card.addEventListener('pointermove',function(ev){
+      var r=card.getBoundingClientRect();
+      var px=(ev.clientX-r.left)/r.width-.5, py=(ev.clientY-r.top)/r.height-.5;
+      rx(-py*8); ry(px*10);
+      if(glare) gsap.to(glare,{x:px*140+'%',duration:.5,ease:'power2.out'});
+    });
+    card.addEventListener('pointerleave',function(){ rx(0); ry(0);
+      if(glare) gsap.to(glare,{x:'-70%',duration:.6,ease:'power2.out'}); });
+  });
+
+  // CTA letters: playful jump on hover
+  if(fine) document.querySelectorAll('#cta .c').forEach(function(ch){
+    ch.addEventListener('pointerenter',function(){
+      gsap.to(ch,{yPercent:-16,duration:.18,ease:'power2.out',overwrite:true,
+        onComplete:function(){ gsap.to(ch,{yPercent:0,duration:.6,ease:'elastic.out(1,.45)'}); }});
+    });
+  });
+
+  // dye bloom trails the pointer (native cursor stays; colour follows the section under the viewport)
+  if(fine){
+    var dye=document.getElementById('dye');
+    var dx=gsap.quickTo(dye,'x',{duration:.9,ease:'power2.out'}), dy=gsap.quickTo(dye,'y',{duration:.9,ease:'power2.out'});
+    window.addEventListener('pointermove',function(e){
+      document.body.classList.add('hascur');
+      dx(e.clientX); dy(e.clientY);
+    },{passive:true});
+    document.querySelectorAll('[data-dye]').forEach(function(sec){
+      ScrollTrigger.create({trigger:sec,start:'top 55%',end:'bottom 55%',
+        onToggle:function(st){ if(st.isActive) document.documentElement.style.setProperty('--dyec',sec.getAttribute('data-dye')); }});
+    });
+  }
+
+  window.addEventListener('load', function(){ setTimeout(function(){ ScrollTrigger.refresh(); }, 300); });
+})();
+</script>
+
+
+</body></html>

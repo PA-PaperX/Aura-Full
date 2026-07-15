@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Component Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      height: 100%;
+      overflow: auto;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #000000;
+      color: #ffffff;
+    }
+    .component-wrapper {
+      width: 100%;
+      height: 100%;
+      padding: 0;
+      box-sizing: border-box;
+      overflow: auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="component-wrapper">
+    <html><head></head><body><section class="flex flex-col lg:flex-row lg:px-12 lg:gap-20 border-white/5 border-b pt-32 pr-6 pb-20 pl-6 relative gap-x-12 gap-y-12">
+
+  <!-- Left: Typography -->
+  <div class="flex-1 flex flex-col z-10 justify-center">
+    <div class="flex lg:mt-44 mt-0 mb-10 gap-x-4 gap-y-4 items-center">
+      <span class="font-mono text-xs uppercase tracking-widest text-[#A1A1AA] font-geist" style="transition: outline 0.1s ease-in-out;">Est. 1984</span>
+      <div class="h-px w-12 bg-white/10"></div>
+      <span class="font-mono text-xs uppercase tracking-widest text-[#A1A1AA] font-geist" style="transition: outline 0.1s ease-in-out;">Brutalist &amp; Modern</span>
+    </div>
+
+    <h1 class="text-6xl lg:text-8xl leading-[0.95] mb-8 text-[#E4E4E7] font-playfair font-medium tracking-tight" style="">
+      Form Follows <br>
+      <span class="italic text-white/30 font-playfair tracking-tight" style="">Function</span>
+    </h1>
+
+    <p class="text-lg text-[#A1A1AA] max-w-md leading-relaxed font-light mb-12 border-l border-white/10 pl-6 font-geist" style="transition: outline 0.1s ease-in-out;">
+      Exploring the intersection of spatial dynamics and material integrity. We design spaces that breathe, endure, and
+      inspire through minimalist geometry.
+    </p>
+
+    <!-- Stats / Mini Gallery -->
+    <div class="mt-auto grid grid-cols-3 gap-4">
+      <div class="group cursor-pointer">
+        <div class="aspect-square rounded-xl overflow-hidden mb-3 relative border border-white/10">
+          <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/588ff515-542e-4057-9122-0b57118b3e74_800w.webp" alt="Project 1" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 grayscale group-hover:grayscale-0">
+        </div>
+        <p class="text-xs text-[#E4E4E7] font-medium font-geist" style="transition: outline 0.1s ease-in-out;">The
+          Louvre</p>
+        <p class="text-[10px] text-[#A1A1AA] uppercase tracking-wider font-geist" style="transition: outline 0.1s ease-in-out;">Paris</p>
+      </div>
+      <div class="group cursor-pointer">
+        <div class="aspect-square rounded-xl overflow-hidden mb-3 relative border border-white/10">
+          <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/92f79571-c9ab-4ba6-827b-8845c8060486_800w.webp" alt="Project 2" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 grayscale group-hover:grayscale-0">
+        </div>
+        <p class="text-xs text-[#E4E4E7] font-medium font-geist" style="transition: outline 0.1s ease-in-out;">Vatican
+          Hall</p>
+        <p class="text-[10px] text-[#A1A1AA] uppercase tracking-wider font-geist" style="transition: outline 0.1s ease-in-out;">Rome</p>
+      </div>
+      <div class="flex flex-col justify-end pb-6">
+        <button class="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center hover:bg-white hover:text-black transition-all group">
+                        <iconify-icon icon="lucide:arrow-down" class="text-xl group-hover:translate-y-1 transition-transform" stroke-width="1.5"></iconify-icon>
+                     </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Right: Visual -->
+  <div class="lg:w-[50%] flex flex-col justify-center relative z-10 mt-12 lg:mt-0">
+    <div class="relative h-[600px] w-full rounded-3xl overflow-hidden shadow-2xl border border-white/5 group">
+      <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/df7a2dd9-504b-4462-9e25-8f9322d8a718_1600w.webp" alt="Architecture Main" class="transition-transform duration-[1.5s] group-hover:scale-105 w-full h-full object-cover">
+
+      <div class="bg-gradient-to-t from-[#0F0F11] via-transparent to-transparent opacity-80 absolute top-0 right-0 bottom-0 left-0">
+      </div>
+
+      <div class="absolute bottom-0 left-0 right-0 p-10">
+        <div class="flex items-end justify-between">
+          <div class="">
+            <div class="flex items-center gap-2 mb-3">
+              <span class="px-2 py-1 rounded text-[10px] font-semibold uppercase tracking-widest bg-white/10 backdrop-blur-md text-white border border-white/10 font-geist" style="transition: outline 0.1s ease-in-out;">Featured</span>
+            </div>
+            <h2 class="text-4xl text-[#E4E4E7] mb-2 font-playfair font-medium tracking-tight" style="">Concrete &amp;
+              Light</h2>
+            <p class="text-[#A1A1AA] text-sm font-light max-w-[250px] font-geist" style="transition: outline 0.1s ease-in-out;">A study in brutalist forms interacting with natural
+              illumination.</p>
+          </div>
+          <button class="px-6 py-3 bg-white text-[#0F0F11] text-sm font-semibold rounded-lg hover:bg-[#A1A1AA] transition-colors flex items-center gap-2 font-geist" style="transition: outline 0.1s ease-in-out;">
+                            View Project
+                            <iconify-icon icon="lucide:arrow-right" class="text-base" stroke-width="1.5"></iconify-icon>
+                        </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section></body></html>
+  </div>
+  
+    <script>
+      (function() {
+        function checkAndCenter() {
+          // Use double requestAnimationFrame to ensure DOM is fully painted and layout is stable
+          requestAnimationFrame(function() {
+            requestAnimationFrame(function() {
+              const wrapper = document.querySelector('.component-wrapper');
+              if (!wrapper) return;
+              
+              // Get all child elements
+              const children = Array.from(wrapper.children);
+              if (children.length === 0) return;
+              
+              // Temporarily override wrapper styles to shrink-wrap for measurement
+              // Set inline styles to shrink-wrap (inline styles override CSS)
+              wrapper.style.display = 'inline-block';
+              wrapper.style.width = 'auto';
+              wrapper.style.height = 'auto';
+              wrapper.style.overflow = 'visible';
+              wrapper.style.boxSizing = 'content-box';
+              
+              // Force multiple reflows to ensure styles are fully applied
+              void wrapper.offsetHeight;
+              void wrapper.offsetWidth;
+              void wrapper.offsetHeight;
+              
+              // Measure the wrapper's content size
+              const contentWidth = wrapper.offsetWidth;
+              const contentHeight = wrapper.offsetHeight;
+              
+              // Restore original styles by removing inline styles we added
+              wrapper.style.removeProperty('display');
+              wrapper.style.removeProperty('width');
+              wrapper.style.removeProperty('height');
+              wrapper.style.removeProperty('overflow');
+              wrapper.style.removeProperty('box-sizing');
+              
+              // If content is less than 500x500, center it
+              if (contentWidth > 0 && contentHeight > 0 && contentWidth < 500 && contentHeight < 500) {
+                wrapper.style.display = 'flex';
+                wrapper.style.alignItems = 'center';
+                wrapper.style.justifyContent = 'center';
+              }
+            });
+          });
+        }
+        
+        // Check immediately and after delays to ensure content is rendered and styled
+        function runChecks() {
+          checkAndCenter();
+          setTimeout(checkAndCenter, 50);
+          setTimeout(checkAndCenter, 150);
+          setTimeout(checkAndCenter, 300);
+          setTimeout(checkAndCenter, 500);
+          setTimeout(checkAndCenter, 1000);
+        }
+        
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', runChecks);
+        } else {
+          runChecks();
+        }
+        
+        // Also check when images or other resources load
+        window.addEventListener('load', () => {
+          setTimeout(checkAndCenter, 100);
+          setTimeout(checkAndCenter, 300);
+        });
+        
+        // Use ResizeObserver to detect size changes
+        if (window.ResizeObserver) {
+          setTimeout(() => {
+            const wrapper = document.querySelector('.component-wrapper');
+            if (wrapper) {
+              const observer = new ResizeObserver(() => {
+                setTimeout(checkAndCenter, 50);
+              });
+              observer.observe(wrapper);
+            }
+          }, 500);
+        }
+      })();
+    </script>
+  
+</body>
+</html>

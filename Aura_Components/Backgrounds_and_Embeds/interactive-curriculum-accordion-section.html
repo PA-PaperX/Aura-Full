@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Component Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      height: 100%;
+      overflow: auto;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #000000;
+      color: #ffffff;
+    }
+    .component-wrapper {
+      width: 100%;
+      height: 100%;
+      padding: 0;
+      box-sizing: border-box;
+      overflow: auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="component-wrapper">
+    <html><head></head><body><section class="md:px-6 pt-12 pr-4 pb-12 pl-4">
+        <div class="bg-[#18181B] text-white rounded-[2.5rem] p-8 lg:p-20 relative overflow-hidden">
+            <div class="max-w-6xl mx-auto relative z-10">
+                <div class="flex flex-col md:flex-row justify-between items-start mb-16">
+                    <div class="max-w-xl">
+                        <span class="text-[#9EF0A0] text-sm font-medium tracking-wide uppercase mb-4 block">— 12 Week Intensive</span>
+                        <h2 class="text-4xl lg:text-5xl text-white font-medium tracking-tight">Curriculum Excellence.</h2>
+                    </div>
+                    <div class="mt-6 md:mt-0 max-w-xs text-[#A1A1AA] text-lg font-light">
+                        Our curriculum evolves with the industry. Master the tools top tech companies use today.
+                        <a href="#" class="inline-flex items-center gap-2 mt-6 px-5 py-2.5 bg-white text-[#18181B] rounded-full text-sm font-medium hover:bg-[#E4E9E5]">
+                            Download Guide
+                            <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="1em" height="1em" viewBox="0 0 24 24" data-icon="solar:download-square-bold-duotone" class="iconify iconify--solar"><path fill="currentColor" d="M2 12c0-4.714 0-7.071 1.464-8.536C4.93 2 7.286 2 12 2s7.071 0 8.535 1.464C22 4.93 22 7.286 22 12s0 7.071-1.465 8.535C19.072 22 16.714 22 12 22s-7.071 0-8.536-1.465C2 19.072 2 16.714 2 12" opacity=".5" class=""></path><path fill="currentColor" d="M12.75 7a.75.75 0 0 0-1.5 0v5.19l-1.72-1.72a.75.75 0 0 0-1.06 1.06l3 3a.75.75 0 0 0 1.06 0l3-3a.75.75 0 1 0-1.06-1.06l-1.72 1.72zM8 16.25a.75.75 0 0 0 0 1.5h8a.75.75 0 0 0 0-1.5z" class=""></path></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Interactive Accordion List -->
+                <div class="flex flex-col border-t border-white/10" id="curriculum-list">
+                    <!-- Javascript logic handles clicking -->
+                    
+                    <!-- Item 1 -->
+                    <div class="group border-b border-white/10 transition-all duration-300" onclick="toggleCurriculum(0)">
+                        <div class="py-8 flex flex-col cursor-pointer">
+                            <div class="flex justify-between items-center">
+                                <h3 class="text-2xl text-white font-medium tracking-tight group-hover:text-[#9EF0A0] transition-colors" id="title-0">Foundations of Computer Science</h3>
+                                <div class="rounded-full bg-white/5 p-3 group-hover:bg-[#9EF0A0] group-hover:text-[#18181B] transition-colors">
+                                    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="1em" height="1em" viewBox="0 0 24 24" id="icon-0" data-icon="solar:add-circle-bold-duotone" class="iconify text-2xl transform transition-transform duration-300 iconify--solar"><path fill="currentColor" d="M22 12c0 5.523-4.477 10-10 10S2 17.523 2 12S6.477 2 12 2s10 4.477 10 10" opacity=".5" class=""></path><path fill="currentColor" d="M12.75 9a.75.75 0 0 0-1.5 0v2.25H9a.75.75 0 0 0 0 1.5h2.25V15a.75.75 0 0 0 1.5 0v-2.25H15a.75.75 0 0 0 0-1.5h-2.25z" class=""></path></svg>
+                                </div>
+                            </div>
+                            <div class="h-0 overflow-hidden transition-all duration-500 ease-in-out opacity-0" id="desc-0">
+                                <p class="text-[#A1A1AA] max-w-2xl text-lg font-light pt-4">
+                                    Deep dive into algorithms, data structures, and big O notation. Learn how computers actually work before writing your first line of production code.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 2 (Active by Default) -->
+                    <div class="group border-b border-white/10 transition-all duration-300" onclick="toggleCurriculum(1)">
+                        <div class="py-8 flex flex-col cursor-pointer">
+                            <div class="flex justify-between items-center">
+                                <h3 class="text-2xl text-[#9EF0A0] font-medium tracking-tight" id="title-1">Full Stack Development</h3>
+                                <div class="rounded-full bg-[#9EF0A0] text-[#18181B] p-3 transition-colors">
+                                    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="1em" height="1em" viewBox="0 0 24 24" id="icon-1" data-icon="solar:add-circle-bold-duotone" class="iconify text-2xl transform rotate-45 iconify--solar"><path fill="currentColor" d="M22 12c0 5.523-4.477 10-10 10S2 17.523 2 12S6.477 2 12 2s10 4.477 10 10" opacity=".5" class=""></path><path fill="currentColor" d="M12.75 9a.75.75 0 0 0-1.5 0v2.25H9a.75.75 0 0 0 0 1.5h2.25V15a.75.75 0 0 0 1.5 0v-2.25H15a.75.75 0 0 0 0-1.5h-2.25z" class=""></path></svg>
+                                </div>
+                            </div>
+                            <div class="h-auto overflow-hidden transition-all duration-500 ease-in-out opacity-100" id="desc-1">
+                                <p class="text-[#A1A1AA] max-w-2xl text-lg font-light pt-4">
+                                    Build dynamic applications using React, Node.js, PostgreSQL, and Modern Cloud Infrastructure. Create real-world projects that scale.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 3 -->
+                    <div class="group border-b border-white/10 transition-all duration-300" onclick="toggleCurriculum(2)">
+                        <div class="py-8 flex flex-col cursor-pointer">
+                            <div class="flex justify-between items-center">
+                                <h3 class="text-2xl text-white font-medium tracking-tight group-hover:text-[#9EF0A0] transition-colors" id="title-2">System Design &amp; Architecture</h3>
+                                <div class="rounded-full bg-white/5 p-3 group-hover:bg-[#9EF0A0] group-hover:text-[#18181B] transition-colors">
+                                    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="1em" height="1em" viewBox="0 0 24 24" id="icon-2" data-icon="solar:add-circle-bold-duotone" class="iconify text-2xl transform transition-transform duration-300 iconify--solar"><path fill="currentColor" d="M22 12c0 5.523-4.477 10-10 10S2 17.523 2 12S6.477 2 12 2s10 4.477 10 10" opacity=".5" class=""></path><path fill="currentColor" d="M12.75 9a.75.75 0 0 0-1.5 0v2.25H9a.75.75 0 0 0 0 1.5h2.25V15a.75.75 0 0 0 1.5 0v-2.25H15a.75.75 0 0 0 0-1.5h-2.25z" class=""></path></svg>
+                                </div>
+                            </div>
+                            <div class="h-0 overflow-hidden transition-all duration-500 ease-in-out opacity-0" id="desc-2">
+                                <p class="text-[#A1A1AA] max-w-2xl text-lg font-light pt-4">
+                                    Understand microservices, load balancing, and database shading. Design systems that can handle millions of concurrent users.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 4 -->
+                    <div class="group border-b border-white/10 transition-all duration-300" onclick="toggleCurriculum(3)">
+                        <div class="py-8 flex flex-col cursor-pointer">
+                            <div class="flex justify-between items-center">
+                                <h3 class="text-2xl text-white font-medium tracking-tight group-hover:text-[#9EF0A0] transition-colors" id="title-3">Career Strategy &amp; Negotiation</h3>
+                                <div class="rounded-full bg-white/5 p-3 group-hover:bg-[#9EF0A0] group-hover:text-[#18181B] transition-colors">
+                                    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="1em" height="1em" viewBox="0 0 24 24" id="icon-3" data-icon="solar:add-circle-bold-duotone" class="iconify text-2xl transform transition-transform duration-300 iconify--solar"><path fill="currentColor" d="M22 12c0 5.523-4.477 10-10 10S2 17.523 2 12S6.477 2 12 2s10 4.477 10 10" opacity=".5" class=""></path><path fill="currentColor" d="M12.75 9a.75.75 0 0 0-1.5 0v2.25H9a.75.75 0 0 0 0 1.5h2.25V15a.75.75 0 0 0 1.5 0v-2.25H15a.75.75 0 0 0 0-1.5h-2.25z" class=""></path></svg>
+                                </div>
+                            </div>
+                            <div class="h-0 overflow-hidden transition-all duration-500 ease-in-out opacity-0" id="desc-3">
+                                <p class="text-[#A1A1AA] max-w-2xl text-lg font-light pt-4">
+                                    Technical skills get you the interview; soft skills get you the job. We teach you how to negotiate your salary and navigate the hiring process.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section></body></html>
+  </div>
+  
+    <script>
+      (function() {
+        function checkAndCenter() {
+          // Use double requestAnimationFrame to ensure DOM is fully painted and layout is stable
+          requestAnimationFrame(function() {
+            requestAnimationFrame(function() {
+              const wrapper = document.querySelector('.component-wrapper');
+              if (!wrapper) return;
+              
+              // Get all child elements
+              const children = Array.from(wrapper.children);
+              if (children.length === 0) return;
+              
+              // Temporarily override wrapper styles to shrink-wrap for measurement
+              // Set inline styles to shrink-wrap (inline styles override CSS)
+              wrapper.style.display = 'inline-block';
+              wrapper.style.width = 'auto';
+              wrapper.style.height = 'auto';
+              wrapper.style.overflow = 'visible';
+              wrapper.style.boxSizing = 'content-box';
+              
+              // Force multiple reflows to ensure styles are fully applied
+              void wrapper.offsetHeight;
+              void wrapper.offsetWidth;
+              void wrapper.offsetHeight;
+              
+              // Measure the wrapper's content size
+              const contentWidth = wrapper.offsetWidth;
+              const contentHeight = wrapper.offsetHeight;
+              
+              // Restore original styles by removing inline styles we added
+              wrapper.style.removeProperty('display');
+              wrapper.style.removeProperty('width');
+              wrapper.style.removeProperty('height');
+              wrapper.style.removeProperty('overflow');
+              wrapper.style.removeProperty('box-sizing');
+              
+              // If content is less than 500x500, center it
+              if (contentWidth > 0 && contentHeight > 0 && contentWidth < 500 && contentHeight < 500) {
+                wrapper.style.display = 'flex';
+                wrapper.style.alignItems = 'center';
+                wrapper.style.justifyContent = 'center';
+              }
+            });
+          });
+        }
+        
+        // Check immediately and after delays to ensure content is rendered and styled
+        function runChecks() {
+          checkAndCenter();
+          setTimeout(checkAndCenter, 50);
+          setTimeout(checkAndCenter, 150);
+          setTimeout(checkAndCenter, 300);
+          setTimeout(checkAndCenter, 500);
+          setTimeout(checkAndCenter, 1000);
+        }
+        
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', runChecks);
+        } else {
+          runChecks();
+        }
+        
+        // Also check when images or other resources load
+        window.addEventListener('load', () => {
+          setTimeout(checkAndCenter, 100);
+          setTimeout(checkAndCenter, 300);
+        });
+        
+        // Use ResizeObserver to detect size changes
+        if (window.ResizeObserver) {
+          setTimeout(() => {
+            const wrapper = document.querySelector('.component-wrapper');
+            if (wrapper) {
+              const observer = new ResizeObserver(() => {
+                setTimeout(checkAndCenter, 50);
+              });
+              observer.observe(wrapper);
+            }
+          }, 500);
+        }
+      })();
+    </script>
+  
+</body>
+</html>

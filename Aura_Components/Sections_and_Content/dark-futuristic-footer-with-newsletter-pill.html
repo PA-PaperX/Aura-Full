@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Component Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      height: 100%;
+      overflow: auto;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #000000;
+      color: #ffffff;
+    }
+    .component-wrapper {
+      width: 100%;
+      height: 100%;
+      padding: 0;
+      box-sizing: border-box;
+      overflow: auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="component-wrapper">
+    <html><head></head><body><footer class="overflow-hidden bg-[#050505] w-full pt-32 pb-0 relative">
+  
+    <!-- Floating Pill / Newsletter Input (Adapting the search bar) -->
+    <div class="flex z-30 pr-6 pl-6 absolute top-12 right-0 left-0 justify-center">
+        <div class="bg-[#0A0A0A]/80 backdrop-blur-md border border-white/10 rounded-full py-3 pl-6 pr-3 flex items-center gap-4 shadow-2xl max-w-lg w-full group transition-all hover:border-white/20 [animation:fadeSlideIn_0.8s_ease-out_0.2s_both] animate-on-scroll">
+            <span class="text-neutral-500 text-sm font-light font-mono hidden sm:block">Redefining spaces, one voxel at a time.</span>
+            <input type="text" placeholder="Enter email for access..." class="bg-transparent border-none outline-none text-white text-sm w-full sm:w-auto placeholder:text-neutral-700 font-mono">
+            <button class="w-8 h-8 bg-white text-black rounded-full flex items-center justify-center hover:bg-[#FACC15] transition-colors shrink-0">
+                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="" style="" data-icon-set="solar" data-solar="arrow-right-bold-duotone"><path fill="currentColor" fill-rule="evenodd" d="M3.25 12a.75.75 0 0 1 .75-.75h9.25v1.5H4a.75.75 0 0 1-.75-.75" clip-rule="evenodd" opacity=".5" class=""></path><path fill="currentColor" d="M13.25 12.75V18a.75.75 0 0 0 1.28.53l6-6a.75.75 0 0 0 0-1.06l-6-6a.75.75 0 0 0-1.28.53z" class=""></path></svg>
+            </button>
+        </div>
+    </div>
+
+    <!-- Background Decorative Tabs (Adapting the folder tabs) -->
+    <div class="max-w-[90%] mx-auto flex items-end gap-4 relative z-10 translate-y-2 opacity-50 hover:opacity-100 transition-opacity duration-500">
+        <!-- Active Tab Visual -->
+        <div class="h-16 w-48 bg-[#080808] border-t border-x border-white/10 rounded-t-2xl flex items-center justify-center gap-2 relative z-20">
+             <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="text-white" style="" data-icon-set="solar" data-solar="code-square-bold-duotone"><path fill="currentColor" d="M2 12c0-4.714 0-7.071 1.464-8.536C4.93 2 7.286 2 12 2s7.071 0 8.535 1.464C22 4.93 22 7.286 22 12s0 7.071-1.465 8.535C19.072 22 16.714 22 12 22s-7.071 0-8.536-1.465C2 19.072 2 16.714 2 12" opacity=".5" class=""></path><path fill="currentColor" d="M13.488 6.446a.75.75 0 0 1 .53.918l-2.588 9.66a.75.75 0 0 1-1.449-.389l2.589-9.659a.75.75 0 0 1 .918-.53M14.97 8.47a.75.75 0 0 1 1.06 0l.209.208c.635.635 1.165 1.165 1.529 1.642c.384.504.654 1.036.654 1.68s-.27 1.176-.654 1.68c-.364.477-.894 1.007-1.53 1.642l-.208.208a.75.75 0 1 1-1.06-1.06l.171-.172c.682-.682 1.139-1.14 1.434-1.528c.283-.37.347-.586.347-.77s-.064-.4-.347-.77c-.295-.387-.752-.846-1.434-1.528l-.171-.172a.75.75 0 0 1 0-1.06m-7 0a.75.75 0 0 1 1.06 1.06l-.171.172c-.682.682-1.138 1.14-1.434 1.528c-.283.37-.346.586-.346.77s.063.4.346.77c.296.387.752.846 1.434 1.528l.172.172a.75.75 0 1 1-1.061 1.06l-.208-.208c-.636-.635-1.166-1.165-1.53-1.642c-.384-.504-.653-1.036-.653-1.68s.27-1.176.653-1.68c.364-.477.894-1.007 1.53-1.642z" class=""></path></svg>
+             <span class="text-xs font-semibold text-white uppercase tracking-widest">System</span>
+        </div>
+        <!-- Inactive Tab 1 -->
+        <div class="h-12 w-40 bg-[#050505] border-t border-x border-white/5 rounded-t-xl flex items-center justify-center gap-2 relative z-10 hover:bg-[#080808] hover:h-14 transition-all cursor-pointer group">
+             <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="text-neutral-600 group-hover:text-white transition-colors" style="" data-icon-set="solar" data-solar="users-group-rounded-bold-duotone"><circle cx="15" cy="6" r="3" fill="currentColor" opacity=".4" class=""></circle><ellipse cx="16" cy="17" fill="currentColor" opacity=".4" rx="5" ry="3" class=""></ellipse><circle cx="9.001" cy="6" r="4" fill="currentColor" class=""></circle><ellipse cx="9.001" cy="17.001" fill="currentColor" rx="7" ry="4" class=""></ellipse></svg>
+             <span class="text-xs font-medium text-neutral-600 uppercase tracking-widest group-hover:text-white transition-colors">Studio</span>
+        </div>
+        <!-- Inactive Tab 2 -->
+        <div class="h-12 w-40 bg-[#050505] border-t border-x border-white/5 rounded-t-xl flex items-center justify-center gap-2 relative z-10 hover:bg-[#080808] hover:h-14 transition-all cursor-pointer group">
+             <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="text-neutral-600 group-hover:text-white transition-colors" style="" data-icon-set="solar" data-solar="document-text-bold-duotone"><path fill="currentColor" d="M3 10c0-3.771 0-5.657 1.172-6.828S7.229 2 11 2h2c3.771 0 5.657 0 6.828 1.172S21 6.229 21 10v4c0 3.771 0 5.657-1.172 6.828S16.771 22 13 22h-2c-3.771 0-5.657 0-6.828-1.172S3 17.771 3 14z" opacity=".5" class=""></path><path fill="currentColor" fill-rule="evenodd" d="M7.25 12a.75.75 0 0 1 .75-.75h8a.75.75 0 0 1 0 1.5H8a.75.75 0 0 1-.75-.75m0-4A.75.75 0 0 1 8 7.25h8a.75.75 0 0 1 0 1.5H8A.75.75 0 0 1 7.25 8m0 8a.75.75 0 0 1 .75-.75h5a.75.75 0 0 1 0 1.5H8a.75.75 0 0 1-.75-.75" clip-rule="evenodd" class=""></path></svg>
+             <span class="text-xs font-medium text-neutral-600 uppercase tracking-widest group-hover:text-white transition-colors">Legal</span>
+        </div>
+    </div>
+
+    <!-- Main Footer Card Container -->
+    <div class="w-full bg-[#080808] border-t border-white/10 rounded-t-[3rem] relative z-20 overflow-hidden">
+        
+        <div class="w-full px-6 lg:px-12 py-20 lg:py-32 grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-8 relative z-20">
+            
+            <!-- Left Content: Slogan -->
+            <div class="lg:col-span-7 flex flex-col justify-center">
+                <h2 class="text-6xl lg:text-[7rem] leading-[0.85] font-normal text-white tracking-tighter mb-12">
+                    Systematic.
+                    <span class="text-neutral-600">Parametric.</span>
+                    Adaptive.
+                </h2>
+                
+                <!-- Company Logos (Monotone SVG) -->
+                <div class="flex flex-wrap gap-8 items-center mt-auto opacity-40 grayscale hover:grayscale-0 transition-all duration-500">
+                    <iconify-icon icon="simple-icons:framer" width="24" class="hover:text-white transition-colors"></iconify-icon>
+                    <iconify-icon icon="simple-icons:github" width="24" class="hover:text-white transition-colors"></iconify-icon>
+                    <div class="h-6 w-px bg-white/10"></div>
+                    <iconify-icon icon="simple-icons:x" width="22" class="hover:text-white transition-colors"></iconify-icon>
+                    <iconify-icon icon="simple-icons:discord" width="24" class="hover:text-white transition-colors"></iconify-icon>
+                </div>
+            </div>
+
+            <!-- Right Content: The "Yellow Note" adaptation -->
+            <div class="lg:col-span-5 flex lg:justify-end items-center">
+                <div class="w-full max-w-md bg-[#FACC15] p-8 lg:p-12 rounded-xl relative overflow-hidden group rotate-1 hover:rotate-0 transition-transform duration-500 shadow-2xl">
+                    <!-- Decorative Icon Background -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="absolute -right-8 -top-8 text-black/10 text-[12rem] rotate-12 group-hover:rotate-45 transition-transform duration-700" style="" data-icon-set="solar" data-solar="settings-bold-duotone"><path fill="currentColor" fill-rule="evenodd" d="M14.279 2.152C13.909 2 13.439 2 12.5 2s-1.408 0-1.779.152a2 2 0 0 0-1.09 1.083c-.094.223-.13.484-.145.863a1.62 1.62 0 0 1-.796 1.353a1.64 1.64 0 0 1-1.579.008c-.338-.178-.583-.276-.825-.308a2.03 2.03 0 0 0-1.49.396c-.318.242-.553.646-1.022 1.453c-.47.807-.704 1.21-.757 1.605c-.07.526.074 1.058.4 1.479c.148.192.357.353.68.555c.477.297.783.803.783 1.361s-.306 1.064-.782 1.36c-.324.203-.533.364-.682.556a2 2 0 0 0-.399 1.479c.053.394.287.798.757 1.605s.704 1.21 1.022 1.453c.424.323.96.465 1.49.396c.242-.032.487-.13.825-.308a1.64 1.64 0 0 1 1.58.008c.486.28.774.795.795 1.353c.015.38.051.64.145.863c.204.49.596.88 1.09 1.083c.37.152.84.152 1.779.152s1.409 0 1.779-.152a2 2 0 0 0 1.09-1.083c.094-.223.13-.483.145-.863c.02-.558.309-1.074.796-1.353a1.64 1.64 0 0 1 1.579-.008c.338.178.583.276.825.308c.53.07 1.066-.073 1.49-.396c.318-.242.553-.646 1.022-1.453c.47-.807.704-1.21.757-1.605a2 2 0 0 0-.4-1.479c-.148-.192-.357-.353-.68-.555c-.477-.297-.783-.803-.783-1.361s.306-1.064.782-1.36c.324-.203.533-.364.682-.556a2 2 0 0 0 .399-1.479c-.053-.394-.287-.798-.757-1.605s-.704-1.21-1.022-1.453a2.03 2.03 0 0 0-1.49-.396c-.242.032-.487.13-.825.308a1.64 1.64 0 0 1-1.58-.008a1.62 1.62 0 0 1-.795-1.353c-.015-.38-.051-.64-.145-.863a2 2 0 0 0-1.09-1.083" clip-rule="evenodd" opacity=".5" class=""></path><path fill="currentColor" d="M15.523 12c0 1.657-1.354 3-3.023 3s-3.023-1.343-3.023-3S10.83 9 12.5 9s3.023 1.343 3.023 3" class=""></path></svg>
+                    
+                    <div class="relative z-10">
+                        <h3 class="text-3xl font-medium text-black tracking-tight leading-tight mb-6">
+                            Optimized structures,at every node.
+                        </h3>
+                        <p class="text-black/70 text-sm font-medium leading-relaxed mb-10 font-mono">
+                            // Where every constraint is met with calculation and every blueprint is a revolution.
+                        </p>
+                        
+                        <div class="flex items-center justify-between border-t border-black/10 pt-6">
+                            <div class="flex flex-col">
+                                <span class="text-[10px] uppercase tracking-widest text-black/50 font-semibold">Status</span>
+                                <span class="text-xs font-semibold text-black mt-1">Operational</span>
+                            </div>
+                            <button class="bg-black text-white w-10 h-10 rounded-full flex items-center justify-center hover:scale-110 transition-transform group/btn">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="group-hover/btn:rotate-45 transition-transform" style="" data-icon-set="solar" data-solar="arrow-right-up-bold-duotone"><path fill="currentColor" fill-rule="evenodd" d="M17.47 15.53a.75.75 0 0 0 1.28-.53V6a.75.75 0 0 0-.75-.75H9a.75.75 0 0 0-.53 1.28z" clip-rule="evenodd" class=""></path><path fill="currentColor" d="M5.47 17.47a.75.75 0 1 0 1.06 1.06l6.97-6.97l-1.06-1.06z" opacity=".5" class=""></path></svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Bottom Watermark (Adapting the large background text) -->
+        <div class="relative w-full overflow-hidden pointer-events-none select-none pt-20">
+            <h1 class="text-[22vw] leading-none font-bold text-white/5 text-center -mb-12 lg:-mb-24 tracking-tighter font-space-grotesk">
+                NOVUS
+            </h1>
+            <!-- Overlay Gradient to fade bottom -->
+            <div class="absolute bottom-0 left-0 w-full h-40 bg-gradient-to-t from-[#080808] to-transparent"></div>
+        </div>
+
+        <!-- Copyright Line -->
+        <div class="absolute bottom-6 w-full flex justify-center z-30">
+             <p class="text-[10px] text-neutral-700 font-mono uppercase tracking-widest hover:text-neutral-500 transition-colors cursor-default">© 2024 Novus Arc Systems. All rights reserved.</p>
+        </div>
+    </div>
+</footer></body></html>
+  </div>
+  
+    <script>
+      (function() {
+        function checkAndCenter() {
+          // Use double requestAnimationFrame to ensure DOM is fully painted and layout is stable
+          requestAnimationFrame(function() {
+            requestAnimationFrame(function() {
+              const wrapper = document.querySelector('.component-wrapper');
+              if (!wrapper) return;
+              
+              // Get all child elements
+              const children = Array.from(wrapper.children);
+              if (children.length === 0) return;
+              
+              // Temporarily override wrapper styles to shrink-wrap for measurement
+              // Set inline styles to shrink-wrap (inline styles override CSS)
+              wrapper.style.display = 'inline-block';
+              wrapper.style.width = 'auto';
+              wrapper.style.height = 'auto';
+              wrapper.style.overflow = 'visible';
+              wrapper.style.boxSizing = 'content-box';
+              
+              // Force multiple reflows to ensure styles are fully applied
+              void wrapper.offsetHeight;
+              void wrapper.offsetWidth;
+              void wrapper.offsetHeight;
+              
+              // Measure the wrapper's content size
+              const contentWidth = wrapper.offsetWidth;
+              const contentHeight = wrapper.offsetHeight;
+              
+              // Restore original styles by removing inline styles we added
+              wrapper.style.removeProperty('display');
+              wrapper.style.removeProperty('width');
+              wrapper.style.removeProperty('height');
+              wrapper.style.removeProperty('overflow');
+              wrapper.style.removeProperty('box-sizing');
+              
+              // If content is less than 500x500, center it
+              if (contentWidth > 0 && contentHeight > 0 && contentWidth < 500 && contentHeight < 500) {
+                wrapper.style.display = 'flex';
+                wrapper.style.alignItems = 'center';
+                wrapper.style.justifyContent = 'center';
+              }
+            });
+          });
+        }
+        
+        // Check immediately and after delays to ensure content is rendered and styled
+        function runChecks() {
+          checkAndCenter();
+          setTimeout(checkAndCenter, 50);
+          setTimeout(checkAndCenter, 150);
+          setTimeout(checkAndCenter, 300);
+          setTimeout(checkAndCenter, 500);
+          setTimeout(checkAndCenter, 1000);
+        }
+        
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', runChecks);
+        } else {
+          runChecks();
+        }
+        
+        // Also check when images or other resources load
+        window.addEventListener('load', () => {
+          setTimeout(checkAndCenter, 100);
+          setTimeout(checkAndCenter, 300);
+        });
+        
+        // Use ResizeObserver to detect size changes
+        if (window.ResizeObserver) {
+          setTimeout(() => {
+            const wrapper = document.querySelector('.component-wrapper');
+            if (wrapper) {
+              const observer = new ResizeObserver(() => {
+                setTimeout(checkAndCenter, 50);
+              });
+              observer.observe(wrapper);
+            }
+          }, 500);
+        }
+      })();
+    </script>
+  
+</body>
+</html>

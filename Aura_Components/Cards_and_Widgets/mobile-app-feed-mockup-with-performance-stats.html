@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Component Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      height: 100%;
+      overflow: auto;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #000000;
+      color: #ffffff;
+    }
+    .component-wrapper {
+      width: 100%;
+      height: 100%;
+      padding: 0;
+      box-sizing: border-box;
+      overflow: auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="component-wrapper">
+    <html><head></head><body><div class="z-10 md:px-10 lg:py-32 w-full max-w-7xl border-white/5 border-t mr-auto ml-auto pt-24 pr-6 pb-24 pl-6 relative">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+        <!-- Left Column: Mobile Mockup -->
+        <div class="relative flex justify-center lg:justify-start group perspective-1000 animate-on-scroll [animation:fadeSlideIn_1.2s_cubic-bezier(0.2,0.8,0.2,1)_0.3s_both]">
+          <!-- Background Glow -->
+          <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[80%] bg-orange-500/20 blur-[120px] -z-10 rounded-full opacity-40 pointer-events-none"></div>
+
+          <!-- Phone Container -->
+          <div class="relative w-[340px] h-[680px] bg-[#0a0a0a] border-[6px] border-[#1a1a1a] rounded-[3rem] shadow-2xl overflow-hidden rotate-[-2deg] hover:rotate-0 transition-transform duration-700 ease-out">
+            <!-- Dynamic Island / Notch area -->
+            <div class="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-7 bg-black rounded-b-2xl z-50 flex justify-center items-center"></div>
+
+            <!-- Status Bar -->
+            <div class="flex justify-between items-center px-6 pt-4 pb-2 text-white text-xs font-medium relative z-40">
+              <span>9:41</span>
+              <div class="flex gap-1.5 items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" class="">
+                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15h-2v-6h2v6zm0-8h-2V7h2v2z" opacity=".5" class=""></path>
+                  <path d="M1 1h22v22H1z" fill="none" class=""></path>
+                </svg>
+                <div class="w-5 h-3 border border-white/30 rounded-[3px] relative">
+                  <div class="absolute top-0.5 left-0.5 bottom-0.5 right-1 bg-white rounded-[1px]"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- App Header -->
+            <div class="flex justify-between items-center px-5 py-3 border-b border-white/5 bg-[#0a0a0a]/90 backdrop-blur-md sticky top-0 z-30">
+              <div class="flex items-center gap-1">
+                <span class="font-instrument-serif font-bold text-xl tracking-tight text-white">
+                  Lumina
+                </span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" class="text-orange-500">
+                  <path fill="currentColor" d="M12 2l2.4 7.2h7.6l-6 4.8 2.4 7.2-6-4.8-6 4.8 2.4-7.2-6-4.8h7.6z" class=""></path>
+                </svg>
+              </div>
+              <div class="flex gap-4 text-white">
+                <!-- Solar Heart Bold Duotone -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" class="">
+                  <path d="M12.62 20.81c-.34.12-.9.12-1.24 0C8.48 19.82 2 15.69 2 8.69 2 5.6 4.49 3.1 7.56 3.1c1.82 0 3.43.88 4.44 2.24a5.53 5.53 0 0 1 4.44-2.24C19.51 3.1 22 5.6 22 8.69c0 7-6.48 11.13-9.38 12.12z" fill="currentColor" opacity="0.5" class=""></path>
+                  <path d="M12.62 20.81c-.34.12-.9.12-1.24 0C8.48 19.82 2 15.69 2 8.69 2 5.6 4.49 3.1 7.56 3.1c1.82 0 3.43.88 4.44 2.24a5.53 5.53 0 0 1 4.44-2.24C19.51 3.1 22 5.6 22 8.69c0 7-6.48 11.13-9.38 12.12z" fill="currentColor" opacity="0.2" class=""></path>
+                </svg>
+                <!-- Solar Chat Bold Duotone -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" class="">
+                  <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12c0 1.821.487 3.53 1.338 5.025.45.79.196 1.75-.463 2.46A2.966 2.966 0 0 0 2.36 22H12z" fill="currentColor" opacity="0.5" class=""></path>
+                  <path d="M16.5 13a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zm-4.5 0a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zm-4.5 0a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z" fill="currentColor" class=""></path>
+                </svg>
+              </div>
+            </div>
+
+            <!-- Stories Area -->
+            <div class="flex gap-4 px-5 py-4 overflow-x-hidden border-b border-white/5">
+              <!-- Story 1 -->
+              <div class="flex flex-col items-center gap-1.5">
+                <div class="w-14 h-14 rounded-full p-[2px] bg-gradient-to-tr from-orange-400 to-pink-600">
+                  <div class="w-full h-full rounded-full bg-black flex items-center justify-center border-2 border-black">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="color: rgb(255, 255, 255); width: 24px; height: 24px" class="text-white fill-current w-[24px] h-[24px]" data-solar="wallpaper-bold-duotone" data-icon-set="solar" data-icon-replaced="true" stroke-width="2">
+                      <path fill="#ffffff" d="M15.721 7.349a1.86 1.86 0 1 1-3.72 0a1.86 1.86 0 0 1 3.72 0" class=""></path>
+                      <path fill="#ffffff" fill-rule="evenodd" d="M16.086 2.108C15.279 2 14.254 2 12.982 2h-1.963c-1.272 0-2.298 0-3.104.108c-.837.113-1.542.354-2.102.914s-.801 1.265-.914 2.102c-.108.806-.108 1.832-.108 3.104v7.544c0 1.272 0 2.298.108 3.104c.113.837.354 1.542.914 2.102s1.265.801 2.102.914C8.721 22 9.747 22 11.019 22h1.963c1.272 0 2.297 0 3.104-.108c.837-.113 1.542-.354 2.102-.914s.8-1.265.913-2.102c.109-.806.109-1.832.109-3.104V8.228c0-1.272 0-2.298-.109-3.104c-.112-.837-.353-1.542-.913-2.102s-1.265-.801-2.102-.914m.723 14.522l.986 1.04c.019-.536.02-1.175.02-1.95V8.28c0-1.336-.002-2.267-.097-2.97c-.091-.683-.26-1.044-.517-1.302c-.257-.257-.619-.425-1.301-.517c-.703-.094-1.634-.096-2.97-.096h-1.86c-1.335 0-2.266.002-2.97.096c-.682.092-1.043.26-1.3.517c-.258.258-.426.62-.518 1.302c-.094.703-.096 1.634-.096 2.97v4.624l.004-.003c.916-.941 2.335-.876 3.183.118l2.94 3.448c.236.276.546.289.783.093l.205-.169c1.076-.886 2.551-.77 3.508.24" clip-rule="evenodd" class=""></path>
+                      <path fill="#ffffff" d="M5.016 4.5H5c-.465 0-.697 0-.891.03A2.5 2.5 0 0 0 2.03 6.61C2 6.803 2 7.035 2 7.5v9c0 .465 0 .697.03.891a2.5 2.5 0 0 0 2.08 2.079c.194.031.426.031.891.031h.016a6 6 0 0 1-.117-.624c-.108-.806-.108-1.832-.108-3.104V8.228c0-1.272 0-2.298.108-3.104q.043-.325.117-.624m13.968 15q.074-.299.116-.624c.109-.806.109-1.832.109-3.104V8.228c0-1.272 0-2.298-.109-3.104a6 6 0 0 0-.116-.624H19c.465 0 .697 0 .891.03a2.5 2.5 0 0 1 2.079 2.08c.031.194.031.426.031.891v9c0 .465 0 .697-.03.891a2.5 2.5 0 0 1-2.079 2.078c-.194.031-.426.031-.891.031z" opacity=".5" class=""></path>
+                    </svg>
+                  </div>
+                </div>
+                <span class="text-[10px] text-neutral-400">News</span>
+              </div>
+              <!-- Story 2 -->
+              <div class="flex flex-col items-center gap-1.5">
+                <div class="bg-neutral-800 w-14 h-14 rounded-full pt-[1px] pr-[1px] pb-[1px] pl-[1px]">
+                  <div class="w-full h-full rounded-full bg-black flex items-center justify-center border-2 border-black">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="color: rgb(255, 255, 255); width: 24px; height: 24px;" class="fill-current w-[24px] h-[24px]" data-solar="ruler-bold-duotone" data-icon-set="solar" data-icon-replaced="true" stroke-width="2">
+                      <path fill="#ffffff" d="M2 15.616c0 .847.682 1.529 2.045 2.892l1.447 1.447C6.855 21.318 7.537 22 8.384 22s1.53-.682 2.893-2.045l8.678-8.678C21.318 9.913 22 9.23 22 8.384s-.682-1.529-2.045-2.892l-1.447-1.447C17.145 2.682 16.463 2 15.616 2c-.754 0-1.376.54-2.464 1.618l-1.05 1.048l-1.072 1.073l-1.05 1.048L8.91 7.86L7.86 8.909L6.788 9.98L5.74 11.03l-1.073 1.073l-1.048 1.049C2.539 14.24 2 14.862 2 15.616" opacity=".5" class=""></path>
+                      <path fill="#ffffff" d="M13.238 3.691a1 1 0 0 0-.086-.073l-1.049 1.048q.033.045.074.086l1.414 1.414a.75.75 0 0 0 1.06-1.06zm-2.122 2.122a1 1 0 0 0-.086-.074L9.982 6.787q.033.045.074.086l2.121 2.122a.75.75 0 0 0 1.06-1.061zM8.995 7.934a1 1 0 0 0-.086-.074L7.86 8.908q.033.046.074.087l1.415 1.414a.75.75 0 1 0 1.06-1.06zm-2.121 2.121a1 1 0 0 0-.086-.074L5.739 11.03q.033.045.074.086l2.121 2.121a.75.75 0 1 0 1.061-1.06zm-2.122 2.122a1 1 0 0 0-.086-.075l-1.048 1.05q.033.045.074.085l1.414 1.414a.75.75 0 1 0 1.06-1.06z" class=""></path>
+                    </svg>
+                  </div>
+                </div>
+                <span class="text-[10px] text-neutral-400">Updates</span>
+              </div>
+              <!-- Story 3 -->
+              <div class="flex flex-col items-center gap-1.5">
+                <div class="bg-neutral-800 w-14 h-14 rounded-full pt-[1px] pr-[1px] pb-[1px] pl-[1px]">
+                  <div class="flex bg-black w-full h-full border-black border-2 rounded-full items-center justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="color: rgb(255, 255, 255); width: 24px; height: 24px;" class="fill-current w-[24px] h-[24px]" data-solar="file-check-bold-duotone" data-icon-set="solar" data-icon-replaced="true" stroke-width="2">
+                      <path fill="#ffffff" fill-rule="evenodd" d="M14 22h-4c-3.771 0-5.657 0-6.828-1.172S2 17.771 2 14v-4c0-3.771 0-5.657 1.172-6.828S6.239 2 10.03 2c.606 0 1.091 0 1.5.017q-.02.12-.02.244l-.01 2.834c0 1.097 0 2.067.105 2.848c.114.847.375 1.694 1.067 2.386c.69.69 1.538.952 2.385 1.066c.781.105 1.751.105 2.848.105h4.052c.043.534.043 1.19.043 2.063V14c0 3.771 0 5.657-1.172 6.828S17.771 22 14 22" clip-rule="evenodd" opacity=".5" class=""></path>
+                      <path fill="#ffffff" d="M10.56 15.498a.75.75 0 1 0-1.12-.996l-2.107 2.37l-.772-.87a.75.75 0 0 0-1.122.996l1.334 1.5a.75.75 0 0 0 1.12 0zm.95-13.238l-.01 2.835c0 1.097 0 2.066.105 2.848c.114.847.375 1.694 1.067 2.385c.69.691 1.538.953 2.385 1.067c.781.105 1.751.105 2.848.105h4.052q.02.232.028.5H22c0-.268 0-.402-.01-.56a5.3 5.3 0 0 0-.958-2.641c-.094-.128-.158-.204-.285-.357C19.954 7.494 18.91 6.312 18 5.5c-.81-.724-1.921-1.515-2.89-2.161c-.832-.556-1.248-.834-1.819-1.04a6 6 0 0 0-.506-.154c-.384-.095-.758-.128-1.285-.14z" class=""></path>
+                    </svg>
+                  </div>
+                </div>
+                <span class="text-[10px] text-neutral-400">Verified</span>
+              </div>
+              <!-- Story 4 -->
+              <div class="flex flex-col items-center gap-1.5">
+                <div class="w-14 h-14 rounded-full p-[2px] bg-gradient-to-tr from-orange-400 to-pink-600">
+                  <div class="w-full h-full rounded-full bg-black flex items-center justify-center border-2 border-black">
+                    <div class="text-[9px] font-bold text-white">New</div>
+                  </div>
+                </div>
+                <span class="text-[10px] text-neutral-400">Feature</span>
+              </div>
+            </div>
+
+            <!-- Feed Post -->
+            <div class="flex flex-col pb-20">
+              <!-- Post Header -->
+              <div class="flex justify-between items-center px-4 py-3">
+                <div class="flex items-center gap-2.5">
+                  <div class="w-8 h-8 bg-[url(https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/00c67fef-ab0b-47aa-b2ca-4b8a84c0382c_320w.webp)] bg-cover bg-center border-white/10 border rounded-full"></div>
+                  <div class="flex flex-col">
+                    <span class="text-xs font-semibold text-white">
+                      Lumina_official
+                    </span>
+                    <span class="text-[10px] text-neutral-500">Sponsored</span>
+                  </div>
+                </div>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" class="text-white">
+                  <circle cx="5" cy="12" r="2" fill="currentColor" class=""></circle>
+                  <circle cx="12" cy="12" r="2" fill="currentColor" class=""></circle>
+                  <circle cx="19" cy="12" r="2" fill="currentColor" class=""></circle>
+                </svg>
+              </div>
+
+              <!-- Post Content -->
+              <div class="w-full aspect-square bg-[#111] relative overflow-hidden group">
+                <!-- Abstract 3D Shape CSS -->
+                <div class="bg-center bg-[url(https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/b02f3053-26c7-4f46-a379-f073cacac0f0_800w.webp)] bg-cover absolute top-0 right-0 bottom-0 left-0"></div>
+                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-orange-500/30 rounded-full blur-2xl"></div>
+                <div class="flex overflow-hidden border-white/5 border rounded-xl absolute top-8 right-8 bottom-8 left-8 items-center justify-center">
+                  <div class="transform group-hover:rotate-6 transition-transform duration-700 bg-gradient-to-b from-white/10 via-white/0 to-white/10 w-24 h-24 rounded-2xl shadow-[0_5.7px_8.6px_rgba(0,_0,_0,_0.07),_0_13.7px_10.9px_rgba(0,_0,_0,_0.099),_0_25.7px_20.5px_rgba(0,_0,_0,_0.123),_0_45.8px_36.6px_rgba(0,_0,_0,_0.147),_0_85.8px_68.5px_rgba(0,_0,_0,_0.176),_0_205px_163.4px_rgba(0,_0,_0,_0.246)] backdrop-blur-md rotate-12" style="position: relative; --border-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0)); --border-radius-before: 16px"></div>
+                  <div class="transform group-hover:-rotate-3 transition-transform duration-700 bg-gradient-to-b from-white/10 via-white/0 to-white/10 w-24 h-24 rounded-2xl absolute shadow-[0_5.7px_8.6px_rgba(0,_0,_0,_0.07),_0_13.7px_10.9px_rgba(0,_0,_0,_0.099),_0_25.7px_20.5px_rgba(0,_0,_0,_0.123),_0_45.8px_36.6px_rgba(0,_0,_0,_0.147),_0_85.8px_68.5px_rgba(0,_0,_0,_0.176),_0_205px_163.4px_rgba(0,_0,_0,_0.246)] backdrop-blur-md translate-x-4 translate-y-4 -rotate-6" style="position: relative; --border-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0)); --border-radius-before: 16px"></div>
+                </div>
+
+                <!-- Tag -->
+                <div class="absolute bottom-4 left-4 px-3 py-1 bg-black/60 backdrop-blur border border-white/10 rounded-full flex items-center gap-2">
+                  <div class="w-1.5 h-1.5 rounded-full bg-orange-500 animate-pulse"></div>
+                  <span class="text-[10px] font-medium text-white">
+                    AI Generated
+                  </span>
+                </div>
+              </div>
+
+              <!-- CTA Bar -->
+              <div class="flex bg-gradient-to-b from-orange-400 to-orange-600 px-4 py-2.5 items-center justify-between">
+                <span class="text-xs font-semibold text-white">
+                  Try Lumina for free
+                </span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-white">
+                  <path d="M5 12h14" class=""></path>
+                  <path d="m12 5 7 7-7 7" class=""></path>
+                </svg>
+              </div>
+
+              <!-- Action Buttons -->
+              <div class="flex justify-between items-center px-4 py-3">
+                <div class="flex gap-4 text-white">
+                  <!-- Solar Heart Bold Duotone -->
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" class="">
+                    <path d="M12.62 20.81c-.34.12-.9.12-1.24 0C8.48 19.82 2 15.69 2 8.69 2 5.6 4.49 3.1 7.56 3.1c1.82 0 3.43.88 4.44 2.24a5.53 5.53 0 0 1 4.44-2.24C19.51 3.1 22 5.6 22 8.69c0 7-6.48 11.13-9.38 12.12z" fill="currentColor" opacity="0.5" class=""></path>
+                    <path d="M12.62 20.81c-.34.12-.9.12-1.24 0C8.48 19.82 2 15.69 2 8.69 2 5.6 4.49 3.1 7.56 3.1c1.82 0 3.43.88 4.44 2.24a5.53 5.53 0 0 1 4.44-2.24C19.51 3.1 22 5.6 22 8.69c0 7-6.48 11.13-9.38 12.12z" fill="currentColor" opacity="0.2" class=""></path>
+                  </svg>
+                  <!-- Solar Chat Round Dots Bold Duotone -->
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" class="">
+                    <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12c0 1.821.487 3.53 1.338 5.025.45.79.196 1.75-.463 2.46A2.966 2.966 0 0 0 2.36 22H12z" fill="currentColor" opacity="0.5" class=""></path>
+                    <path d="M16.5 13a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zm-4.5 0a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zm-4.5 0a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z" fill="currentColor" class=""></path>
+                  </svg>
+                  <!-- Solar Share Circle Bold Duotone -->
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" class="">
+                    <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12c0 5.523 4.477 10 10 10z" fill="currentColor" opacity="0.5" class=""></path>
+                    <path d="M14.293 8.293a1 1 0 0 1 1.414 1.414l-2.293 2.293h3.586a1 1 0 1 1 0 2h-3.586l2.293 2.293a1 1 0 0 1-1.414 1.414l-4-4a1 1 0 0 1 0-1.414l4-4z" fill="currentColor" class=""></path>
+                  </svg>
+                </div>
+                <!-- Bookmark -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" class="text-white">
+                  <path d="M5 21V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16l-7-4.5L5 21z" fill="currentColor" opacity="0.5" class=""></path>
+                </svg>
+              </div>
+
+              <div class="px-4 pb-4">
+                <p class="text-sm font-semibold text-white">12,453 likes</p>
+                <p class="text-sm text-neutral-300 mt-1">
+                  <span class="font-semibold text-white">Lumina_official</span>
+                  Transform your workflow with our new Creative Engine 2.0 🚀
+                  <span class="text-blue-400">#MadeWithLumina</span>
+                </p>
+              </div>
+            </div>
+
+            <!-- Home Indicator -->
+            <div class="absolute bottom-2 left-1/2 -translate-x-1/2 w-32 h-1 bg-white/20 rounded-full"></div>
+          </div>
+        </div>
+
+        <!-- Right Column: Stats List -->
+        <div class="flex flex-col justify-center gap-2 pl-0 lg:pl-12">
+          <!-- Item 1 -->
+          <div class="flex flex-col gap-2 pb-8 border-b border-white/5 animate-on-scroll [animation:fadeSlideIn_0.8s_cubic-bezier(0.2,0.8,0.2,1)_0.4s_both]">
+            <div class="text-5xl md:text-6xl font-medium text-white tracking-tight">
+              10+
+            </div>
+            <div class="text-lg text-neutral-500 font-medium">
+              Industries Transformed
+            </div>
+          </div>
+
+          <!-- Item 2 -->
+          <div class="flex flex-col gap-2 py-8 border-b border-white/5 animate-on-scroll [animation:fadeSlideIn_0.8s_cubic-bezier(0.2,0.8,0.2,1)_0.5s_both]">
+            <div class="text-5xl md:text-6xl font-medium text-white tracking-tight">
+              500 Million
+            </div>
+            <div class="text-lg text-neutral-500 font-medium">
+              Assets Generated Annually
+            </div>
+          </div>
+
+          <!-- Item 3 -->
+          <div class="flex flex-col gap-2 py-8 border-b border-white/5 animate-on-scroll [animation:fadeSlideIn_0.8s_cubic-bezier(0.2,0.8,0.2,1)_0.6s_both]">
+            <div class="text-5xl md:text-6xl font-medium text-white tracking-tight">
+              1,800%
+            </div>
+            <div class="text-lg text-neutral-500 font-medium">
+              Production Efficiency Lift
+            </div>
+          </div>
+
+          <!-- Item 4 -->
+          <div class="flex flex-col gap-2 pt-8 animate-on-scroll [animation:fadeSlideIn_0.8s_cubic-bezier(0.2,0.8,0.2,1)_0.7s_both]">
+            <div class="text-5xl md:text-6xl font-medium text-white tracking-tight">
+              140,000
+            </div>
+            <div class="text-lg text-neutral-500 font-medium">
+              Active Creative Teams
+            </div>
+          </div>
+        </div>
+      </div>
+    </div></body></html>
+  </div>
+  
+    <script>
+      (function() {
+        function checkAndCenter() {
+          // Use double requestAnimationFrame to ensure DOM is fully painted and layout is stable
+          requestAnimationFrame(function() {
+            requestAnimationFrame(function() {
+              const wrapper = document.querySelector('.component-wrapper');
+              if (!wrapper) return;
+              
+              // Get all child elements
+              const children = Array.from(wrapper.children);
+              if (children.length === 0) return;
+              
+              // Temporarily override wrapper styles to shrink-wrap for measurement
+              // Set inline styles to shrink-wrap (inline styles override CSS)
+              wrapper.style.display = 'inline-block';
+              wrapper.style.width = 'auto';
+              wrapper.style.height = 'auto';
+              wrapper.style.overflow = 'visible';
+              wrapper.style.boxSizing = 'content-box';
+              
+              // Force multiple reflows to ensure styles are fully applied
+              void wrapper.offsetHeight;
+              void wrapper.offsetWidth;
+              void wrapper.offsetHeight;
+              
+              // Measure the wrapper's content size
+              const contentWidth = wrapper.offsetWidth;
+              const contentHeight = wrapper.offsetHeight;
+              
+              // Restore original styles by removing inline styles we added
+              wrapper.style.removeProperty('display');
+              wrapper.style.removeProperty('width');
+              wrapper.style.removeProperty('height');
+              wrapper.style.removeProperty('overflow');
+              wrapper.style.removeProperty('box-sizing');
+              
+              // If content is less than 500x500, center it
+              if (contentWidth > 0 && contentHeight > 0 && contentWidth < 500 && contentHeight < 500) {
+                wrapper.style.display = 'flex';
+                wrapper.style.alignItems = 'center';
+                wrapper.style.justifyContent = 'center';
+              }
+            });
+          });
+        }
+        
+        // Check immediately and after delays to ensure content is rendered and styled
+        function runChecks() {
+          checkAndCenter();
+          setTimeout(checkAndCenter, 50);
+          setTimeout(checkAndCenter, 150);
+          setTimeout(checkAndCenter, 300);
+          setTimeout(checkAndCenter, 500);
+          setTimeout(checkAndCenter, 1000);
+        }
+        
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', runChecks);
+        } else {
+          runChecks();
+        }
+        
+        // Also check when images or other resources load
+        window.addEventListener('load', () => {
+          setTimeout(checkAndCenter, 100);
+          setTimeout(checkAndCenter, 300);
+        });
+        
+        // Use ResizeObserver to detect size changes
+        if (window.ResizeObserver) {
+          setTimeout(() => {
+            const wrapper = document.querySelector('.component-wrapper');
+            if (wrapper) {
+              const observer = new ResizeObserver(() => {
+                setTimeout(checkAndCenter, 50);
+              });
+              observer.observe(wrapper);
+            }
+          }, 500);
+        }
+      })();
+    </script>
+  
+</body>
+</html>

@@ -1,0 +1,929 @@
+<html lang="en" class="scroll-smooth"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nexus Kinetic Defense</title>
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&amp;family=Oswald:wght@300;400;500&amp;display=swap" rel="stylesheet">
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com"></script>
+
+<!-- Iconify -->
+<script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+<!-- GSAP -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+<style>
+body {
+background-color: #1A1040;
+color: #ffffff;
+overflow-x: hidden;
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
+}
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #1A1040; }
+::-webkit-scrollbar-thumb { background: #28195C; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #A69FD6; }
+.grid-bg {
+background-image:
+linear-gradient(to right, theme('colors.brand.grid') 1px, transparent 1px),
+linear-gradient(to bottom, theme('colors.brand.grid') 1px, transparent 1px);
+background-size: 40px 40px;
+}
+.diagonal-texture {
+background-image: repeating-linear-gradient(45deg, rgba(255,255,255,0.01) 0, rgba(255,255,255,0.01) 1px, transparent 1px, transparent 8px);
+}
+.frame-section {
+position: relative;
+border-bottom: 1px solid theme('colors.brand.border');
+}
+.corner-sq {
+position: absolute;
+width: 3px;
+height: 3px;
+background-color: rgba(255, 255, 255, 0.2);
+z-index: 10;
+}
+.sq-tl { top: -1px; left: -1px; }
+.sq-tr { top: -1px; right: -1px; }
+.sq-bl { bottom: -1px; left: -1px; }
+.sq-br { bottom: -1px; right: -1px; }
+.l-bracket {
+position: absolute;
+width: 10px;
+height: 10px;
+border-color: rgba(255, 255, 255, 0.2);
+border-style: solid;
+border-width: 0;
+z-index: 10;
+}
+.br-tl { top: -1px; left: -1px; border-top-width: 1px; border-left-width: 1px; }
+.br-tr { top: -1px; right: -1px; border-top-width: 1px; border-right-width: 1px; }
+.br-bl { bottom: -1px; left: -1px; border-bottom-width: 1px; border-left-width: 1px; }
+.br-br { bottom: -1px; right: -1px; border-bottom-width: 1px; border-right-width: 1px; }
+.nav-link {
+position: relative;
+color: theme('colors.brand.text');
+transition: color 0.3s ease;
+}
+.nav-link::before {
+content: '';
+position: absolute;
+left: -16px;
+top: 50%;
+transform: translateY(-50%);
+width: 3px;
+height: 3px;
+background-color: theme('colors.brand.accent2');
+opacity: 0;
+transition: opacity 0.3s ease;
+}
+.nav-link:hover { color: theme('colors.white'); }
+.nav-link:hover::before { opacity: 0.5; }
+.nav-link.active { color: theme('colors.brand.accent2'); }
+.nav-link.active::before { opacity: 1; }
+.vert-text {
+writing-mode: vertical-rl;
+text-orientation: mixed;
+}
+iconify-icon {
+stroke-width: 1.5;
+}
+</style>
+<link id="all-fonts-link-font-oswald" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&amp;display=swap">
+<style id="all-fonts-style-font-oswald">
+.font-oswald { font-family: 'Oswald', sans-serif !important; }
+</style><!-- aura-ga4-start -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-2M6V79H761"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-2M6V79H761');
+</script>
+<!-- aura-ga4-end -->
+</head>
+  <body class="font-sans antialiased relative selection:bg-brand-accent1/30 selection:text-white">
+    <!-- WebGL Background -->
+    <canvas id="webgl-canvas" class="fixed inset-0 z-0 pointer-events-none w-full h-full" width="1072" height="816"></canvas>
+
+    <!-- Global Grid Overlay -->
+    <div class="fixed inset-0 z-0 pointer-events-none grid-bg opacity-40"></div>
+    <div class="fixed inset-0 z-0 pointer-events-none diagonal-texture opacity-20"></div>
+
+    <!-- Main Layout Container -->
+    <div class="relative z-10 flex min-h-screen max-w-[1920px] mx-auto border-l border-r border-brand-border bg-brand-bg/40 backdrop-blur-[2px]">
+      <!-- Main Content Area -->
+      <main class="flex-1 w-full lg:w-[calc(100%-16rem)] border-r border-brand-border relative">
+        <!-- Global Vertical Guide Lines -->
+        <div class="absolute inset-y-0 left-1/3 w-px bg-brand-border pointer-events-none hidden md:block"></div>
+        <div class="absolute inset-y-0 left-2/3 w-px bg-brand-border pointer-events-none hidden md:block"></div>
+
+        <!-- HERO SECTION -->
+        <section class="frame-section min-h-[90vh] flex flex-col md:p-12 lg:p-20 overflow-hidden bg-center text-right bg-[url(https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/95493e49-e67f-47b1-98e3-9231fceb4425_3840w.png)] bg-cover pt-6 pr-6 pb-6 pl-6 relative justify-between" style="position:relative; overflow:hidden; isolation:isolate" id="hero">
+          <video src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/generated-videos/2e815afb-cac1-4c01-90e1-cf3810246e35/1783327079139-2f731a26-1e51-4bcf-970e-9c04954aaf7a.mp4" poster="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/95493e49-e67f-47b1-98e3-9231fceb4425_3840w.png" data-aura-generated-video="true" data-aura-video-preset="loop-in-view" muted="" playsinline="" preload="metadata" loop="" data-aura-generated-video-bg="true" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none;z-index:0"></video>
+          <div class="corner-sq sq-tl"></div>
+          <div class="corner-sq sq-tr"></div>
+          <div class="l-bracket br-tl"></div>
+          <div class="l-bracket br-tr"></div>
+
+          <!-- Top Header -->
+          <header class="flex border-brand-border gs-reveal w-full z-30 border-b mb-20 pb-6 relative items-center justify-between" id="header">
+            <div class="flex items-center gap-3">
+              <iconify-icon icon="solar:shield-network-linear" class="text-brand-accent1" width="28"></iconify-icon>
+              <span class="font-oswald text-2xl tracking-tighter uppercase font-medium">
+                NEXUSCORE
+              </span>
+            </div>
+
+            <nav class="hidden xl:flex items-center gap-8 font-oswald text-xs tracking-widest uppercase">
+              <a href="#hero" class="text-brand-accent2 transition-colors">
+                Architecture
+              </a>
+              <a href="#" class="text-brand-text hover:text-white transition-colors">
+                Operations
+              </a>
+              <a href="#" class="text-brand-text hover:text-white transition-colors">
+                Modules
+              </a>
+              <a href="#" class="text-brand-text hover:text-white transition-colors">
+                Squad
+              </a>
+            </nav>
+
+            <div class="hidden md:flex items-center gap-6">
+              <a href="#" class="text-xs font-oswald tracking-widest uppercase text-brand-text hover:text-white transition-colors hidden sm:block">
+                Client Portal
+              </a>
+              <a href="#" class="text-xs font-oswald tracking-widest uppercase bg-brand-accent2/10 text-brand-accent2 hover:bg-brand-accent2 hover:text-brand-bg transition-colors px-6 py-2.5 border border-brand-accent2/30 hover:border-brand-accent2">
+                Initialize
+              </a>
+            </div>
+
+            <button class="md:hidden text-brand-text hover:text-white transition-colors">
+              <iconify-icon icon="solar:hamburger-menu-linear" width="28" height="28"></iconify-icon>
+            </button>
+          </header>
+
+          <!-- Hero Content -->
+          <div class="text-right ml-auto max-w-4xl mt-auto pb-20 relative">
+            <h1 class="md:text-8xl lg:text-9xl leading-[0.85] uppercase gs-reveal text-7xl font-normal tracking-tighter font-oswald text-left max-w-7xl">
+              KINETIC
+              <br>
+              <span class="text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-300 to-brand-text">
+                DEFENSE
+              </span>
+              <br>
+              PROTOCOLS
+            </h1>
+          </div>
+
+          <!-- Bottom Features Grid -->
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-16 relative z-10 mt-12 gs-stagger border-t border-brand-border pt-8">
+            <!-- Item 1 -->
+            <div class="relative group">
+              <iconify-icon icon="solar:radar-linear" width="28" height="28" class="text-brand-accent1 mb-4"></iconify-icon>
+              <div class="w-4 h-px bg-white/20 mb-4 group-hover:w-8 transition-all"></div>
+              <h3 class="font-oswald text-2xl uppercase tracking-tight font-normal mb-2">
+                Neural Node
+                <br>
+                Mapping
+              </h3>
+              <a href="#" class="text-xs text-brand-text flex items-center gap-1 hover:text-white transition-colors uppercase tracking-widest mt-4">
+                Deploy Specs
+                <iconify-icon icon="solar:arrow-right-linear" width="14"></iconify-icon>
+              </a>
+            </div>
+            <!-- Item 2 -->
+            <div class="relative group">
+              <iconify-icon icon="solar:radar-linear" width="28" height="28" class="text-brand-accent1 mb-4"></iconify-icon>
+              <div class="w-4 h-px bg-white/20 mb-4 group-hover:w-8 transition-all"></div>
+              <h3 class="font-oswald text-2xl uppercase tracking-tight font-normal mb-2">
+                Behavioral
+                <br>
+                Heuristics
+              </h3>
+              <a href="#" class="text-xs text-brand-text flex items-center gap-1 hover:text-white transition-colors uppercase tracking-widest mt-4">
+                Deploy Specs
+                <iconify-icon icon="solar:arrow-right-linear" width="14"></iconify-icon>
+              </a>
+            </div>
+            <!-- Item 3 -->
+            <div class="relative group">
+              <iconify-icon icon="solar:shield-keyhole-linear" width="28" height="28" class="text-brand-text mb-4"></iconify-icon>
+              <div class="w-4 h-px bg-white/20 mb-4 group-hover:w-8 transition-all"></div>
+              <h3 class="font-oswald text-2xl uppercase tracking-tight font-normal mb-2">
+                Zero-Trust
+                <br>
+                Architecture
+              </h3>
+              <a href="#" class="text-xs text-brand-text flex items-center gap-1 hover:text-white transition-colors uppercase tracking-widest mt-4">
+                Deploy Specs
+                <iconify-icon icon="solar:arrow-right-linear" width="14"></iconify-icon>
+              </a>
+            </div>
+          </div>
+
+          <!-- Abstract Decor right side -->
+          <div class="absolute right-10 top-1/2 -translate-y-1/2 w-64 h-64 pointer-events-none hidden lg:block opacity-20">
+            <div class="absolute inset-0 border border-brand-accent2/30 transform rotate-12 transition-transform duration-1000 hover:rotate-45"></div>
+            <div class="absolute inset-4 border border-brand-accent1/30 transform -rotate-6"></div>
+            <div class="absolute inset-8 border border-white/10"></div>
+          </div>
+        </section>
+
+        <!-- ABOUT / STATS SECTION -->
+        <section class="frame-section md:p-12 lg:p-20 pt-6 pr-6 pb-6 pl-6 relative backdrop-blur-sm">
+          <div class="corner-sq sq-bl"></div>
+          <div class="corner-sq sq-br"></div>
+
+          <div class="flex items-center gap-4 mb-10 gs-reveal">
+            <div class="w-8 h-px bg-brand-accent1"></div>
+            <span class="text-xs font-oswald text-brand-accent1 tracking-widest uppercase">
+              Architecture
+            </span>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 mb-24 relative">
+            <div class="gs-reveal">
+              <h2 class="font-oswald text-5xl md:text-6xl tracking-tighter leading-[1.1] mb-8 font-normal">
+                A PARADIGM SHIFT
+                <br>
+                IN DIGITAL ARMOR
+              </h2>
+              <div class="w-32 h-32 relative border border-white/10 mb-8 opacity-50">
+                <div class="absolute inset-0 grid grid-cols-2 grid-rows-2">
+                  <div class="border-r border-b border-white/10"></div>
+                  <div class="border-b border-white/10 relative overflow-hidden">
+                    <div class="absolute -right-4 -bottom-4 w-12 h-12 border border-brand-accent1 transform rotate-45"></div>
+                  </div>
+                  <div class="border-r border-white/10"></div>
+                  <div></div>
+                </div>
+                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-2 h-2 bg-white/50"></div>
+              </div>
+            </div>
+            <div class="flex flex-col justify-center gs-reveal border-l border-brand-border pl-8 lg:pl-12">
+              <p class="text-brand-text font-light text-sm md:text-base leading-relaxed mb-8">
+                Nullam pulvinar odio velit, in varius tortor egestas nec.
+                Pellentesque habitant morbi tristique senectus et netus et
+                malesuada fames ac turpis egestas. Vestibulum malesuada nibh sed
+                risus sodales sed metuslobortis. Etiam a erat rutrum, dapibus
+                velit nec.
+              </p>
+              <a href="#" class="inline-flex items-center gap-2 text-xs font-oswald tracking-widest uppercase text-white hover:text-brand-accent1 transition-colors w-fit border-b border-transparent hover:border-brand-accent1 pb-1">
+                Initialize Sequence
+                <iconify-icon icon="solar:alt-arrow-right-linear" width="16"></iconify-icon>
+              </a>
+            </div>
+          </div>
+
+          <!-- Stats -->
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-12 relative z-10 gs-stagger">
+            <div class="relative pl-6 border-l border-white/5 pb-4">
+              <div class="font-oswald text-6xl md:text-7xl tracking-tighter text-brand-accent1 flex items-start leading-none mb-4 font-light">
+                <span class="counter" data-target="84">0</span>
+                <span class="text-3xl mt-1 text-white/50">%</span>
+              </div>
+              <p class="font-normal text-sm text-brand-text mb-4">
+                Threat Neutralization
+                <br>
+                Rate in Q3
+              </p>
+              <div class="absolute bottom-0 left-0 h-px bg-brand-accent1 w-0 stat-line"></div>
+            </div>
+            <div class="relative pl-6 border-l border-white/5 pb-4">
+              <div class="font-oswald text-6xl md:text-7xl tracking-tighter text-brand-accent3 flex items-start leading-none mb-4 font-light">
+                <span class="counter" data-target="99">0</span>
+                <span class="text-3xl mt-1 text-white/50">%</span>
+              </div>
+              <p class="font-normal text-sm text-brand-text mb-4">
+                Uptime Across Global
+                <br>
+                Node Clusters
+              </p>
+              <div class="absolute bottom-0 left-0 h-px bg-brand-accent3 w-0 stat-line"></div>
+            </div>
+            <div class="relative pl-6 border-l border-white/5 pb-4">
+              <div class="font-oswald text-6xl md:text-7xl tracking-tighter text-brand-accent2 flex items-start leading-none mb-4 font-light">
+                <span class="counter" data-target="92">0</span>
+                <span class="text-3xl mt-1 text-white/50">%</span>
+              </div>
+              <p class="font-normal text-sm text-brand-text mb-4">
+                Efficiency in Automated
+                <br>
+                Response
+              </p>
+              <div class="absolute bottom-0 left-0 h-px bg-brand-accent2 w-0 stat-line"></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- CLIENTS SECTION -->
+        <section class="frame-section relative py-24 px-0 md:px-12 lg:px-20 z-20">
+          <div class="l-bracket br-tl left-12 top-24 hidden md:block"></div>
+          <div class="l-bracket br-br right-12 bottom-24 hidden md:block"></div>
+
+          <div class="flex items-center gap-4 mb-12 ml-6 md:ml-0 gs-reveal">
+            <div class="w-8 h-px bg-brand-accent2"></div>
+            <span class="text-xs font-oswald text-brand-accent2 tracking-widest uppercase">
+              Partners
+            </span>
+          </div>
+
+          <h2 class="font-oswald text-4xl md:text-5xl tracking-tighter mb-12 ml-6 md:ml-0 gs-reveal font-normal">
+            INTEGRATED ENTITIES
+          </h2>
+
+          <!-- Overlapping Container -->
+          <div class="bg-brand-panel relative w-full md:w-[105%] md:-ml-[2.5%] flex flex-col lg:flex-row gs-reveal border border-white/5 shadow-2xl shadow-black/50">
+            <!-- Left Graphic -->
+            <div class="bg-brand-accent3/10 w-full lg:w-1/3 p-12 flex items-center justify-center relative overflow-hidden border-b lg:border-b-0 lg:border-r border-white/5">
+              <div class="w-32 h-32 border border-brand-accent3/30 rounded-full relative">
+                <div class="absolute top-0 bottom-0 left-1/2 w-px bg-brand-accent3/30"></div>
+                <div class="absolute left-0 right-0 top-1/2 h-px bg-brand-accent3/30"></div>
+                <div class="absolute top-0 right-0 w-1/2 h-1/2 border-l border-b border-brand-accent3/50 rounded-bl-full"></div>
+              </div>
+
+              <div class="absolute bottom-0 left-0 w-full flex border-t border-white/5 bg-brand-bg/50 backdrop-blur-sm">
+                <button class="flex-1 py-4 hover:bg-white/5 flex justify-center border-r border-white/5 transition-colors text-brand-text hover:text-white">
+                  <iconify-icon icon="solar:alt-arrow-left-linear" width="20"></iconify-icon>
+                </button>
+                <button class="flex-1 py-4 hover:bg-white/5 flex justify-center transition-colors text-brand-text hover:text-white">
+                  <iconify-icon icon="solar:alt-arrow-right-linear" width="20"></iconify-icon>
+                </button>
+              </div>
+            </div>
+
+            <!-- Center Text -->
+            <div class="bg-transparent w-full lg:w-[40%] p-10 lg:p-16 flex flex-col justify-center relative border-b lg:border-b-0 lg:border-r border-white/5">
+              <div class="absolute top-8 right-8 text-xs font-oswald text-brand-text tracking-widest">
+                01
+                <span class="text-white/20">/ 12</span>
+              </div>
+              <h3 class="font-oswald text-4xl md:text-5xl tracking-tighter mb-6 font-normal">
+                Aethel
+                <span class="font-light text-brand-text">Corp</span>
+              </h3>
+              <p class="text-sm font-light leading-relaxed mb-8 text-brand-text border-l border-brand-border pl-4">
+                Pellentesque habitant morbi tristique senectus netus et
+                malesuada fames ac turpis egestas. Vestibulum malesuada nibh sed
+                risus sodales, sed faucibus metus.
+              </p>
+              <a href="#" class="text-xs font-normal text-brand-accent2 hover:text-white transition-colors flex items-center gap-2 uppercase tracking-widest w-fit border-b border-brand-accent2/30 hover:border-white pb-1">
+                Case File
+                <iconify-icon icon="solar:arrow-right-linear" width="16"></iconify-icon>
+              </a>
+            </div>
+
+            <!-- Right Stats -->
+            <div class="w-full lg:flex-1 p-8 lg:p-12 flex flex-col justify-center bg-white/[0.02]">
+              <h4 class="text-xs font-oswald text-brand-accent3 tracking-widest uppercase mb-8">
+                Metrics
+              </h4>
+
+              <div class="mb-8 border-b border-white/5 pb-4">
+                <div class="font-oswald text-3xl text-white tracking-tighter mb-1 font-light">
+                  2 800
+                </div>
+                <div class="text-xs text-brand-text uppercase tracking-widest">
+                  Nodes Secured Globally
+                </div>
+              </div>
+
+              <div class="mb-8 border-b border-white/5 pb-4">
+                <div class="font-oswald text-3xl text-white tracking-tighter mb-1 font-light">
+                  150M
+                </div>
+                <div class="text-xs text-brand-text uppercase tracking-widest">
+                  Events Analyzed Hourly
+                </div>
+              </div>
+
+              <div>
+                <div class="font-oswald text-3xl text-white tracking-tighter mb-1 font-light">
+                  4.2
+                </div>
+                <div class="text-xs text-brand-text uppercase tracking-widest">
+                  Petabytes Processed / Mo
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- PRICING SECTION -->
+        <section class="frame-section p-6 md:p-12 lg:p-20 relative bg-brand-bg/80">
+          <div class="corner-sq sq-tl"></div>
+          <div class="corner-sq sq-tr"></div>
+          <div class="l-bracket br-bl"></div>
+
+          <div class="flex items-center gap-4 mb-12 gs-reveal">
+            <div class="w-8 h-px bg-brand-accent1"></div>
+            <span class="text-xs font-oswald text-brand-accent1 tracking-widest uppercase">
+              Deployment
+            </span>
+          </div>
+
+          <div class="flex flex-col lg:flex-row gap-12 lg:gap-8 mb-12 gs-reveal items-start">
+            <div class="lg:w-1/4">
+              <h2 class="font-oswald text-4xl md:text-5xl tracking-tighter leading-none mb-6 font-normal">
+                SECURE
+                <br>
+                YOUR
+                <br>
+                GRID
+              </h2>
+            </div>
+
+            <div class="lg:w-3/4 w-full overflow-x-auto pb-8">
+              <div class="min-w-[700px] grid grid-cols-4 border-t border-l border-white/5 text-sm relative">
+                <!-- Highlight Block -->
+                <div class="absolute top-0 bottom-0 left-[50%] w-[25%] bg-white/[0.02] border border-brand-accent2/50 z-0 -mt-4">
+                  <div class="absolute -top-6 left-0 w-full text-center text-xs text-brand-accent2 uppercase tracking-widest font-oswald bg-brand-bg py-1 border-t border-x border-brand-accent2/50">
+                    Optimal Vector
+                  </div>
+                </div>
+
+                <!-- Headers -->
+                <div class="p-6 border-b border-r border-white/5 z-10 flex items-end">
+                  <span class="text-xs text-brand-text uppercase tracking-widest">
+                    Parameters
+                  </span>
+                </div>
+                <div class="p-6 border-b border-r border-white/5 z-10 text-center flex flex-col items-center">
+                  <h3 class="font-oswald text-xl tracking-tight mb-4 font-normal">
+                    Standard
+                  </h3>
+                  <div class="w-8 h-8 border border-white/10 flex items-center justify-center transform rotate-45 mb-2">
+                    <div class="w-4 h-4 border border-white/5"></div>
+                  </div>
+                </div>
+                <div class="p-6 border-b border-r border-white/5 z-10 text-center flex flex-col items-center">
+                  <h3 class="font-oswald text-xl tracking-tight mb-4 text-brand-accent2 font-normal">
+                    Advanced
+                  </h3>
+                  <div class="w-8 h-8 relative flex items-center justify-center mb-2">
+                    <div class="absolute inset-0 border border-brand-accent2/30 rounded-full border-r-transparent animate-[spin_4s_linear_infinite]"></div>
+                    <div class="w-1.5 h-1.5 bg-brand-accent2 rounded-full"></div>
+                  </div>
+                </div>
+                <div class="p-6 border-b border-r border-white/5 z-10 text-center flex flex-col items-center">
+                  <h3 class="font-oswald text-xl tracking-tight mb-4 font-normal">
+                    Enterprise
+                  </h3>
+                  <div class="w-8 h-8 relative flex items-center justify-center mb-2">
+                    <div class="w-6 h-6 border border-white/20 transform skew-x-12"></div>
+                    <div class="w-6 h-6 border border-white/5 absolute top-1 left-2 transform skew-x-12"></div>
+                  </div>
+                </div>
+
+                <!-- Rows -->
+                <div class="p-5 border-b border-r border-white/5 text-brand-text z-10 flex items-center text-xs tracking-wide">
+                  Active Node Scans
+                </div>
+                <div class="p-5 border-b border-r border-white/5 z-10 text-center font-oswald text-lg font-light text-brand-text">
+                  500
+                </div>
+                <div class="p-5 border-b border-r border-white/5 z-10 text-center font-oswald text-lg font-normal text-white">
+                  2 500
+                </div>
+                <div class="p-5 border-b border-r border-white/5 z-10 text-center font-oswald text-lg font-light text-brand-text">
+                  10 000
+                </div>
+
+                <div class="p-5 border-b border-r border-white/5 text-brand-text z-10 flex items-center text-xs tracking-wide">
+                  API Gateway Shields
+                </div>
+                <div class="p-5 border-b border-r border-white/5 z-10 text-center font-oswald text-lg font-light text-brand-text">
+                  25
+                </div>
+                <div class="p-5 border-b border-r border-white/5 z-10 text-center font-oswald text-lg font-normal text-white">
+                  150
+                </div>
+                <div class="p-5 border-b border-r border-white/5 z-10 text-center font-oswald text-lg font-light text-brand-text">
+                  Uncapped
+                </div>
+
+                <div class="p-5 border-b border-r border-white/5 text-brand-text z-10 flex items-center text-xs tracking-wide">
+                  Deep Heuristics
+                </div>
+                <div class="p-5 border-b border-r border-white/5 z-10 flex justify-center items-center">
+                  <iconify-icon icon="solar:check-circle-linear" class="text-brand-accent1 text-lg"></iconify-icon>
+                </div>
+                <div class="p-5 border-b border-r border-white/5 z-10 flex justify-center items-center">
+                  <iconify-icon icon="solar:check-circle-linear" class="text-brand-accent1 text-lg"></iconify-icon>
+                </div>
+                <div class="p-5 border-b border-r border-white/5 z-10 flex justify-center items-center">
+                  <iconify-icon icon="solar:check-circle-linear" class="text-brand-accent1 text-lg"></iconify-icon>
+                </div>
+
+                <div class="p-5 border-b border-r border-white/5 text-brand-text z-10 flex items-center text-xs tracking-wide">
+                  Automated Remediation
+                </div>
+                <div class="p-5 border-b border-r border-white/5 z-10 flex justify-center items-center opacity-20">
+                  <iconify-icon icon="solar:close-circle-linear" class="text-lg"></iconify-icon>
+                </div>
+                <div class="p-5 border-b border-r border-white/5 z-10 flex justify-center items-center">
+                  <iconify-icon icon="solar:check-circle-linear" class="text-brand-accent1 text-lg"></iconify-icon>
+                </div>
+                <div class="p-5 border-b border-r border-white/5 z-10 flex justify-center items-center">
+                  <iconify-icon icon="solar:check-circle-linear" class="text-brand-accent1 text-lg"></iconify-icon>
+                </div>
+
+                <!-- Price Row -->
+                <div class="p-6 border-b border-r border-white/5 z-10"></div>
+                <div class="p-6 border-b border-r border-white/5 z-10 text-center">
+                  <div class="flex justify-center items-start text-white font-oswald leading-none">
+                    <span class="text-lg mt-1 text-brand-text">$</span>
+                    <span class="text-5xl tracking-tighter font-light">24</span>
+                  </div>
+                  <div class="text-xs text-brand-text mt-2 font-light">
+                    / cycle
+                  </div>
+                </div>
+                <div class="p-6 border-b border-r border-white/5 z-10 text-center relative">
+                  <div class="flex justify-center items-start text-brand-accent2 font-oswald leading-none">
+                    <span class="text-lg mt-1 text-brand-accent2/60">$</span>
+                    <span class="text-5xl tracking-tighter font-normal">
+                      68
+                    </span>
+                  </div>
+                  <div class="text-xs text-brand-text mt-2 mb-6 font-light">
+                    / cycle
+                  </div>
+                  <button class="bg-brand-accent2/10 text-brand-accent2 text-xs font-oswald uppercase tracking-widest py-3 px-6 hover:bg-brand-accent2 hover:text-brand-bg transition-colors w-full border border-brand-accent2/30 hover:border-brand-accent2">
+                    Initialize
+                  </button>
+                </div>
+                <div class="p-6 border-b border-r border-white/5 z-10 text-center">
+                  <div class="flex justify-center items-start text-white font-oswald leading-none">
+                    <span class="text-lg mt-1 text-brand-text">$</span>
+                    <span class="text-5xl tracking-tighter font-light">
+                      140
+                    </span>
+                  </div>
+                  <div class="text-xs text-brand-text mt-2 font-light">
+                    / cycle
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- INTELLIGENCE SECTION -->
+        <section class="frame-section p-6 md:p-12 lg:p-20 relative bg-brand-bg/95">
+          <div class="corner-sq sq-bl"></div>
+          <div class="corner-sq sq-br"></div>
+          <div class="l-bracket br-tr"></div>
+
+          <div class="flex items-center gap-4 mb-12 gs-reveal">
+            <div class="w-8 h-px bg-brand-accent3"></div>
+            <span class="text-xs font-oswald text-brand-accent3 tracking-widest uppercase">
+              Intelligence
+            </span>
+          </div>
+
+          <div class="flex flex-col lg:flex-row gap-12 h-full items-stretch">
+            <div class="lg:w-1/4 flex flex-col justify-between gs-reveal">
+              <h2 class="font-oswald text-4xl md:text-5xl tracking-tighter leading-none mb-12 font-normal">
+                DATA
+                <br>
+                STREAM
+              </h2>
+
+              <nav class="flex flex-col gap-5 text-xs font-oswald uppercase tracking-widest border-l border-white/5 pl-5">
+                <a href="#" class="text-white hover:text-brand-accent2 transition-colors flex items-center gap-3">
+                  <div class="w-1.5 h-1.5 bg-brand-accent2 rounded-full"></div>
+                  Threat Reports
+                </a>
+                <a href="#" class="text-brand-text hover:text-white transition-colors">
+                  Tactical Briefs
+                </a>
+                <a href="#" class="text-brand-text hover:text-white transition-colors">
+                  Vulnerability Logs
+                </a>
+                <a href="#" class="text-brand-text hover:text-white transition-colors">
+                  Node Updates
+                </a>
+                <a href="#" class="text-brand-text hover:text-white transition-colors">
+                  White Papers
+                </a>
+              </nav>
+            </div>
+
+            <div class="lg:w-3/4 w-full flex flex-col border border-white/5 gs-reveal relative bg-brand-panel/20 backdrop-blur-sm">
+              <div class="absolute -top-[1px] -right-[1px] w-3 h-3 border-t border-r border-brand-accent2/50"></div>
+              <div class="absolute -bottom-[1px] -left-[1px] w-3 h-3 border-b border-l border-brand-accent2/50"></div>
+
+              <div class="p-8 md:p-12 flex-1 border-b border-white/5">
+                <h3 class="font-oswald text-3xl md:text-4xl tracking-tighter mb-6 max-w-2xl font-normal leading-tight">
+                  Anomaly Detection: Pre-empting Zero-Day Exploits in Financial
+                  Grids
+                </h3>
+                <div class="flex flex-wrap gap-6 text-xs text-brand-text uppercase font-oswald tracking-widest">
+                  <span class="flex items-center gap-2">
+                    <iconify-icon icon="solar:eye-linear" width="16"></iconify-icon>
+                    8 492
+                  </span>
+                  <span class="flex items-center gap-2">
+                    <iconify-icon icon="solar:clock-circle-linear" width="16"></iconify-icon>
+                    4 MIN
+                  </span>
+                  <span class="flex items-center gap-2">
+                    <iconify-icon icon="solar:folder-with-files-linear" width="16"></iconify-icon>
+                    THREAT REPORTS
+                  </span>
+                </div>
+              </div>
+
+              <div class="p-8 md:p-12 flex flex-col md:flex-row justify-between items-start md:items-end gap-6 relative overflow-hidden bg-white/[0.01]">
+                <div class="absolute right-0 bottom-0 w-48 h-48 border border-white/5 rounded-full transform translate-x-1/2 translate-y-1/2"></div>
+
+                <p class="text-sm font-light leading-relaxed max-w-xl relative z-10 border-l border-brand-accent3/50 pl-5 text-brand-text">
+                  Praesent sed tempor dolor, quis fringilla massa. Vestibulum
+                  malesuada nibh sed risus sodales, sed faucibus metus lobortis.
+                  Aliquam erat volutpat.
+                </p>
+                <a href="#" class="text-xs font-normal text-white border-b border-white/20 pb-1 hover:text-brand-accent3 hover:border-brand-accent3 transition-colors relative z-10 uppercase tracking-widest flex items-center gap-2 shrink-0">
+                  Access Log
+                  <iconify-icon icon="solar:arrow-right-linear" width="16"></iconify-icon>
+                </a>
+              </div>
+
+              <div class="bg-brand-bg/50 border-t border-white/5 flex justify-end">
+                <div class="px-6 py-4 text-xs font-oswald text-brand-text border-l border-white/5 flex items-center tracking-widest">
+                  04
+                  <span class="text-white/20 mx-2">/</span>
+                  24
+                </div>
+                <button class="px-6 py-4 border-l border-white/5 hover:bg-white/5 transition-colors text-brand-text hover:text-white">
+                  <iconify-icon icon="solar:alt-arrow-left-linear" width="18"></iconify-icon>
+                </button>
+                <button class="px-6 py-4 border-l border-white/5 hover:bg-white/5 transition-colors text-brand-text hover:text-white">
+                  <iconify-icon icon="solar:alt-arrow-right-linear" width="18"></iconify-icon>
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- FOOTER -->
+        <section class="frame-section p-6 md:p-12 lg:p-20 relative bg-brand-panel/20 backdrop-blur-sm z-20">
+          <div class="corner-sq sq-tl"></div>
+          <div class="corner-sq sq-tr"></div>
+
+          <div class="flex items-center gap-4 mb-12 gs-reveal">
+            <div class="w-8 h-px bg-brand-accent1"></div>
+            <span class="text-xs font-oswald text-brand-accent1 tracking-widest uppercase">
+              Uplink
+            </span>
+          </div>
+
+          <div class="flex flex-col lg:flex-row gap-12 lg:gap-24 items-center gs-reveal">
+            <div class="lg:w-1/2">
+              <h2 class="font-oswald text-5xl md:text-6xl tracking-tighter leading-none mb-6 font-normal uppercase">
+                ESTABLISH
+                <br>
+                SECURE LINK
+              </h2>
+              <p class="text-brand-text font-light text-sm md:text-base leading-relaxed mb-8 max-w-lg">
+                Initiate a secure comms channel with our deployment specialists
+                to architect your kinetic defense protocol. System
+                initialization requires authorized credentials.
+              </p>
+
+              <div class="flex flex-col gap-6 border-l border-white/5 pl-6">
+                <div>
+                  <div class="text-xs font-oswald text-brand-text uppercase tracking-widest mb-1">
+                    Global HQ
+                  </div>
+                  <div class="text-white font-light text-sm">
+                    Sector 7, Neo-Tokyo Grid
+                  </div>
+                </div>
+                <div>
+                  <div class="text-xs font-oswald text-brand-text uppercase tracking-widest mb-1">
+                    Secure Comms
+                  </div>
+                  <div class="text-white font-light text-sm">
+                    uplink@nexuscore.sys
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="lg:w-1/2 w-full relative">
+              <form class="flex flex-col gap-6 relative p-8 md:p-12 border border-white/5 bg-brand-bg/50 backdrop-blur-md">
+                <div class="absolute -top-[1px] -left-[1px] w-4 h-4 border-t border-l border-brand-accent1/50"></div>
+                <div class="absolute -bottom-[1px] -right-[1px] w-4 h-4 border-b border-r border-brand-accent1/50"></div>
+
+                <div>
+                  <label class="block text-xs font-oswald text-brand-text uppercase tracking-widest mb-2">
+                    Identifier
+                  </label>
+                  <input type="text" class="w-full bg-white/[0.02] border border-white/10 px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-accent1 transition-colors" placeholder="Enter valid designation">
+                </div>
+
+                <div>
+                  <label class="block text-xs font-oswald text-brand-text uppercase tracking-widest mb-2">
+                    Comms Channel
+                  </label>
+                  <input type="email" class="w-full bg-white/[0.02] border border-white/10 px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-accent1 transition-colors" placeholder="Enter routing address">
+                </div>
+
+                <div>
+                  <label class="block text-xs font-oswald text-brand-text uppercase tracking-widest mb-2">
+                    Transmission Data
+                  </label>
+                  <textarea class="w-full bg-white/[0.02] border border-white/10 px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-accent1 transition-colors resize-none h-24" placeholder="Enter encrypted payload..."></textarea>
+                </div>
+
+                <button type="button" class="mt-2 bg-brand-accent1/10 text-brand-accent1 text-xs font-oswald uppercase tracking-widest py-4 px-8 hover:bg-brand-accent1 hover:text-brand-bg transition-colors w-full border border-brand-accent1/30 hover:border-brand-accent1 flex items-center justify-center gap-3">
+                  Transmit Request
+                  <iconify-icon icon="solar:arrow-right-linear" width="16"></iconify-icon>
+                </button>
+              </form>
+            </div>
+          </div>
+        </section>
+        <footer class="p-6 md:p-12 lg:px-20 border-t border-white/5 bg-brand-bg relative z-10">
+          <div class="flex flex-col lg:flex-row justify-between items-center gap-8">
+            <div class="flex items-center gap-3">
+              <span class="font-oswald text-xl tracking-tighter uppercase font-medium">
+                NEXUSCORE
+              </span>
+            </div>
+
+            <nav class="flex flex-wrap justify-center gap-6 md:gap-10 text-xs font-oswald uppercase tracking-widest">
+              <a href="#" class="text-brand-text hover:text-white transition-colors">
+                Architecture
+              </a>
+              <a href="#" class="text-brand-text hover:text-white transition-colors">
+                Operations
+              </a>
+              <a href="#" class="text-brand-text hover:text-white transition-colors">
+                Modules
+              </a>
+              <a href="#" class="text-brand-text hover:text-white transition-colors">
+                Squad
+              </a>
+              <a href="#" class="text-brand-text hover:text-white transition-colors">
+                Uplink
+              </a>
+            </nav>
+
+            <div class="flex items-center gap-3">
+              <a href="#" class="w-10 h-10 border border-white/5 flex items-center justify-center hover:bg-white/5 hover:text-brand-accent1 text-brand-text transition-colors"></a>
+            </div>
+          </div>
+        </footer>
+      </main>
+    </div>
+    <script data-aura-video-controller="true">
+      (function () {
+        function playVideo(video) {
+          var promise = video.play();
+          if (promise && typeof promise.catch === "function") {
+            promise.catch(function () {});
+          }
+        }
+
+        function setupVideo(video) {
+          if (video.__auraVideoReady === true) return;
+          video.__auraVideoReady = true;
+          video.removeAttribute("data-aura-video-ready");
+          video.removeAttribute("data-aura-video-played");
+          video.muted = true;
+          video.playsInline = true;
+
+          var preset = video.dataset.auraVideoPreset || "loop-in-view";
+          if (preset === "hover") {
+            video.addEventListener("mouseenter", function () {
+              playVideo(video);
+            });
+            video.addEventListener("mouseleave", function () {
+              video.pause();
+              video.currentTime = 0;
+            });
+            return;
+          }
+
+          if (!("IntersectionObserver" in window)) {
+            playVideo(video);
+            return;
+          }
+
+          var observer = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+              if (entry.isIntersecting) {
+                if (preset === "play-once" && video.__auraVideoPlayed === true) {
+                  return;
+                }
+                playVideo(video);
+              } else {
+                video.pause();
+              }
+            });
+          }, { threshold: 0.35 });
+
+          if (preset === "play-once") {
+            video.addEventListener("ended", function () {
+              video.__auraVideoPlayed = true;
+            }, { once: true });
+          }
+
+          observer.observe(video);
+        }
+
+        function setupVideos() {
+          document
+            .querySelectorAll("video[data-aura-video-preset]")
+            .forEach(setupVideo);
+        }
+
+        if (document.readyState === "loading") {
+          document.addEventListener("DOMContentLoaded", setupVideos);
+        } else {
+          setupVideos();
+        }
+      })();
+    </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        gsap.registerPlugin(ScrollTrigger);
+
+        gsap.utils.toArray('.gs-reveal').forEach((elem) => {
+          gsap.fromTo(elem,
+            { autoAlpha: 0, y: 50 },
+            {
+              duration: 1,
+              autoAlpha: 1,
+              y: 0,
+              ease: "power3.out",
+              scrollTrigger: {
+                trigger: elem,
+                start: "top 85%",
+                toggleActions: "play none none reverse"
+              }
+            }
+          );
+        });
+
+        gsap.utils.toArray('.gs-stagger').forEach((container) => {
+          const children = container.children;
+          gsap.fromTo(children,
+            { autoAlpha: 0, y: 30 },
+            {
+              duration: 0.8,
+              autoAlpha: 1,
+              y: 0,
+              stagger: 0.15,
+              ease: "power2.out",
+              scrollTrigger: {
+                trigger: container,
+                start: "top 85%",
+                toggleActions: "play none none reverse"
+              }
+            }
+          );
+        });
+
+        gsap.utils.toArray('.counter').forEach(counter => {
+          const target = parseFloat(counter.getAttribute('data-target'));
+          ScrollTrigger.create({
+            trigger: counter,
+            start: "top 85%",
+            onEnter: () => {
+              gsap.to(counter, {
+                innerHTML: target,
+                duration: 2,
+                snap: { innerHTML: 1 },
+                ease: "power1.inOut",
+              });
+            },
+            once: true
+          });
+        });
+
+        gsap.utils.toArray('.stat-line').forEach(line => {
+          ScrollTrigger.create({
+            trigger: line,
+            start: "top 85%",
+            onEnter: () => {
+              gsap.to(line, {
+                width: "100%",
+                duration: 1.5,
+                ease: "power2.out"
+              });
+            },
+            once: true
+          });
+        });
+      });
+    </script>
+  
+</body></html>

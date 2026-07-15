@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Component Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      height: 100%;
+      overflow: auto;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #000000;
+      color: #ffffff;
+    }
+    .component-wrapper {
+      width: 100%;
+      height: 100%;
+      padding: 0;
+      box-sizing: border-box;
+      overflow: auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="component-wrapper">
+    <html><head></head><body><main class="flex-grow grid grid-cols-1 lg:grid-cols-12 lg:px-12 lg:my-20 gap-12 min-h-[80vh] mt-12 mb-12 pr-6 pl-6 relative gap-x-12 gap-y-12">
+
+  <!-- Background Grid -->
+  <div class="absolute inset-0 grid-bg pointer-events-none z-0"></div>
+
+  <!-- Left Column: Text -->
+  <div class="lg:col-span-5 flex flex-col justify-center z-20 relative pt-10 lg:pt-0 animate-in" style="animation-delay: 0.1s">
+    <div class="inline-flex items-center gap-2 mb-6">
+      <span class="flex h-2 w-2 rounded-full bg-[#F97316] shadow-[0_0_10px_rgba(249,115,22,0.5)]"></span>
+      <span class="text-[#F97316] font-mono text-xs uppercase tracking-widest">System Sync Active</span>
+    </div>
+
+    <h1 class="lg:text-[6rem] leading-[0.9] uppercase text-5xl font-medium text-white tracking-tighter mb-8 font-display">
+      Creative<br>
+      <span class="text-neutral-700">Intell</span>igence
+    </h1>
+
+    <p class="text-lg text-neutral-400 max-w-md leading-relaxed mb-12 font-light">
+      Meet Alex. Your AI partner for visual synthesis. Auto-fix constraints, generate components, and standardize design
+      tokens instantly.
+    </p>
+
+    <div class="flex flex-col gap-4 gap-x-4 gap-y-4 items-start">
+      <!-- Custom Button Component -->
+      <a href="#" class="btn-wrapper group inline-flex justify-center items-center hover:border-[#F97316] transition-colors duration-300 sm:w-auto w-full border-neutral-800 border pt-4 pr-4 pb-4 pl-4 relative">
+        <div class="absolute top-0 left-0 w-2 h-2 border-t border-l border-[#F97316] opacity-0 group-hover:opacity-100 transition-all duration-300 -translate-x-1 -translate-y-1 group-hover:translate-x-0 group-hover:translate-y-0">
+        </div>
+        <div class="group-hover:opacity-100 transition-all duration-300 group-hover:translate-x-0 group-hover:translate-y-0 opacity-0 w-2 h-2 border-[#F97316] border-r border-b absolute right-0 bottom-0 translate-x-1 translate-y-1">
+        </div>
+
+        <button class="btn flex gap-3 uppercase z-10 sm:justify-start text-sm font-medium text-white tracking-wider bg-transparent w-full relative gap-x-3 gap-y-3 items-center justify-center">
+                        Start Free Trial
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="arrow-up-right" class="lucide lucide-arrow-up-right w-4 h-4"><path d="M7 7h10v10" class=""></path><path d="M7 17 17 7" class=""></path></svg>
+                    </button>
+      </a>
+    </div>
+  </div>
+
+  <!-- Center Column: Floating UI Cards (The "Canvas" Element) -->
+  <div class="lg:col-span-5 lg:h-auto flex animate-in h-[600px] relative perspective-[1200px] items-center justify-center" style="animation-delay: 0.3s">
+
+    <!-- Centerpiece: Profile Card -->
+    <div class="relative z-20 w-72 bg-[#0A0A0A] border border-white/10 shadow-2xl floating-card transform rotate-[-2deg] p-6 flex flex-col items-center text-center group">
+      <!-- Cursor -->
+      <div class="absolute -top-4 -right-4 z-30 drop-shadow-lg animate-bounce duration-[3000ms]">
+        <div class="bg-[#F97316] text-black text-[10px] font-bold px-2 py-0.5 rounded-sm mb-1 ml-4">Alex</div>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="fill-[#F97316] stroke-[#0A0A0A] stroke-2">
+          <path d="M3 3L10.07 19.97L12.58 12.58L19.97 10.07L3 3Z" class=""></path>
+        </svg>
+      </div>
+
+      <div class="relative mb-6 mt-2">
+        <div class="w-24 h-24 rounded-full overflow-hidden border-2 border-neutral-800 grayscale group-hover:grayscale-0 transition-all duration-500">
+          <img src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?q=80&amp;w=1887&amp;auto=format&amp;fit=crop" class="w-full h-full object-cover" alt="User">
+        </div>
+        <div class="absolute bottom-0 right-1 w-4 h-4 bg-[#F97316] rounded-full border-2 border-[#0A0A0A]"></div>
+      </div>
+
+      <h2 class="text-4xl font-display font-bold text-white tracking-tight mb-1">88%</h2>
+      <p class="text-neutral-500 text-xs font-mono uppercase tracking-widest mb-6">Velocity Increase</p>
+
+      <div class="w-full h-1 bg-neutral-800 rounded-full overflow-hidden">
+        <div class="h-full w-[88%] bg-[#F97316]"></div>
+      </div>
+    </div>
+
+    <!-- Floating Element 1: Audit List (Top Left) -->
+    <div class="absolute top-[5%] left-[-5%] sm:left-[0%] w-64 bg-[#0A0A0A]/90 backdrop-blur-md border border-white/10 p-4 shadow-xl floating-card z-10 transform -rotate-6">
+      <div class="flex items-center justify-between mb-4 border-b border-white/5 pb-2">
+        <div class="flex items-center gap-2 text-white">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="shield-check" class="lucide lucide-shield-check w-4 h-4 text-[#F97316]">
+            <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" class=""></path>
+            <path d="m9 12 2 2 4-4" class=""></path>
+          </svg>
+          <span class="text-sm font-medium">Audit Report</span>
+        </div>
+        <span class="text-xs text-neutral-500 font-mono">#802</span>
+      </div>
+      <div class="space-y-3">
+        <div class="flex items-center justify-between text-xs">
+          <span class="text-neutral-400">Contrast Issues</span>
+          <span class="text-[#F97316] bg-[#F97316]/10 px-1.5 py-0.5 rounded">5</span>
+        </div>
+        <div class="flex items-center justify-between text-xs">
+          <span class="text-neutral-400">Missing Tokens</span>
+          <span class="text-[#F97316] bg-[#F97316]/10 px-1.5 py-0.5 rounded">3</span>
+        </div>
+        <button class="w-full mt-2 bg-white/5 hover:bg-[#F97316] hover:text-black text-neutral-300 text-[10px] uppercase tracking-wider py-2 transition-colors border border-white/5">
+                        Auto-fix All
+                    </button>
+      </div>
+    </div>
+
+    <!-- Floating Element 2: Chat Bubble (Bottom Right) -->
+    <div class="absolute bottom-[10%] right-[-5%] sm:right-[0%] w-60 bg-[#0A0A0A] border border-white/10 p-4 shadow-xl floating-card z-30 transform rotate-6">
+      <div class="flex gap-3 mb-3">
+        <div class="w-8 h-8 bg-[#F97316] rounded-full flex items-center justify-center shrink-0">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="bot" class="lucide lucide-bot w-4 h-4 text-black">
+            <path d="M12 8V4H8" class=""></path>
+            <rect width="16" height="12" x="4" y="8" rx="2" class=""></rect>
+            <path d="M2 14h2" class=""></path>
+            <path d="M20 14h2" class=""></path>
+            <path d="M15 13v2" class=""></path>
+            <path d="M9 13v2" class=""></path>
+          </svg>
+        </div>
+        <div class="bg-neutral-900 p-2 rounded-lg rounded-tl-none border border-white/5">
+          <p class="text-xs text-neutral-300 leading-relaxed">I found 2 detached colors in your system.</p>
+        </div>
+      </div>
+      <div class="flex gap-2 pl-11">
+        <div class="w-2 h-2 bg-white/20 rounded-full animate-pulse"></div>
+        <div class="w-2 h-2 bg-white/20 rounded-full animate-pulse delay-75"></div>
+        <div class="w-2 h-2 bg-white/20 rounded-full animate-pulse delay-150"></div>
+      </div>
+    </div>
+
+    <!-- Warning Card (Small Floating) -->
+    <div class="absolute top-[40%] right-[-10%] w-48 bg-[#1a0f0a] border border-[#F97316]/30 p-3 shadow-lg floating-card z-0 transform rotate-12 hidden md:block">
+      <div class="flex items-center gap-2 mb-1">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="alert-circle" class="lucide lucide-alert-circle w-3 h-3 text-[#F97316]">
+          <circle cx="12" cy="12" r="10" class=""></circle>
+          <line x1="12" x2="12" y1="8" y2="12" class=""></line>
+          <line x1="12" x2="12.01" y1="16" y2="16" class=""></line>
+        </svg>
+        <span class="text-[10px] text-[#F97316] font-bold uppercase">Disconnected</span>
+      </div>
+      <p class="text-[10px] text-neutral-500">Library sync paused.</p>
+    </div>
+
+  </div>
+
+  <!-- Right Column: Stats & Sidebar -->
+  <div class="lg:col-span-2 flex flex-col relative z-20 lg:border-l lg:border-white/5 lg:pl-8 animate-in" style="animation-delay: 0.5s">
+    <div class="hidden lg:block beam-border-v" style="left: -1px;"></div>
+
+    <div class="flex flex-col justify-center h-full gap-12">
+      <div class="group cursor-pointer">
+        <span class="block text-5xl font-light tracking-tighter text-neutral-700 group-hover:text-[#F97316] transition-colors duration-300 font-display">2.4k</span>
+        <span class="text-[10px] text-neutral-500 uppercase tracking-widest mt-2 block border-l-2 border-transparent group-hover:border-[#F97316] pl-2 transition-all">Components</span>
+      </div>
+
+      <div class="group cursor-pointer">
+        <span class="block text-5xl font-light tracking-tighter text-neutral-700 group-hover:text-[#F97316] transition-colors duration-300 font-display">142</span>
+        <span class="text-[10px] text-neutral-500 uppercase tracking-widest mt-2 block border-l-2 border-transparent group-hover:border-[#F97316] pl-2 transition-all">Variables</span>
+      </div>
+
+      <div class="group cursor-pointer">
+        <div class="flex items-center gap-2 mb-2">
+          <div class="w-8 h-8 rounded-full bg-[#0A0A0A] border border-white/10 flex items-center justify-center group-hover:border-[#F97316] transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="type" class="lucide lucide-type w-4 h-4 text-neutral-500 group-hover:text-[#F97316]">
+              <path d="M12 4v16" class=""></path>
+              <path d="M4 7V5a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v2" class=""></path>
+              <path d="M9 20h6" class=""></path>
+            </svg>
+          </div>
+          <div class="w-8 h-8 rounded-full bg-[#0A0A0A] border border-white/10 flex items-center justify-center group-hover:border-[#F97316] transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="accessibility" class="lucide lucide-accessibility w-4 h-4 text-neutral-500 group-hover:text-[#F97316]">
+              <circle cx="16" cy="4" r="1" class=""></circle>
+              <path d="m18 19 1-7-6 1" class=""></path>
+              <path d="m5 8 3-3 5.5 3-2.36 3.5" class=""></path>
+              <path d="M4.24 14.5a5 5 0 0 0 6.88 6" class=""></path>
+              <path d="M13.76 17.5a5 5 0 0 0-6.88-6" class=""></path>
+            </svg>
+          </div>
+        </div>
+        <p class="text-[10px] text-neutral-500 uppercase tracking-widest leading-relaxed pl-2">
+          System Health Checks
+        </p>
+      </div>
+    </div>
+  </div>
+</main></body></html>
+  </div>
+  
+    <script>
+      (function() {
+        function checkAndCenter() {
+          // Use double requestAnimationFrame to ensure DOM is fully painted and layout is stable
+          requestAnimationFrame(function() {
+            requestAnimationFrame(function() {
+              const wrapper = document.querySelector('.component-wrapper');
+              if (!wrapper) return;
+              
+              // Get all child elements
+              const children = Array.from(wrapper.children);
+              if (children.length === 0) return;
+              
+              // Temporarily override wrapper styles to shrink-wrap for measurement
+              // Set inline styles to shrink-wrap (inline styles override CSS)
+              wrapper.style.display = 'inline-block';
+              wrapper.style.width = 'auto';
+              wrapper.style.height = 'auto';
+              wrapper.style.overflow = 'visible';
+              wrapper.style.boxSizing = 'content-box';
+              
+              // Force multiple reflows to ensure styles are fully applied
+              void wrapper.offsetHeight;
+              void wrapper.offsetWidth;
+              void wrapper.offsetHeight;
+              
+              // Measure the wrapper's content size
+              const contentWidth = wrapper.offsetWidth;
+              const contentHeight = wrapper.offsetHeight;
+              
+              // Restore original styles by removing inline styles we added
+              wrapper.style.removeProperty('display');
+              wrapper.style.removeProperty('width');
+              wrapper.style.removeProperty('height');
+              wrapper.style.removeProperty('overflow');
+              wrapper.style.removeProperty('box-sizing');
+              
+              // If content is less than 500x500, center it
+              if (contentWidth > 0 && contentHeight > 0 && contentWidth < 500 && contentHeight < 500) {
+                wrapper.style.display = 'flex';
+                wrapper.style.alignItems = 'center';
+                wrapper.style.justifyContent = 'center';
+              }
+            });
+          });
+        }
+        
+        // Check immediately and after delays to ensure content is rendered and styled
+        function runChecks() {
+          checkAndCenter();
+          setTimeout(checkAndCenter, 50);
+          setTimeout(checkAndCenter, 150);
+          setTimeout(checkAndCenter, 300);
+          setTimeout(checkAndCenter, 500);
+          setTimeout(checkAndCenter, 1000);
+        }
+        
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', runChecks);
+        } else {
+          runChecks();
+        }
+        
+        // Also check when images or other resources load
+        window.addEventListener('load', () => {
+          setTimeout(checkAndCenter, 100);
+          setTimeout(checkAndCenter, 300);
+        });
+        
+        // Use ResizeObserver to detect size changes
+        if (window.ResizeObserver) {
+          setTimeout(() => {
+            const wrapper = document.querySelector('.component-wrapper');
+            if (wrapper) {
+              const observer = new ResizeObserver(() => {
+                setTimeout(checkAndCenter, 50);
+              });
+              observer.observe(wrapper);
+            }
+          }, 500);
+        }
+      })();
+    </script>
+  
+</body>
+</html>

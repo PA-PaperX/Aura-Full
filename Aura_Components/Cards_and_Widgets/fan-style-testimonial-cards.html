@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Component Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      height: 100%;
+      overflow: auto;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #000000;
+      color: #ffffff;
+    }
+    .component-wrapper {
+      width: 100%;
+      height: 100%;
+      padding: 0;
+      box-sizing: border-box;
+      overflow: auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="component-wrapper">
+    <html><head></head><body><div class="border-y bg-black border-white/5 pt-24 pb-24">
+  <style>@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&display=swap');
+    .font-jakarta { font-family: 'Plus Jakarta Sans', 'Helvetica Neue', sans-serif; }
+    .font-geist { font-family: 'Geist', 'Helvetica Neue', sans-serif; }
+    
+    .testimonial-cards-fan {
+      perspective: 2000px;
+    }
+
+    .testimonial-card {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transition: all 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+      will-change: transform, opacity, box-shadow;
+      transform-origin: center center;
+    }
+
+    /* Fan State (Default) */
+    .card-1 {
+      z-index: 60;
+      transform: translate(-50%, -50%) scale(1);
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+      filter: brightness(1.1);
+    }
+
+    .card-2 {
+      z-index: 50;
+      transform: translate(-50%, -50%) translate(-160px, 10px) rotate(-8deg) scale(0.95);
+      opacity: 0.9;
+    }
+    
+    .card-3 {
+      z-index: 50;
+      transform: translate(-50%, -50%) translate(160px, 10px) rotate(8deg) scale(0.95);
+      opacity: 0.9;
+    }
+
+    .card-4 {
+      z-index: 40;
+      transform: translate(-50%, -50%) translate(-300px, 40px) rotate(-16deg) scale(0.9);
+      opacity: 0.8;
+    }
+    
+    .card-5 {
+      z-index: 40;
+      transform: translate(-50%, -50%) translate(300px, 40px) rotate(16deg) scale(0.9);
+      opacity: 0.8;
+    }
+
+    .card-6 {
+      z-index: 30;
+      transform: translate(-50%, -50%) translateY(-20px) scale(0.88);
+      opacity: 0.6;
+      filter: brightness(0.7);
+    }
+
+    /* Grid State (Hover) */
+    .group:hover .testimonial-card {
+      z-index: 50;
+      opacity: 1;
+      filter: brightness(1);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    }
+
+    .group:hover .card-2 { transform: translate(-50%, -50%) translate(-105%, -55%) rotate(0deg) scale(1); }
+    .group:hover .card-1 { transform: translate(-50%, -50%) translate(0%, -55%) rotate(0deg) scale(1); }
+    .group:hover .card-3 { transform: translate(-50%, -50%) translate(105%, -55%) rotate(0deg) scale(1); }
+    .group:hover .card-4 { transform: translate(-50%, -50%) translate(-105%, 55%) rotate(0deg) scale(1); }
+    .group:hover .card-6 { transform: translate(-50%, -50%) translate(0%, 55%) rotate(0deg) scale(1); }
+    .group:hover .card-5 { transform: translate(-50%, -50%) translate(105%, 55%) rotate(0deg) scale(1); }
+
+    /* Mobile Layout Override */
+    @media (max-width: 1024px) {
+      .testimonial-cards-fan { height: auto !important; display: flex; flex-direction: column; padding: 4rem 1rem; gap: 1.5rem; }
+      .testimonial-card { position: relative !important; left: auto !important; top: auto !important; transform: none !important; width: 100% !important; max-width: 28rem !important; opacity: 1 !important; }
+      .group:hover .testimonial-card { transform: none !important; }
+    }</style>
+  <div class="group sm:px-6 lg:px-8 max-w-7xl mr-auto ml-auto pr-4 pl-4">
+    <div class="mb-6 flex justify-center">
+      <div class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1">
+        <span class="h-2 w-2 rounded-full bg-blue-400"></span>
+        <span class="text-xs font-medium tracking-wide uppercase font-geist text-gray-300">Loved by product teams worldwide</span>
+      </div>
+    </div>
+    <h2 class="md:text-5xl text-3xl font-medium text-white tracking-tight font-jakarta text-center mb-6">
+      <span class="text-blue-500 font-jakarta font-medium">Nova</span>
+    </h2>
+    <p class="mb-10 text-lg max-w-2xl mx-auto text-center font-geist text-gray-400">Designers, developers, and 3D artists use Nova to prototype immersive product tours, landing pages, and in-app moments in hours instead of weeks.</p>
+    <div class="testimonial-cards-fan group flex w-full h-[42rem] max-w-7xl
+      mt-0 mb-0 relative gap-x-y-0 gap-y-0 items-center
+      justify-center">
+      <article class="testimonial-card card-1 group/card w-full max-w-sm
+        rounded-2xl bg-gray-950 border border-white/5 px-6 py-5
+        text-left relative overflow-hidden">
+        <div class="relative z-10">
+          <div class="mb-3 text-3xl leading-none text-white font-jakarta font-medium">"</div>
+          <p class="mb-4 text-base font-geist text-gray-300">Nova has completely changed how we prototype 3D marketing pages. Our team can now try three concepts in the time it used to take to ship one.</p>
+          <div class="mt-4 flex items-center gap-3">
+            <div class="w-9 h-9 bg-gray-700 rounded-full"></div>
+            <div>
+              <div class="text-sm font-medium text-white font-geist">Alex Chen</div>
+              <div class="text-xs font-geist text-gray-500">Lead Designer, Orbit Labs</div>
+            </div>
+          </div>
+        </div>
+      </article>
+      <article class="testimonial-card card-2 group/card w-full max-w-sm
+        rounded-2xl bg-gray-950 border border-white/5 px-6 py-5
+        text-left relative overflow-hidden">
+        <div class="relative z-10">
+          <div class="mb-3 text-3xl leading-none text-white font-jakarta font-medium">"</div>
+          <p class="mb-4 text-base font-geist text-gray-300">Our product walkthrough used to be a static video. With Nova, it became an interactive 3D scene we can iterate on like any other design file.</p>
+          <div class="mt-4 flex items-center gap-3">
+            <div class="w-9 h-9 bg-gray-700 rounded-full"></div>
+            <div>
+              <div class="text-sm font-medium text-white font-geist">Priya Nair</div>
+              <div class="text-xs font-geist text-gray-500">Product Lead, Lumenly</div>
+            </div>
+          </div>
+        </div>
+      </article>
+      <article class="testimonial-card card-3 group/card w-full max-w-sm
+        rounded-2xl bg-gray-950 border border-white/5 px-6 py-5
+        text-left relative overflow-hidden">
+        <div class="relative z-10">
+          <div class="mb-3 text-3xl leading-none text-white font-jakarta font-medium">"</div>
+          <p class="mb-4 text-base font-geist text-gray-300">The real-time collaboration feels like a modern canvas tool, but for spatial interfaces. Engineering gets clean components they can drop into code.</p>
+          <div class="mt-4 flex items-center gap-3">
+            <div class="w-9 h-9 bg-gray-700 rounded-full"></div>
+            <div>
+              <div class="text-sm font-medium text-white font-geist">Jordan Miles</div>
+              <div class="text-xs font-geist text-gray-500">VP Engineering, Vectorframe</div>
+            </div>
+          </div>
+        </div>
+      </article>
+      <article class="testimonial-card card-4 group/card w-full max-w-sm
+        rounded-2xl bg-gray-950 border border-white/5 px-6 py-5
+        text-left relative overflow-hidden">
+        <div class="relative z-10">
+          <div class="mb-3 text-3xl leading-none text-white font-jakarta font-medium">"</div>
+          <p class="mb-4 text-base font-geist text-gray-300">Our sales demos moved from slide decks to live 3D scenes in the browser. Close rates went up, and our team actually enjoys presenting now.</p>
+          <div class="mt-4 flex items-center gap-3">
+            <div class="w-9 h-9 bg-gray-700 rounded-full"></div>
+            <div>
+              <div class="text-sm font-medium text-white font-geist">Emily Carter</div>
+              <div class="text-xs font-geist text-gray-500">Revenue Operations, Northwind</div>
+            </div>
+          </div>
+        </div>
+      </article>
+      <article class="testimonial-card card-5 group/card w-full max-w-sm
+        rounded-2xl bg-gray-950 border border-white/5 px-6 py-5
+        text-left relative overflow-hidden">
+        <div class="relative z-10">
+          <div class="mb-3 text-3xl leading-none text-white font-jakarta font-medium">"</div>
+          <p class="mb-4 text-base font-geist text-gray-300">Being able to export to React Three Fiber means our prototypes are only a small step away from production. It keeps everyone in the same tool.</p>
+          <div class="mt-4 flex items-center gap-3">
+            <div class="w-9 h-9 bg-gray-700 rounded-full"></div>
+            <div>
+              <div class="text-sm font-medium text-white font-geist">Mark Johnson</div>
+              <div class="text-xs font-geist text-gray-500">Staff Engineer, Helio</div>
+            </div>
+          </div>
+        </div>
+      </article>
+      <article class="testimonial-card card-6 group/card w-full max-w-sm
+        rounded-2xl bg-gray-950 border border-white/5 px-6 py-5
+        text-left relative overflow-hidden">
+        <div class="relative z-10">
+          <div class="mb-3 text-3xl leading-none text-white font-jakarta font-medium">"</div>
+          <p class="mb-4 text-base font-geist text-gray-300">We ship interactive 3D launch moments every quarter now. Nova made that cadence realistic without growing the team or budget.</p>
+          <div class="mt-4 flex items-center gap-3">
+            <div class="w-9 h-9 bg-gray-700 rounded-full"></div>
+            <div>
+              <div class="text-sm font-medium text-white font-geist">Michael Reyes</div>
+              <div class="text-xs font-geist text-gray-500">Creative Director, Parallel</div>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</div></body></html>
+  </div>
+  
+    <script>
+      (function() {
+        function checkAndCenter() {
+          // Use double requestAnimationFrame to ensure DOM is fully painted and layout is stable
+          requestAnimationFrame(function() {
+            requestAnimationFrame(function() {
+              const wrapper = document.querySelector('.component-wrapper');
+              if (!wrapper) return;
+              
+              // Get all child elements
+              const children = Array.from(wrapper.children);
+              if (children.length === 0) return;
+              
+              // Temporarily override wrapper styles to shrink-wrap for measurement
+              // Set inline styles to shrink-wrap (inline styles override CSS)
+              wrapper.style.display = 'inline-block';
+              wrapper.style.width = 'auto';
+              wrapper.style.height = 'auto';
+              wrapper.style.overflow = 'visible';
+              wrapper.style.boxSizing = 'content-box';
+              
+              // Force multiple reflows to ensure styles are fully applied
+              void wrapper.offsetHeight;
+              void wrapper.offsetWidth;
+              void wrapper.offsetHeight;
+              
+              // Measure the wrapper's content size
+              const contentWidth = wrapper.offsetWidth;
+              const contentHeight = wrapper.offsetHeight;
+              
+              // Restore original styles by removing inline styles we added
+              wrapper.style.removeProperty('display');
+              wrapper.style.removeProperty('width');
+              wrapper.style.removeProperty('height');
+              wrapper.style.removeProperty('overflow');
+              wrapper.style.removeProperty('box-sizing');
+              
+              // If content is less than 500x500, center it
+              if (contentWidth > 0 && contentHeight > 0 && contentWidth < 500 && contentHeight < 500) {
+                wrapper.style.display = 'flex';
+                wrapper.style.alignItems = 'center';
+                wrapper.style.justifyContent = 'center';
+              }
+            });
+          });
+        }
+        
+        // Check immediately and after delays to ensure content is rendered and styled
+        function runChecks() {
+          checkAndCenter();
+          setTimeout(checkAndCenter, 50);
+          setTimeout(checkAndCenter, 150);
+          setTimeout(checkAndCenter, 300);
+          setTimeout(checkAndCenter, 500);
+          setTimeout(checkAndCenter, 1000);
+        }
+        
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', runChecks);
+        } else {
+          runChecks();
+        }
+        
+        // Also check when images or other resources load
+        window.addEventListener('load', () => {
+          setTimeout(checkAndCenter, 100);
+          setTimeout(checkAndCenter, 300);
+        });
+        
+        // Use ResizeObserver to detect size changes
+        if (window.ResizeObserver) {
+          setTimeout(() => {
+            const wrapper = document.querySelector('.component-wrapper');
+            if (wrapper) {
+              const observer = new ResizeObserver(() => {
+                setTimeout(checkAndCenter, 50);
+              });
+              observer.observe(wrapper);
+            }
+          }, 500);
+        }
+      })();
+    </script>
+  
+</body>
+</html>

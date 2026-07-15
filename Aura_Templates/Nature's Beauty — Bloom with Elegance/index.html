@@ -1,0 +1,994 @@
+<html lang="en"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nature's Beauty — Bloom with Elegance</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+
+<style>
+:root{
+--peach-50:#fdf2ec;
+--peach-100:#fbe5da;
+--peach-200:#f7d2c2;
+--coral:#e86a5a;
+--coral-deep:#b14334;
+--rose:#d23f5a;
+--ink:#3a2420;
+--ink-soft:#6b4d46;
+--leaf:#5b6b4f;
+--cream:#fff8f4;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:auto}
+body{
+font-family:'Jost',sans-serif;
+background:var(--peach-50);
+color:var(--ink);
+overflow-x:hidden;
+-webkit-font-smoothing:antialiased;
+}
+h1,h2,h3,.serif{font-family:'Cormorant Garamond',serif;font-weight:500}
+.eyebrow{
+font-family:'Jost',sans-serif;
+text-transform:uppercase;
+letter-spacing:.32em;
+font-size:.72rem;
+font-weight:500;
+color:var(--coral-deep);
+}
+section{position:relative}
+/* ---------- progress bar ---------- */
+.progress{
+position:fixed;top:0;left:0;height:3px;width:100%;
+background:linear-gradient(90deg,var(--coral),var(--rose));
+transform:scaleX(0);transform-origin:0 50%;z-index:200;
+}
+/* ---------- nav ---------- */
+nav{
+position:fixed;top:0;left:0;width:100%;z-index:150;
+display:flex;justify-content:space-between;align-items:center;
+padding:20px 6vw;transition:background .4s ease,padding .4s ease,box-shadow .4s ease;
+}
+nav .brand{display:flex;align-items:center;gap:10px;text-decoration:none;
+font-family:'Cormorant Garamond',serif;font-size:1.45rem;letter-spacing:.03em;color:#fff5f0;
+text-shadow:0 1px 10px rgba(20,8,6,.5)}
+nav .brand svg{width:23px;height:23px;color:#f6b3a0}
+nav .links{display:flex;gap:32px}
+nav .links a{
+text-decoration:none;color:rgba(255,245,240,.88);font-size:.76rem;
+text-transform:uppercase;letter-spacing:.18em;transition:color .3s;position:relative;
+text-shadow:0 1px 8px rgba(20,8,6,.5)}
+nav .links a::after{content:"";position:absolute;left:0;bottom:-6px;width:0;height:1px;
+background:var(--coral);transition:width .3s}
+nav .links a:hover{color:#fff}
+nav .links a:hover::after{width:100%}
+nav .nav-cta{display:inline-flex;align-items:center;gap:8px;text-decoration:none;
+padding:11px 20px;border:1px solid rgba(255,245,240,.55);border-radius:4px;color:#fff5f0;
+font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;transition:all .3s}
+nav .nav-cta .arr{transition:transform .3s}
+nav .nav-cta:hover{background:#fff;color:var(--coral-deep);border-color:#fff}
+nav .nav-cta:hover .arr{transform:translateX(5px)}
+/* scrolled state — switches to light glass bar with dark text */
+nav.scrolled{background:rgba(255,248,244,.86);backdrop-filter:blur(14px);
+-webkit-backdrop-filter:blur(14px);padding:13px 6vw;box-shadow:0 10px 34px -20px rgba(120,40,30,.5)}
+nav.scrolled .brand{color:var(--coral-deep);text-shadow:none}
+nav.scrolled .links a{color:var(--ink-soft);text-shadow:none}
+nav.scrolled .nav-cta{border-color:var(--coral-deep);color:var(--coral-deep)}
+nav.scrolled .nav-cta:hover{background:var(--coral-deep);color:#fff;border-color:var(--coral-deep)}
+@media(max-width:820px){nav .links{display:none}}
+@media(max-width:520px){nav .nav-cta{display:none}}
+/* ---------- HERO (scroll-scrubbed video) ---------- */
+.hero{
+height:100vh;min-height:640px;display:flex;align-items:center;
+background:#1a0f0d;overflow:hidden;
+}
+.hero-media{position:absolute;inset:0;z-index:0}
+.hero-media canvas{
+position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+will-change:transform;
+}
+/* scrim: keeps left-side copy legible over the footage */
+.hero-scrim{
+position:absolute;inset:0;z-index:1;
+background:
+linear-gradient(90deg, rgba(28,12,9,.92) 0%, rgba(28,12,9,.72) 32%, rgba(28,12,9,.25) 56%, rgba(28,12,9,0) 74%),
+linear-gradient(0deg, rgba(28,12,9,.6) 0%, rgba(28,12,9,0) 45%);
+}
+.hero-inner{position:relative;z-index:5;width:100%;padding:0 6vw;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:20px}
+.hero-copy{position:relative;z-index:5}
+/* light theme overrides for copy on dark video */
+.hero .eyebrow{color:#ffd4c6;text-shadow:0 1px 10px rgba(20,8,6,.6)}
+.hero h1{color:#fffaf7 !important;text-shadow:0 4px 40px rgba(15,6,4,.6),0 1px 6px rgba(15,6,4,.55)}
+.hero .rule{background:#f6b3a0;opacity:.95;box-shadow:0 0 12px rgba(0,0,0,.3)}
+.hero p.lede{color:#fbeae3;text-shadow:0 1px 14px rgba(20,8,6,.6)}
+.hero .btn-fill{background:var(--coral);border-color:var(--coral);color:#fff}
+.hero .btn-fill:hover{background:var(--rose);border-color:var(--rose)}
+.hero .btn-ghost{color:#fbe5da;border-color:rgba(251,229,218,.6)}
+.hero .btn-ghost:hover{background:rgba(255,255,255,.12)}
+.hero-badges .badge+.badge{border-left-color:rgba(255,255,255,.28)}
+.hero-badges svg{color:#f3a48f}
+.hero-badges span{color:#eccfc6}
+/* scroll hint */
+.scroll-hint{position:absolute;bottom:34px;left:50%;transform:translateX(-50%);
+z-index:6;display:flex;flex-direction:column;align-items:center;gap:10px;color:#f4ddd5}
+.scroll-hint span{font-size:.7rem;letter-spacing:.26em;text-transform:uppercase;opacity:.85}
+.scroll-hint i{display:block;width:1px;height:42px;background:linear-gradient(#f4ddd5,transparent);
+transform-origin:top;animation:hintPulse 1.8s ease-in-out infinite}
+@keyframes hintPulse{0%,100%{transform:scaleY(.4);opacity:.4}50%{transform:scaleY(1);opacity:1}}
+.hero-eyebrow{display:flex;align-items:center;gap:12px;margin-bottom:26px}
+.hero-eyebrow svg{width:22px;height:22px;color:var(--coral)}
+.hero h1{
+font-size:clamp(3.4rem,9vw,7.2rem);line-height:.96;color:var(--ink);
+letter-spacing:-.01em;
+}
+.hero h1 .line{display:block;overflow:hidden}
+.hero h1 .line span{display:inline-block;will-change:transform}
+.rule{height:1px;width:120px;background:var(--coral-deep);opacity:.6;margin:34px 0 26px}
+.hero p.lede{font-size:1.15rem;color:var(--ink-soft);max-width:360px;line-height:1.6;font-weight:300}
+.cta-row{display:flex;gap:16px;margin-top:38px;flex-wrap:wrap}
+.btn{
+font-family:'Jost',sans-serif;font-size:.78rem;text-transform:uppercase;letter-spacing:.18em;
+padding:18px 30px;border-radius:4px;cursor:pointer;border:1px solid var(--coral-deep);
+display:inline-flex;align-items:center;gap:12px;transition:all .35s ease;text-decoration:none;
+}
+.btn .arr{transition:transform .35s ease}
+.btn:hover .arr{transform:translateX(6px)}
+.btn-fill{background:var(--coral-deep);color:#fff}
+.btn-fill:hover{background:var(--rose)}
+.btn-ghost{background:transparent;color:var(--coral-deep)}
+.btn-ghost:hover{background:rgba(177,67,52,.08)}
+.hero-badges{display:flex;gap:0;margin-top:54px;max-width:440px}
+.hero-badges .badge{flex:1;display:flex;flex-direction:column;align-items:flex-start;gap:10px;padding-right:18px}
+.hero-badges .badge+.badge{border-left:1px solid rgba(177,67,52,.25);padding-left:22px}
+.hero-badges svg{width:26px;height:26px;color:var(--coral)}
+.hero-badges span{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft)}
+@media(max-width:860px){
+.hero-inner{grid-template-columns:1fr}
+.hero-scrim{background:
+linear-gradient(0deg, rgba(40,20,16,.85) 0%, rgba(40,20,16,.35) 55%, rgba(40,20,16,.15) 100%)}
+}
+/* floating petals layer (global) */
+.float-petal{position:absolute;pointer-events:none;opacity:.0;z-index:2}
+/* ---------- MARQUEE ---------- */
+.marquee{
+background:var(--coral-deep);color:var(--peach-100);
+padding:30px 0;overflow:hidden;white-space:nowrap;
+}
+.marquee .track{display:inline-block;will-change:transform}
+.marquee span{
+font-family:'Cormorant Garamond',serif;font-style:italic;
+font-size:2.2rem;padding:0 30px;opacity:.9;
+}
+.marquee span::after{content:"✿";font-style:normal;font-size:1.1rem;margin-left:58px;opacity:.6;vertical-align:middle}
+/* ---------- INTRO / philosophy ---------- */
+.philosophy{padding:18vh 6vw;background:var(--cream);text-align:center;overflow:hidden}
+.philosophy .big{
+font-size:clamp(2rem,5vw,4rem);line-height:1.25;max-width:1000px;margin:0 auto;color:var(--ink);
+}
+.philosophy .big .word{display:inline-block;opacity:.12;will-change:opacity,transform}
+.philosophy .accent{color:var(--coral);font-style:italic}
+/* ---------- HORIZONTAL GALLERY ---------- */
+.gallery-pin{height:100vh;overflow:hidden;background:linear-gradient(180deg,var(--peach-100),var(--peach-200))}
+.gallery-head{position:absolute;top:8vh;left:6vw;z-index:5}
+.gallery-head h2{font-size:clamp(2.4rem,5vw,4rem);color:var(--ink)}
+.gallery-cta{margin-top:22px}
+.gallery-track{display:flex;height:100vh;align-items:center;gap:4vw;padding:0 6vw;will-change:transform}
+.card{
+flex:0 0 auto;width:min(34vw,440px);min-width:300px;aspect-ratio:4/5;border-radius:14px;
+position:relative;overflow:hidden;box-shadow:0 36px 70px -34px rgba(120,40,30,.6);
+background:#2a1815;
+}
+.card .bloom{position:absolute;inset:0;overflow:hidden}
+/* image fills the card exactly (4:5 matches source) → full flower, no harsh crop.
+top/left 0 so the GSAP ken-burns transform doesn't fight CSS centering */
+.card .bloom img{position:absolute;top:0;left:0;width:100%;height:100%;
+object-fit:cover;will-change:transform}
+.card .meta{position:absolute;left:0;bottom:0;width:100%;padding:26px 28px;color:#fff;
+background:linear-gradient(0deg,rgba(48,28,24,.92),rgba(48,28,24,.55) 55%,transparent);z-index:2}
+.card .meta h3{font-size:clamp(1.5rem,2.2vw,1.95rem);line-height:1.08}
+.card .meta p{font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;opacity:.9;margin-top:6px}
+.card .card-cta{display:inline-flex;align-items:center;gap:8px;margin-top:16px;
+font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:#fff;text-decoration:none;
+padding:10px 18px;border:1px solid rgba(255,255,255,.55);border-radius:4px;transition:all .3s}
+.card .card-cta .arr{transition:transform .3s}
+.card .card-cta:hover{background:#fff;color:var(--coral-deep)}
+.card .card-cta:hover .arr{transform:translateX(5px)}
+@media(max-width:860px){.card{width:74vw}}
+/* ---------- PARALLAX STORY ---------- */
+.story{height:100vh;min-height:640px;background:var(--ink);color:var(--peach-100);overflow:hidden;
+display:flex;align-items:center;padding:0 6vw;position:relative}
+.story .layer{position:absolute;pointer-events:none}
+.story-copy{position:relative;z-index:6;max-width:560px}
+.story-copy .eyebrow{color:var(--coral)}
+.story-copy h2{font-size:clamp(2.6rem,6vw,5rem);line-height:1.05;margin:20px 0 26px;color:var(--peach-50)}
+.story-copy p{font-size:1.1rem;line-height:1.8;color:#d9c3bb;font-weight:300;max-width:460px}
+.glow{position:absolute;right:-10vw;top:50%;transform:translateY(-50%);
+width:60vw;height:60vw;border-radius:50%;
+background:radial-gradient(circle,rgba(232,106,90,.45),transparent 60%);filter:blur(20px);z-index:1}
+.craft-video{position:absolute;right:2.5vw;top:50%;transform:translateY(-50%);
+width:min(54vw,720px);aspect-ratio:16/9;z-index:4;border-radius:16px;overflow:hidden;
+box-shadow:0 44px 80px -32px rgba(0,0,0,.65)}
+.craft-video video{width:100%;height:100%;object-fit:cover;display:block}
+@media(max-width:860px){
+.story{padding:14vh 6vw}
+.craft-video{position:absolute;right:-8vw;width:92vw;opacity:.5;z-index:1}
+}
+/* ---------- STATS ---------- */
+.stats{padding:16vh 6vw;background:var(--peach-50);display:grid;grid-template-columns:repeat(4,1fr);gap:30px;text-align:center}
+.stat .num{font-family:'Cormorant Garamond',serif;font-size:clamp(3rem,7vw,5.5rem);color:var(--coral-deep);line-height:1}
+.stat .lbl{font-size:.76rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-soft);margin-top:14px}
+@media(max-width:760px){.stats{grid-template-columns:repeat(2,1fr);gap:50px 20px}}
+/* ---------- QUOTE reveal ---------- */
+.quote{padding:20vh 6vw;background:var(--cream);text-align:center}
+.quote blockquote{font-family:'Cormorant Garamond',serif;font-style:italic;
+font-size:clamp(1.8rem,4.5vw,3.4rem);line-height:1.35;max-width:900px;margin:0 auto;color:var(--ink)}
+.quote .word{display:inline-block;will-change:opacity,filter}
+.quote cite{display:block;margin-top:40px;font-style:normal;font-size:.8rem;letter-spacing:.24em;
+text-transform:uppercase;color:var(--coral-deep)}
+/* ---------- CTA / FOOTER ---------- */
+.cta{
+min-height:96vh;display:flex;flex-direction:column;align-items:center;justify-content:center;
+text-align:center;padding:0 6vw;position:relative;overflow:hidden;
+background:radial-gradient(120% 100% at 50% 120%,var(--coral),var(--peach-200) 60%,var(--peach-50));
+}
+.cta h2{font-size:clamp(3rem,9vw,7rem);color:var(--cream);line-height:.98;letter-spacing:-.01em}
+.cta p{color:var(--cream);opacity:.9;margin:24px 0 40px;font-size:1.15rem;font-weight:300}
+.cta .btn-fill{background:var(--ink);border-color:var(--ink)}
+.cta .btn-fill:hover{background:#2a1815}
+.cta-petal{position:absolute;pointer-events:none;opacity:.85}
+.cta-inner{position:relative;z-index:3;display:flex;flex-direction:column;align-items:center;will-change:transform}
+.petal-canvas{position:absolute;inset:0;width:100%;height:100%;z-index:2;pointer-events:none}
+footer{background:var(--ink);color:var(--peach-200);padding:90px 6vw 36px}
+.foot-top{display:grid;grid-template-columns:1.4fr 2fr;gap:60px;
+padding-bottom:54px;border-bottom:1px solid rgba(247,210,194,.14)}
+.foot-logo{display:flex;align-items:center;gap:10px;margin-bottom:20px}
+.foot-logo svg{width:24px;height:24px;color:var(--coral)}
+footer .brand{font-family:'Cormorant Garamond',serif;font-size:1.7rem;color:var(--peach-100)}
+.foot-brand p{color:#c9aaa1;font-weight:300;line-height:1.7;max-width:330px;font-size:.95rem}
+.socials{display:flex;gap:12px;margin-top:24px}
+.socials a{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+border:1px solid rgba(247,210,194,.25);color:var(--peach-200);transition:all .3s}
+.socials svg{width:18px;height:18px}
+.socials a:hover{background:var(--coral);border-color:var(--coral);color:#fff;transform:translateY(-3px)}
+.foot-cols{display:grid;grid-template-columns:repeat(3,1fr);gap:30px}
+.foot-col h4{font-family:'Jost',sans-serif;font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;
+color:var(--coral);margin-bottom:18px;font-weight:500}
+.foot-col a{display:block;color:#cbb0a8;text-decoration:none;font-size:.92rem;font-weight:300;
+margin-bottom:12px;transition:color .25s,transform .25s}
+.foot-col a:hover{color:var(--peach-100);transform:translateX(4px)}
+.foot-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;padding-top:28px}
+footer .small{font-size:.78rem;letter-spacing:.08em;opacity:.55}
+.foot-legal{display:flex;gap:26px}
+.foot-legal a{color:#cbb0a8;text-decoration:none;font-size:.78rem;letter-spacing:.06em;transition:color .25s}
+.foot-legal a:hover{color:var(--coral)}
+@media(max-width:760px){
+.foot-top{grid-template-columns:1fr;gap:40px}
+.foot-cols{grid-template-columns:repeat(2,1fr)}
+.foot-bottom{flex-direction:column;align-items:flex-start}
+}
+/* ---------- EDITORIAL SPLIT ---------- */
+.editorial{padding:16vh 6vw;background:var(--peach-50);overflow:hidden}
+.ed-row{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:6vw;max-width:1180px;margin:0 auto}
+.ed-row+.ed-row{margin-top:14vh}
+.ed-row.reverse .ed-img{order:2}
+.ed-img{position:relative;border-radius:16px;overflow:hidden;aspect-ratio:4/3;
+clip-path:inset(0 100% 0 0);box-shadow:0 34px 64px -34px rgba(120,40,30,.55)}
+.ed-img img{width:100%;height:100%;object-fit:cover;transform:scale(1.12);will-change:transform}
+.ed-text .eyebrow{display:block;margin-bottom:6px}
+.ed-text h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2.4rem,6vw,4.6rem);
+line-height:1.02;color:var(--ink);margin:12px 0 22px}
+.ed-text em{font-style:italic;color:var(--coral)}
+.ed-text p{color:var(--ink-soft);font-size:1.15rem;line-height:1.8;font-weight:300;max-width:430px}
+@media(max-width:760px){.ed-row,.ed-row.reverse{grid-template-columns:1fr;gap:34px}.ed-row.reverse .ed-img{order:0}}
+/* ---------- SEASONS (pinned crossfade) ---------- */
+.seasons{height:100vh;position:relative;overflow:hidden;background:#1a0f0d}
+.seasons-stage{position:absolute;inset:0}
+.season-layer{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;will-change:opacity,transform}
+.seasons-overlay{position:absolute;inset:0;
+background:linear-gradient(0deg,rgba(20,10,8,.7),rgba(20,10,8,.15) 60%,rgba(20,10,8,.35))}
+.seasons-labels{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;z-index:3}
+.seasons-labels .eyebrow{color:#f7c9bb;margin-bottom:24px;z-index:4}
+.season-word{position:absolute;top:54%;left:50%;transform:translate(-50%,-50%);
+font-family:'Cormorant Garamond',serif;font-weight:500;
+font-size:clamp(3rem,13vw,10rem);color:#fff5f0;letter-spacing:.01em;opacity:0;
+text-shadow:0 6px 50px rgba(0,0,0,.4)}
+.seasons-progress{position:absolute;left:50%;bottom:8%;transform:translateX(-50%);
+width:210px;height:2px;background:rgba(255,255,255,.25);z-index:4}
+.seasons-progress span{display:block;height:100%;width:0;background:#f6b3a0}
+/* ---------- PROCESS timeline ---------- */
+.process{padding:18vh 6vw;background:var(--cream)}
+.proc-head{text-align:center;margin-bottom:10vh}
+.proc-head h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,5vw,4rem);color:var(--ink);margin-top:8px}
+.proc-wrap{position:relative;max-width:920px;margin:0 auto}
+.proc-line{position:absolute;left:50%;top:0;transform:translateX(-50%);width:2px;height:100%;background:rgba(177,67,52,.16)}
+.proc-line span{position:absolute;top:0;left:0;width:100%;height:100%;background:var(--coral);transform:scaleY(0);transform-origin:top}
+.proc-steps{display:flex;flex-direction:column;gap:10vh}
+.step{position:relative;width:50%}
+.step:nth-child(odd){align-self:flex-start;padding-right:50px;text-align:right}
+.step:nth-child(even){align-self:flex-end;padding-left:50px;text-align:left}
+.step .dot{position:absolute;top:8px;width:16px;height:16px;border-radius:50%;
+background:var(--coral);box-shadow:0 0 0 6px rgba(232,106,90,.18);transform:scale(0)}
+.step:nth-child(odd) .dot{right:-9px}
+.step:nth-child(even) .dot{left:-9px}
+.step .num{font-family:'Cormorant Garamond',serif;font-size:2.6rem;color:var(--coral-deep);opacity:.45;display:block;line-height:1}
+.step h3{font-family:'Cormorant Garamond',serif;font-size:1.9rem;color:var(--ink);margin:6px 0 10px}
+.step p{color:var(--ink-soft);line-height:1.75;font-weight:300}
+@media(max-width:760px){
+.step{width:100%;align-self:stretch !important;text-align:left !important;padding:0 0 0 40px !important}
+.proc-line{left:7px;transform:none}
+.step .dot{left:-1px !important;right:auto !important}
+}
+/* ---------- NEWSLETTER ---------- */
+.newsletter{padding:20vh 6vw;background:var(--peach-100);text-align:center;position:relative;overflow:hidden}
+.nl-inner{max-width:660px;margin:0 auto;position:relative;z-index:3}
+.nl-h{font-family:'Cormorant Garamond',serif;font-size:clamp(2.4rem,6vw,4.4rem);color:var(--ink);margin:10px 0 16px}
+.newsletter p{color:var(--ink-soft);font-weight:300;font-size:1.1rem;line-height:1.65;max-width:450px;margin:0 auto 36px}
+.nl-form{display:flex;gap:12px;max-width:500px;margin:0 auto;flex-wrap:wrap;justify-content:center}
+.nl-form input{flex:1;min-width:230px;padding:18px 22px;border:1px solid rgba(177,67,52,.3);
+border-radius:4px;font-family:'Jost',sans-serif;font-size:.95rem;background:#fff;color:var(--ink)}
+.nl-form input::placeholder{color:#b89a92}
+.nl-form input:focus{outline:none;border-color:var(--coral);box-shadow:0 0 0 3px rgba(232,106,90,.15)}
+.nl-note{margin-top:18px;font-size:.74rem;letter-spacing:.06em;color:var(--ink-soft);opacity:.7}
+</style>
+<script src="https://cdn.tailwindcss.com"></script><!-- aura-ga4-start -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-2M6V79H761"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-2M6V79H761');
+</script>
+<!-- aura-ga4-end -->
+</head>
+<body>
+<div class="progress" id="progress"></div>
+
+<nav id="nav">
+  <a class="brand" href="#hero">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 21c-4-3-7-6-7-11a7 7 0 0 1 14 0c0 5-3 8-7 11Z"></path><path d="M12 3v18"></path></svg>
+    <span>Nature's Beauty</span>
+  </a>
+  <div class="links">
+    <a href="#philosophy">Philosophy</a>
+    <a href="#gallery">Collection</a>
+    <a href="#seasons">Seasons</a>
+    <a href="#process">Process</a>
+  </div>
+  <a class="nav-cta" href="#cta">Get Updates <span class="arr">→</span></a>
+</nav>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="hero">
+  <div class="hero-media">
+    <canvas id="heroCanvas"></canvas>
+    <div class="hero-scrim"></div>
+  </div>
+  <div class="hero-inner">
+    <div class="hero-copy">
+      <div class="hero-eyebrow">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 21c-4-3-7-6-7-11a7 7 0 0 1 14 0c0 5-3 8-7 11Z"></path><path d="M12 3v18"></path></svg>
+        <span class="eyebrow">Nature's Beauty</span>
+      </div>
+      <h1>
+        <span class="line"><span>Bloom with</span></span>
+        <span class="line"><span>Elegance</span></span>
+      </h1>
+      <div class="rule"></div>
+      <p class="lede">Timeless floral inspiration for a beautiful life and space.</p>
+      <div class="cta-row">
+        <a class="btn btn-fill" href="#gallery">Explore Collection <span class="arr">→</span></a>
+        <a class="btn btn-ghost" href="#gallery">View Gallery <span class="arr">→</span></a>
+      </div>
+      <div class="hero-badges">
+        <div class="badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M11 20A7 7 0 0 1 4 13C4 7 11 3 11 3s7 4 7 10a7 7 0 0 1-7 7Z"></path><path d="M11 20V8"></path></svg>
+          <span>Natural</span>
+        </div>
+        <div class="badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="12" cy="12" r="3"></circle><path d="M12 5a3.5 3.5 0 0 1 0 7M12 5a3.5 3.5 0 0 0 0 7M19 12a3.5 3.5 0 0 1-7 0M19 12a3.5 3.5 0 0 0-7 0M12 19a3.5 3.5 0 0 1 0-7M12 19a3.5 3.5 0 0 0 0-7M5 12a3.5 3.5 0 0 1 7 0M5 12a3.5 3.5 0 0 0 7 0"></path></svg>
+          <span>Handpicked</span>
+        </div>
+        <div class="badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M12 20s-7-4.5-7-10a4 4 0 0 1 7-2.5A4 4 0 0 1 19 10c0 5.5-7 10-7 10Z"></path></svg>
+          <span>Made with care</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="scroll-hint" id="scrollHint"><span>Scroll to bloom</span><i></i></div>
+</section>
+
+<!-- ============ MARQUEE ============ -->
+<div class="marquee" id="marquee">
+  <div class="track">
+    <span>Bloom</span><span>Petal</span><span>Garden</span><span>Elegance</span><span>Flourish</span><span>Bloom</span><span>Petal</span><span>Garden</span><span>Elegance</span><span>Flourish</span>
+  </div>
+</div>
+
+<!-- ============ PHILOSOPHY ============ -->
+<section class="philosophy" id="philosophy">
+  <p class="big" id="philText">Every petal tells a story of patience, light, and the quiet <span class="accent">elegance</span> of things that grow slowly toward the sun.</p>
+</section>
+
+<!-- ============ HORIZONTAL GALLERY ============ -->
+<section class="gallery-pin" id="gallery">
+  <div class="gallery-head">
+    <span class="eyebrow">The Collection</span>
+    <h2>Curated Blooms</h2>
+    <a class="btn btn-fill gallery-cta" href="#cta">Shop the Collection <span class="arr">→</span></a>
+  </div>
+  <div class="gallery-track" id="galleryTrack"><!-- cards injected --></div>
+</section>
+
+<!-- ============ EDITORIAL SPLIT ============ -->
+<section class="editorial" id="editorial">
+  <div class="ed-row">
+    <div class="ed-img"><img src="https://cdn.jsdelivr.net/gh/souranyp-stack/ura-scroll-sequence@b09a3f691041d7cee83884f2e9c894d56f406285/assets/feature-1.jpg" alt="A dahlia bud"></div>
+    <div class="ed-text">
+      <span class="eyebrow">Chapter One</span>
+      <h2>It begins<br><em>quietly.</em></h2>
+      <p>A single bud holds the whole season inside it — folded, patient, and waiting for the right light to arrive.</p>
+    </div>
+  </div>
+  <div class="ed-row reverse">
+    <div class="ed-img"><img src="https://cdn.jsdelivr.net/gh/souranyp-stack/ura-scroll-sequence@b09a3f691041d7cee83884f2e9c894d56f406285/assets/feature-4.jpg" alt="A dahlia in full bloom"></div>
+    <div class="ed-text">
+      <span class="eyebrow">Chapter Two</span>
+      <h2>Then it<br><em>unfolds.</em></h2>
+      <p>Petal by petal, the dahlia opens into its fullest self — bold, warm, and impossibly detailed up close.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SEASONS (pinned crossfade) ============ -->
+<section class="seasons" id="seasons">
+  <div class="seasons-stage">
+    <div class="season-layer" style="background-image:url(https://cdn.jsdelivr.net/gh/souranyp-stack/ura-scroll-sequence@b09a3f691041d7cee83884f2e9c894d56f406285/assets/feature-1.jpg)"></div>
+    <div class="season-layer" style="background-image:url(https://cdn.jsdelivr.net/gh/souranyp-stack/ura-scroll-sequence@b09a3f691041d7cee83884f2e9c894d56f406285/assets/feature-2.jpg)"></div>
+    <div class="season-layer" style="background-image:url(https://cdn.jsdelivr.net/gh/souranyp-stack/ura-scroll-sequence@b09a3f691041d7cee83884f2e9c894d56f406285/assets/feature-3.jpg)"></div>
+    <div class="season-layer" style="background-image:url(https://cdn.jsdelivr.net/gh/souranyp-stack/ura-scroll-sequence@b09a3f691041d7cee83884f2e9c894d56f406285/assets/feature-4.jpg)"></div>
+    <div class="seasons-overlay"></div>
+    <div class="seasons-labels">
+      <span class="eyebrow">Through the seasons</span>
+      <h2 class="season-word">Spring</h2>
+      <h2 class="season-word">Summer</h2>
+      <h2 class="season-word">Autumn</h2>
+      <h2 class="season-word">Winter</h2>
+    </div>
+    <div class="seasons-progress"><span id="seasonsBar"></span></div>
+  </div>
+</section>
+
+<!-- ============ PARALLAX STORY ============ -->
+<section class="story" id="story">
+  <div class="glow" data-speed="0.2"></div>
+  <div class="story-copy">
+    <span class="eyebrow">The Craft</span>
+    <h2>Grown with<br>intention.</h2>
+    <p>From seed to bloom, each arrangement is shaped by hand and guided by the rhythms of the season. We let nature lead, then frame its beauty so it can live in your space.</p>
+  </div>
+  <div class="craft-video">
+    <video id="craftVideo" muted="" playsinline="" preload="auto" disablepictureinpicture="">
+      <source src="https://cdn.jsdelivr.net/gh/souranyp-stack/ura-scroll-sequence@b09a3f691041d7cee83884f2e9c894d56f406285/assets/craft-puzzle.mp4" type="video/mp4">
+    </video>
+  </div>
+</section>
+
+<!-- ============ STATS ============ -->
+<section class="stats" id="stats">
+  <div class="stat"><div class="num" data-target="120">0</div><div class="lbl">Bloom varieties</div></div>
+  <div class="stat"><div class="num" data-target="48">0</div><div class="lbl">Local growers</div></div>
+  <div class="stat"><div class="num" data-target="15">0</div><div class="lbl">Years rooted</div></div>
+  <div class="stat"><div class="num" data-target="100" data-suffix="%">0</div><div class="lbl">Handpicked</div></div>
+</section>
+
+<!-- ============ PROCESS ============ -->
+<section class="process" id="process">
+  <div class="proc-head"><span class="eyebrow">How we work</span><h2>From soil to your space</h2></div>
+  <div class="proc-wrap">
+    <div class="proc-line"><span id="procLine"></span></div>
+    <div class="proc-steps">
+      <div class="step"><div class="dot"></div><span class="num">01</span><h3>Grown locally</h3><p>Every stem starts with a network of nearby growers who farm with the seasons, never against them.</p></div>
+      <div class="step"><div class="dot"></div><span class="num">02</span><h3>Hand selected</h3><p>We cut at the peak moment — when colour is deepest and the bloom is most alive.</p></div>
+      <div class="step"><div class="dot"></div><span class="num">03</span><h3>Arranged with care</h3><p>Each piece is composed by hand, balancing shape, light, and a little wildness.</p></div>
+      <div class="step"><div class="dot"></div><span class="num">04</span><h3>Delivered fresh</h3><p>Wrapped, cooled, and brought to your door within hours of leaving the studio.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ QUOTE ============ -->
+<section class="quote" id="quote">
+  <blockquote id="quoteText">"To plant a garden is to believe in tomorrow — to trust that beauty, given time, always finds its way to bloom."</blockquote>
+  <cite>— Nature's Beauty Studio</cite>
+</section>
+
+<!-- ============ CTA ============ -->
+<section class="cta" id="cta">
+  <canvas class="petal-canvas" id="petalCanvas"></canvas>
+  <div class="cta-inner">
+    <h2 id="ctaHeading">Bring the<br>garden home</h2>
+    <p>Begin your collection of timeless, handpicked blooms.</p>
+    <a class="btn btn-fill" href="#hero">Explore Collection <span class="arr">→</span></a>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-top">
+    <div class="foot-brand">
+      <div class="foot-logo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 21c-4-3-7-6-7-11a7 7 0 0 1 14 0c0 5-3 8-7 11Z"></path><path d="M12 3v18"></path></svg>
+        <span class="brand">Nature's Beauty</span>
+      </div>
+      <p>Timeless floral inspiration for a beautiful life and space. Grown locally, arranged by hand, delivered fresh.</p>
+      <div class="socials">
+        <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="1"></circle></svg></a>
+        <a href="#" aria-label="Pinterest"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 19c-.4-1.2-.2-2.6.2-4l1.6-6"></path><path d="M8.5 9a3.7 3.7 0 1 1 5.5 3.3c-1.4.7-2.9.2-3.2-1"></path><circle cx="12" cy="12" r="9"></circle></svg></a>
+        <a href="#" aria-label="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="m3 7 9 6 9-6"></path></svg></a>
+      </div>
+    </div>
+    <div class="foot-cols">
+      <div class="foot-col">
+        <h4>Shop</h4>
+        <a href="#gallery">The Collection</a>
+        <a href="#seasons">Seasonal Blooms</a>
+        <a href="#cta">Bouquets</a>
+        <a href="#cta">Gift Cards</a>
+      </div>
+      <div class="foot-col">
+        <h4>Studio</h4>
+        <a href="#philosophy">Our Story</a>
+        <a href="#story">The Craft</a>
+        <a href="#process">Process</a>
+        <a href="#quote">Journal</a>
+      </div>
+      <div class="foot-col">
+        <h4>Contact</h4>
+        <a href="#">hello@naturesbeauty.co</a>
+        <a href="#">+1 (555) 014‑2200</a>
+        <a href="#">24 Garden Lane, Portland</a>
+      </div>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <span class="small">© 2026 Nature's Beauty. All rights reserved.</span>
+    <div class="foot-legal">
+      <a href="#">Privacy</a>
+      <a href="#">Terms</a>
+      <a href="#hero">Back to top ↑</a>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+/* =========================================================
+   ASSET BUILDERS
+   ========================================================= */
+const NS = "http://www.w3.org/2000/svg";
+
+// Build a layered dahlia. Returns an <svg> string.
+function buildDahlia(palette){
+  const cx=400, cy=400;
+  const rings=[
+    {count:16, rOut:360, rIn:150, w:78, opacity:1},
+    {count:14, rOut:280, rIn:110, w:70, opacity:1},
+    {count:12, rOut:210, rIn:80,  w:60, opacity:1},
+    {count:10, rOut:150, rIn:55,  w:50, opacity:1},
+    {count:8,  rOut:95,  rIn:30,  w:40, opacity:1},
+  ];
+  let petals="";
+  let idx=0;
+  rings.forEach((ring,ri)=>{
+    const col=palette[ri % palette.length];
+    for(let i=0;i<ring.count;i++){
+      const ang=(360/ring.count)*i + (ri%2?180/ring.count:0);
+      const half=ring.w/2;
+      // petal as a rounded teardrop path pointing up from center
+      const path=`M0,0 C ${half},-${ring.rOut*0.35} ${half},-${ring.rOut*0.8} 0,-${ring.rOut}
+                  C -${half},-${ring.rOut*0.8} -${half},-${ring.rOut*0.35} 0,0 Z`;
+      petals+=`<path class="petal" data-ring="${ri}" data-i="${idx}"
+                 d="${path}" fill="${col}"
+                 transform="translate(${cx},${cy}) rotate(${ang})" />`;
+      idx++;
+    }
+  });
+  // center
+  petals+=`<circle cx="${cx}" cy="${cy}" r="34" fill="${palette[5]}" class="flower-core"/>`;
+  for(let i=0;i<10;i++){
+    const a=(36*i)*Math.PI/180;
+    petals+=`<circle cx="${cx+Math.cos(a)*18}" cy="${cy+Math.sin(a)*18}" r="6" fill="${palette[4]}" class="flower-core"/>`;
+  }
+  return `<svg viewBox="0 0 800 800" id="dahliaSvg">${petals}</svg>`;
+}
+
+// Small bloom for gallery cards / floating petals
+function buildSmallBloom(palette){
+  const cx=200,cy=200;let p="";
+  const rings=[{c:12,r:180,w:60},{c:10,r:130,w:52},{c:8,r:88,w:44}];
+  rings.forEach((ring,ri)=>{
+    const col=palette[ri%palette.length];
+    for(let i=0;i<ring.c;i++){
+      const ang=(360/ring.c)*i+(ri%2?180/ring.c:0);
+      const h=ring.w/2;
+      const path=`M0,0 C ${h},-${ring.r*0.4} ${h},-${ring.r*0.85} 0,-${ring.r} C -${h},-${ring.r*0.85} -${h},-${ring.r*0.4} 0,0 Z`;
+      p+=`<path d="${path}" fill="${col}" transform="translate(${cx},${cy}) rotate(${ang})"/>`;
+    }
+  });
+  p+=`<circle cx="${cx}" cy="${cy}" r="26" fill="${palette[4]}"/>`;
+  return `<svg viewBox="0 0 400 400">${p}</svg>`;
+}
+
+const heroPalette=["#f6b3a0","#f29982","#ef7e68","#ea5f50","#d8324a","#b3243f"];
+const palettes=[
+  ["#f7c1b2","#f2a08e","#ed7d6b","#e55c52","#cf2f47","#a82240"],
+  ["#f3b8c6","#ec90a6","#e26a87","#d44a6e","#b53259","#8f2148"],
+  ["#f6c9a8","#efa97f","#e6895d","#d96b45","#bd4f33","#963c28"],
+  ["#e9b6c9","#d98fb0","#c66a96","#b14a7e","#933767","#722851"],
+  ["#f5b9a6","#ee9682","#e6745f","#d65749","#b53b35","#902f2c"],
+];
+
+// inject gallery cards
+const galleryData=[
+  {name:"Peach Dahlia",     tag:"Soft · Coral",       img:"https://cdn.jsdelivr.net/gh/souranyp-stack/ura-scroll-sequence@b09a3f691041d7cee83884f2e9c894d56f406285/assets/card-1.jpg"},
+  {name:"Magenta Dahlia",   tag:"Bold · Vivid",       img:"https://cdn.jsdelivr.net/gh/souranyp-stack/ura-scroll-sequence@b09a3f691041d7cee83884f2e9c894d56f406285/assets/card-2.jpg"},
+  {name:"White Anemone",    tag:"Pure · Delicate",    img:"https://cdn.jsdelivr.net/gh/souranyp-stack/ura-scroll-sequence@b09a3f691041d7cee83884f2e9c894d56f406285/assets/card-3.jpg"},
+  {name:"Golden Lily",      tag:"Warm · Radiant",     img:"https://cdn.jsdelivr.net/gh/souranyp-stack/ura-scroll-sequence@b09a3f691041d7cee83884f2e9c894d56f406285/assets/card-4.jpg"},
+  {name:"Lavender Anemone", tag:"Cool · Dreamy",      img:"https://cdn.jsdelivr.net/gh/souranyp-stack/ura-scroll-sequence@b09a3f691041d7cee83884f2e9c894d56f406285/assets/card-5.jpg"},
+];
+const track=document.getElementById('galleryTrack');
+galleryData.forEach((d,i)=>{
+  const card=document.createElement('div');
+  card.className='card';
+  card.innerHTML=`
+    <div class="bloom"><img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/917d6f93-fb36-439a-8c48-884b67b35381_1600w.jpg" alt="${d.name}" loading="lazy" /></div>
+    <div class="meta">
+      <h3>${d.name}</h3>
+      <p>${d.tag}</p>
+      <a class="card-cta" href="#cta">Shop now <span class="arr">→</span></a>
+    </div>`;
+  track.appendChild(card);
+});
+
+// floating petals in hero + story
+function spawnPetals(host, count, palette, opts={}){
+  for(let i=0;i<count;i++){
+    const el=document.createElement('div');
+    el.className=(opts.cls||'float-petal');
+    const size=opts.size||(18+Math.random()*40);
+    el.style.width=size+'px';el.style.height=size*1.4+'px';
+    el.style.left=(Math.random()*100)+'%';
+    el.style.top=(Math.random()*100)+'%';
+    const col=palette[Math.floor(Math.random()*palette.length)];
+    el.innerHTML=`<svg viewBox="0 0 40 56" style="width:100%;height:100%"><path d="M20 0 C34 14 34 38 20 56 C6 38 6 14 20 0 Z" fill="${col}"/></svg>`;
+    host.appendChild(el);
+  }
+}
+
+/* =========================================================
+   GSAP ANIMATIONS
+   ========================================================= */
+gsap.registerPlugin(ScrollTrigger);
+
+/* progress bar */
+gsap.to("#progress",{scaleX:1,ease:"none",
+  scrollTrigger:{trigger:document.body,start:"top top",end:"bottom bottom",scrub:.3}});
+
+/* ---- HERO intro: text reveal on load ---- */
+const introTl=gsap.timeline({defaults:{ease:"power3.out"},delay:.2});
+introTl
+  .from(".hero h1 .line span",{yPercent:120,duration:1,stagger:.12,ease:"power4.out"},0)
+  .from(".hero-eyebrow",{opacity:0,x:-20,duration:.8},0.1)
+  .from(".rule",{scaleX:0,transformOrigin:"left",duration:.8},0.5)
+  .from(".hero p.lede",{opacity:0,y:20,duration:.8},0.6)
+  .from(".cta-row .btn",{opacity:0,y:24,duration:.7,stagger:.12},0.7)
+  .from(".hero-badges .badge",{opacity:0,y:20,duration:.6,stagger:.1},0.9)
+  .from(".scroll-hint",{opacity:0,y:20,duration:.8},1.0);
+
+/* =========================================================
+   SCROLL-SCRUBBED HERO VIDEO
+   The page scroll drives video.currentTime while the hero is
+   pinned, so footage plays forward/backward with the wheel.
+   ========================================================= */
+const heroCanvas=document.getElementById('heroCanvas');
+const hctx=heroCanvas.getContext('2d');
+const HERO_BASE="https://cdn.jsdelivr.net/gh/souranyp-stack/ura-scroll-sequence@b09a3f691041d7cee83884f2e9c894d56f406285/frames/";
+const HERO_COUNT=120;
+const heroImgs=[]; let heroCur=-1;
+function drawHero(i){
+  const img=heroImgs[i]; if(!img||!img.complete||!img.naturalWidth) return;
+  const cw=heroCanvas.clientWidth, ch=heroCanvas.clientHeight, ir=img.naturalWidth/img.naturalHeight, cr=cw/ch;
+  let w,h2,x,y; if(ir>cr){h2=ch;w=ch*ir;x=(cw-w)/2;y=0;}else{w=cw;h2=cw/ir;x=0;y=(ch-h2)/2;}
+  hctx.clearRect(0,0,cw,ch); hctx.drawImage(img,x,y,w,h2); heroCur=i;
+}
+function heroResize(){
+  const dpr=Math.min(window.devicePixelRatio||1,2);
+  heroCanvas.width=heroCanvas.clientWidth*dpr; heroCanvas.height=heroCanvas.clientHeight*dpr;
+  hctx.setTransform(dpr,0,0,dpr,0,0);
+  drawHero(heroCur<0?0:heroCur);
+}
+for(let i=1;i<=HERO_COUNT;i++){ const im=new Image(); im.onload=()=>{ if(heroCur<0){drawHero(0);} }; im.src=HERO_BASE+String(i).padStart(4,'0')+'.webp'; heroImgs[i-1]=im; }
+window.addEventListener('resize',heroResize,{passive:true});
+heroResize();
+
+// scroll drives which frame is drawn while the hero is pinned
+const scrubber={p:0};
+gsap.to(scrubber,{p:1,ease:"none",
+  scrollTrigger:{
+    trigger:".hero", start:"top top", end:"+=220%", scrub:0.6,
+    pin:true, anticipatePin:1, refreshPriority:40, invalidateOnRefresh:true
+  },
+  onUpdate(){ const f=Math.min(HERO_COUNT-1, Math.round(scrubber.p*(HERO_COUNT-1))); if(f!==heroCur) drawHero(f); }
+});
+
+/* subtle zoom on the footage + copy parallax as you scrub */
+gsap.fromTo(".hero-media canvas",{scale:1.12},{scale:1,ease:"none",
+  scrollTrigger:{trigger:".hero",start:"top top",end:"+=220%",scrub:0.6}});
+gsap.to(".hero-copy",{yPercent:-14,opacity:0,ease:"none",
+  scrollTrigger:{trigger:".hero",start:"top top",end:"+=120%",scrub:true}});
+gsap.to(".scroll-hint",{opacity:0,ease:"none",
+  scrollTrigger:{trigger:".hero",start:"top top",end:"+=40%",scrub:true}});
+
+/* ---- MARQUEE horizontal loop + scroll skew ---- */
+gsap.to("#marquee .track",{xPercent:-50,duration:20,repeat:-1,ease:"none"});
+gsap.fromTo("#marquee .track",{x:0},{x:-120,ease:"none",
+  scrollTrigger:{trigger:"#marquee",start:"top bottom",end:"bottom top",scrub:true}});
+
+/* ---- PHILOSOPHY word-by-word reveal ---- */
+(function(){
+  const el=document.getElementById('philText');
+  // wrap non-accent text nodes into words while preserving the accent span
+  const accent=el.querySelector('.accent');
+  const nodes=[...el.childNodes];
+  el.innerHTML='';
+  nodes.forEach(node=>{
+    if(node.nodeType===3){
+      node.textContent.split(/(\s+)/).forEach(w=>{
+        if(w.trim()===''){el.appendChild(document.createTextNode(w));}
+        else{const s=document.createElement('span');s.className='word';s.textContent=w;el.appendChild(s);}
+      });
+    } else { node.classList.add('word'); el.appendChild(node); }
+  });
+  gsap.to("#philText .word",{opacity:1,y:0,duration:.6,stagger:.06,ease:"power2.out",
+    scrollTrigger:{trigger:"#philText",start:"top 75%",end:"bottom 55%",scrub:1}});
+  gsap.set("#philText .word",{y:14});
+})();
+
+/* ---- HORIZONTAL GALLERY pin + scroll ---- */
+const gtrack=document.getElementById('galleryTrack');
+const scrollLen=()=>gtrack.scrollWidth-window.innerWidth+ window.innerWidth*0.12;
+const galleryTween=gsap.to(gtrack,{x:()=>-scrollLen(),ease:"none",
+  scrollTrigger:{trigger:".gallery-pin",start:"top top",
+    end:()=>"+="+scrollLen(),scrub:1,pin:true,refreshPriority:30,invalidateOnRefresh:true}});
+/* gentle Ken-Burns inside the horizontal scroll (keeps full bloom visible) */
+gsap.utils.toArray('.card .bloom img').forEach(img=>{
+  gsap.fromTo(img,{yPercent:-1.5,scale:1.09},{yPercent:1.5,scale:1.04,ease:"none",
+    scrollTrigger:{trigger:".gallery-pin",start:"top top",end:()=>"+="+scrollLen(),scrub:1}});
+});
+/* cards rise in as they enter */
+gsap.from(".card",{y:60,opacity:0,duration:.8,stagger:.08,
+  scrollTrigger:{trigger:".gallery-pin",start:"top 70%"}});
+gsap.from(".gallery-head",{opacity:0,x:-40,duration:1,
+  scrollTrigger:{trigger:".gallery-pin",start:"top 80%"}});
+
+/* ---- STORY: scroll-scrubbed puzzle-assembly video ---- *
+ * Section pins; page scroll drives the video's currentTime so the pieces
+ * assemble into the flower as you scroll (and come apart scrolling back). */
+(function(){
+  const v=document.getElementById('craftVideo');
+  const FALLBACK=8;
+  const dur=()=>{const d=v.duration;return (d&&isFinite(d)&&d>0)?d:FALLBACK;};
+  v.pause();
+  v.addEventListener('loadedmetadata',()=>{try{v.currentTime=0.001;}catch(e){}ScrollTrigger.refresh();});
+  const prog={p:0};
+  gsap.to(prog,{p:1,ease:"none",
+    scrollTrigger:{trigger:".story",start:"top top",end:"+=200%",scrub:0.6,
+      pin:true,anticipatePin:1,refreshPriority:10,invalidateOnRefresh:true},
+    onUpdate(){ if(v.readyState<1) return; const d=dur(); const t=Math.min(prog.p*d, d-0.05); if(isFinite(t)) v.currentTime=t; }
+  });
+  // subtle zoom on the footage as it assembles
+  gsap.fromTo(".craft-video video",{scale:1.08},{scale:1,ease:"none",
+    scrollTrigger:{trigger:".story",start:"top top",end:"+=200%",scrub:0.6}});
+})();
+gsap.from(".story-copy h2",{y:60,opacity:0,duration:1,
+  scrollTrigger:{trigger:".story-copy",start:"top 75%"}});
+gsap.from(".story-copy p",{y:40,opacity:0,duration:1,delay:.15,
+  scrollTrigger:{trigger:".story-copy",start:"top 75%"}});
+gsap.from(".story-copy .eyebrow",{y:20,opacity:0,duration:.8,
+  scrollTrigger:{trigger:".story-copy",start:"top 78%"}});
+gsap.to(".glow",{yPercent:-30,ease:"none",
+  scrollTrigger:{trigger:"#story",start:"top bottom",end:"bottom top",scrub:true}});
+
+/* ---- STATS count up ---- */
+gsap.utils.toArray('.stat .num').forEach(num=>{
+  const target=+num.dataset.target;const suffix=num.dataset.suffix||'';
+  const obj={v:0};
+  gsap.to(obj,{v:target,duration:2,ease:"power2.out",
+    scrollTrigger:{trigger:num,start:"top 85%"},
+    onUpdate:()=>{num.textContent=Math.round(obj.v)+suffix;}});
+});
+gsap.from(".stat",{y:40,opacity:0,duration:.8,stagger:.12,
+  scrollTrigger:{trigger:".stats",start:"top 80%"}});
+
+/* ---- QUOTE blur-in words ---- */
+(function(){
+  const q=document.getElementById('quoteText');
+  q.innerHTML=q.textContent.split(' ').map(w=>`<span class="word">${w}</span>`).join(' ');
+  gsap.set("#quoteText .word",{opacity:.1,filter:"blur(6px)"});
+  gsap.to("#quoteText .word",{opacity:1,filter:"blur(0px)",stagger:.08,ease:"none",
+    scrollTrigger:{trigger:"#quoteText",start:"top 80%",end:"bottom 60%",scrub:1}});
+  gsap.from("#quote cite",{opacity:0,y:20,
+    scrollTrigger:{trigger:"#quote cite",start:"top 90%"}});
+})();
+
+/* ---- CTA: zoom-in on scroll ---- */
+gsap.fromTo(".cta-inner",{scale:0.72,opacity:0},{scale:1,opacity:1,ease:"power2.out",
+  scrollTrigger:{trigger:".cta",start:"top 88%",end:"top 32%",scrub:true}});
+
+/* ---- CTA: interactive falling petals that pile into the footer ---- */
+(function(){
+  const canvas=document.getElementById('petalCanvas');
+  const host=document.querySelector('.cta');
+  if(!canvas||!host) return;
+  const ctx=canvas.getContext('2d');
+  const colors=["#f6b3a0","#f29982","#ef7e68","#ea5f50","#f3a48f","#e86a5a","#d8324a","#f7c1b2"];
+  let W=0,H=0,DPR=Math.min(window.devicePixelRatio||1,2);
+  let falling=[], settled=[], cols=0, pileH=[], running=false, raf=0;
+  const MAX_FALLING=120, MAX_SETTLED=240;
+  const mouse={x:-9999,y:-9999};
+
+  function resize(){
+    const r=host.getBoundingClientRect();
+    W=r.width; H=r.height;
+    canvas.width=Math.max(1,W*DPR); canvas.height=Math.max(1,H*DPR);
+    canvas.style.width=W+'px'; canvas.style.height=H+'px';
+    ctx.setTransform(DPR,0,0,DPR,0,0);
+    cols=Math.max(16,Math.round(W/26));
+    pileH=new Array(cols).fill(0);
+    settled=[];
+  }
+  const colAt=x=>Math.max(0,Math.min(cols-1,Math.floor(x/W*cols)));
+  const groundY=x=>H-pileH[colAt(x)];
+  const PILE_CAP=()=>H*0.16;
+
+  function makePetal(top){
+    const s=7+Math.random()*9;
+    return {x:Math.random()*W, y:top?(-20-Math.random()*40):(-20-Math.random()*H*0.6),
+      vx:(Math.random()-.5)*0.4, vy:0.5+Math.random()*0.8,
+      rot:Math.random()*Math.PI*2, vr:(Math.random()-.5)*0.05,
+      size:s, sway:Math.random()*Math.PI*2, swaySpd:0.01+Math.random()*0.02,
+      color:colors[(Math.random()*colors.length)|0], settled:false};
+  }
+  function drawPetal(p){
+    ctx.save(); ctx.translate(p.x,p.y); ctx.rotate(p.rot);
+    ctx.globalAlpha=p.settled?0.96:0.92; ctx.fillStyle=p.color;
+    ctx.beginPath(); ctx.ellipse(0,0,p.size*0.6,p.size,0,0,Math.PI*2); ctx.fill();
+    ctx.globalAlpha*=0.35; ctx.strokeStyle="rgba(255,255,255,.4)"; ctx.lineWidth=0.6;
+    ctx.beginPath(); ctx.moveTo(0,-p.size*0.8); ctx.lineTo(0,p.size*0.8); ctx.stroke();
+    ctx.restore();
+  }
+  function settle(p){
+    const c=colAt(p.x);
+    p.y=groundY(p.x)-p.size*0.3; p.settled=true; p.vr=0;
+    pileH[c]+=p.size*0.55;
+    if(c>0)pileH[c-1]+=p.size*0.18; if(c<cols-1)pileH[c+1]+=p.size*0.18;
+    settled.push(p);
+  }
+  function tick(){
+    ctx.clearRect(0,0,W,H);
+    if(falling.length<MAX_FALLING && Math.random()<0.7) falling.push(makePetal(true));
+    for(let i=falling.length-1;i>=0;i--){
+      const p=falling[i];
+      p.sway+=p.swaySpd;
+      p.x+=p.vx+Math.sin(p.sway)*0.7;
+      p.vy+=0.012; p.y+=p.vy; p.rot+=p.vr;
+      // interactive: cursor pushes petals away
+      const dx=p.x-mouse.x, dy=p.y-mouse.y, d=Math.hypot(dx,dy);
+      if(d<100 && d>0.1){ const f=(100-d)/100*2.6; p.x+=dx/d*f; p.y+=dy/d*f*0.5; }
+      if(p.x<-20)p.x=W+20; else if(p.x>W+20)p.x=-20;
+      if(p.y>=groundY(p.x)-p.size*0.5){
+        if(pileH[colAt(p.x)]<PILE_CAP() && settled.length<MAX_SETTLED){ settle(p); falling.splice(i,1); }
+        else { Object.assign(p,makePetal(true)); }        // pile full -> recycle to top
+      }
+    }
+    // cursor can disturb the settled carpet a little
+    for(const p of settled){
+      const dx=p.x-mouse.x, dy=p.y-mouse.y, d=Math.hypot(dx,dy);
+      if(d<70 && d>0.1){ p.x+=dx/d*0.8; p.rot+=0.03; }
+      drawPetal(p);
+    }
+    for(const p of falling) drawPetal(p);
+    raf=requestAnimationFrame(tick);
+  }
+  function start(){ if(running)return; running=true; raf=requestAnimationFrame(tick); }
+  function stop(){ running=false; cancelAnimationFrame(raf); }
+
+  resize();
+  window.addEventListener('resize',resize);
+  document.addEventListener('mousemove',e=>{
+    const r=canvas.getBoundingClientRect();
+    mouse.x=e.clientX-r.left; mouse.y=e.clientY-r.top;
+  },{passive:true});
+  document.addEventListener('mouseleave',()=>{mouse.x=mouse.y=-9999;});
+  // only animate while the CTA is on screen
+  ScrollTrigger.create({trigger:".cta",start:"top bottom",end:"bottom top",
+    onToggle:self=>self.isActive?start():stop()});
+})();
+
+/* ---- NAV: intro + scrolled glass state ---- */
+gsap.from("nav",{y:-50,opacity:0,duration:1,ease:"power3.out",delay:.1});
+const navEl=document.getElementById('nav');
+const setNav=()=>navEl.classList.toggle('scrolled', window.scrollY>80);
+window.addEventListener('scroll',setNav,{passive:true});
+setNav();
+
+/* ---- EDITORIAL: clip-path wipe reveal + text rise ---- */
+gsap.utils.toArray('.ed-img').forEach(el=>{
+  gsap.to(el,{clipPath:'inset(0 0% 0 0)',duration:1.2,ease:"power3.out",
+    scrollTrigger:{trigger:el,start:"top 82%"}});
+  gsap.to(el.querySelector('img'),{scale:1,duration:1.6,ease:"power2.out",
+    scrollTrigger:{trigger:el,start:"top 82%"}});
+});
+gsap.utils.toArray('.ed-text').forEach(t=>{
+  gsap.from(t.children,{y:34,opacity:0,duration:.8,stagger:.12,ease:"power3.out",
+    scrollTrigger:{trigger:t,start:"top 82%"}});
+});
+
+/* ---- SEASONS: pinned crossfade of layers + words ---- */
+(function(){
+  const layers=gsap.utils.toArray('.season-layer');
+  const words=gsap.utils.toArray('.season-word');
+  const END="+=420%";
+  gsap.set(layers,{opacity:0});
+  gsap.set(layers[0],{opacity:1,scale:1.05});
+  gsap.set(words,{opacity:0,y:34});
+  gsap.set(words[0],{opacity:1,y:0});
+
+  // scrub:1.4 adds momentum-style smoothing; holds let each season breathe
+  const tl=gsap.timeline({defaults:{ease:"power2.inOut"},
+    scrollTrigger:{trigger:".seasons",start:"top top",end:END,scrub:1.4,pin:true,anticipatePin:1,refreshPriority:20}});
+
+  const FADE=0.9, HOLD=1.3;
+  let t=0;
+  // slow ken-burns while the first season holds
+  tl.to(layers[0],{scale:1.13,duration:FADE+HOLD,ease:"none"},t);
+  t+=HOLD;
+  for(let i=1;i<layers.length;i++){
+    tl.to(layers[i-1],{opacity:0,duration:FADE},t)
+      .fromTo(layers[i],{opacity:0,scale:1.14},{opacity:1,scale:1.05,duration:FADE},t)
+      .to(words[i-1],{opacity:0,y:-34,duration:FADE*0.7},t)
+      .fromTo(words[i],{opacity:0,y:34},{opacity:1,y:0,duration:FADE*0.7},t+FADE*0.3)
+      // continue a gentle zoom through the hold so it never feels frozen
+      .to(layers[i],{scale:1.13,duration:HOLD,ease:"none"},t+FADE);
+    t+=FADE+HOLD;
+  }
+  gsap.to("#seasonsBar",{width:"100%",ease:"none",
+    scrollTrigger:{trigger:".seasons",start:"top top",end:END,scrub:1.4}});
+})();
+
+/* ---- PROCESS: line draws + steps slide + dots pop ---- */
+gsap.to("#procLine",{scaleY:1,ease:"none",
+  scrollTrigger:{trigger:".proc-wrap",start:"top 72%",end:"bottom 82%",scrub:.6}});
+gsap.utils.toArray('.step').forEach((s,i)=>{
+  gsap.from(s,{opacity:0,x:(i%2?70:-70),duration:.9,ease:"power3.out",
+    scrollTrigger:{trigger:s,start:"top 82%"}});
+  gsap.fromTo(s.querySelector('.dot'),{scale:0},{scale:1,duration:.5,ease:"back.out(2.4)",
+    scrollTrigger:{trigger:s,start:"top 76%"}});
+});
+
+/* nav smooth scroll */
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    const id=a.getAttribute('href');
+    if(id&&id.startsWith('#')){e.preventDefault();
+      const t=document.querySelector(id);
+      if(t)window.scrollTo({top:t.offsetTop,behavior:'smooth'});}
+  });
+});
+
+window.addEventListener('load',()=>ScrollTrigger.refresh());
+</script>
+
+
+</body></html>

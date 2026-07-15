@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Component Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      height: 100%;
+      overflow: auto;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #000000;
+      color: #ffffff;
+    }
+    .component-wrapper {
+      width: 100%;
+      height: 100%;
+      padding: 0;
+      box-sizing: border-box;
+      overflow: auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="component-wrapper">
+    <html><head></head><body><div class="bg-white/5 border-white/10 border rounded-2xl px-4 py-4">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-2">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="terminal" class="lucide lucide-terminal w-4 h-4 text-white/80"><path d="M12 19h8" class=""></path><path d="m4 17 6-6-6-6" class=""></path></svg>
+              <h3 class="text-xl font-semibold tracking-tight">RAG Pipeline</h3>
+            </div>
+            <span class="text-[11px] text-white/60">~42 lines</span>
+          </div>
+          <pre class="text-[12px] leading-relaxed overflow-auto text-white/90 bg-black/40 border-white/10 border rounded-xl mt-3 pt-3 pr-3 pb-3 pl-3" style="font-family: 'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas;"><span style="color: #ff7b72;">from</span> <span style="color: #79c0ff;">fastapi</span> <span style="color: #ff7b72;" class="">import</span> <span style="color: #79c0ff;">FastAPI</span>
+<span style="color: #ff7b72;">from</span> <span style="color: #79c0ff;" class="">rag</span> <span style="color: #ff7b72;">import</span> <span style="color: #79c0ff;">embed</span>, <span style="color: #79c0ff;" class="">search</span>, <span style="color: #79c0ff;">rerank</span>, <span style="color: #79c0ff;">answer</span>
+<span style="color: #ff7b72;">from</span> <span style="color: #79c0ff;">tracers</span> <span style="color: #ff7b72;" class="">import</span> <span style="color: #79c0ff;" class="">trace</span>
+
+<span style="color: #ffa657;">app</span> = <span style="color: #79c0ff;">FastAPI</span>()
+
+<span style="color: #a5a5a5;">@</span><span style="color: #ffa657;" class="">app</span>.<span style="color: #d2a8ff;" class="">post</span>(<span style="color: #a5d6ff;" class="">"/ask"</span>)
+<span style="color: #a5a5a5;">@</span><span style="color: #d2a8ff;">trace</span>(<span style="color: #a5d6ff;">"ask"</span>)
+<span style="color: #ff7b72;">def</span> <span style="color: #d2a8ff;">ask</span>(<span style="color: #ffa657;">q</span>: <span style="color: #ff7b72;">str</span>, <span style="color: #ffa657;">user_id</span>: <span style="color: #ff7b72;">str</span>):
+    <span style="color: #ffa657;" class="">q_vec</span> = <span style="color: #d2a8ff;" class="">embed</span>(<span style="color: #ffa657;" class="">q</span>)
+    <span style="color: #ffa657;">chunks</span> = <span style="color: #d2a8ff;" class="">search</span>(<span style="color: #ffa657;" class="">q_vec</span>, <span style="color: #ffa657;">k</span>=<span style="color: #a5d6ff;" class="">20</span>, <span style="color: #ffa657;" class="">filters</span>={<span style="color: #a5d6ff;" class="">"user"</span>: <span style="color: #ffa657;">user_id</span>})
+    <span style="color: #ffa657;" class="">ranked</span> = <span style="color: #d2a8ff;" class="">rerank</span>(<span style="color: #ffa657;" class="">q</span>, <span style="color: #ffa657;" class="">chunks</span>)[:<span style="color: #a5d6ff;">6</span>]
+    <span style="color: #ff7b72;">return</span> <span style="color: #d2a8ff;">answer</span>(<span style="color: #ffa657;">q</span>, <span style="color: #ffa657;">ranked</span>, <span style="color: #ffa657;" class="">tools</span>=[<span style="color: #a5d6ff;" class="">"browser"</span>, <span style="color: #a5d6ff;" class="">"code"</span>], <span style="color: #ffa657;">guardrails</span>=<span style="color: #ff7b72;">True</span>)</pre>
+        </div></body></html>
+  </div>
+  
+    <script>
+      (function() {
+        function checkAndCenter() {
+          // Use double requestAnimationFrame to ensure DOM is fully painted and layout is stable
+          requestAnimationFrame(function() {
+            requestAnimationFrame(function() {
+              const wrapper = document.querySelector('.component-wrapper');
+              if (!wrapper) return;
+              
+              // Get all child elements
+              const children = Array.from(wrapper.children);
+              if (children.length === 0) return;
+              
+              // Temporarily override wrapper styles to shrink-wrap for measurement
+              // Set inline styles to shrink-wrap (inline styles override CSS)
+              wrapper.style.display = 'inline-block';
+              wrapper.style.width = 'auto';
+              wrapper.style.height = 'auto';
+              wrapper.style.overflow = 'visible';
+              wrapper.style.boxSizing = 'content-box';
+              
+              // Force multiple reflows to ensure styles are fully applied
+              void wrapper.offsetHeight;
+              void wrapper.offsetWidth;
+              void wrapper.offsetHeight;
+              
+              // Measure the wrapper's content size
+              const contentWidth = wrapper.offsetWidth;
+              const contentHeight = wrapper.offsetHeight;
+              
+              // Restore original styles by removing inline styles we added
+              wrapper.style.removeProperty('display');
+              wrapper.style.removeProperty('width');
+              wrapper.style.removeProperty('height');
+              wrapper.style.removeProperty('overflow');
+              wrapper.style.removeProperty('box-sizing');
+              
+              // If content is less than 500x500, center it
+              if (contentWidth > 0 && contentHeight > 0 && contentWidth < 500 && contentHeight < 500) {
+                wrapper.style.display = 'flex';
+                wrapper.style.alignItems = 'center';
+                wrapper.style.justifyContent = 'center';
+              }
+            });
+          });
+        }
+        
+        // Check immediately and after delays to ensure content is rendered and styled
+        function runChecks() {
+          checkAndCenter();
+          setTimeout(checkAndCenter, 50);
+          setTimeout(checkAndCenter, 150);
+          setTimeout(checkAndCenter, 300);
+          setTimeout(checkAndCenter, 500);
+          setTimeout(checkAndCenter, 1000);
+        }
+        
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', runChecks);
+        } else {
+          runChecks();
+        }
+        
+        // Also check when images or other resources load
+        window.addEventListener('load', () => {
+          setTimeout(checkAndCenter, 100);
+          setTimeout(checkAndCenter, 300);
+        });
+        
+        // Use ResizeObserver to detect size changes
+        if (window.ResizeObserver) {
+          setTimeout(() => {
+            const wrapper = document.querySelector('.component-wrapper');
+            if (wrapper) {
+              const observer = new ResizeObserver(() => {
+                setTimeout(checkAndCenter, 50);
+              });
+              observer.observe(wrapper);
+            }
+          }, 500);
+        }
+      })();
+    </script>
+  
+</body>
+</html>

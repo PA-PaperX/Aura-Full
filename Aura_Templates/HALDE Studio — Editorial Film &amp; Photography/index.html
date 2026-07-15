@@ -1,0 +1,916 @@
+<html lang="en" class="scroll-smooth"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HALDE Studio — Editorial Film &amp; Photography</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/lucide@latest"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+
+<style>
+body { font-family: 'Archivo', sans-serif; }
+.mono { font-family: 'IBM Plex Mono', monospace; }
+.reveal { opacity: 0; transform: translateY(28px); transition: opacity .7s cubic-bezier(.22,1,.36,1), transform .7s cubic-bezier(.22,1,.36,1); }
+.reveal.in { opacity: 1; transform: translateY(0); }
+.mask-reveal { clip-path: inset(0 0 100% 0); transition: clip-path .9s cubic-bezier(.22,1,.36,1); }
+.mask-reveal.in { clip-path: inset(0 0 0% 0); }
+@media (prefers-reduced-motion: reduce) {
+.reveal, .mask-reveal { opacity: 1 !important; transform: none !important; clip-path: none !important; transition: none !important; }
+* { animation: none !important; }
+}
+.img-cine { filter: grayscale(30%) contrast(1.05); transition: filter .25s ease, transform .5s cubic-bezier(.22,1,.36,1); }
+.group:hover .img-cine, a:hover .img-cine { filter: grayscale(0%) contrast(1.05); transform: scale(1.03); }
+details summary::-webkit-details-marker { display: none; }
+</style>
+<style id="border-gradient-style">
+.border-gradient{position:relative}
+.border-gradient::before{content:"";position:absolute;inset:0;border-radius:0;padding:1px;-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;background:linear-gradient(225deg,rgba(255,255,255,0) 0%,rgba(255,255,255,0.2) 50%,rgba(255,255,255,0) 100%);pointer-events:none;z-index:10}
+</style>
+<style>
+.hero-word{will-change:font-weight, font-variation-settings;}
+</style><!-- aura-ga4-start -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-2M6V79H761"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-2M6V79H761');
+</script>
+<!-- aura-ga4-end -->
+</head>
+  <body class="bg-neutral-950 text-neutral-100 antialiased selection:bg-white selection:text-neutral-950">
+    <div class="gradient-blur" aria-hidden="true">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+    <style>
+      .gradient-blur{position:fixed;z-index:5;inset:0 0 auto 0;height:12%;pointer-events:none}
+      .gradient-blur>div,.gradient-blur::before,.gradient-blur::after{position:absolute;inset:0}
+      .gradient-blur::before{content:"";z-index:1;backdrop-filter:blur(0.5px);mask:linear-gradient(to top,rgba(0,0,0,0) 0%,rgba(0,0,0,1) 12.5%,rgba(0,0,0,1) 25%,rgba(0,0,0,0) 37.5%)}
+      .gradient-blur>div:nth-of-type(1){z-index:2;backdrop-filter:blur(1px);mask:linear-gradient(to top,rgba(0,0,0,0) 12.5%,rgba(0,0,0,1) 25%,rgba(0,0,0,1) 37.5%,rgba(0,0,0,0) 50%)}
+      .gradient-blur>div:nth-of-type(2){z-index:3;backdrop-filter:blur(2px);mask:linear-gradient(to top,rgba(0,0,0,0) 25%,rgba(0,0,0,1) 37.5%,rgba(0,0,0,1) 50%,rgba(0,0,0,0) 62.5%)}
+      .gradient-blur>div:nth-of-type(3){z-index:4;backdrop-filter:blur(4px);mask:linear-gradient(to top,rgba(0,0,0,0) 37.5%,rgba(0,0,0,1) 50%,rgba(0,0,0,1) 62.5%,rgba(0,0,0,0) 75%)}
+      .gradient-blur>div:nth-of-type(4){z-index:5;backdrop-filter:blur(8px);mask:linear-gradient(to top,rgba(0,0,0,0) 50%,rgba(0,0,0,1) 62.5%,rgba(0,0,0,1) 75%,rgba(0,0,0,0) 87.5%)}
+      .gradient-blur>div:nth-of-type(5){z-index:6;backdrop-filter:blur(16px);mask:linear-gradient(to top,rgba(0,0,0,0) 62.5%,rgba(0,0,0,1) 75%,rgba(0,0,0,1) 87.5%,rgba(0,0,0,0) 100%)}
+      .gradient-blur>div:nth-of-type(6){z-index:7;backdrop-filter:blur(32px);mask:linear-gradient(to top,rgba(0,0,0,0) 75%,rgba(0,0,0,1) 87.5%,rgba(0,0,0,1) 100%)}
+      .gradient-blur::after{content:"";z-index:8;backdrop-filter:blur(64px);mask:linear-gradient(to top,rgba(0,0,0,0) 87.5%,rgba(0,0,0,1) 100%)}
+    </style>
+
+    <!-- ============ HEADER ============ -->
+    <header id="siteHeader" class="fixed top-0 inset-x-0 z-50 transition-all duration-300 border-b border-transparent">
+      <div class="max-w-7xl mx-auto px-5 sm:px-8 flex items-center justify-between h-16">
+        <a href="#top" class="flex items-center gap-2 font-semibold tracking-tight text-lg">
+          <span class="w-2 h-2 bg-white inline-block"></span>
+          HALDE
+        </a>
+        <nav class="hidden md:flex items-center gap-8 text-sm text-neutral-400" aria-label="Primary">
+          <a href="#work" class="hover:text-white transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-white">
+            Work
+          </a>
+          <a href="#services" class="hover:text-white transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-white">
+            Services
+          </a>
+          <a href="#process" class="hover:text-white transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-white">
+            Process
+          </a>
+          <a href="#faq" class="hover:text-white transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-white">
+            FAQ
+          </a>
+        </nav>
+        <div class="flex items-center gap-3">
+          <a href="#contact" class="hidden sm:inline-flex items-center gap-2 bg-white text-neutral-950 text-sm font-medium px-4 py-2 hover:bg-neutral-200 transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
+            Start a project
+            <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+          </a>
+          <button id="menuBtn" class="md:hidden p-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-white" aria-label="Open menu" aria-expanded="false">
+            <i data-lucide="menu" class="w-5 h-5"></i>
+          </button>
+        </div>
+      </div>
+      <!-- Mobile menu -->
+      <div id="mobileMenu" class="hidden md:hidden bg-neutral-950 border-b border-neutral-800">
+        <nav class="px-5 py-6 flex flex-col gap-1 text-lg" aria-label="Mobile">
+          <a href="#work" class="py-3 border-b border-neutral-900 hover:text-neutral-400 transition-colors">
+            Work
+          </a>
+          <a href="#services" class="py-3 border-b border-neutral-900 hover:text-neutral-400 transition-colors">
+            Services
+          </a>
+          <a href="#process" class="py-3 border-b border-neutral-900 hover:text-neutral-400 transition-colors">
+            Process
+          </a>
+          <a href="#faq" class="py-3 border-b border-neutral-900 hover:text-neutral-400 transition-colors">
+            FAQ
+          </a>
+          <a href="#contact" class="mt-4 inline-flex items-center justify-center gap-2 bg-white text-neutral-950 text-sm font-medium px-4 py-3">
+            Start a project
+            <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+          </a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="top">
+      <!-- ============ HERO ============ -->
+      <section class="relative pt-28 sm:pt-32 pb-16 sm:pb-20 border-b border-neutral-800" style="background-color: rgb(2, 4, 8);">
+        <div id="abyssWrap" class="absolute inset-0 overflow-hidden" aria-hidden="true" style="background:#020408">
+          <canvas id="abyssCanvas" class="block w-full h-full"></canvas>
+          <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-neutral-950/70 pointer-events-none"></div>
+        </div>
+        <div class="max-w-7xl mx-auto px-5 sm:px-8 relative z-10">
+          <div class="flex items-center justify-between mono text-xs text-neutral-500 uppercase tracking-wider mb-8 reveal">
+            <span>Halde Studio — Est. 2016</span>
+            <span class="hidden sm:block">Oslo / Copenhagen / Remote</span>
+            <span>(01) Introduction</span>
+          </div>
+
+          <h1 id="heroHeading" class="font-light tracking-tighter leading-[1.05] text-4xl sm:text-6xl lg:text-7xl max-w-5xl">
+            <span class="hero-word inline-block reveal">Editorial</span>
+            <span class="hero-word inline-block reveal" style="transition-delay:.05s">
+              film
+            </span>
+            <span class="hero-word inline-block reveal" style="transition-delay:.1s">
+              &amp;
+            </span>
+            <span class="hero-word inline-block reveal" style="transition-delay:.15s">
+              stills,
+            </span>
+            <span class="hero-word inline-block reveal" style="transition-delay:.2s">
+              shot
+            </span>
+            <span class="hero-word inline-block reveal" style="transition-delay:.25s">
+              with
+            </span>
+            <span class="hero-word inline-block text-neutral-500 reveal" style="transition-delay:.3s">
+              intention.
+            </span>
+          </h1>
+
+          <div class="mt-12 grid grid-cols-1 lg:grid-cols-12 gap-8 items-end">
+            <div class="lg:col-span-4 order-2 lg:order-1 reveal" style="transition-delay:.3s">
+              <p class="text-lg text-neutral-400 leading-relaxed max-w-sm">
+                We direct, shoot, and edit cinematic campaigns for brands that
+                care how they look. From concept to final grade — one team, one
+                standard.
+              </p>
+              <div class="mt-6 flex flex-wrap items-center gap-3">
+                <a href="#contact" class="inline-flex items-center gap-2 bg-white text-neutral-950 font-medium px-6 py-3 hover:bg-neutral-200 transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
+                  Book a call
+                  <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                </a>
+                <a href="#work" class="inline-flex items-center gap-2 border border-neutral-700 px-6 py-3 font-medium hover:border-white transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
+                  View work
+                </a>
+              </div>
+            </div>
+            <div class="lg:col-span-8 order-1 lg:order-2">
+              <figure class="mask-reveal overflow-hidden bg-neutral-900" style="transition-delay:.25s">
+                <div class="aspect-[16/9] overflow-hidden group">
+                  <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/cccf4b83-a1a3-4fe1-80a9-5c8507965810_3840w.png" alt="Behind the scenes of a film set with a camera operator framing a shot under warm tungsten light" class="w-full h-full object-cover img-cine" width="1600" height="900" fetchpriority="high">
+                </div>
+                <figcaption class="mono text-xs text-neutral-500 pt-3 flex justify-between">
+                  <span>NORDLYS — Campaign film, 2024</span>
+                  <span>▶ 00:47</span>
+                </figcaption>
+              </figure>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ PROOF STRIP ============ -->
+      <section class="border-b border-neutral-800" aria-label="Studio proof">
+        <div class="max-w-7xl mx-auto px-5 sm:px-8 grid grid-cols-2 md:grid-cols-4 divide-x divide-neutral-800">
+          <div class="py-8 pr-6 reveal">
+            <p class="text-3xl sm:text-4xl font-semibold tracking-tight">
+              140+
+            </p>
+            <p class="mono text-xs text-neutral-500 uppercase tracking-wider mt-2">
+              Productions delivered
+            </p>
+          </div>
+          <div class="py-8 px-6 reveal" style="transition-delay:.08s">
+            <p class="text-3xl sm:text-4xl font-semibold tracking-tight">32</p>
+            <p class="mono text-xs text-neutral-500 uppercase tracking-wider mt-2">
+              Long-term clients
+            </p>
+          </div>
+          <div class="py-8 px-6 border-t md:border-t-0 border-neutral-800 reveal" style="transition-delay:.16s">
+            <p class="text-3xl sm:text-4xl font-semibold tracking-tight">
+              9 yrs
+            </p>
+            <p class="mono text-xs text-neutral-500 uppercase tracking-wider mt-2">
+              Directing &amp; post
+            </p>
+          </div>
+          <div class="py-8 pl-6 border-t md:border-t-0 border-neutral-800 reveal" style="transition-delay:.24s">
+            <p class="text-3xl sm:text-4xl font-semibold tracking-tight">
+              4.9/5
+            </p>
+            <p class="mono text-xs text-neutral-500 uppercase tracking-wider mt-2">
+              Avg. client rating
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ STATEMENT ============ -->
+      <section class="py-24 sm:py-32 border-b border-neutral-800">
+        <div class="max-w-7xl mx-auto px-5 sm:px-8">
+          <p class="mono text-xs text-neutral-500 uppercase tracking-wider mb-8 reveal">
+            (02) The studio
+          </p>
+          <p class="text-2xl sm:text-4xl lg:text-5xl font-medium tracking-tight leading-tight max-w-4xl" id="scrubText" data-scrub-reveal="true">
+            Halde is a compact production studio. We turn briefs into
+            <span class="text-neutral-500">
+              campaign films, brand documentaries, and editorial stills
+            </span>
+            — with a workflow built on clarity, taste, and reliable delivery.
+          </p>
+        </div>
+      </section>
+
+      <!-- ============ WORK ============ -->
+      <section id="work" class="py-24 sm:py-32 border-b border-neutral-800 scroll-mt-16">
+        <div class="max-w-7xl mx-auto px-5 sm:px-8">
+          <div class="flex items-end justify-between mb-12 reveal">
+            <div>
+              <p class="mono text-xs text-neutral-500 uppercase tracking-wider mb-4">
+                (03) Selected work
+              </p>
+              <h2 class="text-4xl sm:text-6xl font-semibold tracking-tight">
+                Recent
+                <br>
+                productions
+              </h2>
+            </div>
+            <a href="#contact" class="hidden sm:inline-flex items-center gap-2 text-sm text-neutral-400 hover:text-white transition-colors duration-200 group">
+              Full archive on request
+              <i data-lucide="arrow-up-right" class="w-4 h-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"></i>
+            </a>
+          </div>
+
+          <!-- Featured project -->
+          <a href="#contact" class="group block mb-16 reveal focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">
+            <div class="overflow-hidden bg-neutral-900 aspect-[21/9]">
+              <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/56c405d5-e25e-45d0-95c0-bc102d7473b5_3840w.png" alt="Cinema film reel projecting light in a dark studio" class="w-full h-full object-cover img-cine" width="1800" height="771" loading="lazy">
+            </div>
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pt-4">
+              <h3 class="text-2xl sm:text-3xl font-semibold tracking-tight group-hover:text-neutral-300 transition-colors">
+                VELD — Product launch film
+              </h3>
+              <div class="mono text-xs text-neutral-500 uppercase tracking-wider flex gap-4">
+                <span>Direction / Edit / Grade</span>
+                <span>2024</span>
+              </div>
+            </div>
+            <p class="text-lg text-neutral-400 mt-2 max-w-xl">
+              A 60-second hero film and 12 social cutdowns that carried a full
+              quarter of paid media — 3.1M organic views in the first week.
+            </p>
+          </a>
+
+          <!-- Grid projects -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-14">
+            <a href="#contact" class="group block reveal focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">
+              <div class="overflow-hidden bg-neutral-900 aspect-[4/3]">
+                <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/298e285b-c539-4b33-9983-9da9a701ac3e_3840w.png" alt="Film production crew adjusting lighting on location" class="w-full h-full object-cover img-cine" width="1200" height="900" loading="lazy">
+              </div>
+              <div class="flex items-center justify-between pt-4">
+                <h3 class="text-xl sm:text-2xl font-semibold tracking-tight">
+                  MORROW — Brand documentary
+                </h3>
+                <i data-lucide="arrow-up-right" class="w-5 h-5 text-neutral-500 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-white"></i>
+              </div>
+              <p class="mono text-xs text-neutral-500 uppercase tracking-wider mt-2">
+                Documentary / 08:20 / 2024
+              </p>
+            </a>
+            <a href="#contact" class="group block md:mt-16 reveal focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white" style="transition-delay:.1s">
+              <div class="overflow-hidden bg-neutral-900 aspect-[4/3]">
+                <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/c5a06b49-eef6-4c1b-ad66-e59bb577240f_3840w.png" alt="Studio product photography setup with softbox lighting" class="w-full h-full object-cover img-cine" width="1200" height="900" loading="lazy">
+              </div>
+              <div class="flex items-center justify-between pt-4">
+                <h3 class="text-xl sm:text-2xl font-semibold tracking-tight">
+                  ASKA — Editorial stills
+                </h3>
+                <i data-lucide="arrow-up-right" class="w-5 h-5 text-neutral-500 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-white"></i>
+              </div>
+              <p class="mono text-xs text-neutral-500 uppercase tracking-wider mt-2">
+                Photography / 46 assets / 2023
+              </p>
+            </a>
+            <a href="#contact" class="group block reveal focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">
+              <div class="overflow-hidden bg-neutral-900 aspect-[4/3]">
+                <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/8d2190bf-1fcb-400c-bd8e-e47efff62aab_3840w.png" alt="Cinema camera rig on a tripod in low-light interior" class="w-full h-full object-cover img-cine" width="1200" height="900" loading="lazy">
+              </div>
+              <div class="flex items-center justify-between pt-4">
+                <h3 class="text-xl sm:text-2xl font-semibold tracking-tight">
+                  LINDEN — Event recap
+                </h3>
+                <i data-lucide="arrow-up-right" class="w-5 h-5 text-neutral-500 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-white"></i>
+              </div>
+              <p class="mono text-xs text-neutral-500 uppercase tracking-wider mt-2">
+                Film / 02:10 / 2023
+              </p>
+            </a>
+            <a href="#contact" class="group block md:mt-16 reveal focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white" style="transition-delay:.1s">
+              <div class="overflow-hidden bg-neutral-900 aspect-[4/3]">
+                <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/51b8ffe7-1c75-4f32-b04f-9de6139d65ca_3840w.png" alt="Moody landscape frame from a travel film with fog over mountains" class="w-full h-full object-cover img-cine" width="1200" height="900" loading="lazy">
+              </div>
+              <div class="flex items-center justify-between pt-4">
+                <h3 class="text-xl sm:text-2xl font-semibold tracking-tight">
+                  FJELL — Destination series
+                </h3>
+                <i data-lucide="arrow-up-right" class="w-5 h-5 text-neutral-500 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-white"></i>
+              </div>
+              <p class="mono text-xs text-neutral-500 uppercase tracking-wider mt-2">
+                Film + Stills / 6 episodes / 2023
+              </p>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ SERVICES (light band) ============ -->
+      <section id="services" class="bg-neutral-100 text-neutral-950 py-24 sm:py-32 scroll-mt-16">
+        <div class="max-w-7xl mx-auto px-5 sm:px-8">
+          <div class="mb-12 reveal">
+            <p class="mono text-xs text-neutral-500 uppercase tracking-wider mb-4">
+              (04) Services
+            </p>
+            <h2 class="text-4xl sm:text-6xl font-semibold tracking-tight max-w-2xl">
+              What we make, end to end
+            </h2>
+          </div>
+          <div class="border-t border-neutral-300">
+            <a href="#contact" class="group grid grid-cols-12 items-center gap-4 py-8 border-b border-neutral-300 hover:bg-white transition-colors duration-200 px-2 sm:px-4 reveal focus-visible:outline focus-visible:outline-2 focus-visible:outline-neutral-950">
+              <span class="mono text-xs text-neutral-500 col-span-2 sm:col-span-1">
+                01
+              </span>
+              <h3 class="col-span-8 sm:col-span-5 text-2xl sm:text-4xl font-semibold tracking-tight">
+                Campaign film
+              </h3>
+              <p class="hidden sm:block col-span-5 text-lg text-neutral-600">
+                Hero films and cutdowns built for launch moments and paid media.
+              </p>
+              <i data-lucide="arrow-right" class="w-5 h-5 col-span-2 sm:col-span-1 justify-self-end transition-transform duration-200 group-hover:translate-x-1"></i>
+            </a>
+            <a href="#contact" class="group grid grid-cols-12 items-center gap-4 py-8 border-b border-neutral-300 hover:bg-white transition-colors duration-200 px-2 sm:px-4 reveal focus-visible:outline focus-visible:outline-2 focus-visible:outline-neutral-950" style="transition-delay:.08s">
+              <span class="mono text-xs text-neutral-500 col-span-2 sm:col-span-1">
+                02
+              </span>
+              <h3 class="col-span-8 sm:col-span-5 text-2xl sm:text-4xl font-semibold tracking-tight">
+                Brand documentary
+              </h3>
+              <p class="hidden sm:block col-span-5 text-lg text-neutral-600">
+                Founder stories and process films that build long-term trust.
+              </p>
+              <i data-lucide="arrow-right" class="w-5 h-5 col-span-2 sm:col-span-1 justify-self-end transition-transform duration-200 group-hover:translate-x-1"></i>
+            </a>
+            <a href="#contact" class="group grid grid-cols-12 items-center gap-4 py-8 border-b border-neutral-300 hover:bg-white transition-colors duration-200 px-2 sm:px-4 reveal focus-visible:outline focus-visible:outline-2 focus-visible:outline-neutral-950" style="transition-delay:.16s">
+              <span class="mono text-xs text-neutral-500 col-span-2 sm:col-span-1">
+                03
+              </span>
+              <h3 class="col-span-8 sm:col-span-5 text-2xl sm:text-4xl font-semibold tracking-tight">
+                Editorial stills
+              </h3>
+              <p class="hidden sm:block col-span-5 text-lg text-neutral-600">
+                Lookbooks, product, and location photography with a cinematic
+                grade.
+              </p>
+              <i data-lucide="arrow-right" class="w-5 h-5 col-span-2 sm:col-span-1 justify-self-end transition-transform duration-200 group-hover:translate-x-1"></i>
+            </a>
+            <a href="#contact" class="group grid grid-cols-12 items-center gap-4 py-8 border-b border-neutral-300 hover:bg-white transition-colors duration-200 px-2 sm:px-4 reveal focus-visible:outline focus-visible:outline-2 focus-visible:outline-neutral-950" style="transition-delay:.24s">
+              <span class="mono text-xs text-neutral-500 col-span-2 sm:col-span-1">
+                04
+              </span>
+              <h3 class="col-span-8 sm:col-span-5 text-2xl sm:text-4xl font-semibold tracking-tight">
+                Post &amp; social edits
+              </h3>
+              <p class="hidden sm:block col-span-5 text-lg text-neutral-600">
+                Editing, color, sound, and vertical reformatting from existing
+                footage.
+              </p>
+              <i data-lucide="arrow-right" class="w-5 h-5 col-span-2 sm:col-span-1 justify-self-end transition-transform duration-200 group-hover:translate-x-1"></i>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ PROCESS ============ -->
+      <section id="process" class="py-24 sm:py-32 border-b border-neutral-800 scroll-mt-16">
+        <div class="max-w-7xl mx-auto px-5 sm:px-8 grid grid-cols-1 lg:grid-cols-12 gap-12">
+          <div class="lg:col-span-5">
+            <div class="lg:sticky lg:top-28 reveal">
+              <p class="mono text-xs text-neutral-500 uppercase tracking-wider mb-4">
+                (05) Process
+              </p>
+              <h2 class="text-4xl sm:text-5xl font-semibold tracking-tight leading-tight">
+                One clear path from first call to final cut
+              </h2>
+              <p class="text-lg text-neutral-400 mt-6 max-w-sm leading-relaxed">
+                Most projects run 3–6 weeks. You always know what happens next,
+                who owns it, and when it lands.
+              </p>
+            </div>
+          </div>
+          <div class="lg:col-span-7 flex flex-col divide-y divide-neutral-800 border-t border-neutral-800 relative pl-8" data-timeline="true">
+            <div class="py-10 grid grid-cols-12 gap-4 reveal">
+              <span class="col-span-3 sm:col-span-2 text-5xl sm:text-6xl font-semibold tracking-tight text-neutral-700">
+                01
+              </span>
+              <div class="col-span-9 sm:col-span-10">
+                <h3 class="text-xl font-semibold tracking-tight mb-2">
+                  Discovery call
+                </h3>
+                <p class="text-lg text-neutral-400 leading-relaxed">
+                  A 30-minute conversation to map goals, audience, references,
+                  and budget. You leave with a scoped proposal within 48 hours.
+                </p>
+                <p class="mono text-xs text-neutral-500 uppercase tracking-wider mt-3">
+                  Output: proposal + timeline
+                </p>
+              </div>
+            </div>
+            <div class="py-10 grid grid-cols-12 gap-4 reveal" style="transition-delay:.08s">
+              <span class="col-span-3 sm:col-span-2 text-5xl sm:text-6xl font-semibold tracking-tight text-neutral-700">
+                02
+              </span>
+              <div class="col-span-9 sm:col-span-10">
+                <h3 class="text-xl font-semibold tracking-tight mb-2">
+                  Pre-production
+                </h3>
+                <p class="text-lg text-neutral-400 leading-relaxed">
+                  Treatment, shot list, locations, casting, and schedule —
+                  locked and shared before anyone touches a camera.
+                </p>
+                <p class="mono text-xs text-neutral-500 uppercase tracking-wider mt-3">
+                  Output: treatment deck + shoot plan
+                </p>
+              </div>
+            </div>
+            <div class="py-10 grid grid-cols-12 gap-4 reveal" style="transition-delay:.16s">
+              <span class="col-span-3 sm:col-span-2 text-5xl sm:text-6xl font-semibold tracking-tight text-neutral-700">
+                03
+              </span>
+              <div class="col-span-9 sm:col-span-10">
+                <h3 class="text-xl font-semibold tracking-tight mb-2">
+                  Production day
+                </h3>
+                <p class="text-lg text-neutral-400 leading-relaxed">
+                  A lean crew shoots exactly what was planned, plus coverage for
+                  cutdowns. Dailies shared the same evening.
+                </p>
+                <p class="mono text-xs text-neutral-500 uppercase tracking-wider mt-3">
+                  Output: full footage + selects
+                </p>
+              </div>
+            </div>
+            <div class="py-10 grid grid-cols-12 gap-4 reveal" style="transition-delay:.24s">
+              <span class="col-span-3 sm:col-span-2 text-5xl sm:text-6xl font-semibold tracking-tight text-neutral-700">
+                04
+              </span>
+              <div class="col-span-9 sm:col-span-10">
+                <h3 class="text-xl font-semibold tracking-tight mb-2">
+                  Post &amp; delivery
+                </h3>
+                <p class="text-lg text-neutral-400 leading-relaxed">
+                  Edit, grade, sound, and two structured revision rounds. Final
+                  masters delivered in every format your channels need.
+                </p>
+                <p class="mono text-xs text-neutral-500 uppercase tracking-wider mt-3">
+                  Output: masters + social versions
+                </p>
+              </div>
+            </div>
+            <div class="absolute left-0 top-0 bottom-0 w-px pointer-events-none" aria-hidden="true">
+              <div class="absolute inset-0 bg-neutral-800"></div>
+              <div id="processProgressLine" class="absolute inset-0 bg-white origin-top" style="transform:scaleY(0)"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ FULL-BLEED MEDIA BREAK ============ -->
+      <section class="relative border-b border-neutral-800" aria-label="Studio in production">
+        <figure class="mask-reveal">
+          <div class="aspect-[21/9] sm:aspect-[3/1] overflow-hidden">
+            <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/e697fab3-7a84-4383-a537-38d7848c8411_3840w.png" alt="Wide cinematic frame of a crew filming at golden hour on an open field" class="w-full h-full object-cover grayscale-[30%] contrast-105" width="2000" height="667" loading="lazy">
+          </div>
+          <figcaption class="absolute bottom-4 left-5 sm:left-8 mono text-xs text-white/70 uppercase tracking-wider">
+            On location — FJELL, EP.04
+          </figcaption>
+        </figure>
+      </section>
+
+      <!-- ============ TESTIMONIALS ============ -->
+      <section class="py-24 sm:py-32 border-b border-neutral-800">
+        <div class="max-w-7xl mx-auto px-5 sm:px-8">
+          <p class="mono text-xs text-neutral-500 uppercase tracking-wider mb-12 reveal">
+            (06) What clients say
+          </p>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-px bg-neutral-800 border border-neutral-800">
+            <blockquote class="bg-neutral-950 p-8 sm:p-10 flex flex-col justify-between gap-8 reveal">
+              <p class="text-lg leading-relaxed text-neutral-300">
+                "Halde took a vague brief and returned a treatment sharper than
+                our own strategy deck. The launch film outperformed every asset
+                we ran last year."
+              </p>
+              <footer class="flex items-center gap-4">
+                <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/71993d97-9d5d-487b-8195-52ce5a4b899b_3840w.png" alt="Portrait of Mara Jensen" class="w-11 h-11 object-cover grayscale" width="100" height="100" loading="lazy">
+                <div>
+                  <p class="font-medium">Mara Jensen</p>
+                  <p class="mono text-xs text-neutral-500 uppercase tracking-wider">
+                    Head of Brand, VELD
+                  </p>
+                </div>
+              </footer>
+            </blockquote>
+            <blockquote class="bg-neutral-950 p-8 sm:p-10 flex flex-col justify-between gap-8 reveal" style="transition-delay:.1s">
+              <p class="text-lg leading-relaxed text-neutral-300">
+                "Two revision rounds, delivered on the day promised, in every
+                format we asked for. It's rare to work with a crew this
+                organized and this good."
+              </p>
+              <footer class="flex items-center gap-4">
+                <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/acab9937-3255-4c48-a66d-8fd552e3d1b3_3840w.png" alt="Portrait of Tomas Rask" class="w-11 h-11 object-cover grayscale" width="100" height="100" loading="lazy">
+                <div>
+                  <p class="font-medium">Tomas Rask</p>
+                  <p class="mono text-xs text-neutral-500 uppercase tracking-wider">
+                    Founder, MORROW
+                  </p>
+                </div>
+              </footer>
+            </blockquote>
+            <blockquote class="bg-neutral-950 p-8 sm:p-10 flex flex-col justify-between gap-8 reveal" style="transition-delay:.2s">
+              <p class="text-lg leading-relaxed text-neutral-300">
+                "They shot stills and film in one production day and both looked
+                like they came from a much bigger budget. We've booked them
+                three times since."
+              </p>
+              <footer class="flex items-center gap-4">
+                <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/f6ab7d82-c6a8-499d-bccc-28f1c655f271_3840w.png" alt="Portrait of Elin Aker" class="w-11 h-11 object-cover grayscale" width="100" height="100" loading="lazy">
+                <div>
+                  <p class="font-medium">Elin Aker</p>
+                  <p class="mono text-xs text-neutral-500 uppercase tracking-wider">
+                    Marketing Lead, ASKA
+                  </p>
+                </div>
+              </footer>
+            </blockquote>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ FAQ ============ -->
+      <section id="faq" class="py-24 sm:py-32 border-b border-neutral-800 scroll-mt-16">
+        <div class="max-w-7xl mx-auto px-5 sm:px-8 grid grid-cols-1 lg:grid-cols-12 gap-12">
+          <div class="lg:col-span-4 reveal">
+            <p class="mono text-xs text-neutral-500 uppercase tracking-wider mb-4">
+              (07) FAQ
+            </p>
+            <h2 class="text-4xl sm:text-5xl font-semibold tracking-tight">
+              Before you ask
+            </h2>
+          </div>
+          <div class="lg:col-span-8 border-t border-neutral-800">
+            <details class="group border-b border-neutral-800 reveal">
+              <summary class="flex items-center justify-between gap-4 py-6 cursor-pointer list-none text-lg font-medium hover:text-neutral-300 transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-white">
+                How long does a typical project take?
+                <i data-lucide="plus" class="w-5 h-5 shrink-0 transition-transform duration-200 group-open:rotate-45"></i>
+              </summary>
+              <p class="text-lg text-neutral-400 leading-relaxed pb-6 max-w-2xl">
+                Campaign films run 4–6 weeks from kickoff to final delivery.
+                Stills-only shoots often deliver within 2 weeks. Rush timelines
+                are possible with an adjusted scope.
+              </p>
+            </details>
+            <details class="group border-b border-neutral-800 reveal" style="transition-delay:.06s">
+              <summary class="flex items-center justify-between gap-4 py-6 cursor-pointer list-none text-lg font-medium hover:text-neutral-300 transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-white">
+                Do you work with remote or existing footage?
+                <i data-lucide="plus" class="w-5 h-5 shrink-0 transition-transform duration-200 group-open:rotate-45"></i>
+              </summary>
+              <p class="text-lg text-neutral-400 leading-relaxed pb-6 max-w-2xl">
+                Yes. Roughly a third of our work is post-only: editing, grading,
+                sound, and vertical reformats from footage you already own or
+                capture with our remote direction kit.
+              </p>
+            </details>
+            <details class="group border-b border-neutral-800 reveal" style="transition-delay:.12s">
+              <summary class="flex items-center justify-between gap-4 py-6 cursor-pointer list-none text-lg font-medium hover:text-neutral-300 transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-white">
+                What does a project cost?
+                <i data-lucide="plus" class="w-5 h-5 shrink-0 transition-transform duration-200 group-open:rotate-45"></i>
+              </summary>
+              <p class="text-lg text-neutral-400 leading-relaxed pb-6 max-w-2xl">
+                Post-only edits start around €4k. Single-day productions with
+                film and stills typically land between €12k–€25k depending on
+                crew, locations, and deliverables. Every proposal is
+                fixed-price.
+              </p>
+            </details>
+            <details class="group border-b border-neutral-800 reveal" style="transition-delay:.18s">
+              <summary class="flex items-center justify-between gap-4 py-6 cursor-pointer list-none text-lg font-medium hover:text-neutral-300 transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-white">
+                What formats do you deliver?
+                <i data-lucide="plus" class="w-5 h-5 shrink-0 transition-transform duration-200 group-open:rotate-45"></i>
+              </summary>
+              <p class="text-lg text-neutral-400 leading-relaxed pb-6 max-w-2xl">
+                Every master ships in 16:9, 1:1, 9:16, and 4:5 with clean and
+                subtitled versions. Stills are delivered graded, in web and
+                print resolutions, with full usage rights.
+              </p>
+            </details>
+            <details class="group border-b border-neutral-800 reveal" style="transition-delay:.24s">
+              <summary class="flex items-center justify-between gap-4 py-6 cursor-pointer list-none text-lg font-medium hover:text-neutral-300 transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-white">
+                Do you offer ongoing retainers?
+                <i data-lucide="plus" class="w-5 h-5 shrink-0 transition-transform duration-200 group-open:rotate-45"></i>
+              </summary>
+              <p class="text-lg text-neutral-400 leading-relaxed pb-6 max-w-2xl">
+                Yes — monthly content retainers cover a set number of shoot days
+                and edits at a reduced day rate, with priority scheduling. Most
+                retainer clients start with one project first.
+              </p>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ FINAL CTA ============ -->
+      <section id="contact" class="py-24 sm:py-32 border-b border-neutral-800 scroll-mt-16">
+        <div class="max-w-7xl mx-auto px-5 sm:px-8">
+          <p class="mono text-xs text-neutral-500 uppercase tracking-wider mb-8 reveal">
+            (08) Contact
+          </p>
+          <h2 class="text-5xl sm:text-7xl lg:text-8xl font-semibold tracking-tight leading-[0.95] reveal">
+            Have a story
+            <br>
+            <span class="text-neutral-500">worth shooting?</span>
+          </h2>
+          <div class="mt-12 grid grid-cols-1 lg:grid-cols-12 gap-12">
+            <div class="lg:col-span-5 reveal" style="transition-delay:.1s">
+              <p class="text-lg text-neutral-400 leading-relaxed max-w-sm">
+                Tell us what you're launching. We reply within one business day
+                with next steps and a rough range.
+              </p>
+              <div class="mt-8 flex flex-col gap-3">
+                <a href="mailto:hello@haldestudio.com" class="inline-flex items-center gap-3 text-xl font-medium hover:text-neutral-400 transition-colors duration-200 group">
+                  <i data-lucide="mail" class="w-5 h-5"></i>
+                  hello@haldestudio.com
+                </a>
+                <a href="tel:+4721000000" class="inline-flex items-center gap-3 text-xl font-medium hover:text-neutral-400 transition-colors duration-200">
+                  <i data-lucide="phone" class="w-5 h-5"></i>
+                  +47 21 00 00 00
+                </a>
+              </div>
+            </div>
+            <form class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-5 reveal" style="transition-delay:.2s" onsubmit="event.preventDefault(); this.querySelector('button').textContent='Sent — talk soon';">
+              <div>
+                <label for="name" class="mono text-xs text-neutral-500 uppercase tracking-wider block mb-2">
+                  Name
+                </label>
+                <input id="name" type="text" required="" placeholder="Your name" class="w-full bg-transparent border border-neutral-700 px-4 py-3 text-lg placeholder:text-neutral-600 focus:border-white focus:outline-none transition-colors duration-200">
+              </div>
+              <div>
+                <label for="email" class="mono text-xs text-neutral-500 uppercase tracking-wider block mb-2">
+                  Email
+                </label>
+                <input id="email" type="email" required="" placeholder="you@company.com" class="w-full bg-transparent border border-neutral-700 px-4 py-3 text-lg placeholder:text-neutral-600 focus:border-white focus:outline-none transition-colors duration-200">
+              </div>
+              <div class="sm:col-span-2">
+                <label for="message" class="mono text-xs text-neutral-500 uppercase tracking-wider block mb-2">
+                  Project
+                </label>
+                <textarea id="message" rows="4" required="" placeholder="What are you making, and when does it need to land?" class="w-full bg-transparent border border-neutral-700 px-4 py-3 text-lg placeholder:text-neutral-600 focus:border-white focus:outline-none transition-colors duration-200 resize-none"></textarea>
+              </div>
+              <div class="sm:col-span-2">
+                <button type="submit" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-white text-neutral-950 font-medium px-8 py-4 hover:bg-neutral-200 transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
+                  Send inquiry
+                  <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ============ FOOTER ============ -->
+    <footer class="pt-16 relative overflow-hidden">
+      <canvas id="footerParticles" class="absolute inset-0 w-full h-full pointer-events-none" aria-hidden="true" style="z-index:0"></canvas>
+      <div class="max-w-7xl mx-auto px-5 sm:px-8 relative z-10">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-10 pb-16 border-b border-neutral-800">
+          <div class="col-span-2 md:col-span-1">
+            <p class="font-semibold tracking-tight text-lg flex items-center gap-2">
+              <span class="w-2 h-2 bg-white inline-block"></span>
+              HALDE
+            </p>
+            <p class="text-sm text-neutral-500 mt-3 max-w-xs leading-relaxed">
+              Editorial film &amp; photography studio. Oslo, Copenhagen, and
+              wherever the light is good.
+            </p>
+          </div>
+          <nav aria-label="Footer navigation">
+            <p class="mono text-xs text-neutral-500 uppercase tracking-wider mb-4">
+              Studio
+            </p>
+            <ul class="flex flex-col gap-2 text-sm text-neutral-400">
+              <li>
+                <a href="#work" class="hover:text-white transition-colors">
+                  Work
+                </a>
+              </li>
+              <li>
+                <a href="#services" class="hover:text-white transition-colors">
+                  Services
+                </a>
+              </li>
+              <li>
+                <a href="#process" class="hover:text-white transition-colors">
+                  Process
+                </a>
+              </li>
+              <li>
+                <a href="#faq" class="hover:text-white transition-colors">
+                  FAQ
+                </a>
+              </li>
+            </ul>
+          </nav>
+          <nav aria-label="Social links">
+            <p class="mono text-xs text-neutral-500 uppercase tracking-wider mb-4">
+              Social
+            </p>
+            <ul class="flex flex-col gap-2 text-sm text-neutral-400">
+              <li>
+                <a href="#" class="hover:text-white transition-colors">
+                  Instagram
+                </a>
+              </li>
+              <li>
+                <a href="#" class="hover:text-white transition-colors">Vimeo</a>
+              </li>
+              <li>
+                <a href="#" class="hover:text-white transition-colors">
+                  LinkedIn
+                </a>
+              </li>
+            </ul>
+          </nav>
+          <div>
+            <p class="mono text-xs text-neutral-500 uppercase tracking-wider mb-4">
+              Contact
+            </p>
+            <ul class="flex flex-col gap-2 text-sm text-neutral-400">
+              <li>
+                <a href="mailto:hello@haldestudio.com" class="hover:text-white transition-colors">
+                  hello@haldestudio.com
+                </a>
+              </li>
+              <li>
+                <a href="tel:+4721000000" class="hover:text-white transition-colors">
+                  +47 21 00 00 00
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="py-6 flex flex-col sm:flex-row justify-between gap-2 mono text-xs text-neutral-600 uppercase tracking-wider">
+          <span>© 2025 Halde Studio AS</span>
+          <span>All work shown by permission</span>
+        </div>
+      </div>
+      <div class="overflow-hidden select-none" aria-hidden="true">
+        <p class="text-center font-bold tracking-tight text-neutral-800 leading-none text-[22vw] sm:text-[20vw] -mb-[4vw]">
+          HALDE
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      lucide.createIcons({ attrs: { 'stroke-width': 1.5 } });
+
+      // Header contrast on scroll
+      const header = document.getElementById('siteHeader');
+      const onScroll = () => {
+        if (window.scrollY > 24) {
+          header.classList.add('bg-neutral-950/85', 'backdrop-blur-md', 'border-neutral-800');
+        } else {
+          header.classList.remove('bg-neutral-950/85', 'backdrop-blur-md', 'border-neutral-800');
+        }
+      };
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+
+      // Mobile menu
+      const menuBtn = document.getElementById('menuBtn');
+      const mobileMenu = document.getElementById('mobileMenu');
+      menuBtn.addEventListener('click', () => {
+        const open = mobileMenu.classList.toggle('hidden') === false;
+        menuBtn.setAttribute('aria-expanded', open);
+      });
+      mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+        menuBtn.setAttribute('aria-expanded', 'false');
+      }));
+      document.addEventListener('keydown', e => {
+        if (e.key === 'Escape' && !mobileMenu.classList.contains('hidden')) {
+          mobileMenu.classList.add('hidden');
+          menuBtn.setAttribute('aria-expanded', 'false');
+          menuBtn.focus();
+        }
+      });
+
+      // Reveal on scroll
+      const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const targets = document.querySelectorAll('.reveal, .mask-reveal');
+      if (reduced || !('IntersectionObserver' in window)) {
+        targets.forEach(el => el.classList.add('in'));
+      } else {
+        const io = new IntersectionObserver(entries => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('in');
+              io.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+        targets.forEach(el => io.observe(el));
+      }
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script>
+      (function(){
+        // Scroll-scrubbed word reveal — flexible params
+        var cfg = {
+          hiddenOpacity: 0.12, // starting opacity per word
+          blur: 6,             // starting blur in px
+          yOffset: 14,         // starting y offset in px
+          stagger: 0.05,       // stagger between words
+          start: 'top 80%',    // scroll start
+          end: 'bottom 55%'    // scroll end
+        };
+        var el = document.getElementById('scrubText');
+        if (!el || !window.gsap || !window.ScrollTrigger) return;
+        gsap.registerPlugin(ScrollTrigger);
+        var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        // Split text nodes into word spans, preserving inline emphasis elements
+        function splitWords(node){
+          Array.prototype.slice.call(node.childNodes).forEach(function(child){
+            if (child.nodeType === 3) {
+              var frag = document.createDocumentFragment();
+              child.textContent.split(/(\s+)/).forEach(function(part){
+                if (!part) return;
+                if (/^\s+$/.test(part)) { frag.appendChild(document.createTextNode(part)); }
+                else {
+                  var s = document.createElement('span');
+                  s.className = 'scrub-word';
+                  s.style.display = 'inline-block';
+                  s.style.willChange = 'opacity, filter, transform';
+                  s.textContent = part;
+                  frag.appendChild(s);
+                }
+              });
+              node.replaceChild(frag, child);
+            } else if (child.nodeType === 1) {
+              splitWords(child);
+            }
+          });
+        }
+        splitWords(el);
+        var words = el.querySelectorAll('.scrub-word');
+        if (!words.length || reduced) return;
+        gsap.fromTo(words,
+          { opacity: cfg.hiddenOpacity, filter: 'blur(' + cfg.blur + 'px)', y: cfg.yOffset },
+          {
+            opacity: 1, filter: 'blur(0px)', y: 0, ease: 'none', stagger: cfg.stagger,
+            scrollTrigger: { trigger: el, start: cfg.start, end: cfg.end, scrub: true }
+          }
+        );
+      })();
+    </script>
+
+    <style>
+      [data-timeline]>div.py-10{position:relative;transition:opacity .5s ease,transform .5s ease}[data-timeline]>div.py-10:not(.tl-active){opacity:.4;transform:translateY(8px)}.tl-dot{position:absolute;left:-2rem;top:3.4rem;width:11px;height:11px;border-radius:9999px;background:#404040;transform:translateX(-50%) scale(1);transition:background .4s,transform .4s,box-shadow .4s}.tl-active .tl-dot{background:#fff;transform:translateX(-50%) scale(1.35);box-shadow:0 0 12px rgba(255,255,255,.6)}@media (prefers-reduced-motion: reduce){[data-timeline]>div.py-10{opacity:1 !important;transform:none !important}}
+    </style>
+    <script>
+      (function(){var wrap=document.querySelector('[data-timeline]');if(!wrap)return;var line=document.getElementById('processProgressLine');var steps=Array.prototype.filter.call(wrap.children,function(c){return c.classList.contains('py-10');});steps.forEach(function(s){var d=document.createElement('span');d.className='tl-dot';d.setAttribute('aria-hidden','true');s.appendChild(d);});var reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;function update(){var r=wrap.getBoundingClientRect();var vh=window.innerHeight;var p=(vh*0.7-r.top)/r.height;p=Math.max(0,Math.min(1,p));if(line)line.style.transform='scaleY('+p+')';steps.forEach(function(s){var sr=s.getBoundingClientRect();if(sr.top<vh*0.75){s.classList.add('tl-active');}else{s.classList.remove('tl-active');}});}if(reduced){if(line)line.style.transform='scaleY(1)';steps.forEach(function(s){s.classList.add('tl-active');});return;}var ticking=false;function onScroll(){if(!ticking){ticking=true;requestAnimationFrame(function(){update();ticking=false;});}}window.addEventListener('scroll',onScroll,{passive:true});window.addEventListener('resize',onScroll);update();})();
+    </script>
+    <script>
+      (function(){var cv=document.getElementById('footerParticles');if(!cv)return;var reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;if(reduced)return;var ctx=cv.getContext('2d');var cfg={count:1400,gravity:9,wind:6,sway:14,rotSpeed:0.6,minSize:1,maxSize:2.5,minA:0.3,maxA:0.95,push:110};var W,H,dpr=Math.min(window.devicePixelRatio||1,2),ps=[],ptr={x:-9999,y:-9999};function resize(){var r=cv.parentElement.getBoundingClientRect();W=r.width;H=r.height;cv.width=W*dpr;cv.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);}window.addEventListener('resize',resize);resize();function spawn(p,top){p=p||{};p.x=Math.random()*W;p.y=top?-10-Math.random()*40:Math.random()*H;p.s=cfg.minSize+Math.random()*(cfg.maxSize-cfg.minSize);p.a=cfg.minA+Math.random()*(cfg.maxA-cfg.minA);p.ph=Math.random()*6.28;p.rot=Math.random()*6.28;p.vy=cfg.gravity*(0.5+Math.random());p.vx=0;return p;}for(var i=0;i<cfg.count;i++)ps.push(spawn(null,false));window.addEventListener('pointermove',function(e){var r=cv.getBoundingClientRect();ptr.x=e.clientX-r.left;ptr.y=e.clientY-r.top;},{passive:true});var visible=false,raf=null,last=performance.now();function tick(now){raf=null;var dt=Math.min((now-last)/1000,0.05);last=now;ctx.clearRect(0,0,W,H);for(var i=0;i<ps.length;i++){var p=ps[i];p.ph+=dt;p.rot+=cfg.rotSpeed*dt;p.vx+=((Math.sin(p.ph)*cfg.sway+cfg.wind)-p.vx)*0.04;var dx=p.x-ptr.x,dy=p.y-ptr.y,dd=dx*dx+dy*dy;if(dd<cfg.push*cfg.push){var d=Math.sqrt(dd)+0.01,f=(1-d/cfg.push)*140;p.vx+=dx/d*f*dt;p.vy+=dy/d*f*dt;}p.vy+=(cfg.gravity*(0.5+p.s/cfg.maxSize)-p.vy)*0.03;p.x+=p.vx*dt;p.y+=p.vy*dt;if(p.y>H+12||p.x<-20||p.x>W+20)spawn(p,true);var tw=0.7+0.3*Math.sin(p.ph*2.3);ctx.save();ctx.translate(p.x,p.y);ctx.rotate(p.rot);ctx.globalAlpha=p.a*tw;ctx.fillStyle='#ffffff';ctx.fillRect(-p.s/2,-p.s/2,p.s,p.s);ctx.restore();}if(visible)raf=requestAnimationFrame(tick);}if('IntersectionObserver' in window){new IntersectionObserver(function(es){es.forEach(function(e){visible=e.isIntersecting;if(visible&&!raf){last=performance.now();raf=requestAnimationFrame(tick);}});},{threshold:0.05}).observe(cv);}else{visible=true;raf=requestAnimationFrame(tick);}})();
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script>
+      (function(){if(!window.THREE)return;var wrap=document.getElementById('abyssWrap'),cv=document.getElementById('abyssCanvas');if(!wrap||!cv)return;var reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;var COUNT=reduced?35000:(window.innerWidth<768?160000:480000);var renderer=new THREE.WebGLRenderer({canvas:cv,antialias:false,alpha:true});renderer.setPixelRatio(Math.min(window.devicePixelRatio||1,2));var scene=new THREE.Scene();var cam=new THREE.PerspectiveCamera(60,1,0.1,100);cam.position.z=14;var BX=22,BY=12,BZ=14;var pos=new Float32Array(COUNT*3),vel=new Float32Array(COUNT*3),size=new Float32Array(COUNT),phase=new Float32Array(COUNT),hue=new Float32Array(COUNT),boost=new Float32Array(COUNT);for(var i=0;i<COUNT;i++){pos[i*3]=(Math.random()-0.5)*BX*2;pos[i*3+1]=(Math.random()-0.5)*BY*2;pos[i*3+2]=(Math.random()-0.5)*BZ;size[i]=1.5+Math.random()*3.5;phase[i]=Math.random()*6.283;hue[i]=Math.random()*0.35;}var geo=new THREE.BufferGeometry();geo.setAttribute('position',new THREE.BufferAttribute(pos,3));geo.setAttribute('aSize',new THREE.BufferAttribute(size,1));geo.setAttribute('aPhase',new THREE.BufferAttribute(phase,1));geo.setAttribute('aHue',new THREE.BufferAttribute(hue,1));var mat=new THREE.ShaderMaterial({transparent:true,depthWrite:false,blending:THREE.AdditiveBlending,uniforms:{uTime:{value:0}},vertexShader:'attribute float aSize;attribute float aPhase;attribute float aHue;uniform float uTime;varying float vHue;varying float vF;varying float vDepth;void main(){vHue=aHue;vF=0.75+0.25*sin(uTime*1.7+aPhase);vec4 mv=modelViewMatrix*vec4(position,1.0);vDepth=clamp((-mv.z-4.0)/22.0,0.0,1.0);gl_PointSize=aSize*(30.0/-mv.z);gl_Position=projectionMatrix*mv;}',fragmentShader:'varying float vHue;varying float vF;varying float vDepth;void main(){float d=length(gl_PointCoord-vec2(0.5));if(d>0.5)discard;float a=pow(1.0-d*2.0,1.6);vec3 c1=vec3(0.05,0.45,0.55);vec3 c2=vec3(0.20,0.95,1.0);vec3 c3=vec3(0.60,1.0,0.75);float h=clamp(vHue,0.0,1.0);vec3 c=h<0.5?mix(c1,c2,h*2.0):mix(c2,c3,(h-0.5)*2.0);float dim=mix(1.0,0.45,vDepth);gl_FragColor=vec4(c*a*vF*1.8*dim,a*vF*dim);}'});var pts=new THREE.Points(geo,mat);scene.add(pts);function resize(){var w=Math.max(wrap.clientWidth,1),h=Math.max(wrap.clientHeight,1);renderer.setSize(w,h,false);cam.aspect=w/h;cam.updateProjectionMatrix();}window.addEventListener('resize',resize);resize();var ptr={x:0,y:0,on:false,hold:false};function setPtr(cx,cy){var r=wrap.getBoundingClientRect();if(cy<r.top||cy>r.bottom||cx<r.left||cx>r.right){ptr.on=false;return;}var nx=(cx-r.left)/r.width*2-1,ny=-(((cy-r.top)/r.height)*2-1);var s=Math.tan(cam.fov*Math.PI/360)*cam.position.z;ptr.x=nx*s*cam.aspect;ptr.y=ny*s;ptr.on=true;}window.addEventListener('pointermove',function(e){setPtr(e.clientX,e.clientY);},{passive:true});window.addEventListener('pointerdown',function(e){ptr.hold=true;setPtr(e.clientX,e.clientY);});window.addEventListener('pointerup',function(){ptr.hold=false;});function curl(x,y,z,t){return[Math.sin(y*0.35+t*0.4)+0.6*Math.cos(z*0.5+t*0.3),Math.sin(z*0.4-t*0.35)+0.6*Math.cos(x*0.3+t*0.25)-0.15,Math.sin(x*0.3+t*0.3)*0.5];}var t=0,visible=false,raf=null,last=performance.now();function tick(now){raf=null;var dt=Math.min((now-last)/1000,0.05);last=now;t+=dt;mat.uniforms.uTime.value=t;for(var i=0;i<COUNT;i++){var ix=i*3,x=pos[ix],y=pos[ix+1],z=pos[ix+2];var depth=1.0-((z+BZ*0.5)/BZ)*0.6;var f=curl(x,y,z,t);vel[ix]+=(f[0]*0.6*depth-vel[ix])*0.03;vel[ix+1]+=(f[1]*0.6*depth-vel[ix+1])*0.03;vel[ix+2]+=(f[2]*0.4-vel[ix+2])*0.03;if(ptr.on){var dx=x-ptr.x,dy=y-ptr.y,dd=dx*dx+dy*dy;if(dd<9){var d2=Math.sqrt(dd)+0.001,st=1-d2/3;if(ptr.hold){vel[ix]-=dx/d2*st*0.25;vel[ix+1]-=dy/d2*st*0.25;}else{vel[ix]+=dx/d2*st*0.5;vel[ix+1]+=dy/d2*st*0.5;}boost[i]=Math.min(boost[i]+st*0.3,1);}}boost[i]*=0.97;x+=vel[ix]*dt*2.2;y+=vel[ix+1]*dt*2.2;z+=vel[ix+2]*dt*2.2;if(x>BX)x-=BX*2;if(x<-BX)x+=BX*2;if(y>BY)y-=BY*2;if(y<-BY)y+=BY*2;if(z>BZ*0.5)z-=BZ;if(z<-BZ*0.5)z+=BZ;pos[ix]=x;pos[ix+1]=y;pos[ix+2]=z;var sp=Math.min(Math.sqrt(vel[ix]*vel[ix]+vel[ix+1]*vel[ix+1])*0.9,1);hue[i]=Math.min(sp*0.7+boost[i],1);}geo.attributes.position.needsUpdate=true;geo.attributes.aHue.needsUpdate=true;renderer.render(scene,cam);if(visible&&!reduced)raf=requestAnimationFrame(tick);}if('IntersectionObserver' in window){new IntersectionObserver(function(es){es.forEach(function(e){visible=e.isIntersecting;if(visible&&!raf){last=performance.now();raf=requestAnimationFrame(tick);}});},{threshold:0.05}).observe(wrap);}else{visible=true;raf=requestAnimationFrame(tick);}if(reduced){renderer.render(scene,cam);}})();
+    </script>
+
+    <script>
+      (function(){var heading=document.getElementById('heroHeading');if(!heading)return;var words=heading.querySelectorAll('.hero-word');var reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;if(reduced)return;var rects=[];function measure(){rects=Array.prototype.map.call(words,function(w){var r=w.getBoundingClientRect();return{el:w,cx:r.left+r.width/2,cy:r.top+r.height/2,cw:300,tw:300};});}measure();window.addEventListener('resize',measure);var mx=null,my=null,raf=null;function tick(){var active=false;rects.forEach(function(pt){if(mx!==null){var d=Math.hypot(mx-pt.cx,my-pt.cy);var t=Math.max(0,1-d/380);pt.tw=300+t*500;}else{pt.tw=300;}pt.cw+=(pt.tw-pt.cw)*0.15;if(Math.abs(pt.cw-pt.tw)>0.5){active=true;pt.el.style.fontVariationSettings='"wght" '+pt.cw;pt.el.style.fontWeight=Math.round(pt.cw);}else if(pt.cw!==pt.tw){pt.cw=pt.tw;pt.el.style.fontVariationSettings='"wght" '+pt.tw;pt.el.style.fontWeight=Math.round(pt.tw);}});if(active){raf=requestAnimationFrame(tick);}else{raf=null;}}heading.addEventListener('mousemove',function(e){mx=e.clientX;my=e.clientY;if(!raf)raf=requestAnimationFrame(tick);});heading.addEventListener('mouseleave',function(){mx=null;if(!raf)raf=requestAnimationFrame(tick);});})();
+    </script>
+  
+</body></html>

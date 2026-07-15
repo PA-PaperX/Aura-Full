@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Component Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      height: 100%;
+      overflow: auto;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #000000;
+      color: #ffffff;
+    }
+    .component-wrapper {
+      width: 100%;
+      height: 100%;
+      padding: 0;
+      box-sizing: border-box;
+      overflow: auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="component-wrapper">
+    <html><head></head><body><div class="sm:h-[700px] flex h-[600px] mt-14 relative items-center justify-center" style="perspective: 1200px">
+
+  <!-- Card 1 (Left) -->
+  <div id="hero-card-1" class="absolute w-64 sm:w-80 aspect-[3/4] rounded-2xl bg-neutral-900/40 ring-1 ring-white/10 overflow-hidden shadow-2xl" style="transform: translateX(-280px) translateY(0px) rotateZ(-12deg) scale(1); z-index: 1; opacity: 1;">
+    <img alt="Alpine valley with granite peak" class="absolute inset-0 size-full object-cover w-full h-auto" src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/a8c42df7-3d2a-452c-8609-33696606ae50_800w.webp">
+    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
+    <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between">
+      <div>
+        <p class="text-sm font-medium tracking-tight text-white">Dolomite Ridge</p>
+        <p class="text-xs text-neutral-300">36 photos</p>
+      </div>
+      <div class="inline-flex items-center gap-1 rounded-full bg-white/10 px-2 py-1 text-[10px] text-neutral-200">
+        <i data-lucide="mountain" class="h-3.5 w-3.5"></i>
+        Alps
+      </div>
+    </div>
+  </div>
+
+  <!-- Card 2 (Center) -->
+  <div id="hero-card-2" class="absolute w-64 sm:w-80 aspect-[3/4] rounded-2xl bg-neutral-900/40 ring-1 ring-white/10 overflow-hidden shadow-2xl" style="transform: translateX(0px) translateY(0px) rotateZ(0deg) scale(1.05); z-index: 3; opacity: 1; box-shadow: rgba(0, 0, 0, 0.5) 0px 25px 50px -12px;">
+    <img alt="Minimal portrait in orange light" class="absolute inset-0 size-full object-cover w-full h-auto" src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/26b97548-f299-44e5-94a5-2757f54f3ef5_800w.webp">
+    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
+    <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between">
+      <div>
+        <p class="text-sm font-medium tracking-tight text-white">Amber Portraits</p>
+        <p class="text-xs text-neutral-300">22 photos</p>
+      </div>
+      <div class="inline-flex items-center gap-1 rounded-full bg-white/10 px-2 py-1 text-[10px] text-neutral-200">
+        <i data-lucide="users" class="h-3.5 w-3.5"></i>
+        People
+      </div>
+    </div>
+  </div>
+
+  <!-- Card 3 (Right) -->
+  <div id="hero-card-3" class="absolute w-64 sm:w-80 aspect-[3/4] rounded-2xl bg-neutral-900/40 ring-1 ring-white/10 overflow-hidden shadow-2xl" style="transform: translateX(280px) translateY(0px) rotateZ(12deg) scale(1); z-index: 2; opacity: 1;">
+    <img alt="Snowy village at dusk in the mountains" class="absolute inset-0 size-full object-cover w-full h-auto" src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/20ab0cf5-a1bf-4421-bdd9-e8f2963f8f28_800w.webp">
+    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
+    <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between">
+      <div>
+        <p class="text-sm font-medium tracking-tight text-white">Zermatt Nights</p>
+        <p class="text-xs text-neutral-300">41 photos</p>
+      </div>
+      <div class="inline-flex items-center gap-1 rounded-full bg-white/10 px-2 py-1 text-[10px] text-neutral-200">
+        <i data-lucide="camera" class="h-3.5 w-3.5"></i>
+        Cityscape
+      </div>
+    </div>
+  </div>
+
+  <script type="module">
+    // Scroll-triggered merge animation
+      const card1 = document.getElementById('hero-card-1');
+      const card2 = document.getElementById('hero-card-2');
+      const card3 = document.getElementById('hero-card-3');
+
+      const handleScroll = () => {
+        const scrollY = window.scrollY;
+        const threshold = 500;
+        const progress = Math.min(scrollY / threshold, 1);
+
+        // Card 1 (Left): Move to center and straighten
+        const card1X = -280 * (1 - progress);
+        const card1Rot = -12 * (1 - progress);
+        const card1Opacity = 1 - (progress * 1);
+        card1.style.transform = `translateX(${card1X}px) translateY(0px) rotateZ(${card1Rot}deg) scale(${1 - progress * 0.05})`;
+        card1.style.opacity = card1Opacity;
+
+        // Card 2 (Center): Stay centered, slightly scale up
+        card2.style.transform = `translateX(0px) translateY(0px) rotateZ(0deg) scale(${1.05 + progress * 0.05})`;
+        card2.style.opacity = 1;
+        card2.style.zIndex = 3;
+
+        // Card 3 (Right): Move to center and straighten
+        const card3X = 280 * (1 - progress);
+        const card3Rot = 12 * (1 - progress);
+        const card3Opacity = 1 - (progress * 1);
+        card3.style.transform = `translateX(${card3X}px) translateY(0px) rotateZ(${card3Rot}deg) scale(${1 - progress * 0.05})`;
+        card3.style.opacity = card3Opacity;
+      };
+
+      window.addEventListener('scroll', handleScroll, { passive: true });
+      handleScroll();
+  </script>
+</div></body></html>
+  </div>
+  
+    <script>
+      (function() {
+        function checkAndCenter() {
+          // Use double requestAnimationFrame to ensure DOM is fully painted and layout is stable
+          requestAnimationFrame(function() {
+            requestAnimationFrame(function() {
+              const wrapper = document.querySelector('.component-wrapper');
+              if (!wrapper) return;
+              
+              // Get all child elements
+              const children = Array.from(wrapper.children);
+              if (children.length === 0) return;
+              
+              // Temporarily override wrapper styles to shrink-wrap for measurement
+              // Set inline styles to shrink-wrap (inline styles override CSS)
+              wrapper.style.display = 'inline-block';
+              wrapper.style.width = 'auto';
+              wrapper.style.height = 'auto';
+              wrapper.style.overflow = 'visible';
+              wrapper.style.boxSizing = 'content-box';
+              
+              // Force multiple reflows to ensure styles are fully applied
+              void wrapper.offsetHeight;
+              void wrapper.offsetWidth;
+              void wrapper.offsetHeight;
+              
+              // Measure the wrapper's content size
+              const contentWidth = wrapper.offsetWidth;
+              const contentHeight = wrapper.offsetHeight;
+              
+              // Restore original styles by removing inline styles we added
+              wrapper.style.removeProperty('display');
+              wrapper.style.removeProperty('width');
+              wrapper.style.removeProperty('height');
+              wrapper.style.removeProperty('overflow');
+              wrapper.style.removeProperty('box-sizing');
+              
+              // If content is less than 500x500, center it
+              if (contentWidth > 0 && contentHeight > 0 && contentWidth < 500 && contentHeight < 500) {
+                wrapper.style.display = 'flex';
+                wrapper.style.alignItems = 'center';
+                wrapper.style.justifyContent = 'center';
+              }
+            });
+          });
+        }
+        
+        // Check immediately and after delays to ensure content is rendered and styled
+        function runChecks() {
+          checkAndCenter();
+          setTimeout(checkAndCenter, 50);
+          setTimeout(checkAndCenter, 150);
+          setTimeout(checkAndCenter, 300);
+          setTimeout(checkAndCenter, 500);
+          setTimeout(checkAndCenter, 1000);
+        }
+        
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', runChecks);
+        } else {
+          runChecks();
+        }
+        
+        // Also check when images or other resources load
+        window.addEventListener('load', () => {
+          setTimeout(checkAndCenter, 100);
+          setTimeout(checkAndCenter, 300);
+        });
+        
+        // Use ResizeObserver to detect size changes
+        if (window.ResizeObserver) {
+          setTimeout(() => {
+            const wrapper = document.querySelector('.component-wrapper');
+            if (wrapper) {
+              const observer = new ResizeObserver(() => {
+                setTimeout(checkAndCenter, 50);
+              });
+              observer.observe(wrapper);
+            }
+          }, 500);
+        }
+      })();
+    </script>
+  
+</body>
+</html>

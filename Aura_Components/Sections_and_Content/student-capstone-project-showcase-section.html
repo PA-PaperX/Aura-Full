@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Component Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      height: 100%;
+      overflow: auto;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #000000;
+      color: #ffffff;
+    }
+    .component-wrapper {
+      width: 100%;
+      height: 100%;
+      padding: 0;
+      box-sizing: border-box;
+      overflow: auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="component-wrapper">
+    <html><head></head><body><section class="bg-[#E4E9E5] pt-24 pb-24">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16">
+                <div class="">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="h-px w-8 bg-[#18181B]"></div>
+                        <span class="text-sm font-semibold uppercase tracking-wider text-[#18181B]">Student Portfolio</span>
+                    </div>
+                    <h2 class="text-4xl lg:text-5xl text-[#18181B] font-medium tracking-tight">Capstone Projects Built by Recent Grads</h2>
+                </div>
+                <a href="#" class="px-6 py-3 bg-[#18181B] text-white rounded-full text-sm font-medium hover:bg-[#27272A] transition-colors flex items-center gap-2 mt-6 md:mt-0">
+                    View All Capstones
+                    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="1em" height="1em" viewBox="0 0 24 24" data-icon="solar:arrow-right-bold-duotone" class="iconify iconify--solar"><path fill="currentColor" fill-rule="evenodd" d="M3.25 12a.75.75 0 0 1 .75-.75h9.25v1.5H4a.75.75 0 0 1-.75-.75" clip-rule="evenodd" opacity=".5" class=""></path><path fill="currentColor" d="M13.25 12.75V18a.75.75 0 0 0 1.28.53l6-6a.75.75 0 0 0 0-1.06l-6-6a.75.75 0 0 0-1.28.53z" class=""></path></svg>
+                </a>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                <!-- Project Card 1 -->
+                <div class="group cursor-pointer bg-white p-4 rounded-[2.5rem] shadow-sm hover:shadow-xl transition-all duration-300">
+                    <div class="bg-[#F2F4F3] rounded-[2rem] overflow-hidden mb-6 relative aspect-[4/3]">
+                        <div class="group-hover:bg-black/10 transition-colors z-10 bg-center bg-black/0 absolute top-0 right-0 bottom-0 left-0"></div>
+                        <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/6f627dda-22f9-4cd4-bde1-95bafd0aca99_1600w.jpg" alt="Dashboard" class="group-hover:scale-105 transition-transform duration-700 w-full h-full object-cover">
+                        <div class="absolute bottom-6 left-6 z-20">
+                            <span class="inline-block px-4 py-1 rounded-full bg-[#18181B] text-white text-xs font-medium">FinTech</span>
+                        </div>
+                    </div>
+                    <div class="flex justify-between items-start px-2 pb-2">
+                        <div>
+                            <h3 class="text-2xl mb-1 text-[#18181B] font-medium tracking-tight">Nexus Financial</h3>
+                            <p class="text-[#71717A] text-lg font-light">React, D3.js, Node.js</p>
+                        </div>
+                        <div class="p-3 rounded-full bg-[#E4E9E5] text-[#18181B] group-hover:bg-[#9EF0A0] transition-colors">
+                             <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="1em" height="1em" viewBox="0 0 24 24" data-icon="solar:arrow-right-up-bold-duotone" class="iconify text-xl iconify--solar"><path fill="currentColor" fill-rule="evenodd" d="M17.47 15.53a.75.75 0 0 0 1.28-.53V6a.75.75 0 0 0-.75-.75H9a.75.75 0 0 0-.53 1.28z" clip-rule="evenodd" class=""></path><path fill="currentColor" d="M5.47 17.47a.75.75 0 1 0 1.06 1.06l6.97-6.97l-1.06-1.06z" opacity=".5" class=""></path></svg>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Card 2 -->
+                <div class="group cursor-pointer bg-white p-4 rounded-[2.5rem] shadow-sm hover:shadow-xl transition-all duration-300">
+                    <div class="bg-[#F2F4F3] rounded-[2rem] overflow-hidden mb-6 relative aspect-[4/3]">
+                        <div class="group-hover:bg-black/10 transition-colors bg-center z-10 bg-black/0 absolute top-0 right-0 bottom-0 left-0"></div>
+                        <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/4c09acd3-7179-4b95-af05-00bfbe62e6c4_1600w.jpg" alt="Code" class="group-hover:scale-105 transition-transform duration-700 w-full h-full object-cover">
+                         <div class="absolute bottom-6 left-6 z-20">
+                            <span class="inline-block px-4 py-1 rounded-full bg-[#18181B] text-white text-xs font-medium">Social</span>
+                        </div>
+                    </div>
+                    <div class="flex justify-between items-start px-2 pb-2">
+                        <div class="">
+                            <h3 class="text-2xl mb-1 text-[#18181B] font-medium tracking-tight">DevConnect App</h3>
+                            <p class="text-[#71717A] text-lg font-light">MERN Stack, Socket.io</p>
+                        </div>
+                        <div class="p-3 rounded-full bg-[#E4E9E5] text-[#18181B] group-hover:bg-[#9EF0A0] transition-colors">
+                             <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="1em" height="1em" viewBox="0 0 24 24" data-icon="solar:arrow-right-up-bold-duotone" class="iconify text-xl iconify--solar"><path fill="currentColor" fill-rule="evenodd" d="M17.47 15.53a.75.75 0 0 0 1.28-.53V6a.75.75 0 0 0-.75-.75H9a.75.75 0 0 0-.53 1.28z" clip-rule="evenodd" class=""></path><path fill="currentColor" d="M5.47 17.47a.75.75 0 1 0 1.06 1.06l6.97-6.97l-1.06-1.06z" opacity=".5" class=""></path></svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section></body></html>
+  </div>
+  
+    <script>
+      (function() {
+        function checkAndCenter() {
+          // Use double requestAnimationFrame to ensure DOM is fully painted and layout is stable
+          requestAnimationFrame(function() {
+            requestAnimationFrame(function() {
+              const wrapper = document.querySelector('.component-wrapper');
+              if (!wrapper) return;
+              
+              // Get all child elements
+              const children = Array.from(wrapper.children);
+              if (children.length === 0) return;
+              
+              // Temporarily override wrapper styles to shrink-wrap for measurement
+              // Set inline styles to shrink-wrap (inline styles override CSS)
+              wrapper.style.display = 'inline-block';
+              wrapper.style.width = 'auto';
+              wrapper.style.height = 'auto';
+              wrapper.style.overflow = 'visible';
+              wrapper.style.boxSizing = 'content-box';
+              
+              // Force multiple reflows to ensure styles are fully applied
+              void wrapper.offsetHeight;
+              void wrapper.offsetWidth;
+              void wrapper.offsetHeight;
+              
+              // Measure the wrapper's content size
+              const contentWidth = wrapper.offsetWidth;
+              const contentHeight = wrapper.offsetHeight;
+              
+              // Restore original styles by removing inline styles we added
+              wrapper.style.removeProperty('display');
+              wrapper.style.removeProperty('width');
+              wrapper.style.removeProperty('height');
+              wrapper.style.removeProperty('overflow');
+              wrapper.style.removeProperty('box-sizing');
+              
+              // If content is less than 500x500, center it
+              if (contentWidth > 0 && contentHeight > 0 && contentWidth < 500 && contentHeight < 500) {
+                wrapper.style.display = 'flex';
+                wrapper.style.alignItems = 'center';
+                wrapper.style.justifyContent = 'center';
+              }
+            });
+          });
+        }
+        
+        // Check immediately and after delays to ensure content is rendered and styled
+        function runChecks() {
+          checkAndCenter();
+          setTimeout(checkAndCenter, 50);
+          setTimeout(checkAndCenter, 150);
+          setTimeout(checkAndCenter, 300);
+          setTimeout(checkAndCenter, 500);
+          setTimeout(checkAndCenter, 1000);
+        }
+        
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', runChecks);
+        } else {
+          runChecks();
+        }
+        
+        // Also check when images or other resources load
+        window.addEventListener('load', () => {
+          setTimeout(checkAndCenter, 100);
+          setTimeout(checkAndCenter, 300);
+        });
+        
+        // Use ResizeObserver to detect size changes
+        if (window.ResizeObserver) {
+          setTimeout(() => {
+            const wrapper = document.querySelector('.component-wrapper');
+            if (wrapper) {
+              const observer = new ResizeObserver(() => {
+                setTimeout(checkAndCenter, 50);
+              });
+              observer.observe(wrapper);
+            }
+          }, 500);
+        }
+      })();
+    </script>
+  
+</body>
+</html>
